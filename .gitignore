@@ -1,0 +1,23 @@
+# Фронтенд мусор
+node_modules/
+dist/
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Бэкенд мусор (Python)
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# База данных (её нельзя грузить!)
+db.sqlite3
+*.sqlite3
+
+# Системные файлы
+.DS_Store
