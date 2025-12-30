@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 // Изменили тип content: теперь это функция, которая получает isExpanded
@@ -23,7 +23,7 @@ export default function ExpandableCards({
 }: ExpandableCardsProps) {
   const [expandedId, setExpandedId] = useState<number>(defaultExpanded);
 
-  const getCardVariants = () => ({
+  const getCardVariants = (): Variants => ({
     expanded: { flex: 3, transition: { duration: 0.5, ease: "easeInOut" } },
     collapsed: { flex: 1, transition: { duration: 0.5, ease: "easeInOut" } },
   });
