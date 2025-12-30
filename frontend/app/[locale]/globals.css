@@ -10,9 +10,9 @@
   /* Текст: Off-white */
 
   /* Акцент: Фиолетовый */
-  --accent: #dfaf12;
+  --accent: #0b6c79;
   --radius: 0.625rem;
-  --background: oklch(16.799% 0.00203 106.767);
+  --background: #10100f;
   --foreground: oklch(92.66% 0.00649 16.382);
   --card: oklch(15.527% 0.03324 106.823);
   --card-foreground: oklch(0.145 0 0);

@@ -101,7 +101,7 @@ export default function Hero() {
               threshold={0.2}
               delay={0.1} // Стартует почти сразу
             >
-              <h1 className="font-serif text-5xl font-black uppercase tracking-widest text-white md:text-5xl lg:text-4xl drop-shadow-2xl">
+              <h1 className="font-serif text-5xl font-black uppercase tracking-widest text-white md:text-5xl lg:text-5xl drop-shadow-2xl">
                   {HERO_CONTENT.title}
               </h1>
             </AnimatedContent>
@@ -126,7 +126,7 @@ export default function Hero() {
 
             {/* АНИМАЦИЯ КНОПКИ */}
               <button className="group relative mt-4 overflow-hidden px-3 py-4 transition-all duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
                   <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
                   <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
                       {HERO_CONTENT.buttonText}

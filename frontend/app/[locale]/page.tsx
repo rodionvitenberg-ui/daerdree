@@ -1,18 +1,23 @@
 import Hero from "@/components/Hero";
 import Booking from "@/components/Booking";
 import GamesMarquee from "@/components/GameMarquee";
-
+import MenuTeaser from "@/components/MenuTeaser";
+import ParallaxDivider from "@/components/ParallaxDivider";
+import EventMasonry from "@/components/EventMasonry";
+import CateringStory from "@/components/CateringStory";
+import LocationSection from "@/components/LocationSection";
+import Footer from "@/components/footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Hero />
       <Booking />
+      <CateringStory />
+      <ParallaxDivider />
       <GamesMarquee />
-      
-      {/* Дальше пойдут другие блоки */}
-      <div className="h-screen bg-neutral-900 flex items-center justify-center">
-        <h2 className="text-white text-4xl font-serif">Block 2 (Concept) Placeholder</h2>
-      </div>
+      <MenuTeaser />
+      <EventMasonry />
+      <LocationSection /> 
     </main>
   );
 }

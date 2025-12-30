@@ -1,32 +1,52 @@
 "use client";
 
-import { useState } from 'react'; // Добавили useState
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { BOOKING_CONTENT } from '@/content/home';
 
-export default function Booking() {
-  const [isSubmitting, setIsSubmitting] = useState(false); // Состояние загрузки
+// === НАСТРОЙКА КАРУСЕЛИ ===
+// Добавь сюда пути к картинкам, которые должны меняться
+const CAROUSEL_IMAGES = [
+  BOOKING_CONTENT.image, // 1. Основная (из конфига)
+  "/hero-bg.jpg",        // 2. Вторая (замени на свою)
+  "/catering/1.jpg",     // 3. Третья (замени на свою)
+];
 
+export default function BookPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Состояние для индекса текущей картинки
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Логика смены слайдов (каждые 5 секунд)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === CAROUSEL_IMAGES.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // 5000 мс = 5 секунд
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Логика отправки формы (1 в 1 как было)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    // Превращаем FormData в простой объект
     const data = Object.fromEntries(formData.entries());
 
     try {
       const response = await fetch('/api/booking', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
       if (response.ok) {
         alert("Booking request sent successfully! We will contact you soon.");
-        (e.target as HTMLFormElement).reset(); // Очистить форму
+        (e.target as HTMLFormElement).reset();
       } else {
         alert("Something went wrong. Please try again or contact us via WhatsApp.");
       }
@@ -38,35 +58,55 @@ export default function Booking() {
     }
   };
 
+  const isDev = process.env.NODE_ENV === 'development';
+
   return (
-    <section id="booking" className="relative w-full bg-background border-b border-white/5 z-10">
-      
+    <main className="min-h-screen bg-background pt-20 lg:pt-0"> 
+      {/* pt-20 добавил, чтобы на мобилке хедер не перекрывал контент, 
+          на десктопе (lg:pt-0) у нас split-screen, там это не нужно */}
+
       <div className="flex flex-col lg:flex-row lg:h-screen">
         
-        {/* 1. ИЗОБРАЖЕНИЕ */}
-        <div className="relative h-[50vh] w-full lg:h-full lg:w-[67%]">
-          <Image
-            src={BOOKING_CONTENT.image}
-            alt="Booking Atmosphere"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50" />
+        {/* 1. ЛЕВАЯ ЧАСТЬ: СЛАЙДЕР (CAROUSEL) */}
+        <div className="relative h-[40vh] w-full lg:h-full lg:w-[67%] overflow-hidden bg-black">
           
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-            <h2 className="font-serif text-4xl font-black uppercase tracking-widest text-white drop-shadow-lg lg:text-6xl">
+          {/* Рендерим ВСЕ картинки, но показываем только одну через opacity */}
+          {CAROUSEL_IMAGES.map((src, index) => (
+            <div 
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            >
+              <Image
+                src={src}
+                alt={`Atmosphere ${index}`}
+                fill
+                className="object-cover"
+                unoptimized={isDev}
+                priority={index === 0} // Грузим только первую сразу
+              />
+            </div>
+          ))}
+
+          {/* Затемнение (поверх всех картинок) */}
+          <div className="absolute inset-0 bg-black/40 z-20 pointer-events-none" />
+          
+          {/* Текст по центру */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-30 pointer-events-none">
+            <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white drop-shadow-2xl lg:text-6xl">
               {BOOKING_CONTENT.title}
-            </h2>
-            <p className="mt-2 font-sans text-lg text-gray-200 lg:max-w-md">
+            </h1>
+            <p className="mt-4 font-sans text-lg text-gray-200 lg:max-w-md drop-shadow-md">
               {BOOKING_CONTENT.subtitle}
             </p>
           </div>
         </div>
 
-        {/* 2. ФОРМА */}
-        <div className="relative z-10 w-full lg:w-[33.5%] lg:h-full bg-background">
+        {/* 2. ПРАВАЯ ЧАСТЬ: ФОРМА */}
+        <div className="relative z-10 w-full lg:w-[33.5%] lg:h-full bg-background flex flex-col justify-center">
             
-            <div className="-mt-20 flex flex-col justify-center bg-background px-6 py-12 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] lg:mt-0 lg:h-full lg:rounded-none lg:shadow-none lg:px-12">
+            <div className="-mt-10 lg:mt-0 px-6 py-12 lg:px-12 bg-background shadow-[0_-10px_40px_rgba(0,0,0,0.5)] lg:shadow-none rounded-t-3xl lg:rounded-none border-t border-white/10 lg:border-t-0">
                 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                     
@@ -124,7 +164,7 @@ export default function Booking() {
 
                     <button 
                         type="submit" 
-                        disabled={isSubmitting} // Блокируем кнопку при отправке
+                        disabled={isSubmitting}
                         className="mt-8 w-full bg-white py-4 font-serif font-bold uppercase tracking-widest text-black transition-transform hover:scale-[1.02] hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {isSubmitting ? "SENDING..." : BOOKING_CONTENT.form.buttonText}
@@ -158,6 +198,6 @@ export default function Booking() {
         </div>
       </div>
 
-    </section>
+    </main>
   );
 }

@@ -1,7 +1,8 @@
 import { Manrope } from 'next/font/google';
 import localFont from 'next/font/local';
 import "./globals.css";
-import Header from '@/components/Header'; // <--- Импорт (проверь путь!)
+import Header from '@/components/Header';
+import Footer from '@/components/footer';
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
@@ -43,6 +44,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-grow">
           {children}
         </main>
+
+        <Footer />
 
       </body>
     </html>

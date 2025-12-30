@@ -3,9 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-// Импортируем компонент анимации (проверь путь, если он лежит в другой папке)
 import AnimatedContent from '@/components/AnimatedContent'; 
-// Импортируем тексты
 import { GAMES_CONTENT } from '@/content/home'; 
 
 interface GameMarqueeItem {
@@ -27,7 +25,7 @@ export default function GamesMarquee() {
         const data = await res.json();
         setGames(data);
       } catch (error) {
-        console.error("Ошибка загрузки Marquee:", error);
+        console.error("Error:", error);
       } finally {
         setIsLoading(false);
       }
@@ -56,7 +54,7 @@ export default function GamesMarquee() {
           initialOpacity={0.2}
           animateOpacity
           scale={1.1}
-          threshold={0.0}
+          threshold={0.01}
           delay={0.1}
         >
           <h2 className="font-serif text-3xl font-black uppercase tracking-widest text-foreground md:text-5xl drop-shadow-2xl">
@@ -71,11 +69,11 @@ export default function GamesMarquee() {
           reverse={false}
           duration={1.5}
           ease="ease.out"
-          initialOpacity={0.0}
+          initialOpacity={0.2}
           animateOpacity
           scale={1.1}
-          threshold={0.0}
-          delay={0.3}
+          threshold={0.01}
+          delay={0.1}
         >
           <p className="mt-4 font-sans text-gray-400 drop-shadow-lg">
             {GAMES_CONTENT.subtitle}
@@ -136,9 +134,12 @@ export default function GamesMarquee() {
       {/* КНОПКА View Full List */}
       <div className="mt-12 flex justify-center">
          <Link href="/library">
-             <button className="border-b border-secondary pb-1 font-serif text-sm font-bold uppercase tracking-widest text-secondary transition-colors hover:text-accent hover:border-accent">
-                {GAMES_CONTENT.buttonText}
-             </button>
+          <button className="group relative overflow-hidden px-10 py-4 md:px-8 md:py-3 border border-accent transition-all duration-300">
+           <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80" />
+            <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-secondary text-sm md:text-base">
+             {GAMES_CONTENT.buttonText}
+            </span>
+          </button>
          </Link>
       </div>
 

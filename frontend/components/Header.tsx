@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Aurora from './Aurora';
@@ -8,24 +8,55 @@ import Aurora from './Aurora';
 const NAV_ITEMS = [
   { name: 'Drinks Menu', href: '/menu', group: 'left' },
   { name: 'Games Library', href: '/games', group: 'left' },
-  { name: 'F.A.Q.', href: '/faq', group: 'left' },
-  { name: 'Catering', href: '/catering', group: 'right' },
   { name: 'Events', href: '/events', group: 'right' },
-  { name: 'Book now', href: '/book', group: 'right' },
+  { name: 'Book', href: '/book', group: 'right' },
+  { name: 'F.A.Q.', href: '/faq', group: 'right' },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  
+  // === ЛОГИКА СКРЫТИЯ ХЕДЕРА ===
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0); // Используем ref, чтобы не вызывать ререндер при каждом пикселе
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Логика:
+      // 1. Если скроллим ВНИЗ и прокрутили больше 100px -> Скрываем
+      // 2. Если скроллим ВВЕРХ -> Показываем
+      // 3. Math.abs нужен, чтобы игнорировать мелкие дрожания
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  // =============================
 
   return (
-    // УБРАЛ overflow-hidden, чтобы меню могло "выпадать" за пределы хедера
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md relative">
+    // ИЗМЕНЕНИЯ В КЛАССАХ HEADER:
+    // 1. transition-transform duration-300: для плавной анимации скрытия.
+    // 2. Условный класс: если isVisible === false, добавляем 'md:-translate-y-full'.
+    //    ВАЖНО: префикс 'md:' означает, что на мобилках хедер НЕ уедет вверх.
+    <header 
+      className={`sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md relative transition-transform duration-300 ease-in-out
+        ${isVisible ? 'translate-y-0' : 'md:-translate-y-full'}
+      `}
+    >
       
       {/* --- ЭФФЕКТ AURORA --- */}
-      {/* Добавил overflow-hidden СЮДА, чтобы именно сияние не вылезало, если вдруг что */}
       <div className="absolute inset-0 -z-10 opacity-40 pointer-events-none overflow-hidden">
          <Aurora
-           colorStops={["#c59b1e", "#ffffff", "#54115f"]} 
+           colorStops={["#116880", "#ffffff", "#54115f"]} 
            blend={0.5}
            amplitude={1.0}
            speed={0.5}
@@ -54,7 +85,6 @@ export default function Header() {
             <Link 
               key={item.name}
               href={item.href} 
-              // Добавил duration-500 ease-in-out для "магической" плавности
               className="font-serif text-sm font-bold uppercase tracking-widest text-foreground/80 transition-colors duration-500 ease-in-out hover:text-accent"
             >
               {item.name}
@@ -82,7 +112,6 @@ export default function Header() {
             <Link 
               key={item.name}
               href={item.href} 
-              // Добавил duration-500 ease-in-out
               className="font-serif text-sm font-bold uppercase tracking-widest text-foreground/80 transition-colors duration-500 ease-in-out hover:text-accent"
             >
               {item.name}
@@ -123,7 +152,6 @@ export default function Header() {
               key={item.name}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              // Здесь тоже добавил плавность
               className="font-serif text-lg font-bold uppercase tracking-widest text-foreground transition-colors duration-500 ease-in-out hover:text-accent"
             >
               {item.name}
