@@ -123,10 +123,6 @@ export default function LocationSection() {
               />
               
               <div className="absolute inset-0 bg-indigo-900/20 pointer-events-none mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700" />
-              
-              <div className="absolute top-4 right-4 bg-black/80 backdrop-blur text-white text-xs px-3 py-1 uppercase tracking-wider pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Interact with map
-              </div>
 
             </div>
           </AnimatedContent>

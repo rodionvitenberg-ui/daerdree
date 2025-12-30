@@ -5,34 +5,34 @@ import Image from 'next/image';
 import { BOOKING_CONTENT } from '@/content/home';
 
 // === НАСТРОЙКА КАРУСЕЛИ ===
-// Добавь сюда пути к картинкам, которые должны меняться
 const CAROUSEL_IMAGES = [
-  BOOKING_CONTENT.image, // 1. Основная (из конфига)
-  "/hero-bg.jpg",        // 2. Вторая (замени на свою)
-  "/catering/1.jpg",     // 3. Третья (замени на свою)
+  BOOKING_CONTENT.image, // 1. Основная
+  "/hero-bg.jpg",        // 2. Вторая
+  "/catering/1.jpg",     // 3. Третья
 ];
 
 export default function BookPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // Заменяем простой isSubmitting на полноценный статус
+  // 'idle' (обычное), 'loading' (отправка), 'success' (успех), 'error' (ошибка)
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   
   // Состояние для индекса текущей картинки
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Логика смены слайдов (каждые 5 секунд)
+  // Логика смены слайдов
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === CAROUSEL_IMAGES.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // 5000 мс = 5 секунд
+    }, 5000); 
 
     return () => clearInterval(interval);
   }, []);
 
-  // Логика отправки формы (1 в 1 как было)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setStatus('loading'); // Включаем загрузку
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -45,16 +45,14 @@ export default function BookPage() {
       });
 
       if (response.ok) {
-        alert("Booking request sent successfully! We will contact you soon.");
-        (e.target as HTMLFormElement).reset();
+        setStatus('success'); // Показываем экран успеха
+        // Форму не сбрасываем, она просто исчезнет
       } else {
-        alert("Something went wrong. Please try again or contact us via WhatsApp.");
+        setStatus('error'); // Показываем ошибку
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Error sending request.");
-    } finally {
-      setIsSubmitting(false);
+      setStatus('error');
     }
   };
 
@@ -62,15 +60,10 @@ export default function BookPage() {
 
   return (
     <main className="min-h-screen bg-background pt-20 lg:pt-0"> 
-      {/* pt-20 добавил, чтобы на мобилке хедер не перекрывал контент, 
-          на десктопе (lg:pt-0) у нас split-screen, там это не нужно */}
-
       <div className="flex flex-col lg:flex-row lg:h-screen">
         
-        {/* 1. ЛЕВАЯ ЧАСТЬ: СЛАЙДЕР (CAROUSEL) */}
+        {/* 1. ЛЕВАЯ ЧАСТЬ: СЛАЙДЕР (Без изменений) */}
         <div className="relative h-[40vh] w-full lg:h-full lg:w-[67%] overflow-hidden bg-black">
-          
-          {/* Рендерим ВСЕ картинки, но показываем только одну через opacity */}
           {CAROUSEL_IMAGES.map((src, index) => (
             <div 
               key={index}
@@ -84,15 +77,11 @@ export default function BookPage() {
                 fill
                 className="object-cover"
                 unoptimized={isDev}
-                priority={index === 0} // Грузим только первую сразу
+                priority={index === 0} 
               />
             </div>
           ))}
-
-          {/* Затемнение (поверх всех картинок) */}
           <div className="absolute inset-0 bg-black/40 z-20 pointer-events-none" />
-          
-          {/* Текст по центру */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-30 pointer-events-none">
             <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white drop-shadow-2xl lg:text-6xl">
               {BOOKING_CONTENT.title}
@@ -103,13 +92,40 @@ export default function BookPage() {
           </div>
         </div>
 
-        {/* 2. ПРАВАЯ ЧАСТЬ: ФОРМА */}
+        {/* 2. ПРАВАЯ ЧАСТЬ: ФОРМА или УСПЕХ */}
         <div className="relative z-10 w-full lg:w-[33.5%] lg:h-full bg-background flex flex-col justify-center">
             
-            <div className="-mt-10 lg:mt-0 px-6 py-12 lg:px-12 bg-background shadow-[0_-10px_40px_rgba(0,0,0,0.5)] lg:shadow-none rounded-t-3xl lg:rounded-none border-t border-white/10 lg:border-t-0">
+            <div className="-mt-10 lg:mt-0 px-6 py-12 lg:px-12 bg-background shadow-[0_-10px_40px_rgba(0,0,0,0.5)] lg:shadow-none rounded-t-3xl lg:rounded-none border-t border-white/10 lg:border-t-0 transition-all duration-500">
                 
+                {/* ЛОГИКА: Если УСПЕХ -> показываем сообщение, ИНАЧЕ -> форму */}
+                {status === 'success' ? (
+                   <div className="flex flex-col items-center text-center animate-in fade-in zoom-in duration-500 py-10">
+                      <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-green-500/10 text-green-500 border border-green-500/20">
+                        <svg className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <h3 className="font-serif text-3xl font-bold uppercase text-white mb-4">Request Sent!</h3>
+                      <p className="text-white/60 mb-8 max-w-xs mx-auto">
+                        Thank you for your request. We will contact you shortly to confirm your booking.
+                      </p>
+                      <button 
+                        onClick={() => setStatus('idle')}
+                        className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-white transition-colors border-b border-secondary/30 hover:border-white pb-1"
+                      >
+                        Send another request
+                      </button>
+                   </div>
+                ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                     
+                    {/* Плашка ошибки */}
+                    {status === 'error' && (
+                        <div className="rounded bg-red-500/10 p-3 border border-red-500/20 text-center text-sm text-red-400 mb-2">
+                            Something went wrong. Please try again or contact us via WhatsApp.
+                        </div>
+                    )}
+
                     <div className="group">
                         <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
                             Name
@@ -118,8 +134,9 @@ export default function BookPage() {
                             required
                             type="text" 
                             name="name"
+                            disabled={status === 'loading'}
                             placeholder={BOOKING_CONTENT.form.namePlaceholder}
-                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20"
+                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
                         />
                     </div>
 
@@ -131,8 +148,9 @@ export default function BookPage() {
                             required
                             type="number" 
                             name="guests"
+                            disabled={status === 'loading'}
                             placeholder={BOOKING_CONTENT.form.guestsPlaceholder}
-                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20"
+                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
                         />
                     </div>
 
@@ -144,8 +162,9 @@ export default function BookPage() {
                             required
                             type="text" 
                             name="date"
+                            disabled={status === 'loading'}
                             placeholder={BOOKING_CONTENT.form.datePlaceholder}
-                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20"
+                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
                         />
                     </div>
 
@@ -157,19 +176,27 @@ export default function BookPage() {
                             required
                             type="text" 
                             name="contact"
+                            disabled={status === 'loading'}
                             placeholder={BOOKING_CONTENT.form.contactPlaceholder}
-                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20"
+                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
                         />
                     </div>
 
                     <button 
                         type="submit" 
-                        disabled={isSubmitting}
-                        className="mt-8 w-full bg-white py-4 font-serif font-bold uppercase tracking-widest text-black transition-transform hover:scale-[1.02] hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={status === 'loading'}
+                        className="mt-8 w-full bg-white py-4 font-serif font-bold uppercase tracking-widest text-black transition-transform hover:scale-[1.02] hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
                     >
-                        {isSubmitting ? "SENDING..." : BOOKING_CONTENT.form.buttonText}
+                        {status === 'loading' && (
+                            <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        )}
+                        {status === 'loading' ? "SENDING..." : BOOKING_CONTENT.form.buttonText}
                     </button>
                 </form>
+                )}
 
                 {/* Разделитель */}
                 <div className="my-8 flex items-center gap-4">

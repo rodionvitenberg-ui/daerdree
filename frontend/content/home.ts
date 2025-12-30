@@ -41,7 +41,8 @@ export const BOOKING_CONTENT = {
   },
   socials: {
     whatsapp: "https://wa.me/YOUR_NUMBER",
-    instagram: "https://instagram.com/YOUR_PROFILE"
+    instagram: "https://instagram.com/YOUR_PROFILE",
+    telegram: "https://t.me/YOUR_PROFILE"
   }
 };
 
@@ -55,7 +56,7 @@ export const GAMES_CONTENT = {
 export const MENU_CONTENT = {
   title: "Our Menu",
   highlightWord: "Menu", 
-  description: "От классических коктейлей до авторских миксов. Дракон рекомендует попробовать нашу фирменную текилу, которая согреет даже самое ледяное сердце.",
+  description: "Ехал грека через реку, видит грека - в реке рак. Сунул грека руку в реку, рак за руку греку цап!",
   buttonText: "Explore Drinks",
   imageDesktop: "/images/dragon.png", 
   imageMobile: "/images/dragon.png",  
@@ -96,32 +97,32 @@ export const CATERING_STACK_CONTENT = {
   cards: [
     {
       id: "stack-1",
-      title: "The Atmosphere",
-      description: "Уютный полумрак, неоновые акценты и музыка, которая не мешает говорить.",
+      title: "The Murmuring Mood",
+      description: "Что говорит кот? Кот говорит: \"Мур, епты.\"",
       image: "/images/hero/1.webp", 
     },
     {
       id: "stack-2",
       title: "Custom Menu",
-      description: "Мы разработаем коктейльную карту специально под твое событие. Хочешь 'Кровь Дракона'? Сделаем.",
+      description: "Повторяющиеся изображения - заглушки.",
       image: "/images/hero/1.webp",
     },
     {
       id: "stack-3",
       title: "Tabletop Games",
-      description: "Более 100 настолок в свободном доступе. Наши гейм-мастера объяснят правила и проведут партию.",
+      description: "Здесь будет суперважная информация про настолки, кейтеринг и прочее.",
       image: "/images/hero/1.webp",
     },
     {
       id: "stack-4",
-      title: "VIP Service",
-      description: "Персональные бармены и официанты, которые знают, что ты пьешь, еще до того, как ты подумал.",
+      title: "Tech-Enhanced Fun",
+      description: "VS Code стал настолько умным, что литералли предлагает мне закончить мои мысли за меня.",
       image: "/images/hero/1.webp",
     },
     {
       id: "stack-5",
-      title: "Your Rules",
-      description: "Закрытие всего заведения под ключ. Твоя музыка, твой вайб, твои правила.",
+      title: "Dedicated Staff",
+      description: "Настя, я тебя люблю. Вот эту мысль ВС КОД постеснялся закончить.",
       image: "/images/hero/1.webp",
     },
   ],
@@ -148,7 +149,7 @@ export const LOCATION_CONTENT = {
     { day: "Fri - Sat", time: "16:00 - 04:00" },
     { day: "Sunday", time: "16:00 - 02:00" },
   ],
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93561.73946255167!2d74.50945952327582!3d42.87693994348253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7dc91b3c881%3A0x492ebaf57cdee27d!2sBishkek!5e0!3m2!1sen!2skg!4v1700000000000!5m2!1sen!2skg",
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d408.99159143182857!2d33.6287453!3d34.9081376!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDU0JzMwLjEiTiAzM8KwMzcnNDQuMSJF!5e0!3m2!1sen!2skg!4v1767123400102!5m2!1sen!2skg",
 };
 
 export const FOOTER_CONTENT = {
@@ -160,5 +161,5 @@ export const FOOTER_CONTENT = {
     { name: "Telegram", link: "https://t.me/daerdree" },
   ],
   
-  credit: "Website by Sonoroom, 2026",
+  credit: "Website by GIGACHAD, 2026",
 };

@@ -141,6 +141,11 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "http://193.181.208.36",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://193.181.208.36",
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Папка, куда соберется вся статика

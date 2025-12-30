@@ -1,5 +1,7 @@
 "use client";
 
+import { API_ENDPOINTS } from '@/lib/constants'; // Импортируем эндпоинты
+import { getImageUrl } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,7 +22,7 @@ export default function GamesMarquee() {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/games/marquee/');
+        const res = await fetch(API_ENDPOINTS.MARQUEE);
         if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
         setGames(data);
@@ -92,12 +94,12 @@ export default function GamesMarquee() {
             {duplicatedGames.map((game, index) => (
               <Link 
                 key={`row1-${game.id}-${index}`}
-                href={`/games/${game.slug}`} 
+                href={`/games/${game.id}`}
                 // Убрали grayscale. Добавили hover:border-accent и hover:shadow
                 className="relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-accent hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
               >
                 <Image
-                  src={game.image.startsWith('http') ? game.image : `http://localhost:8000${game.image}`}
+                  src={getImageUrl(game.image)}
                   alt={game.title}
                   fill
                   className="object-cover"
@@ -114,11 +116,11 @@ export default function GamesMarquee() {
              {duplicatedGames.map((game, index) => (
               <Link 
                 key={`row2-${game.id}-${index}`}
-                href={`/games/${game.slug}`} 
+                href={`/games/${game.id}`} 
                 className="relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-accent hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
               >
                 <Image
-                  src={game.image.startsWith('http') ? game.image : `http://localhost:8000${game.image}`}
+                  src={getImageUrl(game.image)}
                   alt={game.title}
                   fill
                   className="object-cover"

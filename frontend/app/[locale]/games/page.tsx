@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import GameCard from "@/components/games/GameCard";
 import { BoardGame } from "@/types/game";
 import AnimatedContent from "@/components/AnimatedContent";
+import { API_ENDPOINTS } from "@/lib/constants";
 
-// Лучше вынести в .env, но пока оставим тут для простоты
-const API_URL = "http://127.0.0.1:8000/api/games/";
+
 
 export default function GamesLibrary() {
   const [games, setGames] = useState<BoardGame[]>([]);
@@ -17,11 +17,10 @@ export default function GamesLibrary() {
   const fetchGames = async (search = "") => {
     setLoading(true);
     try {
-      // Твой ViewSet поддерживает ?search=... благодаря SearchFilter
-      const res = await fetch(`${API_URL}?search=${search}`);
+      const res = await fetch(`${API_ENDPOINTS.GAMES}?search=${search}`);
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
-      setGames(data); // Если у тебя пагинация, то data.results
+      setGames(data);
     } catch (error) {
       console.error(error);
     } finally {

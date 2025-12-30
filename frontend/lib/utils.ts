@@ -1,19 +1,16 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { API_BASE_URL } from "./constants"; // <--- Импортируем настройку
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// Замени на адрес своего бэкенда, если он поменяется
-const API_BASE_URL = "http://127.0.0.1:8000";
-
 export const getImageUrl = (path: string | null | undefined) => {
-  if (!path) return "/images/placeholder.jpg"; // Заглушка, если картинки нет
+  if (!path) return "/images/placeholder.jpg"; // Убедитесь, что такой файл есть в папке public/images/
   
-  // Если путь уже полный (начинается с http), возвращаем как есть
   if (path.startsWith("http")) return path;
 
-  // Иначе приклеиваем домен бэкенда
+  // Теперь адрес берется из constants.ts
   return `${API_BASE_URL}${path}`;
 };

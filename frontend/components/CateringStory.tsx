@@ -116,7 +116,7 @@ export default function CateringStory() {
 
         {/* КНОПКА */}
         <div className="flex justify-center">
-            <Link href="/catering">
+            <Link href="/events">
          <button className="group relative overflow-hidden px-10 py-4 md:px-8 md:py-3 border border-accent transition-all duration-300">
          <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80" />
           <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-secondary text-sm md:text-base">

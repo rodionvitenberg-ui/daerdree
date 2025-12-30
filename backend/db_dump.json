@@ -1,0 +1,1756 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$ltsukXGGSb26GcVXvr9Udh$elZMI6ev2Csy7LBXDdGGlb3pzo2mSfkBeO+esuyccqg=",
+        "last_login": "2025-12-27T17:36:52.720Z",
+        "is_superuser": true,
+        "username": "god",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-12-27T17:36:41.000Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "boardgames.category",
+    "pk": 1,
+    "fields": {
+        "name": "Test",
+        "slug": "test",
+        "icon": "",
+        "description": ""
+    }
+},
+{
+    "model": "boardgames.category",
+    "pk": 2,
+    "fields": {
+        "name": "Стратегия",
+        "slug": "стратегия",
+        "icon": "",
+        "description": "Лучшие игры в жанре Стратегия"
+    }
+},
+{
+    "model": "boardgames.category",
+    "pk": 3,
+    "fields": {
+        "name": "Семейная",
+        "slug": "семейная",
+        "icon": "",
+        "description": "Лучшие игры в жанре Семейная"
+    }
+},
+{
+    "model": "boardgames.category",
+    "pk": 4,
+    "fields": {
+        "name": "Патигейм",
+        "slug": "патигейм",
+        "icon": "",
+        "description": "Лучшие игры в жанре Патигейм"
+    }
+},
+{
+    "model": "boardgames.category",
+    "pk": 5,
+    "fields": {
+        "name": "Абстракт",
+        "slug": "абстракт",
+        "icon": "",
+        "description": "Лучшие игры в жанре Абстракт"
+    }
+},
+{
+    "model": "boardgames.category",
+    "pk": 6,
+    "fields": {
+        "name": "Варгейм",
+        "slug": "варгейм",
+        "icon": "",
+        "description": "Лучшие игры в жанре Варгейм"
+    }
+},
+{
+    "model": "boardgames.category",
+    "pk": 7,
+    "fields": {
+        "name": "Тематическая",
+        "slug": "тематическая",
+        "icon": "",
+        "description": "Лучшие игры в жанре Тематическая"
+    }
+},
+{
+    "model": "boardgames.category",
+    "pk": 8,
+    "fields": {
+        "name": "Детская",
+        "slug": "детская",
+        "icon": "",
+        "description": "Лучшие игры в жанре Детская"
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 1,
+    "fields": {
+        "name": "Экономика",
+        "slug": "экономика",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 2,
+    "fields": {
+        "name": "Карточная",
+        "slug": "карточная",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 3,
+    "fields": {
+        "name": "На кубиках",
+        "slug": "на-кубиках",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 4,
+    "fields": {
+        "name": "Кооператив",
+        "slug": "кооператив",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 5,
+    "fields": {
+        "name": "Контроль территорий",
+        "slug": "контроль-территорий",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 6,
+    "fields": {
+        "name": "Скрытые роли",
+        "slug": "скрытые-роли",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 7,
+    "fields": {
+        "name": "Детектив",
+        "slug": "детектив",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 8,
+    "fields": {
+        "name": "Космос",
+        "slug": "космос",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 9,
+    "fields": {
+        "name": "Фэнтези",
+        "slug": "фэнтези",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 10,
+    "fields": {
+        "name": "Строительство",
+        "slug": "строительство",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.tag",
+    "pk": 11,
+    "fields": {
+        "name": "Для двоих",
+        "slug": "для-двоих",
+        "icon": ""
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 1,
+    "fields": {
+        "title": "10 days in Africa",
+        "slug": "10-days-in-africa",
+        "category": 1,
+        "description": "Test",
+        "image": "games/pic8322566-1223x1536.png.webp",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 45,
+        "difficulty": 2,
+        "created_at": "2025-12-29T10:09:24.931Z",
+        "is_active": true,
+        "tags": []
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 2,
+    "fields": {
+        "title": "Terraforming Mars",
+        "slug": "terraforming-mars",
+        "category": 2,
+        "description": "Описание для игры Terraforming Mars. Очень крутая игра, всем советую!",
+        "image": "games/pic3536616-1024x1021.jpg.webp",
+        "min_players": 1,
+        "max_players": 5,
+        "play_time": 120,
+        "difficulty": 3,
+        "created_at": "2025-12-29T10:13:51.072Z",
+        "is_active": true,
+        "tags": [
+            1,
+            8,
+            10
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 3,
+    "fields": {
+        "title": "Scythe",
+        "slug": "scythe",
+        "category": 2,
+        "description": "Описание для игры Scythe. Очень крутая игра, всем советую!",
+        "image": "games/pic3163924-1024x758.jpg",
+        "min_players": 1,
+        "max_players": 5,
+        "play_time": 115,
+        "difficulty": 4,
+        "created_at": "2025-12-29T10:13:51.098Z",
+        "is_active": true,
+        "tags": [
+            1,
+            5,
+            9
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 4,
+    "fields": {
+        "title": "Dune: Imperium",
+        "slug": "dune-imperium",
+        "category": 2,
+        "description": "Описание для игры Dune: Imperium. Очень крутая игра, всем советую!",
+        "image": "games/pic5666597.jpg",
+        "min_players": 1,
+        "max_players": 4,
+        "play_time": 90,
+        "difficulty": 3,
+        "created_at": "2025-12-29T10:13:51.111Z",
+        "is_active": true,
+        "tags": [
+            2,
+            5,
+            8
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 6,
+    "fields": {
+        "title": "Ark Nova",
+        "slug": "ark-nova",
+        "category": 2,
+        "description": "Описание для игры Ark Nova. Очень крутая игра, всем советую!",
+        "image": "games/pic6293412-841x1024.jpg.webp",
+        "min_players": 1,
+        "max_players": 4,
+        "play_time": 150,
+        "difficulty": 4,
+        "created_at": "2025-12-29T10:13:51.134Z",
+        "is_active": true,
+        "tags": [
+            1,
+            2,
+            10
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 7,
+    "fields": {
+        "title": "Spirit Island",
+        "slug": "spirit-island",
+        "category": 2,
+        "description": "Описание для игры Spirit Island. Очень крутая игра, всем советую!",
+        "image": "games/pic7013651-1024x1024.jpg.webp",
+        "min_players": 1,
+        "max_players": 4,
+        "play_time": 120,
+        "difficulty": 4,
+        "created_at": "2025-12-29T10:13:51.156Z",
+        "is_active": true,
+        "tags": [
+            2,
+            4,
+            9
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 8,
+    "fields": {
+        "title": "Wingspan",
+        "slug": "wingspan",
+        "category": 3,
+        "description": "Описание для игры Wingspan. Очень крутая игра, всем советую!",
+        "image": "games/pic4982682-1024x490.jpg.webp",
+        "min_players": 1,
+        "max_players": 5,
+        "play_time": 60,
+        "difficulty": 2,
+        "created_at": "2025-12-29T10:13:51.170Z",
+        "is_active": true,
+        "tags": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 10,
+    "fields": {
+        "title": "7 Wonders Duel",
+        "slug": "7-wonders-duel",
+        "category": 2,
+        "description": "Описание для игры 7 Wonders Duel. Очень крутая игра, всем советую!",
+        "image": "games/pic2576399-3.jpg.webp",
+        "min_players": 2,
+        "max_players": 2,
+        "play_time": 30,
+        "difficulty": 2,
+        "created_at": "2025-12-29T10:13:51.188Z",
+        "is_active": true,
+        "tags": [
+            2,
+            10,
+            11
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 11,
+    "fields": {
+        "title": "Catan",
+        "slug": "catan",
+        "category": 3,
+        "description": "Описание для игры Catan. Очень крутая игра, всем советую!",
+        "image": "games/pic2419375-1.jpg.webp",
+        "min_players": 3,
+        "max_players": 4,
+        "play_time": 60,
+        "difficulty": 2,
+        "created_at": "2025-12-29T10:13:51.207Z",
+        "is_active": true,
+        "tags": [
+            1,
+            3,
+            10
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 12,
+    "fields": {
+        "title": "Ticket to Ride",
+        "slug": "ticket-to-ride",
+        "category": 3,
+        "description": "Описание для игры Ticket to Ride. Очень крутая игра, всем советую!",
+        "image": "games/pic38668.jpg_2.webp",
+        "min_players": 2,
+        "max_players": 5,
+        "play_time": 45,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.220Z",
+        "is_active": true,
+        "tags": [
+            2,
+            10
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 13,
+    "fields": {
+        "title": "Carcassonne",
+        "slug": "carcassonne",
+        "category": 3,
+        "description": "Описание для игры Carcassonne. Очень крутая игра, всем советую!",
+        "image": "games/pic6544250-727x1024.png.webp",
+        "min_players": 2,
+        "max_players": 5,
+        "play_time": 35,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.230Z",
+        "is_active": true,
+        "tags": [
+            5,
+            10
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 14,
+    "fields": {
+        "title": "Pandemic",
+        "slug": "pandemic",
+        "category": 3,
+        "description": "Описание для игры Pandemic. Очень крутая игра, всем советую!",
+        "image": "games/pic1534148-746x1024.jpg.webp",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 45,
+        "difficulty": 2,
+        "created_at": "2025-12-29T10:13:51.239Z",
+        "is_active": true,
+        "tags": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 15,
+    "fields": {
+        "title": "Splendor",
+        "slug": "splendor",
+        "category": 3,
+        "description": "Описание для игры Splendor. Очень крутая игра, всем советую!",
+        "image": "games/pic1904079-798x1024.jpg.webp",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.258Z",
+        "is_active": true,
+        "tags": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 16,
+    "fields": {
+        "title": "Azul",
+        "slug": "azul",
+        "category": 5,
+        "description": "Описание для игры Azul. Очень крутая игра, всем советую!",
+        "image": "games/pic6973671-1024x1024.png.webp",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.268Z",
+        "is_active": true,
+        "tags": [
+            10
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 17,
+    "fields": {
+        "title": "Patchwork",
+        "slug": "patchwork",
+        "category": 5,
+        "description": "Описание для игры Patchwork. Очень крутая игра, всем советую!",
+        "image": "games/pic2270442.jpg",
+        "min_players": 2,
+        "max_players": 2,
+        "play_time": 20,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.275Z",
+        "is_active": true,
+        "tags": [
+            1,
+            11
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 18,
+    "fields": {
+        "title": "Cascadia",
+        "slug": "cascadia",
+        "category": 5,
+        "description": "Описание для игры Cascadia. Очень крутая игра, всем советую!",
+        "image": "games/pic5100691-1024x1024.jpg",
+        "min_players": 1,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.285Z",
+        "is_active": true,
+        "tags": [
+            10
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 19,
+    "fields": {
+        "title": "Codenames",
+        "slug": "codenames",
+        "category": 4,
+        "description": "Описание для игры Codenames. Очень крутая игра, всем советую!",
+        "image": "games/pic2582929-714x1024.jpg",
+        "min_players": 2,
+        "max_players": 8,
+        "play_time": 15,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.291Z",
+        "is_active": true,
+        "tags": [
+            2,
+            7
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 20,
+    "fields": {
+        "title": "Dixit",
+        "slug": "dixit",
+        "category": 4,
+        "description": "Описание для игры Dixit. Очень крутая игра, всем советую!",
+        "image": "games/pic6738336.webp",
+        "min_players": 3,
+        "max_players": 6,
+        "play_time": 30,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.299Z",
+        "is_active": true,
+        "tags": [
+            2,
+            9
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 21,
+    "fields": {
+        "title": "The Resistance",
+        "slug": "the-resistance",
+        "category": 4,
+        "description": "Описание для игры The Resistance. Очень крутая игра, всем советую!",
+        "image": "games/pic2576459.jpg.webp",
+        "min_players": 5,
+        "max_players": 10,
+        "play_time": 30,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.310Z",
+        "is_active": true,
+        "tags": [
+            2,
+            6
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 22,
+    "fields": {
+        "title": "Spyfall",
+        "slug": "spyfall",
+        "category": 4,
+        "description": "Описание для игры Spyfall. Очень крутая игра, всем советую!",
+        "image": "games/pic2453926-1024x1024.jpg.webp",
+        "min_players": 3,
+        "max_players": 8,
+        "play_time": 15,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.320Z",
+        "is_active": true,
+        "tags": [
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 26,
+    "fields": {
+        "title": "Root",
+        "slug": "root",
+        "category": 6,
+        "description": "Описание для игры Root. Очень крутая игра, всем советую!",
+        "image": "games/pic4254509-1024x799.jpg.webp",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 90,
+        "difficulty": 4,
+        "created_at": "2025-12-29T10:13:51.359Z",
+        "is_active": true,
+        "tags": [
+            5,
+            9
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 27,
+    "fields": {
+        "title": "Blood Rage",
+        "slug": "blood-rage",
+        "category": 6,
+        "description": "Описание для игры Blood Rage. Очень крутая игра, всем советую!",
+        "image": "games/pic2439223-1024x1024.jpg.webp",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 90,
+        "difficulty": 2,
+        "created_at": "2025-12-29T10:13:51.370Z",
+        "is_active": true,
+        "tags": [
+            2,
+            5,
+            9
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 28,
+    "fields": {
+        "title": "Star Wars: Rebellion",
+        "slug": "star-wars-rebellion",
+        "category": 6,
+        "description": "Описание для игры Star Wars: Rebellion. Очень крутая игра, всем советую!",
+        "image": "games/pic4325841.jpg.webp",
+        "min_players": 2,
+        "max_players": 2,
+        "play_time": 180,
+        "difficulty": 4,
+        "created_at": "2025-12-29T10:13:51.382Z",
+        "is_active": true,
+        "tags": [
+            3,
+            8,
+            11
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 29,
+    "fields": {
+        "title": "Sherlock Holmes CD",
+        "slug": "sherlock-holmes-cd",
+        "category": 7,
+        "description": "Описание для игры Sherlock Holmes CD. Очень крутая игра, всем советую!",
+        "image": "games/pic3238299.jpg",
+        "min_players": 1,
+        "max_players": 8,
+        "play_time": 90,
+        "difficulty": 2,
+        "created_at": "2025-12-29T10:13:51.395Z",
+        "is_active": true,
+        "tags": [
+            4,
+            7
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 30,
+    "fields": {
+        "title": "MicroMacro: Crime City",
+        "slug": "micromacro-crime-city",
+        "category": 4,
+        "description": "Описание для игры MicroMacro: Crime City. Очень крутая игра, всем советую!",
+        "image": "games/pic6242068-707x1024.jpg.webp",
+        "min_players": 1,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.417Z",
+        "is_active": true,
+        "tags": [
+            4,
+            7
+        ]
+    }
+},
+{
+    "model": "boardgames.boardgame",
+    "pk": 31,
+    "fields": {
+        "title": "King of Tokyo",
+        "slug": "king-of-tokyo",
+        "category": 3,
+        "description": "Описание для игры King of Tokyo. Очень крутая игра, всем советую!",
+        "image": "games/pic3043734-1024x1024.jpg",
+        "min_players": 2,
+        "max_players": 6,
+        "play_time": 30,
+        "difficulty": 1,
+        "created_at": "2025-12-29T10:13:51.434Z",
+        "is_active": true,
+        "tags": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2025-12-29T10:08:57.024Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "category"
+        ],
+        "object_id": "1",
+        "object_repr": "Test",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2025-12-29T10:09:24.935Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "1",
+        "object_repr": "10 days in Africa",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2025-12-29T10:14:46.907Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "1",
+        "object_repr": "10 days in Africa",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2025-12-29T10:14:54.701Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "10",
+        "object_repr": "7 Wonders Duel",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2025-12-29T10:15:01.479Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "6",
+        "object_repr": "Ark Nova",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2025-12-29T10:15:24.937Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "16",
+        "object_repr": "Azul",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2025-12-29T10:15:32.981Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "5",
+        "object_repr": "Brass: Birmingham",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2025-12-29T10:15:42.236Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "13",
+        "object_repr": "Carcassonne",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2025-12-29T10:15:52.348Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "3",
+        "object_repr": "Scythe",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2025-12-29T10:16:01.719Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "18",
+        "object_repr": "Cascadia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2025-12-29T10:16:09.659Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "8",
+        "object_repr": "Wingspan",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2025-12-29T10:16:18.050Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "12",
+        "object_repr": "Ticket to Ride",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2025-12-29T10:16:27.351Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "21",
+        "object_repr": "The Resistance",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2025-12-29T10:16:37.917Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "28",
+        "object_repr": "Star Wars: Rebellion",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2025-12-29T10:17:03.315Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "22",
+        "object_repr": "Spyfall",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2025-12-29T10:17:11.157Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "7",
+        "object_repr": "Spirit Island",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2025-12-29T10:17:15.644Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "7",
+        "object_repr": "Spirit Island",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2025-12-29T10:17:23.280Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "29",
+        "object_repr": "Sherlock Holmes CD",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2025-12-29T10:17:34.094Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "3",
+        "object_repr": "Scythe",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2025-12-29T10:17:40.892Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "26",
+        "object_repr": "Root",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2025-12-29T10:17:52.488Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "17",
+        "object_repr": "Patchwork",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2025-12-29T10:18:03.087Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "14",
+        "object_repr": "Pandemic",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2025-12-29T10:18:13.796Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "25",
+        "object_repr": "Nemesis",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2025-12-29T10:18:23.575Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "30",
+        "object_repr": "MicroMacro: Crime City",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2025-12-29T10:18:28.998Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "30",
+        "object_repr": "MicroMacro: Crime City",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2025-12-30T18:27:31.655Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "8",
+        "object_repr": "Wingspan",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2025-12-30T18:29:13.755Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "12",
+        "object_repr": "Ticket to Ride",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2025-12-30T18:29:44.197Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "21",
+        "object_repr": "The Resistance",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2025-12-30T18:29:50.376Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "21",
+        "object_repr": "The Resistance",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2025-12-30T18:30:11.925Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "2",
+        "object_repr": "Terraforming Mars",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2025-12-30T18:30:29.563Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "28",
+        "object_repr": "Star Wars: Rebellion",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2025-12-30T18:31:03.468Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "22",
+        "object_repr": "Spyfall",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2025-12-30T18:31:36.202Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "15",
+        "object_repr": "Splendor",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2025-12-30T18:32:01.978Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "7",
+        "object_repr": "Spirit Island",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2025-12-30T18:32:49.388Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "29",
+        "object_repr": "Sherlock Holmes CD",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2025-12-30T18:33:07.326Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "3",
+        "object_repr": "Scythe",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2025-12-30T18:33:34.391Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "26",
+        "object_repr": "Root",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2025-12-30T18:34:04.638Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "17",
+        "object_repr": "Patchwork",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2025-12-30T18:34:38.721Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "14",
+        "object_repr": "Pandemic",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2025-12-30T18:35:01.109Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "25",
+        "object_repr": "Nemesis",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2025-12-30T18:35:37.617Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "30",
+        "object_repr": "MicroMacro: Crime City",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2025-12-30T18:36:04.663Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "31",
+        "object_repr": "King of Tokyo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2025-12-30T18:36:27.349Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "24",
+        "object_repr": "Gloomhaven",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2025-12-30T18:36:42.486Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "23",
+        "object_repr": "Just One",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2025-12-30T18:37:23.965Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "9",
+        "object_repr": "Everdell",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2025-12-30T18:37:49.128Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "4",
+        "object_repr": "Dune: Imperium",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2025-12-30T18:38:06.889Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "20",
+        "object_repr": "Dixit",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2025-12-30T18:38:19.872Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "19",
+        "object_repr": "Codenames",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2025-12-30T18:38:59.666Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "11",
+        "object_repr": "Catan",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2025-12-30T18:39:19.103Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "18",
+        "object_repr": "Cascadia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2025-12-30T18:39:36.548Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "13",
+        "object_repr": "Carcassonne",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2025-12-30T18:39:53.431Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "5",
+        "object_repr": "Brass: Birmingham",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2025-12-30T18:40:28.538Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "27",
+        "object_repr": "Blood Rage",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2025-12-30T18:40:57.884Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "16",
+        "object_repr": "Azul",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2025-12-30T18:41:33.170Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "6",
+        "object_repr": "Ark Nova",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2025-12-30T18:42:05.530Z",
+        "user": [
+            "god"
+        ],
+        "content_type": [
+            "boardgames",
+            "boardgame"
+        ],
+        "object_id": "10",
+        "object_repr": "7 Wonders Duel",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e \\u043a\\u043e\\u0440\\u043e\\u0431\\u043a\\u0438\"]}}]"
+    }
+}
+]
