@@ -88,48 +88,49 @@ export default function GamesMarquee() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background to-transparent md:w-40" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent md:w-40" />
 
-        {/* --- РЯД 1 --- */}
-        <div className="group flex overflow-hidden">
-          <div className="animate-scroll-left flex gap-6 px-3">
-            {duplicatedGames.map((game, index) => (
-              <Link 
-                key={`row1-${game.id}-${index}`}
-                href={`/games/${game.id}`}
-                // Убрали grayscale. Добавили hover:border-accent и hover:shadow
-                className="relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-accent hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
-              >
-                <Image
-                  src={getImageUrl(game.image)}
-                  alt={game.title}
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </Link>
-            ))}
-          </div>
-        </div>
+{/* --- РЯД 1 --- */}
+<div className="flex overflow-hidden"> 
+  <div className="animate-scroll-left flex gap-6 px-3">
+    {duplicatedGames.map((game, index) => (
+      <Link 
+        key={`row1-${game.id}-${index}`}
+        href={`/games/${game.id}`}
+        className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
+      >
+        <Image
+          src={getImageUrl(game.image)}
+          alt={game.title}
+          fill
+          className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
+          unoptimized
+        />
+        <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
+      </Link>
+    ))}
+  </div>
+</div>
 
-        {/* --- РЯД 2 --- */}
-        <div className="group flex overflow-hidden">
-          <div className="animate-scroll-right flex gap-6 px-3">
-             {duplicatedGames.map((game, index) => (
-              <Link 
-                key={`row2-${game.id}-${index}`}
-                href={`/games/${game.id}`} 
-                className="relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-accent hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
-              >
-                <Image
-                  src={getImageUrl(game.image)}
-                  alt={game.title}
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </Link>
-            ))}
-          </div>
-        </div>
+{/* --- РЯД 2 --- */}
+<div className="flex overflow-hidden">
+  <div className="animate-scroll-right flex gap-6 px-3">
+     {duplicatedGames.map((game, index) => (
+      <Link 
+        key={`row2-${game.id}-${index}`}
+        href={`/games/${game.id}`} 
+        className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
+      >
+        <Image
+          src={getImageUrl(game.image)}
+          alt={game.title}
+          fill
+          className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
+          unoptimized
+        />
+        <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
+      </Link>
+    ))}
+  </div>
+</div>
 
       </div>
 

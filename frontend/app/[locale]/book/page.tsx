@@ -7,8 +7,8 @@ import { BOOKING_CONTENT } from '@/content/home';
 // === НАСТРОЙКА КАРУСЕЛИ ===
 const CAROUSEL_IMAGES = [
   BOOKING_CONTENT.image, // 1. Основная
-  "/hero-bg.jpg",        // 2. Вторая
-  "/catering/1.jpg",     // 3. Третья
+  "/images/hero/1.webp",        // 2. Вторая
+  "/images/hero/2.webp",     // 3. Третья
 ];
 
 export default function BookPage() {

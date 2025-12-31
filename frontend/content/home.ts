@@ -104,26 +104,26 @@ export const CATERING_STACK_CONTENT = {
     {
       id: "stack-2",
       title: "Custom Menu",
-      description: "Повторяющиеся изображения - заглушки.",
-      image: "/images/hero/1.webp",
+      description: "Вот ты сидишь, пишешь код, а он такой: \"Может, тебе помочь?\"",
+      image: "/images/hero/2.webp",
     },
     {
       id: "stack-3",
       title: "Tabletop Games",
       description: "Здесь будет суперважная информация про настолки, кейтеринг и прочее.",
-      image: "/images/hero/1.webp",
+      image: "/images/hero/3.webp",
     },
     {
       id: "stack-4",
       title: "Tech-Enhanced Fun",
       description: "VS Code стал настолько умным, что литералли предлагает мне закончить мои мысли за меня.",
-      image: "/images/hero/1.webp",
+      image: "/images/hero/4.webp",
     },
     {
       id: "stack-5",
       title: "Dedicated Staff",
-      description: "Настя, я тебя люблю. Вот эту мысль ВС КОД постеснялся закончить.",
-      image: "/images/hero/1.webp",
+      description: "Код он тоже умеет генерировать, но делает это не слишком умело и не слишком охотно.",
+      image: "/images/hero/5.webp",
     },
   ],
   buttonText: "Plan Your Event",
@@ -135,7 +135,7 @@ export const LOCATION_CONTENT = {
   title: "Find the Lair",
   subtitle: "We are waiting for you",
   address: {
-    street: "69 Love St", // Твой адрес
+    street: "Nicou Dimitrou", // Твой адрес
     city: "Larnaka Bay, Cyprus",
     link: "https://goo.gl/maps/...", // Ссылка на Google Maps (для кнопки)
   },

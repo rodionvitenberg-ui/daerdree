@@ -142,7 +142,7 @@ export default function Header() {
 
       {/* --- ВЫДВИГАЮЩЕЕСЯ МЕНЮ --- */}
       <div 
-        className={`absolute left-0 top-full w-full bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out md:hidden overflow-hidden
+        className={`absolute left-0 top-full -mt-px w-full bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out md:hidden overflow-hidden
           ${isOpen ? 'max-h-[45vh] py-8 opacity-100' : 'max-h-0 py-0 opacity-0'}
         `}
       >

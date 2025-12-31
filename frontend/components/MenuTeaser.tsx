@@ -29,7 +29,7 @@ export default function MenuTeaser() {
           src={MENU_CONTENT.imageMobile} // Берем из home.ts
           alt="Menu Background" 
           fill
-          className="object-cover object-center"
+          className="object-cover object-[center_20px]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
       </div>

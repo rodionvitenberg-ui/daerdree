@@ -109,7 +109,7 @@ export default function LocationSection() {
           {/* lg:order-2 на десктопе (чтобы быть СПРАВА) */}
           <AnimatedContent distance={50} direction="horizontal" delay={0.2} className="h-full w-full order-1 lg:order-2">
             {/* Убрал скругления (rounded), оставил твои стили */}
-            <div className="relative w-full h-[400px] lg:h-[600px] overflow-hidden shadow-2xl bg-neutral-800 border border-white/10 group">
+            <div className="relative w-full h-[400px] lg:h-[563px] overflow-hidden shadow-2xl bg-neutral-800 border border-white/10 group">
               
               <iframe
                 src={LOCATION_CONTENT.mapEmbedUrl}

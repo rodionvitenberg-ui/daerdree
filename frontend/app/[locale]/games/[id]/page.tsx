@@ -1,17 +1,13 @@
-// app/games/[id]/page.tsx
-
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BoardGame } from "@/types/game";
 import { getImageUrl } from "@/lib/utils";
+import { API_ENDPOINTS } from "@/lib/constants";
 
-// Функция получения данных (Server Component)
 async function getGame(id: string): Promise<BoardGame> {
-  // Обрати внимание: это запрос на сервер (SSR), поэтому нужен полный URL
-  // Если будешь деплоить, замени 127.0.0.1 на домен бэкенда или переменную окружения
-  const res = await fetch(`http://127.0.0.1:8000/api/games/${id}/`, {
-    cache: "no-store", // Чтобы всегда получать свежие данные
+  const res = await fetch(`${API_ENDPOINTS.GAMES}${id}/`, {
+    cache: "no-store",
   });
 
   if (!res.ok) {
@@ -22,7 +18,7 @@ async function getGame(id: string): Promise<BoardGame> {
 }
 
 export default async function GamePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params; // <--- Сначала ждем разрешения промиса
+  const { id } = await params; //
   const game = await getGame(id);
 
   return (
