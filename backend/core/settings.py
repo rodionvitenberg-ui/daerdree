@@ -152,3 +152,5 @@ CSRF_TRUSTED_ORIGINS = [
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Папка, куда соберется вся статика
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
