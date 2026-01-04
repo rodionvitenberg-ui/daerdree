@@ -95,7 +95,7 @@ export default function CateringStory() {
                 block = показываем
                 md:hidden = прячем начиная с планшета
             */}
-            <div className="block md:hidden">
+            <div className="block md:hidden -mx-4 w-[calc(100%+2rem)] overflow-hidden">
                <SimpleCarousel cards={CATERING_STACK_CONTENT.cards} />
             </div>
 

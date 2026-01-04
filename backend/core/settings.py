@@ -142,10 +142,12 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://193.181.208.36",
+    "https://daerdree.bar"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://193.181.208.36",
+    "https://daerdree.bar",
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Папка, куда соберется вся статика
