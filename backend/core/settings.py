@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['daerdree.bar', 'www.daerdree.bar', '193.181.208.36', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -141,13 +141,13 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "http://193.181.208.36",
-    "https://daerdree.bar"
+    "https://daerdree.bar",
+    "https://www.daerdree.bar"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://193.181.208.36",
     "https://daerdree.bar",
+    "https://www.daerdree.bar"
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Папка, куда соберется вся статика
