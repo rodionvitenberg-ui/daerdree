@@ -19,6 +19,7 @@ class Booking(models.Model):
     contact = models.CharField(max_length=100, verbose_name="Телефон/Контакт")
     date = models.CharField(max_length=100, verbose_name="Дата и время") # Можно DateTimeField, но пока текстом проще с фронта
     guests = models.CharField(max_length=50, verbose_name="Кол-во гостей")
+    event_title = models.CharField(max_length=200, verbose_name="Событие", null=True, blank=True)
     
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending', verbose_name="Статус")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
@@ -34,13 +35,13 @@ class Booking(models.Model):
 # --- ЛОГИКА ОТПРАВКИ В TELEGRAM ---
 @receiver(post_save, sender=Booking)
 def send_telegram_notification(sender, instance, created, **kwargs):
-    """
-    Срабатывает автоматически после сохранения записи в базу.
-    Если запись новая (created=True) -> шлем уведомление.
-    """
     if created:
+        # Формируем строку события, если оно есть
+        event_line = f"🎉 <b>Событие:</b> {instance.event_title}\n" if instance.event_title else ""
+        
         message = (
             f"🔔 <b>Новая заявка на бронь!</b>\n\n"
+            f"{event_line}"  # <--- Вставляем сюда
             f"👤 <b>Имя:</b> {instance.name}\n"
             f"👥 <b>Гостей:</b> {instance.guests}\n"
             f"📅 <b>Дата:</b> {instance.date}\n"

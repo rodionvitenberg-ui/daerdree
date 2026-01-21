@@ -40,9 +40,8 @@ export const BOOKING_CONTENT = {
     buttonText: "REQUEST BOOKING"
   },
   socials: {
-    whatsapp: "https://wa.me/YOUR_NUMBER",
-    instagram: "https://instagram.com/YOUR_PROFILE",
-    telegram: "https://t.me/YOUR_PROFILE"
+    instagram: "https://instagram.com/daerdree",
+    telegram: "https://t.me/daerdreedm"
   }
 };
 

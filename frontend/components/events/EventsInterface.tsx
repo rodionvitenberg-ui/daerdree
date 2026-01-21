@@ -1,17 +1,76 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedContent from "@/components/AnimatedContent";
-import { EVENTS_DATA, HIRE_PACKAGES } from "@/content/events";
+import { HIRE_PACKAGES } from "@/content/events"; // Оставляем статику только для пакетов аренды
+
+// 1. Описываем, как выглядит событие, приходящее с бэкенда
+interface Event {
+  id: number;
+  title: string;
+  description: string;
+  image: string | null;
+  event_date: string;
+}
 
 export default function EventsInterface() {
   const [activeTab, setActiveTab] = useState<"public" | "private">("public");
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
   
-  // Трюк для картинок в dev-режиме, который мы обсуждали
   const isDev = process.env.NODE_ENV === 'development';
+
+  // 2. Загружаем данные при открытии страницы
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const API_BASE = isDev ? 'http://127.0.0.1:8000' : 'https://daerdree.bar';
+        
+        // ВАЖНО: Django теперь отдает объект с пагинацией
+        const res = await fetch(`${API_BASE}/api/events/`);
+        if (!res.ok) throw new Error('Failed to fetch events');
+        
+        const data = await res.json();
+        // data.results - это массив событий. data.next - ссылка на след. страницу
+        setEvents(data.results || []); 
+      } catch (error) {
+        console.error("Ошибка загрузки событий:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (activeTab === "public") {
+        fetchEvents();
+    }
+  }, [isDev, activeTab]);
+
+  // Хелпер для форматирования даты: "2026-01-25..." -> { day: "25", month: "JAN", time: "19:00" }
+    const formatDate = (isoString: string) => {
+    const date = new Date(isoString);
+    
+    // Опции форматирования
+    const options: Intl.DateTimeFormatOptions = { 
+        timeZone: 'Asia/Nicosia', // <--- МАГИЯ ЗДЕСЬ
+    };
+
+    // Получаем день
+    const day = new Intl.DateTimeFormat('en-US', { ...options, day: 'numeric' }).format(date);
+    // Получаем месяц
+    const month = new Intl.DateTimeFormat('en-US', { ...options, month: 'short' }).format(date).toUpperCase();
+    // Получаем время (HH:mm)
+    const time = new Intl.DateTimeFormat('en-US', { 
+        ...options, 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        hour12: false 
+    }).format(date);
+
+    return { day, month, time };
+  };
 
   return (
     <div className="container mx-auto px-4">
@@ -79,73 +138,83 @@ export default function EventsInterface() {
           {/* === ВАРИАНТ 1: ПУБЛИЧНЫЕ ИВЕНТЫ === */}
           {activeTab === "public" ? (
             <motion.div
-              key="public"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+              // ... (анимация та же)
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {EVENTS_DATA.map((event) => (
-                <div 
-                  key={event.id} 
-                  className="group relative bg-neutral-900 border border-white/10 overflow-hidden hover:border-accent/50 transition-colors flex flex-col h-full"
-                >
-                  {/* Изображение ивента */}
-                  <div className="relative h-64 w-full bg-neutral-800">
-                    {/* Если картинки нет, показываем заглушку */}
-                    {event.image ? (
-                        <Image 
-                            src={event.image} 
-                            alt={event.title} 
-                            fill 
-                            className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
-                            unoptimized={isDev}
-                        />
-                    ) : (
-                        <div className="absolute inset-0 flex items-center justify-center text-white/10 font-black text-4xl uppercase">
-                            Event
+              {loading ? (
+                 [1, 2, 3].map((n) => (
+                    <div key={n} className="h-96 bg-neutral-900/50 animate-pulse border border-white/5 rounded-sm" />
+                 ))
+              ) : events.length === 0 ? (
+                 <div className="col-span-full text-center py-20 text-white/30">
+                    <p>No upcoming events found.</p>
+                 </div>
+              ) : (
+                events.map((event) => {
+                  const { day, month, time } = formatDate(event.event_date);
+                  
+                  return (
+                    // Оборачиваем всю карточку в Link для удобства
+                    <Link href={`/events/${event.id}`} key={event.id} className="block h-full">
+                        <div 
+                          className="group relative bg-neutral-900 border border-white/10 overflow-hidden hover:border-accent/50 transition-colors flex flex-col h-full"
+                        >
+                          {/* Изображение */}
+                          <div className="relative h-64 w-full bg-neutral-800">
+                            {event.image ? (
+                                <Image 
+                                    src={event.image} 
+                                    alt={event.title} 
+                                    fill 
+                                    className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                                    unoptimized={true}
+                                />
+                            ) : (
+                                <div className="absolute inset-0 flex items-center justify-center bg-neutral-800 text-white/10 font-black text-4xl uppercase">
+                                    No Image
+                                </div>
+                            )}
+                            
+                            <div className="absolute top-4 left-4 bg-accent text-black font-bold font-serif px-3 py-2 text-center leading-none border border-black/10 shadow-lg z-10">
+                              <span className="block text-sm">{day}</span>
+                              <span className="block text-xs uppercase">{month}</span>
+                            </div>
+                          </div>
+
+                          {/* Описание */}
+                          <div className="p-6 flex flex-col flex-grow">
+                            <div className="flex justify-between items-start mb-4">
+                              <span className="text-accent text-[10px] font-bold uppercase tracking-wider border border-accent/20 px-2 py-1 rounded">
+                                EVENT
+                              </span>
+                              <span className="text-white/50 text-xs font-bold uppercase tracking-wider">
+                                {time}
+                              </span>
+                            </div>
+                            
+                            <h3 className="font-serif text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                              {event.title}
+                            </h3>
+                            <p className="text-gray-400 text-sm mb-6 line-clamp-3 whitespace-pre-line">
+                              {event.description}
+                            </p>
+
+                            <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-4">
+                              <span className="text-white font-bold text-sm">Read More</span>
+                              <span className="text-xs font-bold uppercase tracking-widest text-accent group-hover:translate-x-1 transition-transform">
+                                &rarr;
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                    )}
-                    
-                    {/* Дата */}
-                    <div className="absolute top-4 left-4 bg-accent text-black font-bold font-serif px-3 py-2 text-center leading-none border border-black/10 shadow-lg z-10">
-                      <span className="block text-sm">{event.date.split(' ')[0]}</span>
-                      <span className="block text-xs uppercase">{event.date.split(' ')[1]}</span>
-                    </div>
-                  </div>
-
-                  {/* Описание */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="text-accent text-[10px] font-bold uppercase tracking-wider border border-accent/20 px-2 py-1 rounded">
-                        {event.category}
-                      </span>
-                      <span className="text-white/50 text-xs font-bold uppercase tracking-wider">
-                        {event.time}
-                      </span>
-                    </div>
-                    
-                    <h3 className="font-serif text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
-                      {event.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-6 line-clamp-2">
-                      {event.description}
-                    </p>
-
-                    <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-4">
-                      <span className="text-white font-bold">{event.price}</span>
-                      <button className="text-xs font-bold uppercase tracking-widest text-accent hover:text-white transition-colors">
-                        Join &rarr;
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                    </Link>
+                  );
+                })
+              )}
             </motion.div>
           ) : (
             
-            /* === ВАРИАНТ 2: АРЕНДА (PRIVATE HIRE) === */
+            /* === ВАРИАНТ 2: АРЕНДА (PRIVATE HIRE) - Оставляем как есть === */
             <motion.div
               key="private"
               initial={{ opacity: 0, y: 20 }}

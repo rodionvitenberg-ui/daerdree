@@ -1,16 +1,14 @@
-// frontend/app/api/booking/route.ts
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-
-    // Отправляем данные в наш Django API
-    // Предполагаем, что Django крутится на локалхосте или по IP
-    // DJANGO_API_URL лучше вынести в env, например http://127.0.0.1:8000/api/bookings/
     
-    // ВАЖНО: Убедись, что адрес правильный.
-    const djangoUrl = 'https://daerdree.bar/api/bookings/'; 
+    // Проверь URL - он должен совпадать с тем, где запущен Django
+    // Если на сервере - https://daerdree.bar/api/bookings/
+    const djangoUrl = process.env.NEXT_PUBLIC_API_URL 
+      ? `${process.env.NEXT_PUBLIC_API_URL}/api/bookings/` 
+      : 'http://127.0.0.1:8000/api/bookings/'; 
     
     const response = await fetch(djangoUrl, {
       method: 'POST',
@@ -20,16 +18,27 @@ export async function POST(request: Request) {
       body: JSON.stringify(body),
     });
 
+    // Сначала читаем текст ответа, чтобы не упасть на парсинге
+    const responseText = await response.text();
+
     if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Django Error:", errorData);
-        throw new Error('Django API Error');
+        console.error("Django Error Status:", response.status);
+        console.error("Django Error Body:", responseText); // Тут увидим реальную причину
+        return NextResponse.json({ error: 'Backend Error', details: responseText }, { status: response.status });
     }
 
-    return NextResponse.json({ success: true });
+    // Если всё ок, пробуем парсить (хотя Django может ничего не вернуть на 201 Created)
+    let data;
+    try {
+        data = JSON.parse(responseText);
+    } catch {
+        data = { success: true };
+    }
+
+    return NextResponse.json(data);
 
   } catch (error) {
-    console.error(error);
+    console.error("Next.js Proxy Error:", error);
     return NextResponse.json({ error: 'Failed to create booking' }, { status: 500 });
   }
 }

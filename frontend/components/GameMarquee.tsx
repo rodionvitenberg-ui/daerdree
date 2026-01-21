@@ -102,7 +102,7 @@ export default function GamesMarquee() {
           alt={game.title}
           fill
           className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
-          unoptimized
+          sizes="(max-width: 768px) 130px, 200px"
         />
         <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
       </Link>
@@ -124,7 +124,7 @@ export default function GamesMarquee() {
           alt={game.title}
           fill
           className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
-          unoptimized
+          sizes="(max-width: 768px) 130px, 200px"
         />
         <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
       </Link>
