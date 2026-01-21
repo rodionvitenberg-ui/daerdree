@@ -28,7 +28,7 @@ export default function GameCard({ game }: GameCardProps) {
               alt={game.title}
               fill
               className="object-cover opacity-70 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-100"
-              unoptimized
+              sizes="(max-width: 768px) 130px, 200px"
             />
           ) : (
             // Заглушка, если картинки нет

@@ -55,7 +55,7 @@ function BookPageContent() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/booking', {
+      const response = await fetch('/api/bookings/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
