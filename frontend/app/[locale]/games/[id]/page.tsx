@@ -6,7 +6,7 @@ import { getImageUrl } from "@/lib/utils";
 import { API_ENDPOINTS } from "@/lib/constants";
 
 async function getGame(id: string): Promise<BoardGame> {
-  const res = await fetch(`${API_ENDPOINTS.GAMES}${id}/`, {
+  const res = await fetch(`${API_ENDPOINTS.GAMES}/${id}/`, {
     cache: "no-store",
   });
 
