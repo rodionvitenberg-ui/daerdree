@@ -3,6 +3,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
+from bookings.views import BookingViewSet
+from events.views import EventViewSet
 
 # Импортируем наши Views
 from boardgames.views import BoardGameViewSet, CategoryViewSet, TagViewSet
@@ -13,7 +15,9 @@ router = DefaultRouter()
 router.register(r'games', BoardGameViewSet)      # будет доступно по /api/games/
 router.register(r'categories', CategoryViewSet)  # /api/categories/
 router.register(r'tags', TagViewSet)             # /api/tags/
-router.register(r'menu', MenuViewSet)            # /api/menu/
+router.register(r'menu', MenuViewSet)
+router.register(r'bookings', BookingViewSet)
+router.register(r'events', EventViewSet)            # /api/menu/
 
 urlpatterns = [
     path('admin/', admin.site.urls),

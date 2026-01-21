@@ -4,12 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* --- НАША ПАЛИТРА --- */
-  /* Фон: Off-black */
-
-  /* Текст: Off-white */
-
-  /* Акцент: Фиолетовый */
   --accent: #0b6c79;
   --radius: 0.625rem;
   --background: #10100f;

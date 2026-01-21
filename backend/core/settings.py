@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django_filters',
     'boardgames',
     'menu',
+    'bookings',
+    'events',
 ]
 
 MIDDLEWARE = [

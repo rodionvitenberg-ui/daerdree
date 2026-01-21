@@ -1,51 +1,35 @@
-// app/api/booking/route.ts
+// frontend/app/api/booking/route.ts
 import { NextResponse } from 'next/server';
 
-const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-
 export async function POST(request: Request) {
-  if (!TELEGRAM_TOKEN || !CHAT_ID) {
-    return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
-  }
-
   try {
     const body = await request.json();
-    const { name, guests, date, contact } = body;
 
-    // Формируем сообщение
-    const message = `
-🔔 <b>New Booking Request!</b>
-
-👤 <b>Name:</b> ${name}
-👥 <b>Guests:</b> ${guests}
-📅 <b>Date:</b> ${date}
-📞 <b>Contact:</b> ${contact}
-
-<i>Sent from website form</i>
-    `;
-
-    // Отправляем в Telegram
-    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+    // Отправляем данные в наш Django API
+    // Предполагаем, что Django крутится на локалхосте или по IP
+    // DJANGO_API_URL лучше вынести в env, например http://127.0.0.1:8000/api/bookings/
+    
+    // ВАЖНО: Убедись, что адрес правильный.
+    const djangoUrl = 'https://daerdree.bar/api/bookings/'; 
+    
+    const response = await fetch(djangoUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: message,
-        parse_mode: 'HTML', // Чтобы работала жирность шрифта
-      }),
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) {
-        throw new Error('Telegram API Error');
+        const errorData = await response.json();
+        console.error("Django Error:", errorData);
+        throw new Error('Django API Error');
     }
 
     return NextResponse.json({ success: true });
 
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to create booking' }, { status: 500 });
   }
 }
