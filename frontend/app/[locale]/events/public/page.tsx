@@ -72,7 +72,10 @@ export default function PublicEventsPage() {
       
       {/* HEADER */}
       <div className="text-center mb-16">
-        <Link href="/events" className="inline-flex items-center gap-5 text-xs font-bold uppercase text-white/30 hover:text-accent transition-colors mb-4">&larr; Back to Hub</Link>
+        <Link href="/events" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors mb-6">
+            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            <span>Back to Hub</span>
+          </Link>
         <h1 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-widest text-accent mb-4">
             Public Quests
         </h1>

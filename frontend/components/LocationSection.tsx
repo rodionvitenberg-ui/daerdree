@@ -74,33 +74,21 @@ export default function LocationSection() {
                     </a>
                   </li>
                   <li>
-                    <a href={`mailto:${LOCATION_CONTENT.contact.email}`} className="hover:text-accent transition-colors">
-                      {LOCATION_CONTENT.contact.email}
-                    </a>
+                    <a 
+  href={`https://t.me/${LOCATION_CONTENT.contact.telegram.replace('@', '')}`} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="hover:text-accent transition-colors"
+>
+  {LOCATION_CONTENT.contact.telegram}
+</a>
                   </li>
                   <li>
-                    <span className="text-white/50">{LOCATION_CONTENT.contact.instagram}</span>
                   </li>
                 </ul>
               </AnimatedContent>
 
             </div>
-
-            {/* Часы работы */}
-            <AnimatedContent distance={20} direction="vertical" delay={0.3}>
-              {/* Убрал rounded, оставил твои границы */}
-              <div className="bg-neutral-900 p-6 md:p-8 border border-white/5">
-                <h3 className="text-white font-serif text-xl uppercase tracking-wider mb-6">Opening Hours</h3>
-                <ul className="space-y-4">
-                  {LOCATION_CONTENT.hours.map((item, idx) => (
-                    <li key={idx} className="flex justify-between items-center text-gray-300 font-sans pb-2 last:pb-0">
-                      <span>{item.day}</span>
-                      <span className="text-white font-bold">{item.time}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedContent>
 
           </div>
 

@@ -56,7 +56,7 @@ export default function Header() {
       {/* --- ЭФФЕКТ AURORA --- */}
       <div className="absolute inset-0 -z-10 opacity-40 pointer-events-none overflow-hidden">
          <Aurora
-           colorStops={["#116880", "#ffffff", "#54115f"]} 
+           colorStops={["#116880", "#ffffff", "#5f1132"]} 
            blend={0.5}
            amplitude={1.0}
            speed={0.5}

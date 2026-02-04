@@ -8,21 +8,20 @@ export default function EventsHub() {
   return (
     <main className="h-screen w-full flex flex-col lg:flex-row bg-black pt-20 lg:pt-0 overflow-hidden">
       
-      {/* === ЛЕВАЯ СТОРОНА: PUBLIC EVENTS (Теперь здесь) === */}
+      {/* === ЛЕВАЯ СТОРОНА: PUBLIC EVENTS === */}
       <Link href="/events/public" className="group relative flex-1 h-1/2 lg:h-full overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
         {/* Фон */}
         <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110">
           <Image
-            src="/images/hero/4.webp" // Фото для паблик ивентов
+            src="/images/hero/4.webp"
             alt="Public Events"
             fill
             className="object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500"
           />
-          {/* Градиент слева направо (для левой колонки) */}
           <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
         </div>
 
-        {/* Контент (Выравнивание влево - items-start) */}
+        {/* Контент */}
         <div className="relative z-10 h-full flex flex-col justify-center p-8 lg:p-16 items-start">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
@@ -39,30 +38,40 @@ export default function EventsHub() {
           </motion.h2>
           <p className="text-white/60 max-w-md text-sm lg:text-lg mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
             Open gaming nights, mafia, tournaments, and lore evenings.
-            <br/>Find your party and join the adventure.
+            Find your party and join the adventure.
           </p>
 
-          <span className="inline-block border border-white/30 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white group-hover:bg-accent group-hover:border-accent group-hover:text-black transition-all">
-            Check Calendar &rarr;
-          </span>
+          {/* ГРАДИЕНТНАЯ КНОПКА (LEFT) */}
+          <div className="relative overflow-hidden px-8 py-4 transition-all duration-300">
+            {/* 1. Градиент (появляется при наведении) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent to-accent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            
+            {/* 2. Бордер (исчезает при наведении, чтобы не конфликтовать) */}
+            <div className="absolute inset-0 border border-white/30 transition-opacity duration-300 group-hover:opacity-0" />
+            
+            {/* 3. Текст */}
+            <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-white transition-colors duration-300 group-hover:text-black">
+              Check Calendar
+            </span>
+          </div>
+
         </div>
       </Link>
 
-      {/* === ПРАВАЯ СТОРОНА: PRIVATE HIRE (Теперь здесь) === */}
+      {/* === ПРАВАЯ СТОРОНА: PRIVATE HIRE === */}
       <Link href="/events/private" className="group relative flex-1 h-1/2 lg:h-full overflow-hidden">
         {/* Фон */}
         <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110">
           <Image
-            src="/images/hero/7.webp" // Фото стола/привата
+            src="/images/hero/7.webp"
             alt="Private Hire"
             fill
             className="object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500"
           />
-          {/* Градиент справа налево (для правой колонки) */}
           <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-l from-black/80 via-black/20 to-transparent" />
         </div>
 
-        {/* Контент (Выравнивание вправо - items-end) */}
+        {/* Контент */}
         <div className="relative z-10 h-full flex flex-col justify-center p-8 lg:p-16 items-end text-right">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
@@ -81,9 +90,20 @@ export default function EventsHub() {
             <br/>Food, Game Master, and epic atmosphere included.
           </p>
           
-          <span className="inline-block border border-white/30 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white group-hover:bg-accent group-hover:border-accent group-hover:text-black transition-all">
-            Explore Options &rarr;
-          </span>
+          {/* ГРАДИЕНТНАЯ КНОПКА (RIGHT) */}
+          <div className="relative overflow-hidden px-8 py-4 transition-all duration-300">
+            {/* 1. Градиент */}
+            <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent to-accent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            
+            {/* 2. Бордер */}
+            <div className="absolute inset-0 border border-white/30 transition-opacity duration-300 group-hover:opacity-0" />
+            
+            {/* 3. Текст */}
+            <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-white transition-colors duration-300 group-hover:text-black">
+              Explore Options
+            </span>
+          </div>
+
         </div>
       </Link>
 

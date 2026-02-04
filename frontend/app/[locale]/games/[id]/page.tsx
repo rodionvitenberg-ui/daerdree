@@ -41,9 +41,10 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
         <div className="absolute bottom-0 left-0 w-full p-6 md:p-12">
           <div className="container mx-auto">
              {/* Хлебные крошки */}
-             <Link href="/games" className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-accent hover:text-white transition-colors">
-                &larr; Back to Library
-             </Link>
+             <Link href="/games" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors mb-6">
+            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            <span>Back to library</span>
+          </Link>
 
              <h1 className="font-serif text-5xl font-black uppercase tracking-widest text-white drop-shadow-2xl md:text-7xl">
                {game.title}

@@ -89,15 +89,16 @@ export default function GamesMarquee() {
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent md:w-40" />
 
         {/* --- РЯД 1 --- */}
-        <div className="flex overflow-hidden"> 
-          <div className="animate-scroll-left flex gap-6 px-3">
+        {/* БЫЛО: className="flex overflow-hidden" */}
+        {/* СТАЛО: className="w-full overflow-hidden" (Убрали flex, чтобы блок не растягивал страницу) */}
+        <div className="w-full overflow-hidden"> 
+          <div className="animate-scroll-left flex gap-6 px-3 w-max"> {/* Добавил w-max для надежности */}
             {duplicatedGames.map((game, index) => (
               <Link 
                 key={`row1-${game.id}-${index}`}
                 href={`/games/${game.id}`}
                 className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
               >
-                {/* ИСПРАВЛЕНИЕ: Проверяем, есть ли картинка, как в GameCard */}
                 {game.image ? (
                   <Image
                     src={getImageUrl(game.image)}
@@ -107,7 +108,6 @@ export default function GamesMarquee() {
                     sizes="(max-width: 768px) 130px, 200px"
                   />
                 ) : (
-                   /* Заглушка, если картинки нет */
                    <div className="flex h-full w-full items-center justify-center bg-white/5">
                      <span className="text-xs text-white/20">No Image</span>
                    </div>
@@ -119,15 +119,16 @@ export default function GamesMarquee() {
         </div>
 
         {/* --- РЯД 2 --- */}
-        <div className="flex overflow-hidden">
-          <div className="animate-scroll-right flex gap-6 px-3">
+        {/* БЫЛО: className="flex overflow-hidden" */}
+        {/* СТАЛО: className="w-full overflow-hidden" */}
+        <div className="w-full overflow-hidden">
+          <div className="animate-scroll-right flex gap-6 px-3 w-max"> {/* Добавил w-max */}
              {duplicatedGames.map((game, index) => (
               <Link 
                 key={`row2-${game.id}-${index}`}
                 href={`/games/${game.id}`} 
                 className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
               >
-                {/* ИСПРАВЛЕНИЕ: То же самое для второго ряда */}
                 {game.image ? (
                   <Image
                     src={getImageUrl(game.image)}

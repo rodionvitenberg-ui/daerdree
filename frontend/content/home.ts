@@ -139,9 +139,9 @@ export const LOCATION_CONTENT = {
     link: "https://goo.gl/maps/...", // Ссылка на Google Maps (для кнопки)
   },
   contact: {
-    phone: "+996 555 000 000",
-    email: "@daerdree.com",
-    instagram: "@daerdreedm",
+    phone: "+357 95 147376",
+    telegram: "@daerdreedm",
+    instagram: "@daerdree",
   },
   hours: [
     { day: "Mon - Thu", time: "16:00 - 01:00" },

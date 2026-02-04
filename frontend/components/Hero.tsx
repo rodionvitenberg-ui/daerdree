@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { HERO_CONTENT } from '@/content/home';
@@ -125,13 +125,21 @@ export default function Hero() {
             </AnimatedContent>
 
             {/* АНИМАЦИЯ КНОПКИ */}
-              <button className="group relative mt-4 overflow-hidden px-3 py-4 transition-all duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
-                  <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
-                  <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
-                      {HERO_CONTENT.buttonText}
-                  </span>
-              </button>
+              <Link 
+  href="/book" // <--- 2. Укажи нужный адрес
+  className="group relative mt-4 inline-block overflow-hidden px-3 py-4 transition-all duration-300" // <--- 3. Добавил 'inline-block', чтобы ссылка вела себя как кнопка
+>
+    {/* Фон с градиентом (при наведении) */}
+    <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
+    
+    {/* Основной фон (исчезает при наведении) */}
+    <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
+    
+    {/* Текст */}
+    <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
+        {HERO_CONTENT.buttonText}
+    </span>
+</Link>
 
         </div>
       </div>
