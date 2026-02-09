@@ -1,28 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
+import Image from "next/image";
 import AnimatedContent from "@/components/AnimatedContent";
-import "react-pdf/dist/Page/AnnotationLayer.css"; // Стили для ссылок внутри PDF (если есть)
-import "react-pdf/dist/Page/TextLayer.css"; // Стили для выделения текста
+import { X } from "lucide-react"; // Если есть lucide-react. Если нет — замени на <span className="text-white text-4xl">×</span>
 
-// === НАСТРОЙКА ВОРКЕРА ===
-// Это критически важно для Next.js, иначе PDF не загрузится
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+// === НАСТРОЙКА ===
+const MENU_IMAGES = [
+  "/menu/menu-page-1.jpg",
+  "/menu/menu-page-2.jpg",
+  "/menu/menu-page-3.jpg",
+];
 
-// Путь к твоему PDF в папке public
-const PDF_FILE = "/menu/menu.pdf"; 
+// Размеры твоих исходников (для сохранения пропорций при загрузке)
+const IMG_WIDTH = 2482;
+const IMG_HEIGHT = 3510;
 
 export default function MenuPage() {
-  const [numPages, setNumPages] = useState<number | null>(null);
-
-  // Колбэк, который срабатывает, когда PDF загрузился и мы узнали кол-во страниц
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-    setNumPages(numPages);
-  }
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20">
+    <main className="min-h-screen bg-background pt-20 pb-20">
       <div className="container mx-auto px-4">
         
         {/* Заголовок */}
@@ -32,54 +30,81 @@ export default function MenuPage() {
               Drinks & Spirits
             </h1>
             <p className="font-sans text-white/50 text-lg">
-              Crafted cocktails and legendary spirits
+              Tap to view full details
             </p>
           </AnimatedContent>
         </div>
 
-        {/* PDF КОНТЕЙНЕР */}
+        {/* СПИСОК СТРАНИЦ */}
         <div className="flex justify-center">
           <AnimatedContent 
             distance={40} 
             direction="vertical" 
-            className="max-w-lg md:max-w-xl w-full"
+            className="w-full max-w-xl" // Ограничиваем ширину на десктопе, но на мобилке будет почти на весь экран
           >
-            <div className="flex flex-col w-full bg-neutral-900 border border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden min-h-[500px] relative">
+            <div className="flex flex-col w-full shadow-2xl overflow-hidden rounded-sm">
               
-              <Document
-                file={PDF_FILE}
-                onLoadSuccess={onDocumentLoadSuccess}
-                className="flex flex-col items-center"
-                loading={
-                  <div className="text-white/50 p-10">Загрузка меню...</div>
-                }
-                error={
-                  <div className="text-red-500 p-10">Не удалось загрузить PDF.</div>
-                }
-              >
-                {/* Рендерим все страницы по очереди */}
-                {numPages && Array.from(new Array(numPages), (el, index) => (
-                  <div key={`page_${index + 1}`} className="w-full relative">
-                     <Page 
-                        pageNumber={index + 1} 
-                        // width={600} // Можно задать жесткую ширину или использовать CSS
-                        className="w-full h-auto"
-                        renderTextLayer={false} // Если не нужно выделять текст (для скорости)
-                        renderAnnotationLayer={false} // Если нет ссылок внутри PDF
-                        width={576} // Примерная ширина max-w-xl (576px) для четкости
-                     />
-                     {/* Разделитель (опционально) */}
-                     {/* {index + 1 !== numPages && (
-                        <div className="w-full h-[1px] bg-black/10" />
-                     )} */}
-                  </div>
-                ))}
-              </Document>
+              {MENU_IMAGES.map((src, index) => (
+                <div key={src} className="relative w-full group cursor-zoom-in" onClick={() => setSelectedImage(src)}>
+                  
+                  <Image
+                    src={src}
+                    alt={`Menu Page ${index + 1}`}
+                    width={IMG_WIDTH}
+                    height={IMG_HEIGHT}
+                    quality={100} // Максимальное качество JPEG
+                    priority={index === 0} // Первая страница грузится мгновенно
+                    // sizes говорит браузеру: "На мобилке бери картинку на 100% ширины экрана, на десктопе — 600px"
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.01]"
+                  />
+
+                  {/* Разделитель (Border Accent 5px) */}
+                  {/* Рендерим его только ЕСЛИ это не последняя картинка */}
+                  {index !== MENU_IMAGES.length - 1 && (
+                    <div className="w-full h-[5px] bg-background relative z-10" />
+                  )}
+                  
+                </div>
+              ))}
 
             </div>
           </AnimatedContent>
         </div>
       </div>
+
+      {/* === LIGHTBOX (МОДАЛКА) === */}
+      {/* Появляется только если выбрана картинка */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          onClick={() => setSelectedImage(null)} // Закрыть при клике на фон
+        >
+          {/* Кнопка закрытия */}
+          <button className="absolute top-6 right-6 text-white/70 hover:text-accent transition-colors p-2 z-50">
+            {/* Если нет lucide-react, просто напиши "CLOSE" или "X" */}
+             <X size={40} /> 
+          </button>
+
+          {/* Контейнер картинки в модалке */}
+          <div 
+            className="relative w-full h-full flex items-center justify-center overflow-auto"
+            onClick={(e) => e.stopPropagation()} // Чтобы клик по картинке не закрывал модалку (опционально)
+          >
+            {/* Здесь используем обычный img для нативной поддержки зума браузером или Next/Image без ограничений */}
+            <div className="relative w-full max-w-4xl max-h-full overflow-y-auto rounded-md custom-scrollbar">
+               <Image
+                src={selectedImage}
+                alt="Full screen menu"
+                width={IMG_WIDTH}
+                height={IMG_HEIGHT}
+                quality={100}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

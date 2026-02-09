@@ -11,13 +11,6 @@ export default function FAQPage() {
       
       {/* HEADER */}
       <section className="container mx-auto px-4 mb-20 text-center">
-        <motion.span 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4 block"
-        >
-          Daerdree
-        </motion.span>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -96,7 +89,7 @@ export default function FAQPage() {
                     <motion.div 
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
-                      className="mt-12 pt-8 border-t border-white/10"
+                      className="mt-12 pt-8"
                     >
                       {block.cta.link ? (
                         <Link 
@@ -115,12 +108,6 @@ export default function FAQPage() {
                         </Link>
                       ) : (
                         <div className="flex flex-col items-center lg:items-start gap-4 text-accent">
-                          {block.cta.icon === 'arrow' && (
-                             <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-                          )}
-                          <span className="font-serif uppercase tracking-widest text-sm font-bold">
-                            {block.cta.text}
-                          </span>
                         </div>
                       )}
                     </motion.div>

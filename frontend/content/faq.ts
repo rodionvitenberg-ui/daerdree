@@ -101,7 +101,7 @@ export const faqData: FAQBlock[] = [
     ],
     cta: {
       text: "Game night announcements",
-      link: "https://t.me/daerdree_channel", // Замените на реальную ссылку
+      link: "https://t.me/daerdree", // Замените на реальную ссылку
       icon: "telegram"
     }
   },
