@@ -2,7 +2,6 @@ from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
 from .models import Event
 from .serializers import EventSerializer
-from django.utils import timezone
 
 # 1. Настраиваем "Разбиватель страниц"
 class StandardResultsSetPagination(PageNumberPagination):
@@ -11,12 +10,7 @@ class StandardResultsSetPagination(PageNumberPagination):
     max_page_size = 100
 
 class EventViewSet(viewsets.ModelViewSet):
+    # 2. Сортировка: '-event_date' означает "от новых к старым" (минус перед полем)
+    queryset = Event.objects.filter(is_visible=True).order_by('-event_date')
     serializer_class = EventSerializer
     pagination_class = StandardResultsSetPagination
-    queryset = Event.objects.all()
-
-    def get_queryset(self):
-        return Event.objects.filter(
-            is_visible=True,
-            event_date__gte=timezone.now()
-        ).order_by('event_date')
