@@ -160,5 +160,5 @@ export const FOOTER_CONTENT = {
     { name: "Telegram", link: "https://t.me/daerdree" },
   ],
   
-  credit: "Powered by RVS, 2026",
+  credit: "Powered by IkSoft, 2026",
 };

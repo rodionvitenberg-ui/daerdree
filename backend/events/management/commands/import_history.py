@@ -23,9 +23,12 @@ class Command(BaseCommand):
         offset = 0
         imported_count = 0
         target_count = 15
+        max_attempts = 50 
+        attempts = 0
 
-        while imported_count < target_count:
+        while imported_count < target_count and attempts < max_attempts:
             try:
+                # 1. Делаем запрос к Telegram
                 response = requests.get(
                     f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getUpdates",
                     params={"offset": offset, "timeout": 30}
@@ -33,13 +36,19 @@ class Command(BaseCommand):
                 data = response.json()
 
                 if "result" in data:
+                    # 2. Если обновлений нет вообще — прерываем цикл, чтобы не крутиться вечно
+                    if not data["result"]:
+                        break
+
                     for item in data["result"]:
+                        attempts += 1 # <-- Увеличиваем счетчик попыток на каждом посте
                         offset = item["update_id"] + 1
 
                         if "message" not in item: continue
                         msg = item["message"]
                         if "photo" not in msg: continue
 
+                        # Проверка на дубликаты
                         telegram_id = str(msg.get("forward_from_message_id", msg["message_id"]))
                         if Event.objects.filter(telegram_id=telegram_id).exists():
                             self.stdout.write(f'⚠️ Пост {telegram_id} уже есть.')

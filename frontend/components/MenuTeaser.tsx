@@ -35,7 +35,7 @@ export default function MenuTeaser() {
       </div>
 
       <div className="container mx-auto flex h-full flex-col items-center md:flex-row md:justify-center md:gap-16">
-        <div className="hidden md:block relative w-[400px] h-[500px] lg:w-[600px] lg:h-[750px] shrink-0 transition-transform duration-700">
+        <div className="hidden md:block relative w-[400px] h-[500px] lg:w-[500px] lg:h-[650px] shrink-0 transition-transform duration-700">
           
           {/* Свечение за драконом (опционально) */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600%] h-[20%] bg-accent/10 blur-[80px] rounded-full" />
@@ -43,7 +43,7 @@ export default function MenuTeaser() {
           <Image
             src={MENU_CONTENT.imageDesktop} // Берем из home.ts
             alt="Dragon Tequila"
-            fill // Растягивается на весь родительский блок (500x600)
+            fill
             className="object-contain drop-shadow-2xl" // object-contain: покажет картинку целиком, не обрезая края
             priority // Грузим быстро, так как это важный элемент
           />
