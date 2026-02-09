@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function EventsHub() {
   return (
-    <main className="h-screen w-full flex flex-col lg:flex-row bg-black pt-20 lg:pt-0 overflow-hidden">
+    <main className="h-screen w-full flex flex-col lg:flex-row bg-black overflow-hidden">
       
       {/* === ЛЕВАЯ СТОРОНА: PUBLIC EVENTS === */}
       <Link href="/events/public" className="group relative flex-1 h-1/2 lg:h-full overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
@@ -36,21 +36,21 @@ export default function EventsHub() {
           >
             Public<br/>Quests
           </motion.h2>
-          <p className="text-white/60 max-w-md text-sm lg:text-lg mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+          <p className="text-white max-w-md text-sm lg:text-lg mb-6 lg:mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
             Open gaming nights, mafia, tournaments, and lore evenings.
             Find your party and join the adventure.
           </p>
 
           {/* ГРАДИЕНТНАЯ КНОПКА (LEFT) */}
-          <div className="relative overflow-hidden px-8 py-4 transition-all duration-300">
-            {/* 1. Градиент (появляется при наведении) */}
-            <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent to-accent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="relative overflow-hidden px-10 py-5 lg:px-8 lg:py-4 transition-all duration-300 flex-shrink-0 flex items-center justify-center">
+            {/* 1. Градиент (На мобилке виден всегда, на десктопе при ховере) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent to-accent opacity-100 lg:opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100" />
             
-            {/* 2. Бордер (исчезает при наведении, чтобы не конфликтовать) */}
-            <div className="absolute inset-0 border border-white/30 transition-opacity duration-300 group-hover:opacity-0" />
+            {/* 2. Бордер (На мобилке скрыт, на десктопе исчезает при ховере) */}
+            <div className="absolute inset-0 border border-white/30 opacity-0 lg:opacity-100 transition-opacity duration-300 lg:group-hover:opacity-0" />
             
-            {/* 3. Текст */}
-            <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-white transition-colors duration-300 group-hover:text-black">
+            {/* 3. Текст (Черный на мобилке, белый на десктопе и чернеет при ховере) */}
+            <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-black lg:text-white transition-colors duration-300 lg:group-hover:text-black">
               Check Calendar
             </span>
           </div>
@@ -85,21 +85,21 @@ export default function EventsHub() {
           >
             Private<br/>Saga
           </motion.h2>
-          <p className="text-white/60 max-w-md text-sm lg:text-lg mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+          <p className="text-white max-w-md text-sm lg:text-lg mb-6 lg:mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
             Corporate events, birthdays, and closed gatherings. 
             <br/>Food, Game Master, and epic atmosphere included.
           </p>
           
           {/* ГРАДИЕНТНАЯ КНОПКА (RIGHT) */}
-          <div className="relative overflow-hidden px-8 py-4 transition-all duration-300">
-            {/* 1. Градиент */}
-            <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent to-accent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="relative overflow-hidden px-10 py-5 lg:px-8 lg:py-4 transition-all duration-300 flex-shrink-0 flex items-center justify-center">
+            {/* 1. Градиент (На мобилке виден всегда, на десктопе при ховере) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent to-accent opacity-100 lg:opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100" />
             
-            {/* 2. Бордер */}
-            <div className="absolute inset-0 border border-white/30 transition-opacity duration-300 group-hover:opacity-0" />
+            {/* 2. Бордер (На мобилке скрыт, на десктопе исчезает при ховере) */}
+            <div className="absolute inset-0 border border-white/30 opacity-0 lg:opacity-100 transition-opacity duration-300 lg:group-hover:opacity-0" />
             
-            {/* 3. Текст */}
-            <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-white transition-colors duration-300 group-hover:text-black">
+            {/* 3. Текст (Черный на мобилке, белый на десктопе и чернеет при ховере) */}
+            <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-black lg:text-white transition-colors duration-300 lg:group-hover:text-black">
               Explore Options
             </span>
           </div>

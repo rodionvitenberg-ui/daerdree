@@ -150,7 +150,7 @@ export default function PrivateHirePage() {
       </section>
 
       {/* 2. THE GAME MASTER */}
-      <section className="py-24 px-4 border-b border-white/5 overflow-hidden">
+      <section className="py-24 px-4 overflow-hidden">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-24">
             
             {/* ЛЕВАЯ ЧАСТЬ: Изображения */}
@@ -183,10 +183,10 @@ export default function PrivateHirePage() {
                 <h2 className="font-serif text-4xl lg:text-5xl font-black uppercase tracking-wide mb-6">
                    {PRIVATE_HIRE_CONTENT.gameMaster.title}
                 </h2>
-                <p className="text-white/60 text-lg mb-6 leading-relaxed">
+                <p className="text-white/80 text-lg mb-6 leading-relaxed">
                    {PRIVATE_HIRE_CONTENT.gameMaster.description}
                 </p>
-                <p className="text-white/60 text-lg leading-relaxed">
+                <p className="text-white/80 text-lg leading-relaxed">
                    {PRIVATE_HIRE_CONTENT.gameMaster.subDescription}
                 </p>
             </div>
@@ -227,10 +227,10 @@ export default function PrivateHirePage() {
                 <h2 className="font-serif text-4xl lg:text-5xl font-black uppercase tracking-wide mb-6">
                   {PRIVATE_HIRE_CONTENT.feast.title}
                 </h2>
-                <p className="text-white/60 text-lg mb-6 leading-relaxed">
+                <p className="text-white/80 text-lg mb-6 leading-relaxed">
                   {PRIVATE_HIRE_CONTENT.feast.description}
                 </p>
-                <ul className="space-y-2 text-white/50 font-serif uppercase text-sm tracking-widest">
+                <ul className="space-y-2 text-white/80 font-serif uppercase text-sm tracking-widest">
                     {PRIVATE_HIRE_CONTENT.feast.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2">
                         <span className="text-accent">•</span> {feature}

@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import AnimatedContent from "@/components/AnimatedContent";
 
 interface Event {
   id: number;
@@ -20,17 +19,48 @@ export default function PublicEventsPage() {
   const [nextPage, setNextPage] = useState<string | null>(null);
   const [loadingMore, setLoadingMore] = useState(false);
   
+  // Для календаря: выбранный день (если нужно будет фильтровать)
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
   const isDev = process.env.NODE_ENV === 'development';
 
-  // Хелпер даты
+  // Хелпер даты (форматирование)
   const formatDate = (isoString: string) => {
     const date = new Date(isoString);
     const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Nicosia' };
     const day = new Intl.DateTimeFormat('en-US', { ...options, day: 'numeric' }).format(date);
     const month = new Intl.DateTimeFormat('en-US', { ...options, month: 'short' }).format(date).toUpperCase();
     const time = new Intl.DateTimeFormat('en-US', { ...options, hour: '2-digit', minute: '2-digit', hour12: false }).format(date);
-    return { day, month, time };
+    const weekday = new Intl.DateTimeFormat('en-US', { ...options, weekday: 'short' }).format(date).toUpperCase();
+    
+    // Возвращаем чистую дату YYYY-MM-DD для сравнения
+    const fullDate = date.toISOString().split('T')[0]; 
+    
+    return { day, month, time, weekday, fullDate };
   };
+
+  // Хелпер для генерации текущей недели (Пн-Вс)
+  const weekDays = useMemo(() => {
+    const curr = new Date();
+    // Находим понедельник текущей недели (учитываем, что в JS воскресенье = 0)
+    const day = curr.getDay();
+    const diff = curr.getDate() - day + (day === 0 ? -6 : 1); 
+    const monday = new Date(curr.setDate(diff));
+
+    const week = [];
+    for (let i = 0; i < 7; i++) {
+      const nextDay = new Date(monday);
+      nextDay.setDate(monday.getDate() + i);
+      const { day: d, weekday: w, fullDate: fd } = formatDate(nextDay.toISOString());
+      week.push({
+        dateObj: nextDay,
+        dayNum: d,
+        weekday: w,
+        fullDate: fd // YYYY-MM-DD
+      });
+    }
+    return week;
+  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -67,34 +97,102 @@ export default function PublicEventsPage() {
     }
   };
 
+  // Фильтрация событий (если выбран день в календаре)
+  const filteredEvents = selectedDate 
+    ? events.filter(e => e.event_date.startsWith(selectedDate))
+    : events;
+
   return (
     <main className="min-h-screen bg-background pt-32 pb-20 px-4 md:px-8">
       
-      {/* HEADER */}
-      <div className="text-center mb-16">
-        <Link href="/events" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors mb-6">
-            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-            <span>Back to Hub</span>
-          </Link>
-        <h1 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-widest text-accent mb-4">
-            Public Quests
-        </h1>
-        <p className="font-sans text-white/50 text-lg max-w-2xl mx-auto">
-            Find your party. Join the raid. No experience required.
-        </p>
+      {/* --- HEADER BLOCK --- */}
+      <div className="container mx-auto mb-16">
+        
+        {/* 1. Back Button */}
+        <div className="text-center mb-8">
+            <Link href="/events" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                <span>Back to Hub</span>
+            </Link>
+        </div>
+
+        {/* 2. WEEKLY CALENDAR (New) */}
+        <div className="max-w-4xl mx-auto mb-12">
+            <div className="grid grid-cols-7 border border-white/10 bg-neutral-900/50 backdrop-blur-sm overflow-hidden rounded-sm">
+                {weekDays.map((dayItem, index) => {
+                    // Проверяем, есть ли события в этот день
+                    const hasEvent = events.some(e => e.event_date.startsWith(dayItem.fullDate));
+                    const isToday = dayItem.fullDate === new Date().toISOString().split('T')[0];
+                    const isSelected = selectedDate === dayItem.fullDate;
+
+                    return (
+                        <button 
+                            key={index}
+                            onClick={() => setSelectedDate(isSelected ? null : dayItem.fullDate)}
+                            className={`
+                                relative flex flex-col items-center justify-center py-4 border-r border-white/5 last:border-r-0 transition-all duration-300 group
+                                ${isSelected ? 'bg-accent text-black' : 'hover:bg-white/5'}
+                                ${hasEvent && !isSelected ? 'cursor-pointer' : ''}
+                            `}
+                        >
+                            {/* День недели */}
+                            <span className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${isSelected ? 'text-black/60' : 'text-white/30'}`}>
+                                {dayItem.weekday}
+                            </span>
+                            
+                            {/* Число */}
+                            <span className={`font-serif text-xl font-bold ${isSelected ? 'text-black' : isToday ? 'text-accent' : 'text-white'}`}>
+                                {dayItem.dayNum}
+                            </span>
+
+                            {/* Маркер события (Точка) */}
+                            {hasEvent && (
+                                <div className={`absolute bottom-2 w-1 h-1 rounded-full ${isSelected ? 'bg-black' : 'bg-accent shadow-[0_0_8px_rgba(255,215,0,0.8)]'}`} />
+                            )}
+                            
+                            {/* Подсветка при наведении (если не выбран) */}
+                            {!isSelected && hasEvent && (
+                                <div className="absolute inset-0 border border-accent/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                            )}
+                        </button>
+                    );
+                })}
+            </div>
+            {/* Legend / Info text */}
+            <div className="text-center mt-4">
+                 {selectedDate ? (
+                     <button onClick={() => setSelectedDate(null)} className="text-xs text-accent hover:underline uppercase tracking-widest">
+                         Clear Filter (Show All)
+                     </button>
+                 ) : (
+                     <p className="text-[10px] text-white/20 uppercase tracking-widest">Select a date to filter quests</p>
+                 )}
+            </div>
+        </div>
+
+        {/* 3. Title */}
+        <div className="text-center">
+            <h1 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-widest text-accent mb-4">
+                Public Quests
+            </h1>
+            <p className="font-sans text-white/50 text-lg max-w-2xl mx-auto">
+                Find your party. Join the raid. No experience required.
+            </p>
+        </div>
       </div>
 
-      {/* EVENTS GRID */}
+      {/* --- EVENTS GRID --- */}
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {loading ? (
                 [1, 2, 3].map((n) => <div key={n} className="h-96 bg-neutral-900/50 animate-pulse border border-white/5 rounded-sm" />)
-            ) : events.length === 0 ? (
-                <div className="col-span-full text-center py-20 text-white/30">
-                    <p>No upcoming quests found on the notice board.</p>
+            ) : filteredEvents.length === 0 ? (
+                <div className="col-span-full text-center py-20 text-white/30 bg-neutral-900/20 border border-dashed border-white/10 rounded-lg">
+                    <p className="font-serif text-2xl mb-2 text-white/50">Nothing on the horizon</p>
+                    <p className="text-sm">No quests found for this specific time.</p>
                 </div>
             ) : (
-                events.map((event) => {
+                filteredEvents.map((event) => {
                 const { day, month, time } = formatDate(event.event_date);
                 return (
                     <Link href={`/events/${event.id}`} key={event.id} className="block h-full group">
@@ -127,7 +225,8 @@ export default function PublicEventsPage() {
             )}
         </div>
 
-        {!loading && nextPage && (
+        {/* Кнопка Load More показывается только если нет фильтра (т.к. фильтр работает по уже загруженным данным) */}
+        {!selectedDate && !loading && nextPage && (
             <div className="flex justify-center pb-8">
                 <button onClick={loadMoreEvents} disabled={loadingMore} className="px-8 py-3 bg-neutral-900 border border-white/20 hover:border-accent text-white hover:text-accent uppercase font-bold tracking-widest text-xs transition-colors">
                     {loadingMore ? 'Loading...' : 'Load More'}
