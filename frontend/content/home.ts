@@ -1,9 +1,9 @@
 // content/home.ts
 
 export const HERO_CONTENT = {
-  title: "THE ULTIMATE TIMECLUB",
-  subtitle: "Board Games • Craft Bar • Cyber Lounge",
-  buttonText: "FIND OUT MORE AND BOOK!",
+  title: "ТВОЙ ХОД К ИДЕАЛЬНОМУ ВЕЧЕРУ",
+  subtitle: "Игры • Вкусности • Веселье",
+  buttonText: "ЗАБРОНИРУЙ СТОЛИК!",
   
   slides: [
     {
@@ -15,29 +15,20 @@ export const HERO_CONTENT = {
       ],
       mobile: { type: 'video', src: '/images/hero/1.mp4' }
     },
-    {
-      id: 2,
-      desktop: [
-        { type: 'image', src: '/images/hero/4.webp' },
-        { type: 'image', src: '/images/hero/5.webp' },
-        { type: 'image', src: '/images/hero/6.webp' }
-      ],
-      mobile: { type: 'image', src: '/images/hero/4.webp' }
-    },
   ]
 };
 
 
 export const BOOKING_CONTENT = {
-  title: "RESERVE YOUR SPOT",
-  subtitle: "Limited seats available. Members priority.",
-  image: "/images/hero/3.webp", 
+  title: "Хороший вечер начинается с брони",
+  subtitle: "Ваш стол уже ждет, а правила мы расскажем!",
+  image: "/images/1.png", 
   form: {
-    namePlaceholder: "Your Name",
-    guestsPlaceholder: "Number of Guests",
-    datePlaceholder: "Date & Time",
-    contactPlaceholder: "Phone / Telegram",
-    buttonText: "REQUEST BOOKING"
+    namePlaceholder: "Ваше имя",
+    guestsPlaceholder: "Количество гостей",
+    datePlaceholder: "Дата и время",
+    contactPlaceholder: "Телефон / Telegram",
+    buttonText: "ЗАБРОНИРОВАТЬ"
   },
   socials: {
     instagram: "https://instagram.com/daerdree",
@@ -47,29 +38,29 @@ export const BOOKING_CONTENT = {
 
 
 export const GAMES_CONTENT = {
-  title: "Library",
-  subtitle: "Explore our collection",
-  buttonText: "View Full List"
+  title: "Библиотека игр",
+  subtitle: "Выбирайте, играйте, повторяйте",
+  buttonText: "Посмотреть все игры",
 };
 
 export const MENU_CONTENT = {
-  title: "Our Menu",
-  highlightWord: "Menu", 
-  description: "Ехал грека через реку, видит грека - в реке рак. Сунул грека руку в реку, рак за руку греку цап!",
-  buttonText: "Explore Drinks",
+  title: "Наше",
+  highlightWord: "Меню", 
+  description: "Вкусные коктейли, которые отлично дополняют атмосферу. От классики до авторских шедевров — каждый себе найдет что-то по вкусу.",
+  buttonText: "Посмотреть меню",
   imageDesktop: "/images/dragon.png", 
   imageMobile: "/images/dragon.png",  
 };
 
 
 export const DIVIDER_CONTENT = {
-  image: "/images/separator.webp",
+  image: "/images/separator.png",
   alt: "Bar Interior Detail",
 };
 
 export const EVENTS_CONTENT = {
-  title: "Vibe Check",
-  subtitle: "Moments, Games, & Madness",
+  title: "Зацени наш вайб",
+  subtitle: "Самые яркие моменты из жизни нашего бара",
 };
 
 // Генерируем побольше карточек для плотной стены
@@ -91,41 +82,41 @@ export const EVENTS_GALLERY = [
 // frontend/content/home.ts
 
 export const CATERING_STACK_CONTENT = {
-  title: "Private Events",
-  subtitle: "Crafting Memories, One Night at a Time",
+  title: "Мероприятия под ключ",
+  subtitle: "Доверьтесь нам - мы сделаем всё от первого хода до финального тоста!",
   cards: [
     {
       id: "stack-1",
-      title: "The Murmuring Mood",
-      description: "Что говорит кот? Кот говорит: \"Мур, епты.\"",
-      image: "/images/hero/1.webp", 
+      title: "Ивент, о котором будут говорить",
+      description: "Не просто вечер - настоящий игровой опыт.",
+      image: "/images/frames/1.jpg", 
     },
     {
       id: "stack-2",
-      title: "Custom Menu",
-      description: "Вот ты сидишь, пишешь код, а он такой: \"Может, тебе помочь?\"",
-      image: "/images/hero/2.webp",
+      title: "Ваша компания. Наш сценарий.",
+      description: "Подберём формат под любую аудиторию.",
+      image: "/images/frames/2.png",
     },
     {
       id: "stack-3",
-      title: "Tabletop Games",
-      description: "Здесь будет суперважная информация про настолки, кейтеринг и прочее.",
-      image: "/images/hero/3.webp",
+      title: "Азарт, смех и командный дух",
+      description: "Объединяем людей через игру.",
+      image: "/images/frames/3.jpg",
     },
     {
       id: "stack-4",
-      title: "Tech-Enhanced Fun",
-      description: "VS Code стал настолько умным, что литералли предлагает мне закончить мои мысли за меня.",
-      image: "/images/hero/4.webp",
+      title: "Вкус, стиль и атмосфера",
+      description: "Кейтеринг, который дополняет вечер.",
+      image: "/images/frames/4.png",
     },
     {
       id: "stack-5",
-      title: "Dedicated Staff",
-      description: "Код он тоже умеет генерировать, но делает это не слишком умело и не слишком охотно.",
-      image: "/images/hero/5.webp",
+      title: "Один шаг до идеального события",
+      description: "Оставьте заявку — остальное сделаем мы.",
+      image: "/images/frames/5.png",
     },
   ],
-  buttonText: "Plan Your Event",
+  buttonText: "Устроить Ивент",
 };
 
 // frontend/content/home.ts

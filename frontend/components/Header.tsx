@@ -6,10 +6,10 @@ import Image from 'next/image';
 import Aurora from './Aurora';
 
 const NAV_ITEMS = [
-  { name: 'Drinks Menu', href: '/menu', group: 'left' },
-  { name: 'Games Library', href: '/games', group: 'left' },
-  { name: 'Events', href: '/events', group: 'right' },
-  { name: 'Book', href: '/book', group: 'right' },
+  { name: 'Меню напитков', href: '/menu', group: 'left' },
+  { name: 'Настольные игры', href: '/games', group: 'left' },
+  { name: 'Ивенты', href: '/events', group: 'right' },
+  { name: 'Бронирование', href: '/book', group: 'right' },
   { name: 'F.A.Q.', href: '/faq', group: 'right' },
 ];
 

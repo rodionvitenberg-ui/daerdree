@@ -101,7 +101,7 @@ export default function Hero() {
               threshold={0.2}
               delay={0.1} // Стартует почти сразу
             >
-              <h1 className="font-serif text-5xl font-black uppercase tracking-widest text-white md:text-5xl lg:text-5xl drop-shadow-2xl">
+              <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-5xl lg:text-6xl drop-shadow-[0_1px_30px_rgba(0,0,0,0.5)]">
                   {HERO_CONTENT.title}
               </h1>
             </AnimatedContent>

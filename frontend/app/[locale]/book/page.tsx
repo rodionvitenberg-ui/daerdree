@@ -92,7 +92,7 @@ function BookPageContent() {
                 src={src}
                 alt={`Atmosphere ${index}`}
                 fill
-                className="object-cover"
+                className="object-cover contrast-145"
                 unoptimized={isDev}
                 priority={index === 0} 
               />
@@ -112,7 +112,7 @@ function BookPageContent() {
         {/* 2. ПРАВАЯ ЧАСТЬ: ФОРМА или УСПЕХ */}
         <div className="relative z-10 w-full lg:w-[33.5%] lg:h-full bg-background flex flex-col justify-center">
             
-            <div className="-mt-10 lg:mt-0 px-6 py-12 lg:px-12 bg-background shadow-[0_-10px_40px_rgba(0,0,0,0.5)] lg:shadow-none rounded-t-3xl lg:rounded-none border-t border-white/10 lg:border-t-0 transition-all duration-500">
+            <div className="-mt-0 lg:mt-0 px-6 py-12 lg:px-12 bg-background shadow-[0_-10px_40px_rgba(0,0,0,0.5)] lg:shadow-none border-t border-white/10 lg:border-t-0 transition-all duration-500">
                 
                 {/* ЛОГИКА: Если УСПЕХ -> показываем сообщение, ИНАЧЕ -> форму */}
                 {status === 'success' ? (

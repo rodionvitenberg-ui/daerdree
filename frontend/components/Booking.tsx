@@ -61,11 +61,11 @@ function BookingContent() {
             src={BOOKING_CONTENT.image}
             alt="Booking Atmosphere"
             fill
-            className="object-cover"
+            className="object-cover contrast-135"
           />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-            <h2 className="font-serif text-4xl font-black uppercase tracking-widest text-white drop-shadow-lg lg:text-6xl">
+          <div className="absolute inset-0 bg-black/65" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 pb-32 lg:pb-6">
+            <h2 className="font-serif text-3xl font-black uppercase tracking-widest text-white drop-shadow-lg lg:text-6xl">
               {BOOKING_CONTENT.title}
             </h2>
             <p className="mt-2 font-sans text-lg text-gray-200 lg:max-w-md">
@@ -87,15 +87,15 @@ function BookingContent() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <h3 className="font-serif text-3xl font-bold uppercase text-white mb-2">Request Sent!</h3>
+                      <h3 className="font-serif text-3xl font-bold uppercase text-white mb-2">Отправляем запрос!</h3>
                       <p className="text-white/60 mb-8">
-                        Thank you for your request. We will contact you shortly to confirm your booking.
+                        Скоро свяжемся с вами для подтверждения брони. Если у вас есть вопросы, не стесняйтесь писать нам в Telegram или Instagram.
                       </p>
                       <button 
                         onClick={() => setStatus('idle')}
                         className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-white transition-colors"
                       >
-                        Send another request
+                        Отправить еще одну заявку
                       </button>
                    </div>
                 ) : (
@@ -105,7 +105,7 @@ function BookingContent() {
                   {eventTitle && (
                     <div className="mb-6 p-4 bg-white/5 border-l-2 border-secondary flex flex-col justify-center rounded-r-sm animate-in fade-in slide-in-from-top-4">
                         <span className="text-secondary text-[10px] font-bold uppercase tracking-widest mb-1 opacity-80">
-                          You are joining
+                          Выбранное событие:
                         </span>
                         <span className="text-white font-serif text-xl tracking-wide">
                           {eventTitle}
@@ -121,13 +121,13 @@ function BookingContent() {
                       {/* Если ОШИБКА, показываем красную плашку сверху */}
                       {status === 'error' && (
                           <div className="rounded bg-red-500/10 p-3 border border-red-500/20 text-center text-sm text-red-400">
-                              Something went wrong. Please try again or contact us via WhatsApp.
+                              Что-то пошло не так. Пожалуйста, попробуйте снова или свяжитесь с нами через соцсети.
                           </div>
                       )}
 
                       <div className="group">
                           <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                              Name
+                              Имя
                           </label>
                           <input 
                               required
@@ -141,7 +141,7 @@ function BookingContent() {
 
                       <div className="group">
                           <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                              Guests
+                              Гости
                           </label>
                           <input 
                               required
@@ -155,7 +155,7 @@ function BookingContent() {
 
                       <div className="group">
                           <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                              Date
+                              Дата и время
                           </label>
                           <input 
                               required
@@ -171,7 +171,7 @@ function BookingContent() {
 
                       <div className="group">
                           <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                              Contact
+                              Контакты
                           </label>
                           <input 
                               required
@@ -203,7 +203,7 @@ function BookingContent() {
                 {/* Разделитель и соцсети (оставляем видимыми всегда) */}
                 <div className="my-8 flex items-center gap-4">
                     <div className="h-px flex-1 bg-white/10" />
-                    <span className="font-serif text-xs text-gray-500">OR REACH US VIA</span>
+                    <span className="font-serif text-xs text-gray-500">ИЛИ СВЯЖИТЕСЬ С НАМИ ЧЕРЕЗ</span>
                     <div className="h-px flex-1 bg-white/10" />
                 </div>
 

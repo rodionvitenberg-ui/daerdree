@@ -29,16 +29,15 @@ export default function EventsHub() {
             transition={{ delay: 0.1 }}
             className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4"
           >
-            Join the Guild
+            Наши двери открыты для всех
           </motion.span>
           <motion.h2 
             className="font-serif text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-6 group-hover:text-accent transition-colors"
           >
-            Public<br/>Quests
+            Игровые вечера<br/>для всех
           </motion.h2>
           <p className="text-white max-w-md text-sm lg:text-lg mb-6 lg:mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
-            Open gaming nights, mafia, tournaments, and lore evenings.
-            Find your party and join the adventure.
+            Новые люди, новые партии, новые эмоции. Просто выберите дату и приходите играть.
           </p>
 
           {/* ГРАДИЕНТНАЯ КНОПКА (LEFT) */}
@@ -51,7 +50,7 @@ export default function EventsHub() {
             
             {/* 3. Текст (Черный на мобилке, белый на десктопе и чернеет при ховере) */}
             <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-black lg:text-white transition-colors duration-300 lg:group-hover:text-black">
-              Check Calendar
+              Найти игру
             </span>
           </div>
 
@@ -83,11 +82,10 @@ export default function EventsHub() {
           <motion.h2 
             className="font-serif text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-6 group-hover:text-accent transition-colors"
           >
-            Private<br/>Saga
+            Сценарий для<br/>вашего события
           </motion.h2>
           <p className="text-white max-w-md text-sm lg:text-lg mb-6 lg:mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
-            Corporate events, birthdays, and closed gatherings. 
-            <br/>Food, Game Master, and epic atmosphere included.
+            Игровая программа, профессиональный ведущий и кейтеринг — вы отдыхаете, мы организуем.
           </p>
           
           {/* ГРАДИЕНТНАЯ КНОПКА (RIGHT) */}
@@ -100,7 +98,7 @@ export default function EventsHub() {
             
             {/* 3. Текст (Черный на мобилке, белый на десктопе и чернеет при ховере) */}
             <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-black lg:text-white transition-colors duration-300 lg:group-hover:text-black">
-              Explore Options
+              Узнать детали
             </span>
           </div>
 
