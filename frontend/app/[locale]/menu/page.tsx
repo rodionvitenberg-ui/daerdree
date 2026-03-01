@@ -27,10 +27,10 @@ export default function MenuPage() {
         <div className="mb-12 text-center">
           <AnimatedContent distance={20} direction="vertical">
             <h1 className="font-serif text-4xl md:text-6xl font-black uppercase tracking-widest text-accent mb-4">
-              Drinks & Spirits
+              Наши напитки
             </h1>
             <p className="font-sans text-white/50 text-lg">
-              Tap to view full details
+              Нажми, чтобы раскрыть
             </p>
           </AnimatedContent>
         </div>
