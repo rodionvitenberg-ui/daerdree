@@ -77,7 +77,7 @@ export default function EventsHub() {
             animate={{ opacity: 1, y: 0 }}
             className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4"
           >
-            All Inclusive
+            Всё включено
           </motion.span>
           <motion.h2 
             className="font-serif text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-6 group-hover:text-accent transition-colors"

@@ -113,7 +113,7 @@ export default function PrivateHirePage() {
         <div className="relative z-10 text-center px-4">
           <Link href="/events" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors mb-6">
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-            <span>Back to Hub</span>
+            <span>Вернуться назад</span>
           </Link>
           <AnimatedContent direction="vertical">
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-widest text-secondary mb-4">
@@ -186,6 +186,13 @@ export default function PrivateHirePage() {
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
                    {PRIVATE_HIRE_CONTENT.gameMaster.description}
                 </p>
+                <ul className="space-y-2 text-white/80 font-serif uppercase text-sm tracking-widest">
+                    {PRIVATE_HIRE_CONTENT.gameMaster.features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className="text-accent">•</span> {feature}
+                      </li>
+                    ))}
+                </ul>
                 <p className="text-white/80 text-lg leading-relaxed">
                    {PRIVATE_HIRE_CONTENT.gameMaster.subDescription}
                 </p>
@@ -228,15 +235,14 @@ export default function PrivateHirePage() {
                   {PRIVATE_HIRE_CONTENT.feast.title}
                 </h2>
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                  {PRIVATE_HIRE_CONTENT.feast.description}
+                  {PRIVATE_HIRE_CONTENT.feast.descriptionOne}
                 </p>
-                <ul className="space-y-2 text-white/80 font-serif uppercase text-sm tracking-widest">
-                    {PRIVATE_HIRE_CONTENT.feast.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className="text-accent">•</span> {feature}
-                      </li>
-                    ))}
-                </ul>
+                <p className="text-white/80 text-lg mb-6 leading-relaxed">
+                  {PRIVATE_HIRE_CONTENT.feast.descriptionTwo}
+                </p>
+                <p className="text-white/80 text-lg mb-6 leading-relaxed">
+                  {PRIVATE_HIRE_CONTENT.feast.descriptionThree}
+                </p>
             </div>
         </div>
       </section>

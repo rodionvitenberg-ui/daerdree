@@ -161,7 +161,7 @@ function BookPageContent() {
 
                     <div className="group">
                         <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                            Name
+                            Имя
                         </label>
                         <input 
                             required
@@ -175,7 +175,7 @@ function BookPageContent() {
 
                     <div className="group">
                         <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                            Guests
+                            Количество гостей
                         </label>
                         <input 
                             required
@@ -189,7 +189,7 @@ function BookPageContent() {
 
                     <div className="group">
                         <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                            Date
+                            Дата и время
                         </label>
                         <input 
                             required
@@ -205,7 +205,7 @@ function BookPageContent() {
 
                     <div className="group">
                         <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                            Contact
+                            Контакты
                         </label>
                         <input 
                             required
@@ -237,7 +237,7 @@ function BookPageContent() {
                 {/* Разделитель */}
                 <div className="my-8 flex items-center gap-4">
                     <div className="h-px flex-1 bg-white/10" />
-                    <span className="font-serif text-xs text-gray-500">OR REACH US VIA</span>
+                    <span className="font-serif text-xs text-gray-500">Или свяжитесь с нами через</span>
                     <div className="h-px flex-1 bg-white/10" />
                 </div>
 

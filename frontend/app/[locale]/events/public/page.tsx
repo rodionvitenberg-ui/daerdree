@@ -112,7 +112,7 @@ export default function PublicEventsPage() {
         <div className="text-center mb-8">
             <Link href="/events" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                <span>Back to Hub</span>
+                <span>Вернуться назад</span>
             </Link>
         </div>
 
@@ -162,10 +162,10 @@ export default function PublicEventsPage() {
             <div className="text-center mt-4">
                  {selectedDate ? (
                      <button onClick={() => setSelectedDate(null)} className="text-xs text-accent hover:underline uppercase tracking-widest">
-                         Clear Filter (Show All)
+                         Показать всё
                      </button>
                  ) : (
-                     <p className="text-[10px] text-white/20 uppercase tracking-widest">Select a date to filter quests</p>
+                     <p className="text-[10px] text-white/20 uppercase tracking-widest">Выбери дату</p>
                  )}
             </div>
         </div>
@@ -173,10 +173,10 @@ export default function PublicEventsPage() {
         {/* 3. Title */}
         <div className="text-center">
             <h1 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-widest text-accent mb-4">
-                Public Quests
+                Публичные мероприятия
             </h1>
             <p className="font-sans text-white/50 text-lg max-w-2xl mx-auto">
-                Find your party. Join the raid. No experience required.
+                Найди себе компанию и вступай в игру! Опыт не обязателен.
             </p>
         </div>
       </div>
@@ -229,7 +229,7 @@ export default function PublicEventsPage() {
         {!selectedDate && !loading && nextPage && (
             <div className="flex justify-center pb-8">
                 <button onClick={loadMoreEvents} disabled={loadingMore} className="px-8 py-3 bg-neutral-900 border border-white/20 hover:border-accent text-white hover:text-accent uppercase font-bold tracking-widest text-xs transition-colors">
-                    {loadingMore ? 'Loading...' : 'Load More'}
+                    {loadingMore ? 'Загружаем...' : 'Показать больше'}
                 </button>
             </div>
         )}

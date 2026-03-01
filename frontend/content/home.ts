@@ -65,18 +65,18 @@ export const EVENTS_CONTENT = {
 
 // Генерируем побольше карточек для плотной стены
 export const EVENTS_GALLERY = [
-  { id: "1", src: "/images/hero/1.webp", title: "Friday Night", height: "tall" },
-  { id: "2", src: "/images/hero/2.webp", title: "DnD Masters", height: "short" },
-  { id: "3", src: "/images/hero/5.webp", title: "Cocktail Art", height: "short" },
-  { id: "4", src: "/images/hero/4.webp", title: "Winning Move", height: "tall" },
-  { id: "5", src: "/images/hero/3.webp", title: "Cozy Corner", height: "tall" },
-  { id: "6", src: "/images/hero/2.webp", title: "Mafia Don", height: "short" },
-  { id: "7", src: "/images/hero/7.webp", title: "Full House", height: "short" },
-  { id: "8", src: "/images/hero/6.webp", title: "Focus", height: "tall" },
-  { id: "9", src: "/images/hero/5.webp", title: "Cheers", height: "tall" },
-  { id: "10", src: "/images/hero/4.webp", title: "Setup", height: "short" },
-  { id: "11", src: "/images/hero/3.webp", title: "Dice Roll", height: "short" },
-  { id: "12", src: "/images/hero/2.webp", title: "Late Night", height: "tall" },
+  { id: "1", src: "/vibecheck/1.png", title: "Friday Night", height: "tall" },
+  { id: "2", src: "/vibecheck/2.png", title: "DnD Masters", height: "short" },
+  { id: "3", src: "/vibecheck/3.jpg", title: "Cocktail Art", height: "short" },
+  { id: "4", src: "/vibecheck/4.png", title: "Winning Move", height: "tall" },
+  { id: "5", src: "/vibecheck/5.jpg", title: "Cozy Corner", height: "tall" },
+  { id: "6", src: "/vibecheck/6.jpg", title: "Mafia Don", height: "short" },
+  { id: "7", src: "/vibecheck/7.jpg", title: "Full House", height: "short" },
+  { id: "8", src: "/vibecheck/8.jpg", title: "Focus", height: "tall" },
+  { id: "9", src: "/vibecheck/9.jpg", title: "Cheers", height: "tall" },
+  { id: "10", src: "/vibecheck/10.jpg", title: "Setup", height: "short" },
+  { id: "11", src: "/vibecheck/11.jpg", title: "Dice Roll", height: "short" },
+  { id: "12", src: "/vibecheck/12.jpg", title: "Late Night", height: "tall" },
 ];
 
 // frontend/content/home.ts
@@ -122,8 +122,8 @@ export const CATERING_STACK_CONTENT = {
 // frontend/content/home.ts
 
 export const LOCATION_CONTENT = {
-  title: "Find the Lair",
-  subtitle: "We are waiting for you",
+  title: "Ищи нас на карте",
+  subtitle: "Мы ждём тебя!",
   address: {
     street: "Nicou Dimitrou", // Твой адрес
     city: "Larnaka Bay, Cyprus",

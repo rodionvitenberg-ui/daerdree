@@ -118,7 +118,7 @@ export default function GamesLibrary() {
         <div className="mb-12 flex flex-col items-center">
           <AnimatedContent delay={0.1} direction="vertical">
             <h1 className="mb-8 text-center font-serif text-5xl font-black uppercase tracking-widest text-accent md:text-7xl">
-              Library
+              Наша библиотека
             </h1>
           </AnimatedContent>
 
@@ -127,7 +127,7 @@ export default function GamesLibrary() {
             <div className="relative mb-4">
               <input
                 type="text"
-                placeholder="Search games by title..."
+                placeholder="Найти игру по названию..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full border-b border-white/20 bg-transparent py-3 pl-4 pr-12 text-lg text-white outline-none transition-colors focus:border-accent placeholder:text-white/20 font-serif"
@@ -146,7 +146,7 @@ export default function GamesLibrary() {
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                     </svg>
-                    {showFilters ? 'Hide Filters' : 'Advanced Filters'}
+                    {showFilters ? 'Спрятать фильтры' : 'Фильтры'}
                 </button>
 
                 {hasActiveFilters && (
@@ -154,7 +154,7 @@ export default function GamesLibrary() {
                         onClick={clearFilters}
                         className="text-xs font-bold uppercase tracking-widest text-red-400/70 hover:text-red-400 transition-colors"
                     >
-                        Reset All
+                        Сбросить фильтры
                     </button>
                 )}
             </div>

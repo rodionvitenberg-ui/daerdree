@@ -22,16 +22,16 @@ export const faqData: FAQBlock[] = [
     image: "/images/hero/1.webp", 
     items: [
       {
-        question: "How does the payment system work at Daerdree?",
-        answer: "If you are playing games, we use a deposit system. It’s €5 per hour per person. You can use this same money to pay for orders at our wonderful bar. We will record the start time of the game and the total bar tab. Whichever amount is higher by the end of the evening will be the final total on your bill."
+        question: "Как работает система оплаты у Daerdree?",
+        answer: "Если вы играете, то мы используем систему депозита. €5 в час с человека. Этими же деньгами Вы можете оплачивать заказы в нашем замечательном баре. Мы запишем время начала игры и общую сумму по бару. Что из этого будет больше по завершении вечера, то и окажется в итоговом чеке."
       },
       {
-        question: "Can I bring my own game? And how would that work?",
-        answer: "If the game you bring is not in our collection, all participants will receive a 50% discount on the deposit system. In the end, one hour of such a game will cost only €2.5 per hour per person."
+        question: "Могу ли я прийти со своей игрой? И как это будет работать?",
+        answer: "Если игру, которую вы принесли, нет в нашей коллекции, то все участники получат скидку на депозитную систему -50%. В итоге за один час такой игры получится всего €2,5 в час с человека."
       },
       {
-        question: "What if I’m not playing? Will I be kicked out?",
-        answer: "Of course not! We also operate as a regular bar (but with a cool dragon eye on the wall). We have a diverse selection of drinks to suit every taste. For those who do not participate in games, the deposit system does not apply. You only pay the menu prices."
+        question: "А если я не играю? Неужели меня выгонят?",
+        answer: "Разумеется, нет! Мы работаем в том числе и как обычный бар (но с крутым драконьим глазом на стене). У нас разнообразный выбор напитков на любой вкус. Для тех, кто не участвует в играх, депозитная система не актуальна. Только цены меню."
       }
     ]
   },
@@ -40,26 +40,26 @@ export const faqData: FAQBlock[] = [
     image: "/images/hero/2.webp",
     items: [
       {
-        question: "Is it possible to rent a game?",
+        question: "Возможно ли взять игру в аренду?",
         answer: [
-          "Yes, we provide such services, but with important conditions.",
-          "Not every game in the collection is available for rent. It is best to inquire about a specific game in advance via our social media.",
-          "The security deposit for a game is double the cost of a new one. We will return it in full when the game is back on the shelf.",
-          "The rental fee is per day and varies depending on the cost of the games:"
+          "Да, мы предоставляем подобные услуги, но с важными условиями.",
+          "Не каждая игра из коллекции даётся в аренду. Уточнить насчёт выбранной игры лучше заранее в наших соцсетях.",
+          "Залог за игру - двойная стоимость новой такой же. Мы вернём его полностью, когда игра займёт своё место на полке",
+          "Плата за аренду посуточная и варьируется в зависимости от стоимости игр:"
         ],
         list: [
-          "Games up to €50 - €5 per day",
-          "Games from €50 to €75 - €7 per day",
-          "Games from €75 - €10 per day"
+          "Игры до €50 - €5 в день",
+          "Игры от €50 до €75 - €7 в день",
+          "Игры от €75 - €10 в день"
         ]
       },
       {
-        question: "Contact Us",
-        answer: "If you didn't find the answer to your question—feel free to write to us in private messages, we will definitely reply!"
+        question: "Свяжитесь с нами",
+        answer: "Если вы не нашли ответ на свой вопрос - не стесняйтесь написать нам в личные сообщения, мы обязательно ответим!"
       }
     ],
     cta: {
-      text: "Let's organize your celebration together!",
+      text: "Давайте организуем ваш праздник вместе!",
       icon: "arrow"
     }
   },
@@ -68,18 +68,18 @@ export const faqData: FAQBlock[] = [
     image: "/images/hero/3.webp",
     items: [
       {
-        question: "Is it possible to organize a private event for our celebration at Daerdree?",
+        question: "Возможно ли организовать закрытое мероприятие для нашего праздника у Daerdree?",
         answer: [
-          "Absolutely!",
-          "We have a great opportunity to organize a private event so you can celebrate your special day in the cozy atmosphere of our dragon's den.",
-          "The cost of closing the venue for your event depends on the day of the week, so please contact us directly for more detailed information.",
-          "We are ready to help make your celebration unforgettable!",
-          "Additionally, we also offer catering for your convenience. More details about it can be found in the current \"Catering\" section."
+          "Конечно!",
+          "У нас есть отличная возможность организовать закрытое мероприятие, чтобы вы могли отпраздновать ваш особенный день в уютной обстановке нашего драконьего логова.",
+          "Стоимость закрытия заведения для вашего мероприятия зависит от дня недели, так что, пожалуйста, свяжитесь с нами напрямую для получения более подробной информации.",
+          "Мы готовы помочь вам сделать ваш праздник незабываемым!",
+          "Кроме того, мы также предлагаем кейтеринг для вашего удобства. Подробнее о нём - в актуальном \"Кейтеринг\"."
         ]
       }
     ],
     cta: {
-      text: "Let's organize your celebration together!",
+      text: "Давайте организуем ваш праздник вместе!",
       icon: "arrow"
     }
   },
@@ -88,20 +88,20 @@ export const faqData: FAQBlock[] = [
     image: "/images/hero/4.webp",
     items: [
       {
-        question: "I don't know much about board games, but I've wanted to try them for a long time. What should I do?",
-        answer: "Come to Daerdree and choose a game! We will gladly explain the rules, guide you through the game, and if necessary, join you in any game. And if your eyes are spinning from the abundance of choices, we will help you pick a game that suits your preferences."
+        question: "Я не разбираюсь в играх, но давно хотел попробовать. Что мне делать?",
+        answer: "Приходите к Daerdree и выбирайте игру! Мы с радостью объясним, проведём и при необходимости составим компанию в любой игре. А если у Вас разбежались глаза от изобилия, то поможем подобрать подходящую игру под Ваши запросы."
       },
       {
-        question: "I love board games, but it's hard for me to gather friends to play together. Are there any options for this?",
+        question: "Я люблю настолки, но мне трудно собрать друзей, чтобы поиграть вместе. Есть ли какие-то варианты на этот счёт?",
         answer: [
-          "We regularly host open game nights. This event is open to everyone! It’s a great place to meet new people, enjoy board games, and relax in a cozy atmosphere. Announcements appear regularly on our Telegram channel.",
-          "We play social games every Wednesday!"
+          "Мы регулярно проводим открытые игротеки. Это мероприятие доступно всем! Здесь можно познакомиться с новыми людьми, насладиться настолками и отдохнуть в уютной атмосфере. Анонсы регулярно появляются в нашем телеграме.",
+          "Мы играем в социальные игры каждую среду!"
         ]
       }
     ],
     cta: {
-      text: "Game night announcements",
-      link: "https://t.me/daerdree", // Замените на реальную ссылку
+      text: "Анонсы наших игр",
+      link: "https://t.me/daerdreedm", // Замените на реальную ссылку
       icon: "telegram"
     }
   },
@@ -110,25 +110,25 @@ export const faqData: FAQBlock[] = [
     image: "/images/hero/5.webp",
     items: [
       {
-        question: "What if I come alone on a day when there is no open game night?",
-        answer: "No problem! First, we promote the idea of \"open tables\": we strive to bring board game enthusiasts together into a single game so that no one is bored. Second, we are always ready to play with a guest ourselves."
+        question: "А если я пришёл один в день, когда нет игротеки?",
+        answer: "Не беда! Во-первых, мы продвигаем идею открытых столов: мы стремимся объединить настольщиков в одну партию, чтобы никто не скучал. Во-вторых, мы сами всегда готовы сыграть с гостем."
       },
       {
-        question: "I want to play a specific game on a specific day. Can you organize that?",
-        answer: "Of course! Just write to us with the game name, date, and time. We will then cast our lines into our social networks and gather a party of like-minded people for you."
+        question: "Я хочу сыграть в конкретную игру и в определённый день. Вы сможете организовать?",
+        answer: "Конечно! Просто напишите нам игру, дату и время проведения. А мы уже забросим удочки в наших соцсетях и соберём для Вас партию единомышленников."
       },
       {
-        question: "Do you have games in English?",
-        answer: "We have:",
+        question: "У вас есть игры на английском языке?",
+        answer: "У нас есть:",
         list: [
-          "Games in Russian",
-          "Games in English",
-          "Language-independent games"
+          "Игры на русском языке",
+          "Игры на английском языке",
+          "Языконезависимые игры"
         ]
       },
       {
         question: "",
-        answer: "Our dragon guardians are always happy to help you choose a game according to your wishes."
+        answer: "Наши драконьи стражи всегда рады помочь подобрать игру в соответствии с вашими пожеланиями."
       }
     ]
   },
@@ -137,24 +137,24 @@ export const faqData: FAQBlock[] = [
     image: "/images/hero/6.webp",
     items: [
       {
-        question: "What days are we open and what time can I come?",
-        answer: "Daerdree is open from Wednesday to Sunday inclusive. We open our doors:",
+        question: "По каким дням мы открыты и во сколько можно прийти?",
+        answer: "Daerdree работает со среды по воскресенье включительно. Открываем свои двери:",
         list: [
-          "Weekdays - from 15:00 (3 PM)",
-          "Weekends - from 12:00 (12 PM)"
+          "по будням - с 15:00",
+          "по выходным - с 12:00"
         ]
       },
       {
         question: "",
-        answer: "And we don't close until the last client leaves. If everyone leaves early enough, we close at 22:00 (10 PM)."
+        answer: "И не закрываем вплоть до последнего клиента. Если все разошлись достаточно рано, то мы закрываемся в 22:00."
       },
       {
-        question: "Is it possible to visit us outside of working hours?",
-        answer: "Yes, we are always ready to respond and open the bar specifically for you. You can write to us on social media and request an opening at the required time. However, there is a small request: we need to have at least 24 hours to plan the event. Otherwise, we cannot guarantee anything."
+        question: "Возможно ли попасть к нам в нерабочее время?",
+        answer: "Да, мы всегда готовы откликнуться и открыть бар специально под Вас. Вы можете написать нам в соцсетях и запросить открытие в нужное время. Но есть небольшое пожелание: мы должны успеть спланировать это мероприятие хотя бы за сутки. Иначе ничего гарантировать не можем."
       },
       {
-        question: "Can I bring pets?",
-        answer: "Yes, we adore animals! The main thing is that the pet is ready to be in a bar environment."
+        question: "Можно ли к Вам с животными?",
+        answer: "Да, мы обожаем животных! Главное, чтобы питомец был готов к нахождению в баре."
       }
     ]
   }

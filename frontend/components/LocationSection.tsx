@@ -49,7 +49,7 @@ export default function LocationSection() {
               
               {/* Адрес */}
               <AnimatedContent distance={20} direction="vertical" delay={0.1}>
-                <h3 className="text-white font-serif text-xl uppercase tracking-wider mb-4">Location</h3>
+                <h3 className="text-white font-serif text-xl uppercase tracking-wider mb-4">Местоположение</h3>
                 <p className="text-gray-300 font-sans text-lg leading-relaxed">
                   {LOCATION_CONTENT.address.street}<br />
                   {LOCATION_CONTENT.address.city}
@@ -60,13 +60,13 @@ export default function LocationSection() {
                   rel="noopener noreferrer"
                   className="inline-block mt-4 text-accent border-b border-accent/30 pb-1 hover:text-white hover:border-white transition-colors text-sm uppercase tracking-widest"
                 >
-                  Get Directions
+                  Найти нас на карте
                 </a>
               </AnimatedContent>
 
               {/* Контакты */}
               <AnimatedContent distance={20} direction="vertical" delay={0.2}>
-                <h3 className="text-white font-serif text-xl uppercase tracking-wider mb-4">Contact</h3>
+                <h3 className="text-white font-serif text-xl uppercase tracking-wider mb-4">Контакты</h3>
                 <ul className="text-gray-300 font-sans space-y-2">
                   <li>
                     <a href={`tel:${LOCATION_CONTENT.contact.phone}`} className="hover:text-accent transition-colors">

@@ -1,16 +1,22 @@
 export const PRIVATE_HIRE_CONTENT = {
   hero: {
-    title: "Private Saga",
-    subtitle: "All Inclusive",
-    description: "Your party. Your rules. Our dungeon.\nWe handle the food, the games, and the chaos.",
-    buttonText: "Book Your Event",
+    title: "Частные мероприятия под ключ",
+    description: "Дни рождения, корпоративы и закрытые вечеринки в игровом формате. Мы берём на себя сценарий, ведущего, игры и гастрономическую часть — вам остаётся только позвать гостей наслаждаться событием.",
+    buttonText: "Оформить бронь",
     image: "/images/hero/4.webp", // ФОН ГЕРОЯ
   },
   gameMaster: {
-    title: "The Game Master Included",
-    subtitle: "All Inclusive",
-    description: "Don't know the rules? Don't worry. Our Game Masters are part of the package. They will explain the rules, moderate the disputes, and ensure the laughter never stops.",
-    subDescription: "Perfect for birthdays, corporate team buildings, or just a massive guild gathering.",
+    title: "Игровой формат, который вовлекает каждого",
+    subtitle: "Всё включено",
+    description: "Мы подбираем программу под вашу компанию: от лёгких party-игр до стратегических командных форматов. Мы предлагаем:",
+    features: [
+      "- Индивидуальный сценарий под формат события",
+      "- Профессиональный ведущий",
+      "- Объяснение правил и сопровождение игр",
+      "- Интерактивы и командные активности",
+      "- Гибкая адаптация программы по ходу вечера"
+    ],
+    subDescription: "Наша задача — чтобы никто не скучал, а азарт держался до финального раунда.",
     // КАРТИНКИ ДЛЯ ПЕРВОГО FLIPSTACK (Game Master)
     images: [
       "/images/hero/2.webp",
@@ -21,14 +27,11 @@ export const PRIVATE_HIRE_CONTENT = {
     ]
   },
   feast: {
-    title: "The Feast",
-    subtitle: "Supply Drop",
-    description: "No menus, no complications. We cover the table with a curated selection of snacks, drinks, and hearty food designed to be eaten while gaming.",
-    features: [
-      "Craft Snacks",
-      "Hot Platters",
-      "Themed Drinks"
-    ],
+    title: "Кейтеринг",
+    subtitle: "Вкусный стол и бар для вашего события",
+    descriptionOne: "Мы организуем вкусный стол для гостей — в формате, который подойдёт именно вашему мероприятию. Закуски, фуршет или более плотный вариант — всё обсуждается заранее.",
+    descriptionTwo: "В баре — коктейли, крепкие напитки и безалкогольные позиции. Подберём формат подачи так, чтобы он органично дополнил атмосферу вечера.",
+    descriptionThree: "Вы отдыхаете и общаетесь — мы заботимся о том, чтобы всем было вкусно и комфортно.",
     // КАРТИНКИ ДЛЯ ВТОРОГО FLIPSTACK (Food)
     images: [
       "/images/hero/3.webp",
