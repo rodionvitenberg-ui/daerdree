@@ -18,17 +18,20 @@ async function getGame(id: string): Promise<BoardGame> {
 }
 
 export default async function GamePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params; //
+  const { id } = await params;
   const game = await getGame(id);
+
+  // Определяем, какую картинку показывать: расклад, если есть, иначе — обложку
+  const heroImage = game.setup_image || game.image;
 
   return (
     <main className="min-h-screen bg-background">
       
       {/* 1. HERO ИГРЫ (Фон) */}
       <div className="relative h-[60vh] w-full">
-        {game.image && (
+        {heroImage && (
           <Image
-            src={getImageUrl(game.image)}
+            src={getImageUrl(heroImage)}
             alt={game.title}
             fill
             className="object-cover opacity-50"
@@ -42,9 +45,9 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           <div className="container mx-auto">
              {/* Хлебные крошки */}
              <Link href="/games" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors mb-6">
-            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-            <span>Вернуться в библиотеку</span>
-          </Link>
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                <span>Вернуться в библиотеку</span>
+             </Link>
 
              <h1 className="font-serif text-5xl font-black uppercase tracking-widest text-white drop-shadow-2xl md:text-7xl">
                {game.title}
@@ -57,7 +60,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr]">
           
-          {/* Левая колонка: Описание и Теги */}
+          {/* Левая колонка: Описание, Дополнения и Теги */}
           <div>
             <h2 className="mb-6 font-serif text-2xl font-bold uppercase tracking-wider text-white">
               Об игре
@@ -65,6 +68,41 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             <div className="prose prose-invert max-w-none text-lg text-gray-300 leading-relaxed whitespace-pre-line">
               {game.description}
             </div>
+
+            {/* Дополнения (Аккордеон) */}
+            {game.expansions && game.expansions.length > 0 && (
+              <div className="mt-12">
+                <h2 className="mb-6 font-serif text-2xl font-bold uppercase tracking-wider text-white">
+                  Дополнения
+                </h2>
+                <div className="space-y-4">
+                  {game.expansions.map((expansion) => (
+                    <details 
+                      key={expansion.id} 
+                      className="group rounded-xl border border-white/10 bg-neutral-900/50 p-6 transition-all hover:border-accent/50 open:bg-neutral-900"
+                    >
+                      <summary className="flex cursor-pointer items-center justify-between font-serif text-xl font-bold text-white outline-none marker:content-['']">
+                        <span>{expansion.title}</span>
+                        {/* Иконка стрелочки, которая крутится при открытии */}
+                        <svg 
+                          className="h-5 w-5 text-accent transition-transform duration-300 group-open:-rotate-180" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </summary>
+                      
+                      {/* Контент дополнения */}
+                      <div className="mt-4 border-t border-white/10 pt-4 text-gray-300 leading-relaxed whitespace-pre-line animate-in fade-in slide-in-from-top-4 duration-300">
+                        {expansion.description || "Описание отсутствует."}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Теги */}
             {game.tags && game.tags.length > 0 && (
