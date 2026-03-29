@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Tag, BoardGame
+from .models import Category, Tag, BoardGame, Expansion
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,12 +11,18 @@ class TagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = ['id', 'name', 'slug']
 
+# Сериализатор для дополнения
+class ExpansionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Expansion
+        fields = ['id', 'title', 'description']
+
 class BoardGameSerializer(serializers.ModelSerializer):
-
     category = CategorySerializer(read_only=True)
-    
-
     tags = TagSerializer(many=True, read_only=True) 
+    
+    # Подключаем дополнения (название поля совпадает с related_name='expansions' в модели)
+    expansions = ExpansionSerializer(many=True, read_only=True)
 
     class Meta:
         model = BoardGame
@@ -26,5 +32,4 @@ class GameMarqueeSerializer(serializers.ModelSerializer):
     """Облегченный сериализатор чисто для бегущей строки"""
     class Meta:
         model = BoardGame
-        # Берем только то, что нужно для отрисовки и клика
         fields = ['id', 'title', 'image', 'slug']

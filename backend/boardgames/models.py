@@ -3,10 +3,7 @@ from django.db import models
 class Category(models.Model):
     """Категория игры (Стратегия, Патигейм, Детская)"""
     name = models.CharField(max_length=100, verbose_name="Название категории")
-    # Slug - это часть URL. Например: site.com/games/strategy
     slug = models.SlugField(max_length=100, unique=True, verbose_name="URL Slug")
-    
-    # icon заменяем на ImageField, так как это именно картинка
     icon = models.ImageField(upload_to='categories/', blank=True, null=True, verbose_name="Иконка")
     description = models.TextField(blank=True, verbose_name="Описание")
 
@@ -16,7 +13,6 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class Tag(models.Model):
     """Механика или Тег (На кубиках, Кооператив, Для двоих)"""
@@ -31,29 +27,24 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-
 class BoardGame(models.Model):
     """Основная карточка игры"""
     title = models.CharField(max_length=200, verbose_name="Название игры")
     slug = models.SlugField(max_length=200, unique=True)
     
-    # Связи
-    # ForeignKey - у игры ОДНА категория (обычно). Если удалят категорию - удалится поле (null=True защитит игру от удаления)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name="Категория")
-    # ManyToMany - у игры может быть МНОГО механик, и у механики МНОГО игр
     tags = models.ManyToManyField(Tag, blank=True, verbose_name="Механики")
 
     description = models.TextField(verbose_name="Описание")
+    
+    # ИЗОБРАЖЕНИЯ
     image = models.ImageField(upload_to='games/', blank=True, null=True, verbose_name="Фото коробки")
+    setup_image = models.ImageField(upload_to='games/setups/', blank=True, null=True, verbose_name="Фото расклада")
 
-    # ТЕ САМЫЕ ХАРДКОДНЫЕ ПОЛЯ (для фильтров)
     min_players = models.PositiveIntegerField(verbose_name="Мин. игроков", default=2)
     max_players = models.PositiveIntegerField(verbose_name="Макс. игроков", default=4)
-    
-    # Время в минутах (удобнее сортировать, чем строку "30-60 мин")
     play_time = models.PositiveIntegerField(verbose_name="Среднее время (мин)", help_text="Пример: 45")
     
-    # Сложность от 1 до 5
     DIFFICULTY_CHOICES = [
         (1, 'Очень легко'),
         (2, 'Легко'),
@@ -63,7 +54,6 @@ class BoardGame(models.Model):
     ]
     difficulty = models.IntegerField(choices=DIFFICULTY_CHOICES, default=2, verbose_name="Сложность")
 
-    # Системные поля
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")
     is_active = models.BooleanField(default=True, verbose_name="Показывать на сайте?")
 
@@ -71,6 +61,21 @@ class BoardGame(models.Model):
         verbose_name = "Настольная игра"
         verbose_name_plural = "Настольные игры"
         ordering = ['title']
+
+    def __str__(self):
+        return self.title
+
+# НОВАЯ МОДЕЛЬ ДЛЯ ДОПОЛНЕНИЙ
+class Expansion(models.Model):
+    """Дополнение к настольной игре"""
+    # related_name='expansions' позволит нам обращаться к дополнениям игры как game.expansions.all()
+    game = models.ForeignKey(BoardGame, related_name='expansions', on_delete=models.CASCADE, verbose_name="Основная игра")
+    title = models.CharField(max_length=200, verbose_name="Название дополнения")
+    description = models.TextField(blank=True, verbose_name="Описание дополнения")
+
+    class Meta:
+        verbose_name = "Дополнение"
+        verbose_name_plural = "Дополнения"
 
     def __str__(self):
         return self.title

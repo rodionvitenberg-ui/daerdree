@@ -15,12 +15,11 @@ class TagViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TagSerializer
 
 class BoardGameViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = BoardGame.objects.filter(is_active=True).select_related('category').prefetch_related('tags')
+    # Добавили 'expansions' в prefetch_related для оптимизации запросов к БД
+    queryset = BoardGame.objects.filter(is_active=True).select_related('category').prefetch_related('tags', 'expansions')
     serializer_class = BoardGameSerializer
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    
-    # Подключаем кастомный класс фильтрации
     filterset_class = BoardGameFilter
     
     search_fields = ['title', 'description']
