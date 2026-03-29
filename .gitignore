@@ -8,6 +8,7 @@ build/
 .env.production.local
 staticfiles/
 templates/
+public/
 
 # Бэкенд мусор (Python)
 __pycache__/
