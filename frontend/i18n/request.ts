@@ -1,17 +1,19 @@
-// i18n/request.ts
-import {getRequestConfig} from 'next-intl/server';
- 
-export default getRequestConfig(async ({requestLocale}) => {
-  // Проверяем и возвращаем локаль
+import { getRequestConfig } from 'next-intl/server';
+
+const locales = ['en', 'ru'];
+const defaultLocale = 'en';
+
+export default getRequestConfig(async ({ requestLocale }) => {
   let locale = await requestLocale;
-  
-  if (!locale || !['en', 'ru'].includes(locale)) {
-    locale = 'en';
+
+  // Если локаль не определена или не поддерживается, ставим английский
+  if (!locale || !locales.includes(locale)) {
+    locale = defaultLocale;
   }
- 
+
   return {
     locale,
-    // Пока пустые сообщения, чтобы не было ошибок. Позже сюда подключим JSON файлы.
-    messages: {} 
+    // Читаем локальный JSON-файл (который будет обновлять наша CMS из Django)
+    messages: (await import(`../messages/${locale}.json`)).default
   };
 });

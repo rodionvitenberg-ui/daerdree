@@ -1,40 +1,53 @@
-// frontend/types/game.ts
-
 export interface Category {
   id: number;
   name: string;
+  name_ru?: string; // Добавлено
+  name_en?: string; // Добавлено
   slug: string;
-  icon?: string; // Может быть null
+  icon?: string | null;
   description?: string;
+  description_ru?: string; // Добавлено
+  description_en?: string; // Добавлено
 }
 
 export interface Tag {
   id: number;
   name: string;
+  name_ru?: string; // Добавлено
+  name_en?: string; // Добавлено
   slug: string;
 }
 
-// Новый интерфейс для дополнений
 export interface Expansion {
   id: number;
   title: string;
+  title_ru?: string; // Добавлено
+  title_en?: string; // Добавлено
   description: string;
+  description_ru?: string; // Добавлено
+  description_en?: string; // Добавлено
 }
 
 export interface BoardGame {
   id: number;
   title: string;
+  title_ru?: string; // Поля от django-modeltranslation
+  title_en?: string;
   slug: string;
-  category: Category | null; // Может быть null (on_delete=SET_NULL)
+  category: Category | null;
   tags: Tag[];
-  expansions?: Expansion[]; // Добавили дополнения
+  expansions?: Expansion[];
   description: string;
-  image: string | null; // Картинки может не быть
-  setup_image?: string | null; // Добавили фото расклада
+  description_ru?: string;
+  description_en?: string;
+  image: string | null;
+  setup_image?: string | null;
   min_players: number;
   max_players: number;
   play_time: number;
-  difficulty: 1 | 2 | 3 | 4 | 5; // Из твоего DIFFICULTY_CHOICES
+  difficulty: 1 | 2 | 3 | 4 | 5;
   created_at: string;
   is_active: boolean;
+  is_visible_ru: boolean; // Наши новые флаги видимости
+  is_visible_en: boolean;
 }

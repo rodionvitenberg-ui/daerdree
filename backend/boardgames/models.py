@@ -57,6 +57,15 @@ class BoardGame(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")
     is_active = models.BooleanField(default=True, verbose_name="Показывать на сайте?")
 
+    is_visible_ru = models.BooleanField(
+        default=True, 
+        verbose_name='Показывать на русском'
+    )
+    is_visible_en = models.BooleanField(
+        default=False, # По умолчанию новые игры могут быть без английской версии
+        verbose_name='Показывать на английском'
+    )
+
     class Meta:
         verbose_name = "Настольная игра"
         verbose_name_plural = "Настольные игры"

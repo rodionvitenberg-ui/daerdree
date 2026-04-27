@@ -1,0 +1,33 @@
+{
+  "GamesLibrary": {
+    "title": "Explore Our Collection",
+    "subtitle": "From quick party games to epic strategic adventures...",
+    "searchPlaceholder": "Search for a game, mechanic, or theme...",
+    "filtersButton": "Filters",
+    "filters": {
+      "category": "Category",
+      "players": "Players",
+      "time": "Play Time",
+      "difficulty": "Difficulty",
+      "options": {
+        "all": "All",
+        "any": "Any",
+        "playersCount": "players",
+        "anyLength": "Any Length",
+        "shortTime": "Short (< 30m)",
+        "mediumTime": "Medium (30-60m)",
+        "longTime": "Long (60m+)",
+        "anyDifficulty": "Any Difficulty",
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      }
+    },
+    "loading": "SUMMONING GAMES...",
+    "emptyState": {
+      "title": "No Tomes Found",
+      "subtitle": "Try adjusting your filters or search criteria.",
+      "clearAction": "Clear Filters"
+    }
+  }
+}

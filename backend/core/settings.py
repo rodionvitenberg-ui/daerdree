@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from django.utils.translation import gettext_lazy as _
 
 load_dotenv()
 
@@ -35,6 +36,7 @@ ALLOWED_HOSTS = ['daerdree.bar', 'www.daerdree.bar', '193.181.208.36', 'localhos
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,12 +50,14 @@ INSTALLED_APPS = [
     'menu',
     'bookings',
     'events',
+    'cms',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -119,13 +123,25 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+
+
+from django.utils.translation import gettext_lazy as _  # <--- ДОБАВИТЬ ИМПОРТ
+
+LANGUAGE_CODE = 'ru'  # <--- ЛУЧШЕ ПОМЕНЯТЬ ПО УМОЛЧАНИЮ НА 'ru'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
+
+# <--- ДОБАВИТЬ ЭТОТ БЛОК ЦЕЛИКОМ --->
+LANGUAGES = [
+    ('ru', _('Russian')),
+    ('en', _('English')),
+]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 
 
 # Static files (CSS, JavaScript, Images)

@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Подключаем все маршруты роутера под префиксом 'api/'
     path('api/', include(router.urls)),
+    path('cms/', include('cms.urls')),
 ]
 
 # ЭТО ВАЖНО:

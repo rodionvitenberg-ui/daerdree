@@ -3,6 +3,9 @@ import localFont from 'next/font/local';
 import "./globals.css";
 import Header from '@/components/Header';
 import Footer from '@/components/footer';
+// Импортируем компоненты для локализации
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
@@ -27,25 +30,42 @@ const zodiak = localFont({
   display: 'swap',
 });
 
-// Добавим метаданные для SEO (базовые)
 export const metadata = {
   title: 'Daerdree Bar & Timeclub',
   description: 'Best bar and timeclub in Cyprus',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+// Делаем RootLayout асинхронным и принимаем params как Promise
+export default async function RootLayout({ 
+  children, 
+  params 
+}: { 
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  // В Next.js 15+ параметры нужно обязательно await
+  const { locale } = await params;
+  
+  // Получаем словарь переводов для текущей локали
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${manrope.variable} ${zodiak.variable}`}>
+    <html lang={locale} className={`${manrope.variable} ${zodiak.variable}`}>
       <body className="antialiased bg-background text-foreground flex flex-col min-h-screen">
         
-        {/* Вставляем Хедер сюда */}
-        <Header />
-        
-        <main className="flex-grow">
-          {children}
-        </main>
+        {/* Оборачиваем содержимое в провайдер. 
+            Теперь хук useTranslations будет иметь доступ к сообщениям на клиенте. */}
+        <NextIntlClientProvider messages={messages}>
+          
+          <Header />
+          
+          <main className="flex-grow">
+            {children}
+          </main>
 
-        <Footer />
+          <Footer />
+          
+        </NextIntlClientProvider>
 
       </body>
     </html>

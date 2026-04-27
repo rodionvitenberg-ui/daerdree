@@ -1,15 +1,19 @@
+// frontend/middleware.ts
 import createMiddleware from 'next-intl/middleware';
- 
+
 export default createMiddleware({
-  // Список всех поддерживаемых языков
+  // Список поддерживаемых языков (только 2)
   locales: ['en', 'ru'],
- 
-  // Язык по умолчанию, если ничего не подошло
-  defaultLocale: 'en'
+
+  // Дефолтный язык (для всех устройств, кроме русскоязычных)
+  defaultLocale: 'en',
+  
+  // 'as-needed' уберет /en/ из URL по умолчанию, оставив только /ru/ для русских. 
+  // Если хотите, чтобы в URL всегда было /en/ или /ru/, используйте 'always'
+  localePrefix: 'always' 
 });
- 
+
 export const config = {
-  // Матчер: говорим Next.js запускать этот middleware только на нужных путях
-  // Игнорируем системные файлы (_next, favicon, иконки и т.д.)
-  matcher: ['/((?!api|_next|.*\\..*).*)']
+  // Пропускаем статику, API-роуты и системные файлы Next.js
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)']
 };
