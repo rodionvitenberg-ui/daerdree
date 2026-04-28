@@ -1,33 +1,215 @@
 {
   "GamesLibrary": {
-    "title": "Explore Our Collection",
-    "subtitle": "From quick party games to epic strategic adventures...",
-    "searchPlaceholder": "Search for a game, mechanic, or theme...",
-    "filtersButton": "Filters",
-    "filters": {
-      "category": "Category",
-      "players": "Players",
-      "time": "Play Time",
-      "difficulty": "Difficulty",
-      "options": {
-        "all": "All",
-        "any": "Any",
-        "playersCount": "players",
-        "anyLength": "Any Length",
-        "shortTime": "Short (< 30m)",
-        "mediumTime": "Medium (30-60m)",
-        "longTime": "Long (60m+)",
-        "anyDifficulty": "Any Difficulty",
-        "easy": "Easy",
-        "medium": "Medium",
-        "hard": "Hard"
-      }
-    },
+    "title": "Our Library",
+    "searchPlaceholder": "Search for a game by title...",
+    "hideFilters": "Hide Filters",
+    "showFilters": "Filters",
+    "resetFilters": "Reset Filters",
+    "players": "Players",
+    "anyPlayers": "Any",
+    "maxTime": "Max Time (min)",
+    "anyTime": "Any Time",
+    "upTo30m": "Up to 30m",
+    "upTo1h": "Up to 1h",
+    "upTo15h": "Up to 1.5h",
+    "upTo2h": "Up to 2h",
+    "longTime": "Long (3h+)",
+    "difficulty": "Difficulty",
+    "anyDifficulty": "Any Difficulty",
+    "diffVeryEasy": "🟢 Very Easy",
+    "diffEasy": "🟢 Easy",
+    "diffMedium": "🟡 Medium",
+    "diffHard": "🔴 Hard",
+    "diffHardcore": "💀 Hardcore",
+    "category": "Category",
+    "allCategories": "All Categories",
     "loading": "SUMMONING GAMES...",
-    "emptyState": {
-      "title": "No Tomes Found",
-      "subtitle": "Try adjusting your filters or search criteria.",
-      "clearAction": "Clear Filters"
+    "noGamesTitle": "No Tomes Found",
+    "noGamesDesc": "Try adjusting your filters or search criteria.",
+    "clearFilters": "Clear Filters",
+    "contentLanguageLabel": "Content Language:",
+    "langRu": "Russian",
+    "langEn": "English"
+  },
+  "GameCard": {
+    "diffEasy": "Easy",
+    "diffLight": "Simple",
+    "diffMedium": "Medium",
+    "diffHard": "Hard",
+    "diffExpert": "Expert",
+    "playersRange": "{min}-{max}",
+    "minutes": "{time} min"
+  },
+  "FAQPage": {
+    "title_1": "Frequently",
+    "title_2": "Asked",
+    "title_3": "Questions",
+    "blocks": {
+      "payment-rules": {
+        "items": [
+          {
+            "question": "How does Daerdree's payment system work?",
+            "answer": "If you are playing, we use a deposit system: €5 per hour per person. You can use this deposit to pay for orders at our wonderful bar. We'll record your start time and your total bar bill. Whichever amount is higher at the end of the evening will be the final total on your check."
+          },
+          {
+            "question": "Can I bring my own game? How will that work?",
+            "answer": "If the game you bring is not in our collection, all participants will receive a 50% discount on the deposit system. This brings the cost down to just €2.5 per hour per person."
+          },
+          {
+            "question": "What if I'm not playing? Will I be kicked out?",
+            "answer": "Of course not! We also operate as a regular bar (just with a cool dragon eye on the wall). We have a diverse selection of drinks for every taste. For those not participating in games, the deposit system does not apply — you only pay the menu prices."
+          }
+        ]
+      },
+      "rent-games": {
+        "items": [
+          {
+            "question": "Is it possible to rent a game?",
+            "answer": [
+              "Yes, we provide rental services, but with some important conditions.",
+              "Not every game in our collection is available for rent. It’s best to check with us via social media regarding a specific title in advance.",
+              "The security deposit is double the retail price of a new copy. We will return it in full once the game is back on our shelf.",
+              "The rental fee is daily and varies based on the game's value:"
+            ],
+            "list": [
+              "Games up to €50 — €5 per day",
+              "Games from €50 to €75 — €7 per day",
+              "Games from €75 — €10 per day"
+            ]
+          },
+          {
+            "question": "Contact us",
+            "answer": "If you didn't find the answer to your question, feel free to send us a direct message. We'll be sure to get back to you!"
+          }
+        ],
+        "ctaText": "Let's organize your event together!"
+      },
+      "private-events": {
+        "items": [
+          {
+            "question": "Can I organize a private event at Daerdree?",
+            "answer": [
+              "Absolutely!",
+              "We offer the option to host private events so you can celebrate your special day in the cozy atmosphere of our dragon's lair.",
+              "The cost of booking the entire venue depends on the day of the week, so please contact us directly for more detailed information.",
+              "We are ready to help make your celebration unforgettable!",
+              "Additionally, we offer catering services for your convenience. You can find more details in our 'Catering' highlights."
+            ]
+          }
+        ],
+        "ctaText": "Let's organize your event together!"
+      },
+      "new-players": {
+        "items": [
+          {
+            "question": "I don't know much about games, but I've always wanted to try. What should I do?",
+            "answer": "Just come to Daerdree and pick a game! We'll be happy to explain the rules, guide you through, and even join you for a game if needed. If you're overwhelmed by the selection, we'll help you find the perfect match for your interests."
+          },
+          {
+            "question": "I love board games, but it's hard to get my friends together. Are there any options for me?",
+            "answer": [
+              "We regularly host open game nights! These events are open to everyone. It's a great way to meet new people, enjoy board games, and relax in a cozy atmosphere. We post announcements regularly on our Telegram channel.",
+              "We play social games every Wednesday!"
+            ]
+          }
+        ],
+        "ctaText": "Game Announcements"
+      },
+      "solo-specific": {
+        "items": [
+          {
+            "question": "What if I come alone on a day when there's no scheduled game night?",
+            "answer": "No worries! First, we promote the 'Open Tables' concept: we aim to bring players together into one party so nobody gets bored. Second, we are always ready to play a game with our guests ourselves."
+          },
+          {
+            "question": "I want to play a specific game on a specific day. Can you organize that?",
+            "answer": "Certainly! Just message us with the game title, date, and time. We'll put the word out on our social media to gather a group of like-minded players for you."
+          },
+          {
+            "question": "Do you have games in English?",
+            "answer": "We have:",
+            "list": [
+              "Games in Russian",
+              "Games in English",
+              "Language-independent games"
+            ]
+          },
+          {
+            "question": "",
+            "answer": "Our dragon guards are always happy to help you choose a game that fits your preferences."
+          }
+        ]
+      },
+      "hours-pets": {
+        "items": [
+          {
+            "question": "On which days are we open, and what time can we visit?",
+            "answer": "Daerdree is open from Wednesday to Sunday inclusive. We open our doors:",
+            "list": [
+              "Weekdays — from 15:00",
+              "Weekends — from 12:00"
+            ]
+          },
+          {
+            "question": "",
+            "answer": "And we don't close until the last guest leaves. If everyone heads out early, we close at 22:00."
+          },
+          {
+            "question": "Is it possible to visit during off-hours?",
+            "answer": "Yes, we are always open to requests to open the bar specifically for you. Message us on social media to request a time. A small heads-up: we need at least 24 hours to plan this, otherwise we can't guarantee anything."
+          },
+          {
+            "question": "Are pets allowed?",
+            "answer": "Yes, we love animals! As long as your pet is comfortable being in a bar environment."
+          }
+        ]
+      }
     }
+  },
+  "GameDetails": {
+    "players": "Players",
+    "playersRange": "{min}-{max}",
+    "playTime": "Play Time",
+    "minutes": "{time} min",
+    "difficulty": "Difficulty",
+    "bookButton": "Book a Table",
+    "description": "Description",
+    "categories": "Categories",
+    "mechanics": "Mechanics",
+    "expansions": "Expansions",
+    "noDescription": "The description of this scroll is currently shrouded in mist...",
+    "diffLabels": {
+      "1": "Very Easy",
+      "2": "Easy",
+      "3": "Medium",
+      "4": "Hard",
+      "5": "Hardcore"
+    }
+  },
+  "EventsHub": {
+    "publicSub": "Our doors are open to everyone",
+    "publicTitle1": "Open Game",
+    "publicTitle2": "Nights",
+    "publicDesc": "New people, new games, new emotions. Simply pick a date and come play.",
+    "publicBtn": "Find a Game",
+    "privateSub": "All-inclusive",
+    "privateTitle1": "A Scenario for",
+    "privateTitle2": "Your Event",
+    "privateDesc": "Game programs, professional hosts, and catering — you relax, we organize.",
+    "privateBtn": "Get Details"
+  },
+  "PublicEvents": {
+    "back": "Go Back",
+    "showAll": "Show All",
+    "chooseDate": "Select Date",
+    "title": "Public Events",
+    "subtitle": "Find your party and join the game! No experience required.",
+    "emptyTitle": "The Horizon is Clear",
+    "emptyDesc": "There are no quests scheduled for this time.",
+    "noImage": "No image",
+    "tagEvent": "Event",
+    "details": "Details",
+    "loading": "Loading...",
+    "loadMore": "Show more"
   }
 }

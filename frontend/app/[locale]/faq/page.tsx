@@ -2,10 +2,20 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { faqData } from "@/content/faq"; // Убедитесь, что путь импорта верный
+import { faqData } from "@/content/faq"; 
 import Link from "next/link";
+import { useTranslations } from "next-intl"; // Подключаем хук
+
+// Описываем интерфейс элемента, который вернет t.raw()
+interface FAQItem {
+  question?: string;
+  answer: string | string[];
+  list?: string[];
+}
 
 export default function FAQPage() {
+  const t = useTranslations("FAQPage");
+
   return (
     <main className="min-h-screen w-full bg-black text-white pt-24 pb-20">
       
@@ -17,7 +27,7 @@ export default function FAQPage() {
           transition={{ delay: 0.1 }}
           className="font-serif text-5xl lg:text-7xl font-black uppercase tracking-widest"
         >
-          Frequently<br className="lg:hidden"/> Asked<br className="lg:hidden"/> Questions
+          {t("title_1")}<br className="lg:hidden"/> {t("title_2")}<br className="lg:hidden"/> {t("title_3")}
         </motion.h1>
       </section>
 
@@ -25,6 +35,12 @@ export default function FAQPage() {
       <div className="flex flex-col gap-0">
         {faqData.map((block, index) => {
           const isEven = index % 2 === 0;
+
+          // Динамически получаем элементы именно для этого блока (по его ID) из JSON
+          const items = t.raw(`blocks.${block.id}.items`) as FAQItem[];
+          
+          // Проверяем, есть ли текст для кнопки
+          const ctaText = block.cta ? t(`blocks.${block.id}.ctaText`) : null;
 
           return (
             <section 
@@ -51,7 +67,7 @@ export default function FAQPage() {
               <div className="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-20 bg-black/50 backdrop-blur-sm z-10">
                 <div className="max-w-xl mx-auto lg:mx-0">
                   
-                  {block.items.map((item, i) => (
+                  {items.map((item, i) => (
                     <motion.div 
                       key={i}
                       initial={{ opacity: 0, y: 20 }}
@@ -85,7 +101,7 @@ export default function FAQPage() {
                   ))}
 
                   {/* CTA / Extra Elements */}
-                  {block.cta && (
+                  {block.cta && ctaText && (
                     <motion.div 
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -103,7 +119,7 @@ export default function FAQPage() {
                             </div>
                           )}
                           <span className="font-serif uppercase tracking-widest text-sm font-bold">
-                            {block.cta.text}
+                            {ctaText}
                           </span>
                         </Link>
                       ) : (

@@ -3,8 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl"; // Подключили хук
 
 export default function EventsHub() {
+  const t = useTranslations("EventsHub"); // Инициализировали переводы
+
   return (
     <main className="h-screen w-full flex flex-col lg:flex-row bg-black overflow-hidden">
       
@@ -29,15 +32,15 @@ export default function EventsHub() {
             transition={{ delay: 0.1 }}
             className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4"
           >
-            Наши двери открыты для всех
+            {t("publicSub")}
           </motion.span>
           <motion.h2 
             className="font-serif text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-6 group-hover:text-accent transition-colors"
           >
-            Игровые вечера<br/>для всех
+            {t("publicTitle1")}<br/>{t("publicTitle2")}
           </motion.h2>
           <p className="text-white max-w-md text-sm lg:text-lg mb-6 lg:mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
-            Новые люди, новые партии, новые эмоции. Просто выберите дату и приходите играть.
+            {t("publicDesc")}
           </p>
 
           {/* ГРАДИЕНТНАЯ КНОПКА (LEFT) */}
@@ -50,7 +53,7 @@ export default function EventsHub() {
             
             {/* 3. Текст (Черный на мобилке, белый на десктопе и чернеет при ховере) */}
             <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-black lg:text-white transition-colors duration-300 lg:group-hover:text-black">
-              Найти игру
+              {t("publicBtn")}
             </span>
           </div>
 
@@ -77,15 +80,15 @@ export default function EventsHub() {
             animate={{ opacity: 1, y: 0 }}
             className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4"
           >
-            Всё включено
+            {t("privateSub")}
           </motion.span>
           <motion.h2 
             className="font-serif text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-6 group-hover:text-accent transition-colors"
           >
-            Сценарий для<br/>вашего события
+            {t("privateTitle1")}<br/>{t("privateTitle2")}
           </motion.h2>
           <p className="text-white max-w-md text-sm lg:text-lg mb-6 lg:mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
-            Игровая программа, профессиональный ведущий и кейтеринг — вы отдыхаете, мы организуем.
+            {t("privateDesc")}
           </p>
           
           {/* ГРАДИЕНТНАЯ КНОПКА (RIGHT) */}
@@ -98,7 +101,7 @@ export default function EventsHub() {
             
             {/* 3. Текст (Черный на мобилке, белый на десктопе и чернеет при ховере) */}
             <span className="relative z-10 font-serif text-xs font-bold uppercase tracking-widest text-black lg:text-white transition-colors duration-300 lg:group-hover:text-black">
-              Узнать детали
+              {t("privateBtn")}
             </span>
           </div>
 

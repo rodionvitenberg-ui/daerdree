@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl"; // Подключили хук
 
 interface Event {
   id: number;
@@ -14,6 +15,8 @@ interface Event {
 }
 
 export default function PublicEventsPage() {
+  const t = useTranslations("PublicEvents"); // Инициализировали переводы
+
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [nextPage, setNextPage] = useState<string | null>(null);
@@ -112,7 +115,7 @@ export default function PublicEventsPage() {
         <div className="text-center mb-8">
             <Link href="/events" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                <span>Вернуться назад</span>
+                <span>{t("back")}</span>
             </Link>
         </div>
 
@@ -162,10 +165,10 @@ export default function PublicEventsPage() {
             <div className="text-center mt-4">
                  {selectedDate ? (
                      <button onClick={() => setSelectedDate(null)} className="text-xs text-accent hover:underline uppercase tracking-widest">
-                         Показать всё
+                         {t("showAll")}
                      </button>
                  ) : (
-                     <p className="text-[10px] text-white/20 uppercase tracking-widest">Выбери дату</p>
+                     <p className="text-[10px] text-white/20 uppercase tracking-widest">{t("chooseDate")}</p>
                  )}
             </div>
         </div>
@@ -173,10 +176,10 @@ export default function PublicEventsPage() {
         {/* 3. Title */}
         <div className="text-center">
             <h1 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-widest text-accent mb-4">
-                Публичные мероприятия
+                {t("title")}
             </h1>
             <p className="font-sans text-white/50 text-lg max-w-2xl mx-auto">
-                Найди себе компанию и вступай в игру! Опыт не обязателен.
+                {t("subtitle")}
             </p>
         </div>
       </div>
@@ -188,8 +191,8 @@ export default function PublicEventsPage() {
                 [1, 2, 3].map((n) => <div key={n} className="h-96 bg-neutral-900/50 animate-pulse border border-white/5 rounded-sm" />)
             ) : filteredEvents.length === 0 ? (
                 <div className="col-span-full text-center py-20 text-white/30 bg-neutral-900/20 border border-dashed border-white/10 rounded-lg">
-                    <p className="font-serif text-2xl mb-2 text-white/50">Nothing on the horizon</p>
-                    <p className="text-sm">No quests found for this specific time.</p>
+                    <p className="font-serif text-2xl mb-2 text-white/50">{t("emptyTitle")}</p>
+                    <p className="text-sm">{t("emptyDesc")}</p>
                 </div>
             ) : (
                 filteredEvents.map((event) => {
@@ -200,7 +203,7 @@ export default function PublicEventsPage() {
                             <div className="relative h-64 w-full bg-neutral-800">
                                 {event.image ? (
                                     <Image src={event.image} alt={event.title} fill className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" unoptimized />
-                                ) : <div className="absolute inset-0 flex items-center justify-center bg-neutral-800 text-white/10">No Image</div>}
+                                ) : <div className="absolute inset-0 flex items-center justify-center bg-neutral-800 text-white/10">{t("noImage")}</div>}
                                 <div className="absolute top-4 left-4 bg-accent text-black font-bold font-serif px-3 py-2 text-center leading-none border border-black/10 shadow-lg z-10">
                                     <span className="block text-sm">{day}</span>
                                     <span className="block text-xs uppercase">{month}</span>
@@ -208,13 +211,13 @@ export default function PublicEventsPage() {
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
                                 <div className="flex justify-between items-start mb-4">
-                                    <span className="text-accent text-[10px] font-bold uppercase tracking-wider border border-accent/20 px-2 py-1 rounded">EVENT</span>
+                                    <span className="text-accent text-[10px] font-bold uppercase tracking-wider border border-accent/20 px-2 py-1 rounded">{t("tagEvent")}</span>
                                     <span className="text-white/50 text-xs font-bold uppercase tracking-wider">{time}</span>
                                 </div>
                                 <h3 className="font-serif text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors line-clamp-2">{event.title}</h3>
                                 <p className="text-gray-400 text-sm mb-6 line-clamp-3 whitespace-pre-line">{event.description}</p>
                                 <div className="mt-auto pt-4 border-t border-white/5 flex justify-between">
-                                    <span className="text-white text-sm font-bold">Details</span>
+                                    <span className="text-white text-sm font-bold">{t("details")}</span>
                                     <span className="text-accent">&rarr;</span>
                                 </div>
                             </div>
@@ -225,11 +228,11 @@ export default function PublicEventsPage() {
             )}
         </div>
 
-        {/* Кнопка Load More показывается только если нет фильтра (т.к. фильтр работает по уже загруженным данным) */}
+        {/* Кнопка Load More показывается только если нет фильтра */}
         {!selectedDate && !loading && nextPage && (
             <div className="flex justify-center pb-8">
                 <button onClick={loadMoreEvents} disabled={loadingMore} className="px-8 py-3 bg-neutral-900 border border-white/20 hover:border-accent text-white hover:text-accent uppercase font-bold tracking-widest text-xs transition-colors">
-                    {loadingMore ? 'Загружаем...' : 'Показать больше'}
+                    {loadingMore ? t("loading") : t("loadMore")}
                 </button>
             </div>
         )}
