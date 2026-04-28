@@ -6,14 +6,17 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimatedContent from "@/components/AnimatedContent";
 import BounceCards from "@/components/BounceCards";
-import SimpleCarousel from "@/components/SimpleCarousel"; // <--- Импорт карусели
+import SimpleCarousel from "@/components/SimpleCarousel"; 
 import { PRIVATE_HIRE_CONTENT } from "@/content/privateevents";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl"; // <-- Импорт локализации
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function PrivateHirePage() {
+  const t = useTranslations("PrivateEvents"); // <-- Инициализация переводов
+
   const ctaContainerRef = useRef<HTMLElement>(null);
   const ctaImageRef = useRef<HTMLImageElement>(null);
   const ctaContentRef = useRef<HTMLDivElement>(null);
@@ -26,7 +29,6 @@ export default function PrivateHirePage() {
     if (!container || !image || !content) return;
 
     const ctx = gsap.context(() => {
-      // Анимация фона
       gsap.fromTo(
         image,
         { yPercent: -30 },
@@ -42,7 +44,6 @@ export default function PrivateHirePage() {
         }
       );
 
-      // Анимация текста
       gsap.fromTo(
         content,
         { y: -50, opacity: 0 },
@@ -63,7 +64,6 @@ export default function PrivateHirePage() {
     return () => ctx.revert();
   }, []);
 
-  // Настройки трансформации для BounceCards (Веер)
   const threeCardsTransform = [
     "rotate(5deg) translate(-250px)",
     "rotate(0deg) translate(-140px)",
@@ -80,12 +80,10 @@ export default function PrivateHirePage() {
     "rotate(-5deg) translate(250px)"
   ];
 
-  // === ПОДГОТОВКА ДАННЫХ ДЛЯ КАРУСЕЛИ (MOBILE) ===
-  // SimpleCarousel ожидает объекты, а у нас строки. Мапим их.
   const gmCarouselData = PRIVATE_HIRE_CONTENT.gameMaster.images.map((src, i) => ({
     id: i,
     image: src,
-    title: "", // Пустые заголовки, если хотим только картинки
+    title: "", 
     description: ""
   }));
 
@@ -95,6 +93,9 @@ export default function PrivateHirePage() {
     title: "",
     description: ""
   }));
+
+  // Получаем массив особенностей из JSON для рендеринга
+  const gameMasterFeatures = t.raw("gameMaster.features") as string[];
 
   return (
     <main className="bg-neutral-950 min-h-screen text-white">
@@ -113,14 +114,14 @@ export default function PrivateHirePage() {
         <div className="relative z-10 text-center px-4">
           <Link href="/events" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors mb-6">
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-            <span>Вернуться назад</span>
+            <span>{t("back")}</span>
           </Link>
           <AnimatedContent direction="vertical">
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-widest text-secondary mb-4">
-              {PRIVATE_HIRE_CONTENT.hero.title}
+              {t("hero.title")}
             </h1>
             <p className="font-sans text-lg md:text-2xl text-secondary/80 max-w-3xl mx-auto leading-relaxed whitespace-pre-line">
-              {PRIVATE_HIRE_CONTENT.hero.description}
+              {t("hero.description")}
             </p>
           </AnimatedContent>
           
@@ -131,20 +132,15 @@ export default function PrivateHirePage() {
             className="mt-12"
           >
             <Link 
-  href="/book" // <--- 2. Укажи нужный адрес
-  className="group relative mt-4 inline-block overflow-hidden px-3 py-4 transition-all duration-300" // <--- 3. Добавил 'inline-block', чтобы ссылка вела себя как кнопка
->
-    {/* Фон с градиентом (при наведении) */}
-    <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
-    
-    {/* Основной фон (исчезает при наведении) */}
-    <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
-    
-    {/* Текст */}
-    <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-secondary">
-        {PRIVATE_HIRE_CONTENT.hero.buttonText}
-    </span>
-</Link>
+              href="/book" 
+              className="group relative mt-4 inline-block overflow-hidden px-3 py-4 transition-all duration-300" 
+            >
+                <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
+                <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
+                <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-secondary">
+                    {t("hero.buttonText")}
+                </span>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -153,17 +149,13 @@ export default function PrivateHirePage() {
       <section className="py-24 px-4 overflow-hidden">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-24">
             
-            {/* ЛЕВАЯ ЧАСТЬ: Изображения */}
             <div className="w-full md:w-1/2 relative z-10">
-                
-                {/* ВАРИАНТ 1: МОБИЛЬНЫЙ (Carousel) */}
                 <div className="block md:hidden w-full pb-8">
-                   <div className="-mx-4 w-[calc(100%+2rem)]"> {/* Выход за границы паддингов на мобилке */}
+                   <div className="-mx-4 w-[calc(100%+2rem)]"> 
                       <SimpleCarousel cards={gmCarouselData as any} />
                    </div>
                 </div>
 
-                {/* ВАРИАНТ 2: ДЕСКТОП (BounceCards) */}
                 <div className="hidden md:flex h-[500px] items-center justify-center">
                     <BounceCards 
                       images={PRIVATE_HIRE_CONTENT.gameMaster.images}
@@ -178,23 +170,23 @@ export default function PrivateHirePage() {
             
             <div className="md:w-1/2 relative z-20">
                 <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-2 block">
-                  {PRIVATE_HIRE_CONTENT.gameMaster.subtitle}
+                  {t("gameMaster.subtitle")}
                 </span>
                 <h2 className="font-serif text-4xl lg:text-5xl font-black uppercase tracking-wide mb-6">
-                   {PRIVATE_HIRE_CONTENT.gameMaster.title}
+                   {t("gameMaster.title")}
                 </h2>
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                   {PRIVATE_HIRE_CONTENT.gameMaster.description}
+                   {t("gameMaster.description")}
                 </p>
                 <ul className="space-y-2 text-white/80 font-serif uppercase text-sm tracking-widest">
-                    {PRIVATE_HIRE_CONTENT.gameMaster.features.map((feature, i) => (
+                    {gameMasterFeatures.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2">
                         <span className="text-accent">•</span> {feature}
                       </li>
                     ))}
                 </ul>
-                <p className="text-white/80 text-lg leading-relaxed">
-                   {PRIVATE_HIRE_CONTENT.gameMaster.subDescription}
+                <p className="text-white/80 text-lg leading-relaxed mt-6">
+                   {t("gameMaster.subDescription")}
                 </p>
             </div>
         </div>
@@ -204,17 +196,14 @@ export default function PrivateHirePage() {
       <section className="py-24 px-4 overflow-hidden">
         <div className="container mx-auto flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
              
-             {/* ПРАВАЯ ЧАСТЬ: Изображения */}
              <div className="w-full md:w-1/2 relative z-10">
-                 
-                 {/* ВАРИАНТ 1: МОБИЛЬНЫЙ (Carousel) */}
                  <div className="block md:hidden w-full pb-8">
                     <div className="-mx-4 w-[calc(100%+2rem)]">
-                       <SimpleCarousel cards={gmCarouselData as any} />
+                       {/* ИСПРАВЛЕНО: Теперь здесь feastCarouselData */}
+                       <SimpleCarousel cards={feastCarouselData as any} />
                     </div>
                  </div>
 
-                 {/* ВАРИАНТ 2: ДЕСКТОП (BounceCards) */}
                  <div className="hidden md:flex h-[500px] items-center justify-center">
                      <BounceCards 
                        images={PRIVATE_HIRE_CONTENT.feast.images}
@@ -229,19 +218,19 @@ export default function PrivateHirePage() {
 
             <div className="md:w-1/2 relative z-20">
                 <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-2 block">
-                  {PRIVATE_HIRE_CONTENT.feast.subtitle}
+                  {t("feast.subtitle")}
                 </span>
                 <h2 className="font-serif text-4xl lg:text-5xl font-black uppercase tracking-wide mb-6">
-                  {PRIVATE_HIRE_CONTENT.feast.title}
+                  {t("feast.title")}
                 </h2>
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                  {PRIVATE_HIRE_CONTENT.feast.descriptionOne}
+                  {t("feast.descriptionOne")}
                 </p>
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                  {PRIVATE_HIRE_CONTENT.feast.descriptionTwo}
+                  {t("feast.descriptionTwo")}
                 </p>
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                  {PRIVATE_HIRE_CONTENT.feast.descriptionThree}
+                  {t("feast.descriptionThree")}
                 </p>
             </div>
         </div>
@@ -265,11 +254,11 @@ export default function PrivateHirePage() {
 
         <div ref={ctaContentRef} className="relative z-10 text-center px-4">
             <h2 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-widest text-white mb-8 drop-shadow-2xl">
-                {PRIVATE_HIRE_CONTENT.cta.title}
+                {t("cta.title")}
             </h2>
             <Link href="/book">
                 <button className="px-12 py-5 bg-secondary text-black font-black uppercase tracking-[0.25em] hover:bg-accent hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                    {PRIVATE_HIRE_CONTENT.cta.buttonText}
+                    {t("cta.buttonText")}
                 </button>
             </Link>
         </div>

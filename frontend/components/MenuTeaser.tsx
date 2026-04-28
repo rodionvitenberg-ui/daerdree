@@ -4,9 +4,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedContent from "./AnimatedContent";
-import { MENU_CONTENT } from "@/content/home"; // <--- Импортируем данные
+import { MENU_CONTENT } from "@/content/home";
+import { useTranslations } from "next-intl"; // Подключили локализацию
 
 export default function MenuTeaser() {
+  const t = useTranslations("MenuTeaser"); // Инициализировали переводы
+  
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -18,6 +21,10 @@ export default function MenuTeaser() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Если компонент еще не смонтирован, можно не рендерить контент, зависящий от окна,
+  // или отрендерить базовый каркас. Но пока оставляем вашу логику как есть.
+  if (!mounted) return null;
+
   return (
     <section className="relative w-full overflow-hidden bg-background py-20 md:h-screen md:py-0 ">
       
@@ -26,8 +33,8 @@ export default function MenuTeaser() {
          ============================== */}
       <div className="absolute inset-0 z-0 opacity-20 md:hidden">
         <Image
-          src={MENU_CONTENT.imageMobile} // Берем из home.ts
-          alt="Menu Background" 
+          src={MENU_CONTENT.imageMobile} 
+          alt={t("altBackground")} 
           fill
           className="object-cover object-[center_20px]"
         />
@@ -35,17 +42,17 @@ export default function MenuTeaser() {
       </div>
 
       <div className="container mx-auto flex h-full flex-col items-center md:flex-row md:justify-center md:gap-16">
-        <div className="hidden md:block relative w-[400px] h-[500px] lg:w-[500px] lg:h-[650px] shrink-0 transition-transform duration-700">
+        <div className="hidden md:block relative w-[400px] h-[600px] lg:w-[500px] lg:h-[800px] shrink-0 transition-transform duration-700">
           
-          {/* Свечение за драконом (опционально) */}
+          {/* Свечение за драконом */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600%] h-[20%] bg-accent/10 blur-[80px] rounded-full" />
           
           <Image
-            src={MENU_CONTENT.imageDesktop} // Берем из home.ts
-            alt="Dragon Tequila"
+            src={MENU_CONTENT.imageDesktop} 
+            alt={t("altDragon")}
             fill
-            className="object-contain drop-shadow-2xl" // object-contain: покажет картинку целиком, не обрезая края
-            priority // Грузим быстро, так как это важный элемент
+            className="object-contain drop-shadow-2xl" 
+            priority 
           />
         </div>
 
@@ -60,7 +67,7 @@ export default function MenuTeaser() {
             <AnimatedContent
               key={isMobile ? "mobile-title" : "desktop-title"}
               distance={150}
-              direction={isMobile ? "vertical" : "vertical"}
+              direction="vertical"
               reverse={false}
               duration={1.0}
               ease="ease.out"
@@ -69,9 +76,9 @@ export default function MenuTeaser() {
               threshold={0.1}
             >
               <h2 className="font-serif text-4xl font-bold uppercase tracking-widest text-foreground md:text-6xl lg:text-7xl">
-                {/* Разбиваем заголовок, чтобы выделить слово цветом, если нужно */}
-                {MENU_CONTENT.title.replace(MENU_CONTENT.highlightWord, "")} 
-                <span className="text-accent">{MENU_CONTENT.highlightWord}</span>
+                {/* Теперь заголовок собирается чисто и логично из словаря */}
+                {t("title")}
+                <span className="text-accent">{t("highlightWord")}</span>
               </h2>
             </AnimatedContent>
 
@@ -79,7 +86,7 @@ export default function MenuTeaser() {
             <AnimatedContent
               key={isMobile ? "mobile-desc" : "desktop-desc"}
               distance={200}
-              direction={isMobile ? "vertical" : "vertical"}
+              direction="vertical"
               reverse={false}
               duration={1.2}
               delay={0.2}
@@ -89,19 +96,19 @@ export default function MenuTeaser() {
               threshold={0.1}
             >
               <p className="font-sans text-lg leading-relaxed text-foreground/80 md:text-xl">
-                {MENU_CONTENT.description}
+                {t("description")}
               </p>
             </AnimatedContent>
 
             {/* КНОПКА */}
             <div className="mt-8 flex justify-center w-full">
               <Link href="/menu">
-          <button className="group relative overflow-hidden px-10 py-4 md:px-8 md:py-3 border border-accent transition-all duration-300">
-           <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80" />
-            <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-secondary text-sm md:text-base">
-             {MENU_CONTENT.buttonText}
-            </span>
-          </button>
+                <button className="group relative overflow-hidden px-10 py-4 md:px-8 md:py-3 border border-accent transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80" />
+                  <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-secondary text-sm md:text-base">
+                    {t("buttonText")}
+                  </span>
+                </button>
               </Link>
             </div>
 

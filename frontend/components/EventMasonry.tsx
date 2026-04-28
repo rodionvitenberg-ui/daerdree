@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { EVENTS_CONTENT, EVENTS_GALLERY } from "@/content/home";
+import { EVENTS_GALLERY } from "@/content/home"; // Оставили только галерею
 import AnimatedContent from "./AnimatedContent"; 
+import { useTranslations } from "next-intl"; // Подключили хук
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function EventsMasonry() {
+  const t = useTranslations("EventsMasonry"); // Инициализировали переводы
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,7 +49,6 @@ export default function EventsMasonry() {
   }, []);
 
   return (
-    // Добавил w-full и max-w-[100vw] на секцию для подстраховки
     <section className="py-20 bg-background overflow-hidden w-full max-w-[100vw]">
       <div className="container mx-auto px-4">
         
@@ -64,7 +65,7 @@ export default function EventsMasonry() {
             threshold={0.2}
           >
             <h2 className="font-serif text-3xl md:text-5xl font-bold uppercase tracking-widest text-secondary mb-2">
-              {EVENTS_CONTENT.title}
+              {t("title")}
             </h2>
           </AnimatedContent>
 
@@ -80,7 +81,7 @@ export default function EventsMasonry() {
             threshold={0.2}
           >
             <p className="text-white/50 font-sans text-sm md:text-base">
-              {EVENTS_CONTENT.subtitle}
+              {t("subtitle")}
             </p>
           </AnimatedContent>
         </div>
@@ -93,28 +94,25 @@ export default function EventsMasonry() {
           {EVENTS_GALLERY.map((item, index) => (
             <div 
               key={index} 
-              // ВНЕШНИЙ DIV: Только для layout и GSAP. Убрал overflow-hidden отсюда.
               className="masonry-card break-inside-avoid relative mb-2"
             >
-              {/* ВНУТРЕННИЙ DIV: Изолирует контент и жестко обрезает свечение */}
               <div className="relative w-full h-full overflow-hidden bg-neutral-800 group cursor-pointer">
                 
                 <div className={`relative w-full ${item.height === 'tall' ? 'aspect-[3/5]' : 'aspect-square'}`}>
                   <Image
                     src={item.src}
-                    alt={item.title}
+                    alt={t(`gallery.${item.id}`)} // Берем название из словаря для alt
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 768px) 50vw, 16vw"
                   />
                 </div>
                 
-                {/* Свечение (теперь гарантированно обрезается внутренним div) */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600%] h-[20%] bg-accent/10 blur-[80px] rounded-full pointer-events-none" />
 
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10 pointer-events-none">
                     <span className="font-serif text-white font-bold text-sm tracking-wider bg-black/50 px-2 py-1">
-                      {item.title}
+                      {t(`gallery.${item.id}`)} {/* Берем название из словаря для UI */}
                     </span>
                 </div>
 

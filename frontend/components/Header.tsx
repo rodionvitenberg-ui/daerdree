@@ -4,30 +4,29 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Aurora from './Aurora';
+import { useTranslations } from 'next-intl'; // Подключили хук
 
+// Заменили 'name' на 'key' для привязки к словарю переводов
 const NAV_ITEMS = [
-  { name: 'Меню напитков', href: '/menu', group: 'left' },
-  { name: 'Настольные игры', href: '/games', group: 'left' },
-  { name: 'Ивенты', href: '/events', group: 'right' },
-  { name: 'Бронирование', href: '/book', group: 'right' },
-  { name: 'F.A.Q.', href: '/faq', group: 'right' },
+  { key: 'menu', href: '/menu', group: 'left' },
+  { key: 'games', href: '/games', group: 'left' },
+  { key: 'events', href: '/events', group: 'right' },
+  { key: 'booking', href: '/book', group: 'right' },
+  { key: 'faq', href: '/faq', group: 'right' },
 ];
 
 export default function Header() {
+  const t = useTranslations('Header.nav'); // Инициализировали переводы
   const [isOpen, setIsOpen] = useState(false);
   
   // === ЛОГИКА СКРЫТИЯ ХЕДЕРА ===
   const [isVisible, setIsVisible] = useState(true);
-  const lastScrollY = useRef(0); // Используем ref, чтобы не вызывать ререндер при каждом пикселе
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Логика:
-      // 1. Если скроллим ВНИЗ и прокрутили больше 100px -> Скрываем
-      // 2. Если скроллим ВВЕРХ -> Показываем
-      // 3. Math.abs нужен, чтобы игнорировать мелкие дрожания
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setIsVisible(false);
       } else {
@@ -43,10 +42,6 @@ export default function Header() {
   // =============================
 
   return (
-    // ИЗМЕНЕНИЯ В КЛАССАХ HEADER:
-    // 1. transition-transform duration-300: для плавной анимации скрытия.
-    // 2. Условный класс: если isVisible === false, добавляем 'md:-translate-y-full'.
-    //    ВАЖНО: префикс 'md:' означает, что на мобилках хедер НЕ уедет вверх.
     <header 
       className={`sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md relative transition-transform duration-300 ease-in-out
         ${isVisible ? 'translate-y-0' : 'md:-translate-y-full'}
@@ -83,11 +78,11 @@ export default function Header() {
         <div className="hidden w-full items-center justify-start gap-8 md:flex md:justify-self-start">
           {NAV_ITEMS.filter(i => i.group === 'left').map((item) => (
             <Link 
-              key={item.name}
+              key={item.key} // Используем key
               href={item.href} 
               className="font-serif text-sm font-bold uppercase tracking-widest text-foreground/80 transition-colors duration-500 ease-in-out hover:text-accent"
             >
-              {item.name}
+              {t(item.key)} {/* Выводим локализованный текст */}
             </Link>
           ))}
         </div>
@@ -110,11 +105,11 @@ export default function Header() {
         <div className="hidden w-full items-center justify-end gap-8 md:flex md:justify-self-end">
            {NAV_ITEMS.filter(i => i.group === 'right').map((item) => (
             <Link 
-              key={item.name}
+              key={item.key} // Используем key
               href={item.href} 
               className="font-serif text-sm font-bold uppercase tracking-widest text-foreground/80 transition-colors duration-500 ease-in-out hover:text-accent"
             >
-              {item.name}
+              {t(item.key)} {/* Выводим локализованный текст */}
             </Link>
           ))}
         </div>
@@ -149,12 +144,12 @@ export default function Header() {
         <div className="flex flex-col items-center gap-6 text-center">
           {NAV_ITEMS.map((item) => (
             <Link 
-              key={item.name}
+              key={item.key} // Используем key
               href={item.href}
               onClick={() => setIsOpen(false)}
               className="font-serif text-lg font-bold uppercase tracking-widest text-foreground transition-colors duration-500 ease-in-out hover:text-accent"
             >
-              {item.name}
+              {t(item.key)} {/* Выводим локализованный текст */}
             </Link>
           ))}
         </div>

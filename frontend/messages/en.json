@@ -211,5 +211,152 @@
     "details": "Details",
     "loading": "Loading...",
     "loadMore": "Show more"
+  },
+  "PrivateEvents": {
+    "back": "Go Back",
+    "hero": {
+      "title": "Turnkey Private Events",
+      "description": "Birthdays, corporate events, and private parties in a gaming format. We handle the script, the host, the games, and the catering — all you have to do is invite your guests and enjoy the occasion.",
+      "buttonText": "Book a Table"
+    },
+    "gameMaster": {
+      "title": "A Gaming Format That Engages Everyone",
+      "subtitle": "All-Inclusive",
+      "description": "We tailor the program to your group: from light party games to strategic team formats. We offer:",
+      "features": [
+        "- Bespoke scripts tailored to your event format",
+        "- Professional hosts",
+        "- Rule explanations and game moderation",
+        "- Interactive sessions and team activities",
+        "- Flexible program adaptation throughout the evening"
+      ],
+      "subDescription": "Our mission is to make sure no one gets bored and the excitement lasts until the final round."
+    },
+    "feast": {
+      "title": "Catering",
+      "subtitle": "Delicious Food and Bar for Your Event",
+      "descriptionOne": "We organize a delicious spread for your guests in a format that suits your event perfectly. Appetizers, buffet style, or heartier options—everything is discussed in advance.",
+      "descriptionTwo": "Our bar features cocktails, spirits, and non-alcoholic drinks. We’ll choose a service style that seamlessly complements the evening's atmosphere.",
+      "descriptionThree": "You relax and socialize—we make sure everyone is well-fed and comfortable."
+    },
+    "cta": {
+      "title": "Ready to Start?",
+      "buttonText": "Contact Us"
+    }
+  },
+  "MenuPage": {
+    "title": "Our Drinks",
+    "subtitle": "Tap to expand",
+    "altPage": "Menu page {index}",
+    "altFullscreen": "Fullscreen menu"
+  },
+  "Header": {
+    "nav": {
+      "menu": "Drink Menu",
+      "games": "Board Games",
+      "events": "Events",
+      "booking": "Booking",
+      "faq": "F.A.Q."
+    }
+  },
+  "Hero": {
+    "title": "YOUR MOVE TO THE PERFECT EVENING",
+    "subtitle": "Games • Treats • Fun",
+    "buttonText": "BOOK A TABLE!"
+  },
+  "Booking": {
+    "title": "A Great Evening Starts with a Reservation",
+    "subtitle": "Your table is waiting, and we’ll handle the rules!",
+    "success": {
+      "title": "Sending Request!",
+      "description": "We will contact you shortly to confirm your booking. If you have any questions, feel free to message us on Telegram or Instagram.",
+      "button": "Submit Another Request"
+    },
+    "error": "Something went wrong. Please try again or contact us via social media.",
+    "eventSelected": "Selected Event:",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your Name",
+      "guestsLabel": "Guests",
+      "guestsPlaceholder": "Number of guests",
+      "dateLabel": "Date and Time",
+      "contactLabel": "Contacts",
+      "contactPlaceholder": "Phone / Telegram",
+      "submit": "BOOK NOW",
+      "sending": "SENDING..."
+    },
+    "socialsDivider": "OR CONTACT US VIA"
+  },
+  "CateringStory": {
+    "title": "Turnkey Events",
+    "subtitle": "Trust us — we'll handle everything from the first move to the final toast!",
+    "buttonText": "Host an Event",
+    "cards": [
+      {
+        "title": "An Event People Will Talk About",
+        "description": "Not just an evening — a true gaming experience."
+      },
+      {
+        "title": "Your Group. Our Script.",
+        "description": "We’ll tailor the format for any audience."
+      },
+      {
+        "title": "Excitement, Laughter, and Team Spirit",
+        "description": "Uniting people through the power of play."
+      },
+      {
+        "title": "Taste, Style, and Atmosphere",
+        "description": "Catering that perfectly complements the evening."
+      },
+      {
+        "title": "One Step Away from the Perfect Event",
+        "description": "Submit a request — we'll take care of the rest."
+      }
+    ]
+  },
+  "GamesMarquee": {
+    "title": "Games Library",
+    "subtitle": "Choose, Play, Win, Repeat",
+    "buttonText": "View All Games",
+    "noImage": "No image"
+  },
+  "MenuTeaser": {
+    "title": "Our ",
+    "highlightWord": "Menu",
+    "description": "Delicious cocktails that perfectly complement the atmosphere. From timeless classics to signature masterpieces — everyone will find something to their taste.",
+    "buttonText": "View Menu",
+    "altBackground": "Menu background",
+    "altDragon": "Dragon with tequila"
+  },
+  "EventsMasonry": {
+    "title": "Check Our Vibe",
+    "subtitle": "The brightest moments from the life of our bar",
+    "gallery": {
+      "1": "Friday Night",
+      "2": "DnD Masters",
+      "3": "Cocktail Art",
+      "4": "Winning Move",
+      "5": "Cozy Corner",
+      "6": "Mafia Don",
+      "7": "Full House",
+      "8": "Focus",
+      "9": "Cheers",
+      "10": "Setup",
+      "11": "Dice Roll",
+      "12": "Late Night"
+    }
+  },
+  "LocationSection": {
+    "title": "Find Us on the Map",
+    "subtitle": "We’re waiting for you!",
+    "locationTitle": "Location",
+    "street": "Nicou Dimitrou",
+    "city": "Larnaka Bay, Cyprus",
+    "findOnMap": "Find us on the map",
+    "contactsTitle": "Contacts"
+  },
+  "Footer": {
+    "altLogo": "Daerdree Bar",
+    "poweredBy": "Powered by"
   }
 }

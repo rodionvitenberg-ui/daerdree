@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { HERO_CONTENT } from '@/content/home';
 import AnimatedContent from './AnimatedContent';
+import { useTranslations } from 'next-intl'; // Подключили хук
 
 export default function Hero() {
+  const t = useTranslations('Hero'); // Инициализировали переводы
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -83,9 +85,6 @@ export default function Hero() {
 {/* --- КОНТЕНТ (ТЕКСТ + КНОПКА) --- */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 text-center">
         
-        {/* key={currentSlide} заставляет анимацию перезапускаться при смене слайда.
-            Если хочешь, чтобы текст появился один раз и стоял — убери key={currentSlide} отсюда. 
-        */}
         <div className="flex flex-col items-center gap-6">
             
             {/* АНИМАЦИЯ ЗАГОЛОВКА */}
@@ -99,10 +98,10 @@ export default function Hero() {
               animateOpacity
               scale={1.1}
               threshold={0.2}
-              delay={0.1} // Стартует почти сразу
+              delay={0.1}
             >
               <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-5xl lg:text-6xl drop-shadow-[0_1px_30px_rgba(0,0,0,0.5)]">
-                  {HERO_CONTENT.title}
+                  {t('title')}
               </h1>
             </AnimatedContent>
             
@@ -110,36 +109,36 @@ export default function Hero() {
             <AnimatedContent
               distance={200}
               direction="vertical"
-              reverse={false} // Пусть вылетает с другой стороны для красоты? Или false, как хочешь.
+              reverse={false}
               duration={1.2}
               ease="ease.out"
               initialOpacity={0.0}
               animateOpacity
               scale={1.1}
               threshold={0.2}
-              delay={0.3} // Чуть позже заголовка
+              delay={0.3}
             >
               <p className="font-serif text-lg font-medium tracking-wide text-gray-200 md:text-2xl drop-shadow-lg max-w-2xl">
-                  {HERO_CONTENT.subtitle}
+                  {t('subtitle')}
               </p>
             </AnimatedContent>
 
             {/* АНИМАЦИЯ КНОПКИ */}
-              <Link 
-  href="/book" // <--- 2. Укажи нужный адрес
-  className="group relative mt-4 inline-block overflow-hidden px-3 py-4 transition-all duration-300" // <--- 3. Добавил 'inline-block', чтобы ссылка вела себя как кнопка
->
-    {/* Фон с градиентом (при наведении) */}
-    <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
-    
-    {/* Основной фон (исчезает при наведении) */}
-    <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
-    
-    {/* Текст */}
-    <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
-        {HERO_CONTENT.buttonText}
-    </span>
-</Link>
+            <Link 
+              href="/book"
+              className="group relative mt-4 inline-block overflow-hidden px-3 py-4 transition-all duration-300"
+            >
+                {/* Фон с градиентом (при наведении) */}
+                <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
+                
+                {/* Основной фон (исчезает при наведении) */}
+                <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
+                
+                {/* Текст */}
+                <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
+                    {t('buttonText')}
+                </span>
+            </Link>
 
         </div>
       </div>

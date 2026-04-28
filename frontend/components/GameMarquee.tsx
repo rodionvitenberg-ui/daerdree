@@ -6,30 +6,42 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedContent from '@/components/AnimatedContent'; 
-import { GAMES_CONTENT } from '@/content/home'; 
+import api, { setApiLanguage } from "@/lib/api"; // Подключили axios
+import { useTranslations, useLocale } from "next-intl"; // Подключили локализацию
 
 interface GameMarqueeItem {
   id: number;
   title: string;
+  title_ru?: string;
+  title_en?: string;
   image: string;
   slug: string;
 }
 
 export default function GamesMarquee() {
+  const t = useTranslations("GamesMarquee"); // Инициализировали переводы
+  const locale = useLocale();
+
   const [games, setGames] = useState<GameMarqueeItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Синхронизируем язык API
+  useEffect(() => {
+    setApiLanguage(locale);
+  }, [locale]);
 
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const res = await fetch(API_ENDPOINTS.MARQUEE);
-        if (!res.ok) throw new Error('Failed to fetch');
-        const data = await res.json();
+        // Используем axios, передаем язык, чтобы получать только актуальные игры
+        const res = await api.get(API_ENDPOINTS.MARQUEE, {
+          params: { lang: locale }
+        });
         
         // ВРЕМЕННЫЙ ЛОГ: Посмотрим, что приходит в консоль браузера
-        console.log("Marquee Data:", data); 
+        console.log("Marquee Data:", res.data); 
         
-        setGames(data);
+        setGames(res.data);
       } catch (error) {
         console.error("Error:", error);
       } finally {
@@ -38,7 +50,7 @@ export default function GamesMarquee() {
     };
 
     fetchGames();
-  }, []);
+  }, [locale]);
 
   if (!isLoading && games.length === 0) return null;
 
@@ -62,7 +74,7 @@ export default function GamesMarquee() {
           delay={0.1}
         >
           <h2 className="font-serif text-3xl font-black uppercase tracking-widest text-foreground md:text-5xl drop-shadow-2xl">
-            {GAMES_CONTENT.title}
+            {t("title")}
           </h2>
         </AnimatedContent>
 
@@ -79,7 +91,7 @@ export default function GamesMarquee() {
           delay={0.1}
         >
           <p className="mt-4 font-sans text-gray-400 drop-shadow-lg">
-            {GAMES_CONTENT.subtitle}
+            {t("subtitle")}
           </p>
         </AnimatedContent>
       </div>
@@ -89,62 +101,66 @@ export default function GamesMarquee() {
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent md:w-40" />
 
         {/* --- РЯД 1 --- */}
-        {/* БЫЛО: className="flex overflow-hidden" */}
-        {/* СТАЛО: className="w-full overflow-hidden" (Убрали flex, чтобы блок не растягивал страницу) */}
         <div className="w-full overflow-hidden"> 
-          <div className="animate-scroll-left flex gap-6 px-3 w-max"> {/* Добавил w-max для надежности */}
-            {duplicatedGames.map((game, index) => (
-              <Link 
-                key={`row1-${game.id}-${index}`}
-                href={`/games/${game.id}`}
-                className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
-              >
-                {game.image ? (
-                  <Image
-                    src={getImageUrl(game.image)}
-                    alt={game.title}
-                    fill
-                    className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
-                    sizes="(max-width: 768px) 130px, 200px"
-                  />
-                ) : (
-                   <div className="flex h-full w-full items-center justify-center bg-white/5">
-                     <span className="text-xs text-white/20">No Image</span>
-                   </div>
-                )}
-                <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
-              </Link>
-            ))}
+          <div className="animate-scroll-left flex gap-6 px-3 w-max">
+            {duplicatedGames.map((game, index) => {
+              const localizedTitle = locale === 'ru' ? (game.title_ru || game.title) : (game.title_en || game.title);
+
+              return (
+                <Link 
+                  key={`row1-${game.id}-${index}`}
+                  href={`/games/${game.id}`}
+                  className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
+                >
+                  {game.image ? (
+                    <Image
+                      src={getImageUrl(game.image)}
+                      alt={localizedTitle}
+                      fill
+                      className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
+                      sizes="(max-width: 768px) 130px, 200px"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-white/5">
+                      <span className="text-xs text-white/20">{t("noImage")}</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
+                </Link>
+              );
+            })}
           </div>
         </div>
 
         {/* --- РЯД 2 --- */}
-        {/* БЫЛО: className="flex overflow-hidden" */}
-        {/* СТАЛО: className="w-full overflow-hidden" */}
         <div className="w-full overflow-hidden">
-          <div className="animate-scroll-right flex gap-6 px-3 w-max"> {/* Добавил w-max */}
-             {duplicatedGames.map((game, index) => (
-              <Link 
-                key={`row2-${game.id}-${index}`}
-                href={`/games/${game.id}`} 
-                className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
-              >
-                {game.image ? (
-                  <Image
-                    src={getImageUrl(game.image)}
-                    alt={game.title}
-                    fill
-                    className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
-                    sizes="(max-width: 768px) 130px, 200px"
-                  />
-                ) : (
-                   <div className="flex h-full w-full items-center justify-center bg-white/5">
-                     <span className="text-xs text-white/20">No Image</span>
-                   </div>
-                )}
-                <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
-              </Link>
-            ))}
+          <div className="animate-scroll-right flex gap-6 px-3 w-max">
+             {duplicatedGames.map((game, index) => {
+              const localizedTitle = locale === 'ru' ? (game.title_ru || game.title) : (game.title_en || game.title);
+
+              return (
+                <Link 
+                  key={`row2-${game.id}-${index}`}
+                  href={`/games/${game.id}`} 
+                  className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
+                >
+                  {game.image ? (
+                    <Image
+                      src={getImageUrl(game.image)}
+                      alt={localizedTitle}
+                      fill
+                      className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
+                      sizes="(max-width: 768px) 130px, 200px"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-white/5">
+                      <span className="text-xs text-white/20">{t("noImage")}</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
+                </Link>
+              );
+            })}
           </div>
         </div>
 
@@ -156,7 +172,7 @@ export default function GamesMarquee() {
            <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
             <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
             <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
-             {GAMES_CONTENT.buttonText}
+             {t("buttonText")}
             </span>
           </button>
          </Link>

@@ -4,8 +4,11 @@ import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { BOOKING_CONTENT } from '@/content/home';
+import { useTranslations } from 'next-intl'; // Подключаем хук локализации
 
 function BookingContent() {
+  const t = useTranslations("Booking"); // Инициализируем переводы
+
   // Состояния: 'idle' (обычное), 'loading' (отправка), 'success' (успех), 'error' (ошибка)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -66,10 +69,10 @@ function BookingContent() {
           <div className="absolute inset-0 bg-black/65" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 pb-32 lg:pb-6">
             <h2 className="font-serif text-3xl font-black uppercase tracking-widest text-white drop-shadow-lg lg:text-6xl">
-              {BOOKING_CONTENT.title}
+              {t("title")}
             </h2>
             <p className="mt-2 font-sans text-lg text-gray-200 lg:max-w-md">
-              {BOOKING_CONTENT.subtitle}
+              {t("subtitle")}
             </p>
           </div>
         </div>
@@ -87,15 +90,15 @@ function BookingContent() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <h3 className="font-serif text-3xl font-bold uppercase text-white mb-2">Отправляем запрос!</h3>
+                      <h3 className="font-serif text-3xl font-bold uppercase text-white mb-2">{t("success.title")}</h3>
                       <p className="text-white/60 mb-8">
-                        Скоро свяжемся с вами для подтверждения брони. Если у вас есть вопросы, не стесняйтесь писать нам в Telegram или Instagram.
+                        {t("success.description")}
                       </p>
                       <button 
                         onClick={() => setStatus('idle')}
                         className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-white transition-colors"
                       >
-                        Отправить еще одну заявку
+                        {t("success.button")}
                       </button>
                    </div>
                 ) : (
@@ -105,7 +108,7 @@ function BookingContent() {
                   {eventTitle && (
                     <div className="mb-6 p-4 bg-white/5 border-l-2 border-secondary flex flex-col justify-center rounded-r-sm animate-in fade-in slide-in-from-top-4">
                         <span className="text-secondary text-[10px] font-bold uppercase tracking-widest mb-1 opacity-80">
-                          Выбранное событие:
+                          {t("eventSelected")}
                         </span>
                         <span className="text-white font-serif text-xl tracking-wide">
                           {eventTitle}
@@ -121,41 +124,41 @@ function BookingContent() {
                       {/* Если ОШИБКА, показываем красную плашку сверху */}
                       {status === 'error' && (
                           <div className="rounded bg-red-500/10 p-3 border border-red-500/20 text-center text-sm text-red-400">
-                              Что-то пошло не так. Пожалуйста, попробуйте снова или свяжитесь с нами через соцсети.
+                              {t("error")}
                           </div>
                       )}
 
                       <div className="group">
                           <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                              Имя
+                              {t("form.nameLabel")}
                           </label>
                           <input 
                               required
                               type="text" 
                               name="name"
                               disabled={status === 'loading'}
-                              placeholder={BOOKING_CONTENT.form.namePlaceholder}
+                              placeholder={t("form.namePlaceholder")}
                               className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
                           />
                       </div>
 
                       <div className="group">
                           <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                              Гости
+                              {t("form.guestsLabel")}
                           </label>
                           <input 
                               required
                               type="number" 
                               name="guests"
                               disabled={status === 'loading'}
-                              placeholder={BOOKING_CONTENT.form.guestsPlaceholder}
+                              placeholder={t("form.guestsPlaceholder")}
                               className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
                           />
                       </div>
 
                       <div className="group">
                           <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                              Дата и время
+                              {t("form.dateLabel")}
                           </label>
                           <input 
                               required
@@ -171,14 +174,14 @@ function BookingContent() {
 
                       <div className="group">
                           <label className="mb-2 block font-serif text-xs font-bold uppercase tracking-widest text-gray-500 group-focus-within:text-secondary">
-                              Контакты
+                              {t("form.contactLabel")}
                           </label>
                           <input 
                               required
                               type="text" 
                               name="contact"
                               disabled={status === 'loading'}
-                              placeholder={BOOKING_CONTENT.form.contactPlaceholder}
+                              placeholder={t("form.contactPlaceholder")}
                               className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
                           />
                       </div>
@@ -194,7 +197,7 @@ function BookingContent() {
                                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                               </svg>
                           )}
-                          {status === 'loading' ? "SENDING..." : BOOKING_CONTENT.form.buttonText}
+                          {status === 'loading' ? t("form.sending") : t("form.submit")}
                       </button>
                   </form>
                 </>
@@ -203,7 +206,7 @@ function BookingContent() {
                 {/* Разделитель и соцсети (оставляем видимыми всегда) */}
                 <div className="my-8 flex items-center gap-4">
                     <div className="h-px flex-1 bg-white/10" />
-                    <span className="font-serif text-xs text-gray-500">ИЛИ СВЯЖИТЕСЬ С НАМИ ЧЕРЕЗ</span>
+                    <span className="font-serif text-xs text-gray-500">{t("socialsDivider")}</span>
                     <div className="h-px flex-1 bg-white/10" />
                 </div>
 
