@@ -3,17 +3,20 @@ import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets, mixins
+from rest_framework.permissions import AllowAny
 
 from .models import Booking, TELEGRAM_BOT_TOKEN
 from .serializers import BookingSerializer
 
-# === ВАШ ТЕКУЩИЙ КОД (ОСТАВЛЯЕМ) ===
 class BookingViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     Разрешаем только Создавать (Create) и Смотреть список (List) броней.
     """
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+    
+    authentication_classes = [] # Отключает проверку сессий и CSRF для этого эндпоинта
+    permission_classes = [AllowAny] # Разрешает POST-запросы всем (включая Next.js сервер)
 
 # === НОВЫЙ КОД (ДЛЯ КНОПОК В TELEGRAM) ===
 @csrf_exempt
