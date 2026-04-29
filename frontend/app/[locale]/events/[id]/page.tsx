@@ -2,13 +2,15 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server"; // <-- Подключаем серверную локализацию
+import { getTranslations, getLocale } from "next-intl/server";
 
-// Типизация события
+// ОБНОВЛЕНО: Расширили типизацию события
 interface Event {
   id: number;
   title: string;
+  title_en: string | null;
   description: string;
+  description_en: string | null;
   image: string;
   event_date: string;
 }
@@ -30,30 +32,38 @@ async function getEvent(id: string): Promise<Event | null> {
   }
 }
 
-// Генерация метаданных для SEO
+// ОБНОВЛЕНО: Генерация метаданных для SEO с учетом локали
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const event = await getEvent(id);
-  const t = await getTranslations("EventPage"); // Получаем переводы для SEO
+  const t = await getTranslations("EventPage"); 
+  const locale = await getLocale(); // Узнаем язык для SEO
   
   if (!event) return { title: t("metadataNotFound") };
   
+  // Выбираем правильные тексты для SEO
+  const displayTitle = locale === 'en' && event.title_en ? event.title_en : event.title;
+  const displayDescription = locale === 'en' && event.description_en ? event.description_en : event.description;
+  
   return {
-    title: `${event.title}${t("metadataTitleSuffix")}`,
-    description: event.description.slice(0, 150),
+    title: `${displayTitle}${t("metadataTitleSuffix")}`,
+    description: displayDescription.slice(0, 150),
   };
 }
 
 export default async function EventPage({ params }: { params: Promise<{ id: string }> }) {
-  // В Next.js 15 params нужно ждать (await)
   const { id } = await params;
   const event = await getEvent(id);
-  const t = await getTranslations("EventPage"); // Инициализируем серверные переводы
-  const locale = await getLocale(); // Узнаем текущий язык
+  const t = await getTranslations("EventPage"); 
+  const locale = await getLocale(); 
 
   if (!event) {
-    notFound(); // Покажет стандартную страницу 404
+    notFound(); 
   }
+
+  // ОБНОВЛЕНО: Определяем тексты для отображения на странице
+  const displayTitle = locale === 'en' && event.title_en ? event.title_en : event.title;
+  const displayDescription = locale === 'en' && event.description_en ? event.description_en : event.description;
 
   // Форматирование даты с учетом текущего языка
   const dateObj = new Date(event.event_date);
@@ -62,14 +72,14 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       day: 'numeric', 
       month: 'long', 
       year: 'numeric',
-      timeZone: 'Asia/Nicosia' // Привязка к Кипру
+      timeZone: 'Asia/Nicosia' 
   });
   
   const timeStr = dateObj.toLocaleTimeString(locale === 'ru' ? 'ru-RU' : 'en-US', { 
       hour: '2-digit', 
       minute: '2-digit', 
       hour12: false,
-      timeZone: 'Asia/Nicosia' // Привязка к Кипру
+      timeZone: 'Asia/Nicosia' 
   });
 
   return (
@@ -87,14 +97,14 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
           {/* ЛЕВАЯ КОЛОНКА: Контент */}
           <div>
             <h1 className="font-serif text-4xl md:text-6xl font-black uppercase text-white mb-6 leading-tight">
-              {event.title}
+              {displayTitle} {/* Подставили переведенный заголовок */}
             </h1>
             
             <div className="relative aspect-video w-full bg-neutral-900 rounded-sm overflow-hidden mb-10 border border-white/10">
               {event.image ? (
                 <Image 
                   src={event.image} 
-                  alt={event.title}
+                  alt={displayTitle} // Подставили переведенный alt
                   fill
                   className="object-cover"
                   unoptimized={true} 
@@ -109,7 +119,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
             <div className="prose prose-invert prose-lg max-w-none">
               <p className="whitespace-pre-line text-gray-300 leading-relaxed">
-                {event.description}
+                {displayDescription} {/* Подставили переведенное описание */}
               </p>
             </div>
           </div>
@@ -138,7 +148,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
              {/* Кнопка Бронирования с параметрами */}
               <Link 
-                href={`/book?event=${encodeURIComponent(event.title)}&date=${encodeURIComponent(event.event_date)}`} 
+                href={`/book?event=${encodeURIComponent(displayTitle)}&date=${encodeURIComponent(event.event_date)}`} 
                 className="block w-full"
               >
                 <button className="w-full py-4 bg-secondary text-black font-bold uppercase tracking-widest hover:bg-accent transition-colors">
