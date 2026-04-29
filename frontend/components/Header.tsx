@@ -3,10 +3,10 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import Aurora from './Aurora';
-import { useTranslations } from 'next-intl'; // Подключили хук
 
-// Заменили 'name' на 'key' для привязки к словарю переводов
 const NAV_ITEMS = [
   { key: 'menu', href: '/menu', group: 'left' },
   { key: 'games', href: '/games', group: 'left' },
@@ -16,13 +16,16 @@ const NAV_ITEMS = [
 ];
 
 export default function Header() {
-  const t = useTranslations('Header.nav'); // Инициализировали переводы
-  const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations('Header.nav');
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
   
-  // === ЛОГИКА СКРЫТИЯ ХЕДЕРА ===
+  const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
 
+  // === ЛОГИКА СКРЫТИЯ ХЕДЕРА ===
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -40,6 +43,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   // =============================
+
+  // === ЛОГИКА СМЕНЫ ЯЗЫКА ===
+  const toggleLanguage = () => {
+    const nextLocale = locale === 'ru' ? 'en' : 'ru';
+    const newPath = pathname.replace(new RegExp(`^/${locale}`), `/${nextLocale}`);
+    router.replace(newPath);
+  };
+  // ==========================
 
   return (
     <header 
@@ -78,11 +89,11 @@ export default function Header() {
         <div className="hidden w-full items-center justify-start gap-8 md:flex md:justify-self-start">
           {NAV_ITEMS.filter(i => i.group === 'left').map((item) => (
             <Link 
-              key={item.key} // Используем key
+              key={item.key}
               href={item.href} 
               className="font-serif text-sm font-bold uppercase tracking-widest text-foreground/80 transition-colors duration-500 ease-in-out hover:text-accent"
             >
-              {t(item.key)} {/* Выводим локализованный текст */}
+              {t(item.key)}
             </Link>
           ))}
         </div>
@@ -105,17 +116,35 @@ export default function Header() {
         <div className="hidden w-full items-center justify-end gap-8 md:flex md:justify-self-end">
            {NAV_ITEMS.filter(i => i.group === 'right').map((item) => (
             <Link 
-              key={item.key} // Используем key
+              key={item.key}
               href={item.href} 
               className="font-serif text-sm font-bold uppercase tracking-widest text-foreground/80 transition-colors duration-500 ease-in-out hover:text-accent"
             >
-              {t(item.key)} {/* Выводим локализованный текст */}
+              {t(item.key)}
             </Link>
           ))}
+          
+          {/* ИЗМЕНЕНИЕ: Переключатель языка для Desktop теперь здесь, справа */}
+          <button 
+            onClick={toggleLanguage} 
+            className="font-serif text-sm font-bold uppercase tracking-widest text-foreground/50 transition-colors duration-500 ease-in-out hover:text-accent"
+            aria-label="Toggle language"
+          >
+            {locale === 'ru' ? 'EN' : 'RU'}
+          </button>
         </div>
 
-        {/* --- 5. БУРГЕР --- */}
-        <div className="flex md:hidden">
+        {/* --- 5. ПРАВАЯ ЧАСТЬ МОБИЛКИ (Бургер + Язык) --- */}
+        <div className="flex items-center gap-5 md:hidden">
+          
+          {/* Переключатель языка для Mobile */}
+          <button 
+            onClick={toggleLanguage} 
+            className="font-serif text-sm font-bold uppercase tracking-widest text-foreground/50 hover:text-accent transition-colors"
+          >
+            {locale === 'ru' ? 'EN' : 'RU'}
+          </button>
+
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="flex h-10 w-10 items-center justify-center text-foreground transition-colors duration-300 hover:text-accent"
@@ -144,12 +173,12 @@ export default function Header() {
         <div className="flex flex-col items-center gap-6 text-center">
           {NAV_ITEMS.map((item) => (
             <Link 
-              key={item.key} // Используем key
+              key={item.key}
               href={item.href}
               onClick={() => setIsOpen(false)}
               className="font-serif text-lg font-bold uppercase tracking-widest text-foreground transition-colors duration-500 ease-in-out hover:text-accent"
             >
-              {t(item.key)} {/* Выводим локализованный текст */}
+              {t(item.key)}
             </Link>
           ))}
         </div>
