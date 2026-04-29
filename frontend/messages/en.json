@@ -358,5 +358,18 @@
   "Footer": {
     "altLogo": "Daerdree Bar",
     "poweredBy": "Powered by"
+  },
+  "EventPage": {
+    "metadataNotFound": "Event not found",
+    "metadataTitleSuffix": " | Daerdree Events",
+    "backToHub": "Back to Hub",
+    "noImage": "NO IMAGE",
+    "detailsTitle": "Event Details",
+    "dateLabel": "Date",
+    "timeLabel": "Time",
+    "locationLabel": "Location",
+    "locationValue": "Daerdree Bar",
+    "bookButton": "Book a Table",
+    "reservationDisclaimer": "Advance booking is recommended for this event."
   }
 }

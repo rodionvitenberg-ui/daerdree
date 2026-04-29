@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import { getTranslations, getLocale } from "next-intl/server"; // <-- Подключаем серверную локализацию
 
 // Типизация события
 interface Event {
@@ -30,41 +31,45 @@ async function getEvent(id: string): Promise<Event | null> {
 }
 
 // Генерация метаданных для SEO
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const { id } = await params
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
   const event = await getEvent(id);
-  if (!event) return { title: "Event Not Found" };
+  const t = await getTranslations("EventPage"); // Получаем переводы для SEO
+  
+  if (!event) return { title: t("metadataNotFound") };
   
   return {
-    title: `${event.title} | Daerdree Events`,
+    title: `${event.title}${t("metadataTitleSuffix")}`,
     description: event.description.slice(0, 150),
   };
 }
 
-export default async function EventPage({ params }: { params: { id: string } }) {
+export default async function EventPage({ params }: { params: Promise<{ id: string }> }) {
   // В Next.js 15 params нужно ждать (await)
-  const { id } = await params
+  const { id } = await params;
   const event = await getEvent(id);
+  const t = await getTranslations("EventPage"); // Инициализируем серверные переводы
+  const locale = await getLocale(); // Узнаем текущий язык
 
   if (!event) {
     notFound(); // Покажет стандартную страницу 404
   }
 
-  // Форматирование даты
+  // Форматирование даты с учетом текущего языка
   const dateObj = new Date(event.event_date);
   
-  const dateStr = dateObj.toLocaleDateString('en-US', { 
+  const dateStr = dateObj.toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'en-US', { 
       day: 'numeric', 
       month: 'long', 
       year: 'numeric',
-      timeZone: 'Asia/Nicosia' // <--- Привязка к Кипру
+      timeZone: 'Asia/Nicosia' // Привязка к Кипру
   });
   
-  const timeStr = dateObj.toLocaleTimeString('en-US', { 
+  const timeStr = dateObj.toLocaleTimeString(locale === 'ru' ? 'ru-RU' : 'en-US', { 
       hour: '2-digit', 
       minute: '2-digit', 
       hour12: false,
-      timeZone: 'Asia/Nicosia' // <--- Привязка к Кипру
+      timeZone: 'Asia/Nicosia' // Привязка к Кипру
   });
 
   return (
@@ -74,7 +79,7 @@ export default async function EventPage({ params }: { params: { id: string } }) 
         {/* Хлебные крошки */}
         <Link href="/events" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-secondary/30 hover:text-secondary transition-colors mb-6">
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-            <span>Back to Hub</span>
+            <span>{t("backToHub")}</span>
           </Link>
 
         <article className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12">
@@ -92,11 +97,13 @@ export default async function EventPage({ params }: { params: { id: string } }) 
                   alt={event.title}
                   fill
                   className="object-cover"
-                  unoptimized={true} // Важно для внешних URL
+                  unoptimized={true} 
                   priority
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center text-white/20">NO IMAGE</div>
+                <div className="absolute inset-0 flex items-center justify-center text-white/20">
+                  {t("noImage")}
+                </div>
               )}
             </div>
 
@@ -111,21 +118,21 @@ export default async function EventPage({ params }: { params: { id: string } }) 
           <div className="relative">
             <div className="lg:sticky lg:top-32 bg-neutral-900/50 border border-white/10 p-8 backdrop-blur-sm">
               <h3 className="font-serif text-xl font-bold text-accent mb-6 uppercase tracking-wider">
-                Event Details
+                {t("detailsTitle")}
               </h3>
 
               <div className="space-y-6 mb-8">
                 <div>
-                  <span className="block text-xs font-bold text-white/40 uppercase tracking-widest mb-1">Date</span>
+                  <span className="block text-xs font-bold text-white/40 uppercase tracking-widest mb-1">{t("dateLabel")}</span>
                   <span className="text-white text-lg font-medium">{dateStr}</span>
                 </div>
                 <div>
-                  <span className="block text-xs font-bold text-white/40 uppercase tracking-widest mb-1">Time</span>
+                  <span className="block text-xs font-bold text-white/40 uppercase tracking-widest mb-1">{t("timeLabel")}</span>
                   <span className="text-white text-lg font-medium">{timeStr}</span>
                 </div>
                 <div>
-                   <span className="block text-xs font-bold text-white/40 uppercase tracking-widest mb-1">Location</span>
-                   <span className="text-white text-lg font-medium">Daerdree Bar</span>
+                   <span className="block text-xs font-bold text-white/40 uppercase tracking-widest mb-1">{t("locationLabel")}</span>
+                   <span className="text-white text-lg font-medium">{t("locationValue")}</span>
                 </div>
               </div>
 
@@ -135,12 +142,12 @@ export default async function EventPage({ params }: { params: { id: string } }) 
                 className="block w-full"
               >
                 <button className="w-full py-4 bg-secondary text-black font-bold uppercase tracking-widest hover:bg-accent transition-colors">
-                  Book a Table
+                  {t("bookButton")}
                 </button>
               </Link>
               
               <p className="text-center text-white/30 text-xs mt-4">
-                Reservation is recommended for this event.
+                {t("reservationDisclaimer")}
               </p>
             </div>
           </div>

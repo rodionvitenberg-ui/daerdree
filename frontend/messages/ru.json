@@ -358,5 +358,18 @@
   "Footer": {
     "altLogo": "Daerdree Bar",
     "poweredBy": "Powered by"
+  },
+  "EventPage": {
+    "metadataNotFound": "Событие не найдено",
+    "metadataTitleSuffix": " | Daerdree Events",
+    "backToHub": "Вернуться к хабу",
+    "noImage": "НЕТ ИЗОБРАЖЕНИЯ",
+    "detailsTitle": "Детали события",
+    "dateLabel": "Дата",
+    "timeLabel": "Время",
+    "locationLabel": "Локация",
+    "locationValue": "Daerdree Bar",
+    "bookButton": "Забронировать стол",
+    "reservationDisclaimer": "Для этого события рекомендуется предварительное бронирование."
   }
 }

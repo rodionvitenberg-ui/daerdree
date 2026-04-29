@@ -1,12 +1,25 @@
 import json
 import requests
+import datetime
+import traceback
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files.base import ContentFile
 from rest_framework import viewsets, mixins
 from rest_framework.permissions import AllowAny
 
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    from backports.zoneinfo import ZoneInfo
+
+from dateparser.search import search_dates
+
 from .models import Booking, TELEGRAM_BOT_TOKEN
 from .serializers import BookingSerializer
+from events.models import Event  # Импортируем модель событий
+
+CYPRUS_TZ = ZoneInfo("Asia/Nicosia")
 
 class BookingViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
     """
@@ -18,20 +31,92 @@ class BookingViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, viewsets.Ge
     authentication_classes = [] # Отключает проверку сессий и CSRF для этого эндпоинта
     permission_classes = [AllowAny] # Разрешает POST-запросы всем (включая Next.js сервер)
 
-# === НОВЫЙ КОД (ДЛЯ КНОПОК В TELEGRAM) ===
+def process_event_from_channel(post):
+    """
+    Парсит пост из канала и создает событие в БД.
+    """
+    if "photo" not in post:
+        return # Игнорируем посты без фото
+
+    post_id = str(post["message_id"])
+    
+    # 1. Проверка дубликатов
+    if Event.objects.filter(telegram_id=post_id).exists():
+        return
+
+    # 2. Анализ текста
+    caption = post.get("caption", "") or post.get("text", "")
+    lines = caption.split('\n')
+    title = lines[0][:100] if lines else "Новое событие"
+    description = "\n".join(lines[1:]) if len(lines) > 1 else caption
+
+    # 3. Работа с датами (Кипрское время)
+    publish_ts = post.get("date")
+    publish_dt_utc = datetime.datetime.fromtimestamp(publish_ts, tz=datetime.timezone.utc)
+    publish_date_cyprus = publish_dt_utc.astimezone(CYPRUS_TZ)
+
+    final_date_part = publish_date_cyprus.date()
+    final_time_part = None
+
+    found_dates = search_dates(
+        caption, 
+        languages=['ru', 'en'], 
+        settings={'PREFER_DATES_FROM': 'future', 'RELATIVE_BASE': publish_date_cyprus}
+    )
+
+    if found_dates:
+        for text_match, date_obj in found_dates:
+            if date_obj.tzinfo is None:
+                date_obj = date_obj.replace(tzinfo=CYPRUS_TZ)
+            else:
+                date_obj = date_obj.astimezone(CYPRUS_TZ)
+            
+            if date_obj.date() != publish_date_cyprus.date():
+                final_date_part = date_obj.date()
+            
+            if date_obj.time() != datetime.time(0, 0):
+                final_time_part = date_obj.time()
+
+    target_time = final_time_part if final_time_part else datetime.time(19, 0)
+    final_date_cyprus = datetime.datetime.combine(final_date_part, target_time)
+    final_date_cyprus = final_date_cyprus.replace(tzinfo=CYPRUS_TZ)
+
+    # 4. Скачивание фото
+    best_photo = post["photo"][-1]
+    file_id = best_photo["file_id"]
+    
+    f_info = requests.get(f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getFile?file_id={file_id}").json()
+    if "result" in f_info:
+        file_path = f_info["result"]["file_path"]
+        img_data = requests.get(f"https://api.telegram.org/file/bot{TELEGRAM_BOT_TOKEN}/{file_path}").content
+        photo_file = ContentFile(img_data, name=f"event_{post_id}.jpg")
+    else:
+        photo_file = None
+
+    # 5. Сохранение
+    if photo_file:
+        Event.objects.create(
+            telegram_id=post_id,
+            title=title,
+            description=description,
+            image=photo_file,
+            event_date=final_date_cyprus,
+            is_visible=True
+        )
+
 @csrf_exempt
 def telegram_webhook(request):
     """
-    Эндпоинт для обработки нажатий на инлайн-кнопки в Telegram.
+    Единый эндпоинт для обработки событий от Telegram (кнопки и посты из канала).
     """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
             
-            # Ловим нажатия на инлайн-кнопки
+            # СЦЕНАРИЙ 1: Ловим нажатия на инлайн-кнопки (Бронирования)
             if 'callback_query' in data:
                 query = data['callback_query']
-                callback_data = query['data'] # Это наша строка 'confirm_ID' или 'reject_ID'
+                callback_data = query['data'] 
                 chat_id = query['message']['chat']['id']
                 message_id = query['message']['message_id']
                 
@@ -46,7 +131,7 @@ def telegram_webhook(request):
                     booking.status = 'rejected'
                     status_text = "🔴 Отклонено"
                     
-                booking.save() # Сохраняем новый статус
+                booking.save() 
 
                 # Формируем обновленный текст сообщения
                 event_line = f"🎉 <b>Событие:</b> {booking.event_title}\n" if booking.event_title else ""
@@ -69,8 +154,13 @@ def telegram_webhook(request):
                     "parse_mode": "HTML"
                 })
 
+            # СЦЕНАРИЙ 2: Ловим новые посты из канала (Афиша)
+            elif 'channel_post' in data:
+                process_event_from_channel(data['channel_post'])
+
             return JsonResponse({"status": "ok"})
         except Exception as e:
+            traceback.print_exc() # Выведет ошибку в консоль сервера для удобного дебага
             print(f"Webhook error: {e}")
             return JsonResponse({"status": "error"}, status=400)
     

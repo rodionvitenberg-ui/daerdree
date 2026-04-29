@@ -6,7 +6,7 @@ import os
 
 # Твои токены (лучше вынести в .env, но пока можно и так для теста)
 TELEGRAM_BOT_TOKEN = "8564013326:AAGBlMk4-eqlZq_9iTXVv2oIC-itKHsivho"
-TELEGRAM_CHAT_ID = "6465575638"
+TELEGRAM_CHAT_IDS = ["6465575638", "ЕГО_НОВЫЙ_ЦИФРОВОЙ_ID"]
 
 class Booking(models.Model):
     STATUS_CHOICES = [
@@ -48,7 +48,6 @@ def send_telegram_notification(sender, instance, created, **kwargs):
             f"<i>Статус: 🟡 На рассмотрении</i>"
         )
         
-        # ДОБАВЛЯЕМ КНОПКИ
         keyboard = {
             "inline_keyboard": [
                 [
@@ -59,14 +58,16 @@ def send_telegram_notification(sender, instance, created, **kwargs):
         }
         
         url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-        data = {
-            "chat_id": TELEGRAM_CHAT_ID,
-            "text": message,
-            "parse_mode": "HTML",
-            "reply_markup": keyboard # Прикрепляем кнопки к сообщению
-        }
         
-        try:
-            requests.post(url, json=data)
-        except Exception as e:
-            print(f"Ошибка отправки в Telegram: {e}")
+        # ЗАПУСКАЕМ ЦИКЛ: отправляем сообщение каждому ID из списка
+        for chat_id in TELEGRAM_CHAT_IDS:
+            data = {
+                "chat_id": chat_id,
+                "text": message,
+                "parse_mode": "HTML",
+                "reply_markup": keyboard
+            }
+            try:
+                requests.post(url, json=data)
+            except Exception as e:
+                print(f"Ошибка отправки в Telegram для ID {chat_id}: {e}")
