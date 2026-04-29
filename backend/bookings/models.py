@@ -36,24 +36,34 @@ class Booking(models.Model):
 @receiver(post_save, sender=Booking)
 def send_telegram_notification(sender, instance, created, **kwargs):
     if created:
-        # Формируем строку события, если оно есть
         event_line = f"🎉 <b>Событие:</b> {instance.event_title}\n" if instance.event_title else ""
         
         message = (
-            f"🔔 <b>Новая заявка на бронь!</b>\n\n"
-            f"{event_line}"  # <--- Вставляем сюда
+            f"🔔 <b>Новая заявка на бронь! (ID: {instance.id})</b>\n\n"
+            f"{event_line}"
             f"👤 <b>Имя:</b> {instance.name}\n"
             f"👥 <b>Гостей:</b> {instance.guests}\n"
             f"📅 <b>Дата:</b> {instance.date}\n"
             f"📞 <b>Контакт:</b> {instance.contact}\n\n"
-            f"<i>Статус: На рассмотрении</i>"
+            f"<i>Статус: 🟡 На рассмотрении</i>"
         )
+        
+        # ДОБАВЛЯЕМ КНОПКИ
+        keyboard = {
+            "inline_keyboard": [
+                [
+                    {"text": "✅ Подтвердить", "callback_data": f"confirm_{instance.id}"},
+                    {"text": "❌ Отклонить", "callback_data": f"reject_{instance.id}"}
+                ]
+            ]
+        }
         
         url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
         data = {
             "chat_id": TELEGRAM_CHAT_ID,
             "text": message,
-            "parse_mode": "HTML"
+            "parse_mode": "HTML",
+            "reply_markup": keyboard # Прикрепляем кнопки к сообщению
         }
         
         try:
