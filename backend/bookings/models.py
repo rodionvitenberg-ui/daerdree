@@ -6,7 +6,7 @@ import os
 
 # Твои токены (лучше вынести в .env, но пока можно и так для теста)
 TELEGRAM_BOT_TOKEN = "8564013326:AAGBlMk4-eqlZq_9iTXVv2oIC-itKHsivho"
-TELEGRAM_CHAT_IDS = ["6465575638", "ЕГО_НОВЫЙ_ЦИФРОВОЙ_ID"]
+TELEGRAM_CHAT_IDS = ["6465575638", "5562712531"]
 
 class Booking(models.Model):
     STATUS_CHOICES = [

@@ -33,12 +33,13 @@ class BookingViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, viewsets.Ge
 
 def process_event_from_channel(post):
     """
-    Парсит пост из канала и создает событие в БД.
+    Парсит пост из канала (или пересланный пост) и создает событие в БД.
     """
     if "photo" not in post:
         return # Игнорируем посты без фото
 
-    post_id = str(post["message_id"])
+    # Учитываем, что сообщение может быть пересланным
+    post_id = str(post.get("forward_from_message_id", post["message_id"]))
     
     # 1. Проверка дубликатов
     if Event.objects.filter(telegram_id=post_id).exists():
@@ -51,7 +52,8 @@ def process_event_from_channel(post):
     description = "\n".join(lines[1:]) if len(lines) > 1 else caption
 
     # 3. Работа с датами (Кипрское время)
-    publish_ts = post.get("date")
+    # Берем дату оригинала, если пост переслан
+    publish_ts = post.get("forward_date", post["date"])
     publish_dt_utc = datetime.datetime.fromtimestamp(publish_ts, tz=datetime.timezone.utc)
     publish_date_cyprus = publish_dt_utc.astimezone(CYPRUS_TZ)
 
@@ -157,11 +159,16 @@ def telegram_webhook(request):
             # СЦЕНАРИЙ 2: Ловим новые посты из канала (Афиша)
             elif 'channel_post' in data:
                 process_event_from_channel(data['channel_post'])
+                
+            # СЦЕНАРИЙ 3: Ловим ОТРЕДАКТИРОВАННЫЕ старые посты 
+            elif 'edited_channel_post' in data:
+                process_event_from_channel(data['edited_channel_post'])
+                
+            # СЦЕНАРИЙ 4: ПЕРЕСЛАННЫЕ ПОСТЫ В ЛИЧКУ (МАССОВЫЙ ИМПОРТ)
+            elif 'message' in data:
+                msg = data['message']
+                # Если нам переслали сообщение, и оно из канала — парсим!
+                if msg.get('forward_from_chat') and msg['forward_from_chat'].get('type') == 'channel':
+                    process_event_from_channel(msg)
 
             return JsonResponse({"status": "ok"})
-        except Exception as e:
-            traceback.print_exc() # Выведет ошибку в консоль сервера для удобного дебага
-            print(f"Webhook error: {e}")
-            return JsonResponse({"status": "error"}, status=400)
-    
-    return JsonResponse({"status": "Method not allowed"}, status=405)
