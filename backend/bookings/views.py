@@ -172,3 +172,11 @@ def telegram_webhook(request):
                     process_event_from_channel(msg)
 
             return JsonResponse({"status": "ok"})
+            
+        # === ВОТ ЭТИХ СТРОК НЕ ХВАТАЛО ===
+        except Exception as e:
+            traceback.print_exc()
+            print(f"Webhook error: {e}")
+            return JsonResponse({"status": "error"}, status=400)
+    
+    return JsonResponse({"status": "Method not allowed"}, status=405)
