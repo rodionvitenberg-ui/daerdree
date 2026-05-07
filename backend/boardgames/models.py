@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Category(models.Model):
     """Категория игры (Стратегия, Патигейм, Детская)"""
@@ -32,10 +33,10 @@ class BoardGame(models.Model):
     title = models.CharField(max_length=200, verbose_name="Название игры")
     slug = models.SlugField(max_length=200, unique=True)
     
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name="Категория")
+    categories = models.ManyToManyField(Category, blank=True, related_name='games', verbose_name="Категории")
     tags = models.ManyToManyField(Tag, blank=True, verbose_name="Механики")
 
-    description = models.TextField(verbose_name="Описание")
+    description = RichTextField(verbose_name="Описание")
     
     # ИЗОБРАЖЕНИЯ
     image = models.ImageField(upload_to='games/', blank=True, null=True, verbose_name="Фото коробки")
@@ -80,7 +81,7 @@ class Expansion(models.Model):
     # related_name='expansions' позволит нам обращаться к дополнениям игры как game.expansions.all()
     game = models.ForeignKey(BoardGame, related_name='expansions', on_delete=models.CASCADE, verbose_name="Основная игра")
     title = models.CharField(max_length=200, verbose_name="Название дополнения")
-    description = models.TextField(blank=True, verbose_name="Описание дополнения")
+    description = RichTextField(blank=True, verbose_name="Описание дополнения")
 
     class Meta:
         verbose_name = "Дополнение"

@@ -34,7 +34,7 @@ export interface BoardGame {
   title_ru?: string; // Поля от django-modeltranslation
   title_en?: string;
   slug: string;
-  category: Category | null;
+  categories: Category[];
   tags: Tag[];
   expansions?: Expansion[];
   description: string;

@@ -18,7 +18,7 @@ class ExpansionSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'description']
 
 class BoardGameSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(read_only=True)
+    categories = CategorySerializer(many=True, read_only=True)
     tags = TagSerializer(many=True, read_only=True) 
     
     # Подключаем дополнения (название поля совпадает с related_name='expansions' в модели)

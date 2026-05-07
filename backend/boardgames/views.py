@@ -17,7 +17,7 @@ class TagViewSet(viewsets.ReadOnlyModelViewSet):
 
 class BoardGameViewSet(viewsets.ReadOnlyModelViewSet):
     # Оптимизированный базовый запрос
-    queryset = BoardGame.objects.filter(is_active=True).select_related('category').prefetch_related('tags', 'expansions')
+    queryset = BoardGame.objects.filter(is_active=True).prefetch_related('categories', 'tags', 'expansions')
     serializer_class = BoardGameSerializer
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
