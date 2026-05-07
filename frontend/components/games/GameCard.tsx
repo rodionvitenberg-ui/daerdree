@@ -23,10 +23,10 @@ export default function GameCard({ game, contentLocale }: GameCardProps) {
     ? (game.title_ru || game.title) 
     : (game.title_en || game.title);
 
-  // Локализация категории
-  const localizedCategory = game.category 
-    ? (activeLocale === 'ru' ? (game.category.name_ru || game.category.name) : (game.category.name_en || game.category.name))
-    : null;
+  // Локализация категорий (теперь обрабатываем массив)
+  const localizedCategories = game.categories && game.categories.length > 0
+    ? game.categories.map(cat => activeLocale === 'ru' ? (cat.name_ru || cat.name) : (cat.name_en || cat.name))
+    : [];
 
   // Хелпер для сложности
   const getDifficultyLabel = (level: number) => {
@@ -64,10 +64,19 @@ export default function GameCard({ game, contentLocale }: GameCardProps) {
 
         {/* КОНТЕНТ */}
         <div className="absolute inset-x-0 bottom-0 p-6">
-          {localizedCategory && (
-            <span className="mb-2 inline-block text-[10px] font-bold uppercase tracking-widest text-accent">
-              {localizedCategory}
-            </span>
+          
+          {/* КАТЕГОРИИ (Выводятся столбиком через flex-col) */}
+          {localizedCategories.length > 0 && (
+            <div className="mb-2 flex flex-col items-start gap-0.5">
+              {localizedCategories.map((catName, idx) => (
+                <span 
+                  key={idx} 
+                  className="inline-block text-[10px] font-bold uppercase tracking-widest text-accent"
+                >
+                  {catName}
+                </span>
+              ))}
+            </div>
           )}
           
           <h3 className="mb-4 font-serif text-2xl font-bold leading-tight text-white transition-colors group-hover:text-accent">
