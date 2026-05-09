@@ -68,41 +68,52 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           {/* ЛЕВАЯ КОЛОНКА */}
           <div className="lg:col-span-8">
             
-            {/* ИНФО-БАР */}
+            {/* ИНФО-БАР (Исправлено выравнивание!) */}
             <div className="mb-2.5 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              
+              {/* Игроки */}
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                 </div>
                 <div>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-white/40">{t("players")}</span>
-                  <span className="text-base font-bold text-white">{t("playersRange", { min: game.min_players, max: game.max_players })}</span>
+                  {/* Обертка h-5 гарантирует одинаковую высоту с блоком сложности */}
+                  <div className="mt-1 flex h-5 items-center">
+                    <span className="text-sm font-bold text-white leading-none">{t("playersRange", { min: game.min_players, max: game.max_players })}</span>
+                  </div>
                 </div>
               </div>
 
+              {/* Время */}
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
                 <div>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-white/40">{t("playTime")}</span>
-                  <span className="text-base font-bold text-white">{t("minutes", { time: game.play_time })}</span>
+                  <div className="mt-1 flex h-5 items-center">
+                    <span className="text-sm font-bold text-white leading-none">{t("minutes", { time: game.play_time })}</span>
+                  </div>
                 </div>
               </div>
 
+              {/* Сложность */}
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <div>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-white/40">{t("difficulty")}</span>
-                  <div className="flex gap-1 mt-1">
+                  {/* Обертка h-5 выравнивает этот блок с текстом */}
+                  <div className="mt-1 flex h-5 items-center gap-1">
                     {[1, 2, 3, 4, 5].map(lvl => (
                       <div key={lvl} className={`h-1.5 w-3.5 rounded-sm ${lvl <= game.difficulty ? 'bg-accent' : 'bg-white/10'}`} />
                     ))}
                   </div>
                 </div>
               </div>
+
             </div>
 
             {/* ОПИСАНИЕ */}
@@ -141,10 +152,8 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
           {/* ПРАВАЯ КОЛОНКА (САЙДБАР) */}
           <div className="lg:col-span-4">
-            {/* pt-2 выравнивает верхнюю границу КАТЕГОРИЙ со СЛОЖНОСТЬЮ, игнорируя фон */}
             <div className="relative sticky top-12 pt-2">
               
-              {/* ОТВЯЗАННЫЙ ФОН: На слое ниже (-z-10), расширен наружу (-inset-4 lg:-inset-6) */}
               <div className="absolute -inset-4 lg:-inset-6 -z-10 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl pointer-events-none" />
 
               {/* КАТЕГОРИИ */}
