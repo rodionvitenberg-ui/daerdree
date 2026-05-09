@@ -16,12 +16,12 @@ const manrope = Manrope({
 const zodiak = localFont({
   src: [
     {
-      path: '../../public/fonts/Zodiak-Regular.woff2',
+      path: './fonts/Zodiak-Regular.woff2', // Путь стал коротким и надежным!
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/Zodiak-Bold.woff2',
+      path: './fonts/Zodiak-Bold.woff2',
       weight: '700',
       style: 'normal',
     },

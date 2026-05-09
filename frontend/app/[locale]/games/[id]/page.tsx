@@ -37,8 +37,8 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
   return (
     <main className="min-h-screen bg-background">
       
-      {/* 1. HERO (ФОН) */}
-      <div className="relative h-[45vh] md:h-[50vh] w-full overflow-hidden">
+      {/* 1. HERO (ФОН) - z-0, чтобы быть ПОД сеткой */}
+      <div className="relative h-[45vh] md:h-[50vh] w-full overflow-hidden z-0">
         {heroImage && (
           <Image
             src={getImageUrl(heroImage)}
@@ -49,11 +49,11 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             unoptimized
           />
         )}
-        {/* Градиент для мягкого перехода */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         
-        {/* ЗАГОЛОВОК - Выровнен по сетке и поднят ровно на 4 пикселя выше (68px и 100px) */}
-        <div className="absolute bottom-[68px] lg:bottom-[100px] left-0 w-full z-10">
+        {/* ЗАГОЛОВОК ИГРЫ */}
+        {/* Расстояние до контента снизу будет ровно 10px за счет комбинации bottom и -mt */}
+        <div className="absolute bottom-[74px] lg:bottom-[106px] left-0 w-full">
           <div className="container mx-auto px-4">
             <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-6xl lg:text-7xl drop-shadow-2xl">
               {localizedTitle}
@@ -62,21 +62,20 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
         </div>
       </div>
 
-      {/* 2. КОНТЕНТНАЯ ЧАСТЬ (Наползает на Hero) */}
-      <div className="container mx-auto px-4 -mt-16 lg:-mt-24 pb-20 relative z-20">
+      {/* 2. КОНТЕНТНАЯ ЧАСТЬ - z-10, наползает на фото */}
+      {/* -mt подогнан так, чтобы от базовой линии заголовка до инфо-бара было ~10px */}
+      <div className="container mx-auto px-4 -mt-16 lg:-mt-24 pb-20 relative z-10">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           
           {/* ЛЕВАЯ КОЛОНКА */}
           <div className="lg:col-span-8">
             
-            {/* ИКОНКИ (Метки) */}
-            <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-              {/* Players */}
+            {/* ИНФО-БАР (Игроки, Время, Сложность) */}
+            {/* mb-2.5 = 10px */}
+            <div className="mb-2.5 grid grid-cols-1 gap-6 sm:grid-cols-3">
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                 </div>
                 <div>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-white/40">{t("players")}</span>
@@ -84,12 +83,9 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                 </div>
               </div>
 
-              {/* Time */}
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
                 <div>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-white/40">{t("playTime")}</span>
@@ -97,12 +93,10 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                 </div>
               </div>
 
-              {/* Difficulty */}
+              {/* СЛОВО "СЛОЖНОСТЬ" — оно выровнено по горизонтали с "КАТЕГОРИИ" в правой колонке */}
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <div>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-white/40">{t("difficulty")}</span>
@@ -116,10 +110,12 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             </div>
 
             {/* ОПИСАНИЕ */}
-            <div className="prose prose-invert max-w-none mb-12">
-              <h2 className="mb-4 font-serif text-2xl font-bold uppercase tracking-widest text-accent">
+            <div className="prose prose-invert max-w-none mb-10">
+              {/* Заголовок Описание: mb-2.5 = 10px до текста */}
+              <h2 className="mb-2.5 font-serif text-2xl font-bold uppercase tracking-widest text-accent">
                 {t("description")}
               </h2>
+              {/* Расстояние от инфо-бара до этого заголовка также регулируется через mb-2.5 инфо-бара */}
               {localizedDescription ? (
                 <div 
                   className="text-base leading-relaxed text-white/80"
@@ -132,34 +128,34 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
             {/* ДОПОЛНЕНИЯ */}
             {game.expansions && game.expansions.length > 0 && (
-              <div className="mt-12">
-                <h2 className="mb-6 font-serif text-2xl font-bold uppercase tracking-widest text-accent">
+              <div className="mt-10">
+                <h2 className="mb-2.5 font-serif text-2xl font-bold uppercase tracking-widest text-accent">
                   {t("expansions")}
                 </h2>
                 <div className="flex flex-col gap-3">
-                  {game.expansions.map(exp => {
-                    const expTitle = locale === 'ru' ? (exp.title_ru || exp.title) : (exp.title_en || exp.title);
-                    const expDesc = locale === 'ru' ? (exp.description_ru || exp.description) : (exp.description_en || exp.description);
-                    return (
-                      <ExpansionAccordion 
-                        key={exp.id} 
-                        title={expTitle} 
-                        description={expDesc} 
-                      />
-                    );
-                  })}
+                  {game.expansions.map(exp => (
+                    <ExpansionAccordion 
+                      key={exp.id} 
+                      title={locale === 'ru' ? (exp.title_ru || exp.title) : (exp.title_en || exp.title)} 
+                      description={locale === 'ru' ? (exp.description_ru || exp.description) : (exp.description_en || exp.description)} 
+                    />
+                  ))}
                 </div>
               </div>
             )}
           </div>
 
-          {/* ПРАВАЯ КОЛОНКА */}
+          {/* ПРАВАЯ КОЛОНКА (САЙДБАР) */}
           <div className="lg:col-span-4">
+            {/* sticky top подогнан, чтобы прилипать красиво */}
             <div className="rounded-2xl border border-white/10 bg-black/40 p-6 backdrop-blur-xl sticky top-12 shadow-2xl">
-              {/* Категории */}
+              
+              {/* КАТЕГОРИИ — Находятся на одной линии со "СЛОЖНОСТЬЮ" */}
               {game.categories && game.categories.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">{t("categories")}</h4>
+                  <h4 className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
+                    {t("categories")}
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {game.categories.map(category => (
                       <div key={category.id} className="inline-block rounded-full border border-accent/30 px-3 py-1.5 text-xs font-bold text-accent bg-black/20">
@@ -170,10 +166,12 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                 </div>
               )}
 
-              {/* Теги */}
+              {/* МЕХАНИКИ */}
               {game.tags && game.tags.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">{t("mechanics")}</h4>
+                  <h4 className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
+                    {t("mechanics")}
+                  </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {game.tags.map(tag => (
                       <span key={tag.id} className="rounded-md bg-white/5 px-2.5 py-1 text-xs font-medium text-white/80">

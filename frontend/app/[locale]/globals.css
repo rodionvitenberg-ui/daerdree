@@ -41,16 +41,14 @@
 
 /* --- КОНФИГУРАЦИЯ TAILWIND --- */
 @theme {
-  /* Переопределяем цвета, чтобы писать bg-background или text-accent */
+  /* Переопределяем цвета */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
 
-  /* Подключаем шрифты (переменные должны совпадать с layout.tsx) */
-  /* font-sans теперь будет Manrope */
-  --font-sans: var(--font-manrope); 
-  /* font-serif теперь будет Zodiak */
-  --font-serif: var(--font-zodiak);
+  /* Подключаем шрифты С ЗАПАСНЫМИ ВАРИАНТАМИ (фоллбэками) */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif; 
+  --font-serif: var(--font-zodiak), ui-serif, Georgia, serif;
 }
 
 /* --- БАЗОВЫЕ СТИЛИ --- */
