@@ -51,8 +51,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         
-        {/* ЗАГОЛОВОК ИГРЫ */}
-        {/* Расстояние до контента снизу: 74px - 64px (отступ контента) = 10px */}
         <div className="absolute bottom-[74px] lg:bottom-[106px] left-0 w-full">
           <div className="container mx-auto px-4">
             <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-6xl lg:text-7xl drop-shadow-2xl">
@@ -69,11 +67,10 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           {/* ЛЕВАЯ КОЛОНКА */}
           <div className="lg:col-span-8">
             
-            {/* ИНФО-БАР (Выровнен по верхней линии) */}
+            {/* ИНФО-БАР */}
             <div className="mb-2.5 grid grid-cols-1 gap-6 sm:grid-cols-3">
               
-              {/* Игроки */}
-              <div className="flex items-start gap-4"> {/* items-start для выравнивания текста по топу */}
+              <div className="flex items-start gap-4">
                 <div className="mt-[3px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                 </div>
@@ -85,7 +82,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                 </div>
               </div>
 
-              {/* Время */}
               <div className="flex items-start gap-4">
                 <div className="mt-[3px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -98,7 +94,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                 </div>
               </div>
 
-              {/* Сложность */}
               <div className="flex items-start gap-4">
                 <div className="mt-[3px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent shadow-lg">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
@@ -116,7 +111,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             </div>
 
             {/* ОПИСАНИЕ */}
-            {/* mb-10 от всего блока, но mb-2.5 от заголовка до текста (10px) */}
             <div className="prose prose-invert max-w-none mb-10">
               <h2 className="mb-2.5 font-serif text-2xl font-bold uppercase tracking-widest text-accent">
                 {t("description")}
@@ -152,17 +146,15 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
           {/* ПРАВАЯ КОЛОНКА (САЙДБАР) */}
           <div className="lg:col-span-4">
-            {/* Убрали pt-2 для выравнивания КАТЕГОРИЙ со СЛОЖНОСТЬЮ в 0 */}
             <div className="relative sticky top-12">
               
-              {/* ОТВЯЗАННЫЙ ФОН: Он начинается выше и шире, но не двигает текст */}
               <div className="absolute -inset-4 lg:-inset-6 -top-8 -z-10 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl pointer-events-none" />
 
               {/* КАТЕГОРИИ */}
               {game.categories && game.categories.length > 0 && (
                 <div className="mb-6">
-                  {/* mb-2.5 = 10px */}
-                  <h4 className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
+                  {/* ДОБАВЛЕН leading-none */}
+                  <h4 className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 leading-none">
                     {t("categories")}
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -178,7 +170,8 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
               {/* МЕХАНИКИ */}
               {game.tags && game.tags.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
+                  {/* ДОБАВЛЕН leading-none */}
+                  <h4 className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 leading-none">
                     {t("mechanics")}
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
