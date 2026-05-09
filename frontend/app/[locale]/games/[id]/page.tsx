@@ -49,10 +49,12 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-        {/* Подняли заголовок: сменили bottom-0 на bottom-2 (примерно +8px вверх) */}
-        <div className="absolute bottom-2 left-0 w-full px-6 lg:px-12 pb-6 lg:pb-10">
+        
+        {/* Заголовок: подняли с bottom-2 до bottom-8 (на мобилках) и до bottom-14 (на десктопе) */}
+        {/* Теперь он гарантированно залезет на более светлую часть картинки */}
+        <div className="absolute bottom-8 lg:bottom-14 left-0 w-full px-6 lg:px-12">
           <div className="container mx-auto">
-            <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-6xl lg:text-7xl">
+            <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-6xl lg:text-7xl drop-shadow-2xl">
               {localizedTitle}
             </h1>
           </div>
@@ -60,17 +62,17 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       </div>
 
       {/* 2. КОНТЕНТНАЯ ЧАСТЬ */}
-      {/* Подняли весь блок: pt-8 -> pt-5 (на мобилке) и lg:pt-12 -> lg:pt-9 (на десктопе) */}
-      <div className="container mx-auto px-4 pt-5 pb-10 lg:pt-9 lg:pb-14">
+      {/* Добавили отрицательный отступ -mt-6 / -mt-10, чтобы вытянуть всё содержимое наверх на картинку */}
+      {/* relative z-10 нужен, чтобы контент был выше фонового изображения */}
+      <div className="container mx-auto px-4 -mt-6 lg:-mt-10 pb-10 lg:pb-14 relative z-10">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
           
           {/* ЛЕВАЯ КОЛОНКА */}
           <div className="lg:col-span-8">
-            {/* Краткие метки - mb-8 -> mb-7 */}
             <div className="mb-7 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {/* Players */}
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/5 text-accent">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                 </div>
                 <div>
@@ -83,7 +85,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
               {/* Time */}
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/5 text-accent">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
                 <div>
@@ -94,7 +96,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
               {/* Difficulty */}
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/5 text-accent">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-accent">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <div>
@@ -108,7 +110,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
               </div>
             </div>
 
-            {/* Описание - mb-10 -> mb-8 */}
+            {/* Описание */}
             <div className="prose prose-invert max-w-none mb-8">
               <h2 className="mb-3 font-serif text-2xl font-bold uppercase tracking-widest text-accent">
                 {t("description")}
@@ -151,10 +153,9 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
           {/* ПРАВАЯ КОЛОНКА */}
           <div className="lg:col-span-4">
-            {/* sticky top-20 -> top-16 (подняли плашку выше при скролле) */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sticky top-16">
+            <div className="rounded-2xl border border-white/10 bg-black/40 p-6 backdrop-blur-xl sticky top-12">
               
-              {/* Категории - mb-6 -> mb-5 */}
+              {/* Категории */}
               {game.categories && game.categories.length > 0 && (
                 <div className="mb-5">
                   <h4 className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">{t("categories")}</h4>
@@ -168,7 +169,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                 </div>
               )}
 
-              {/* Теги / Механики - mb-6 -> mb-5 */}
+              {/* Теги / Механики */}
               {game.tags && game.tags.length > 0 && (
                 <div className="mb-5">
                   <h4 className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">{t("mechanics")}</h4>
