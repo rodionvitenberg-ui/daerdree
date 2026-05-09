@@ -41,16 +41,14 @@
 
 /* --- КОНФИГУРАЦИЯ TAILWIND --- */
 @theme {
-  /* Переопределяем цвета */
+  /* Цвета */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
 
-  /* Подключаем шрифты С ЗАПАСНЫМИ ВАРИАНТАМИ (фоллбэками) */
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif; 
-  --font-serif: var(--font-zodiak), ui-serif, Georgia, serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-literata), ui-serif, Georgia, serif;
 }
-
 /* --- БАЗОВЫЕ СТИЛИ --- */
 body {
   background-color: var(--background);

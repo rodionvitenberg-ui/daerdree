@@ -1,9 +1,7 @@
-import { Manrope } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Manrope, Literata } from 'next/font/google'; // Импортируем Literata
 import "./globals.css";
 import Header from '@/components/Header';
 import Footer from '@/components/footer';
-// Импортируем компоненты для локализации
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
@@ -13,20 +11,11 @@ const manrope = Manrope({
   display: 'swap',
 });
 
-const zodiak = localFont({
-  src: [
-    {
-      path: '../fonts/Zodiak-Regular.woff2', // Вышли из [locale] и зашли в fonts
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/Zodiak-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-zodiak',
+// Настраиваем Literata
+const literata = Literata({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600'], // Обязательно укажи нужные веса
+  variable: '--font-literata',   // Имя переменной
   display: 'swap',
 });
 
@@ -35,7 +24,6 @@ export const metadata = {
   description: 'Best bar and timeclub in Cyprus',
 }
 
-// Делаем RootLayout асинхронным и принимаем params как Promise
 export default async function RootLayout({ 
   children, 
   params 
@@ -43,30 +31,20 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  // В Next.js 15+ параметры нужно обязательно await
   const { locale } = await params;
-  
-  // Получаем словарь переводов для текущей локали
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${manrope.variable} ${zodiak.variable}`}>
+    // Применяем переменную --font-literata
+    <html lang={locale} className={`${manrope.variable} ${literata.variable}`}>
       <body className="antialiased bg-background text-foreground flex flex-col min-h-screen">
-        
-        {/* Оборачиваем содержимое в провайдер. 
-            Теперь хук useTranslations будет иметь доступ к сообщениям на клиенте. */}
         <NextIntlClientProvider messages={messages}>
-          
           <Header />
-          
           <main className="flex-grow">
             {children}
           </main>
-
           <Footer />
-          
         </NextIntlClientProvider>
-
       </body>
     </html>
   );
