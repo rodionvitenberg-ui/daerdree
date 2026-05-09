@@ -6,6 +6,9 @@ import { getImageUrl } from "@/lib/utils";
 import { API_ENDPOINTS } from "@/lib/constants";
 import { getTranslations, getLocale } from "next-intl/server"; 
 
+// ТУТ ВАЖНО: Укажи правильный путь до созданного компонента
+import ExpansionAccordion from "@/components/ExpansionAccordion"; 
+
 // Обновленная функция загрузки с передачей заголовка языка
 async function getGame(id: string, locale: string): Promise<BoardGame> {
   const res = await fetch(`${API_ENDPOINTS.GAMES}/${id}/`, {
@@ -62,7 +65,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       <div className="container mx-auto px-4 py-12 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           
-          {/* ЛЕВАЯ КОЛОНКА (Инфо и описание) */}
+          {/* ЛЕВАЯ КОЛОНКА (Инфо, описание и дополнения) */}
           <div className="lg:col-span-8">
             {/* Краткие метки */}
             <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -107,11 +110,10 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             </div>
 
             {/* Описание */}
-            <div className="prose prose-invert max-w-none">
+            <div className="prose prose-invert max-w-none mb-16">
               <h2 className="mb-6 font-serif text-3xl font-bold uppercase tracking-widest text-accent">
                 {t("description")}
               </h2>
-              {/* Используем dangerouslySetInnerHTML для рендера HTML от CKEditor */}
               {localizedDescription ? (
                 <div 
                   className="text-lg leading-relaxed text-white/70"
@@ -123,13 +125,37 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                 </div>
               )}
             </div>
+
+            {/* ДОПОЛНЕНИЯ (Перенесены сюда) */}
+            {game.expansions && game.expansions.length > 0 && (
+              <div className="mt-12">
+                <h2 className="mb-6 font-serif text-3xl font-bold uppercase tracking-widest text-accent">
+                  {t("expansions")}
+                </h2>
+                <div className="flex flex-col gap-4">
+                  {game.expansions.map(exp => {
+                    // Локализуем поля дополнения прямо в мапе
+                    const expTitle = locale === 'ru' ? (exp.title_ru || exp.title) : (exp.title_en || exp.title);
+                    const expDesc = locale === 'ru' ? (exp.description_ru || exp.description) : (exp.description_en || exp.description);
+                    
+                    return (
+                      <ExpansionAccordion 
+                        key={exp.id} 
+                        title={expTitle} 
+                        description={expDesc} 
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* ПРАВАЯ КОЛОНКА (Мета-данные) */}
           <div className="lg:col-span-4">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm sticky top-24">
               
-              {/* Категории (теперь массив) */}
+              {/* Категории */}
               {game.categories && game.categories.length > 0 && (
                 <div className="mb-8">
                   <h4 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">{t("categories")}</h4>
@@ -156,25 +182,9 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                   </div>
                 </div>
               )}
-
-              {/* Дополнения */}
-              {game.expansions && game.expansions.length > 0 && (
-                <div className="mb-8">
-                  <h4 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">{t("expansions")}</h4>
-                  <div className="space-y-3">
-                    {game.expansions.map(exp => (
-                      <div key={exp.id} className="rounded-lg bg-black/30 p-3 border border-white/5">
-                        <p className="text-sm font-bold text-white">
-                          {locale === 'ru' ? (exp.title_ru || exp.title) : (exp.title_en || exp.title)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
               
               {/* Кнопка Booking */}
-              <Link href="/#booking" className="mt-10 block w-full rounded-lg bg-accent py-4 text-center font-serif font-bold uppercase tracking-widest text-black transition-transform hover:scale-105 hover:bg-white">
+              <Link href="/#booking" className="mt-4 block w-full rounded-lg bg-accent py-4 text-center font-serif font-bold uppercase tracking-widest text-black transition-transform hover:scale-105 hover:bg-white">
                 {t("bookButton")}
               </Link>
 
