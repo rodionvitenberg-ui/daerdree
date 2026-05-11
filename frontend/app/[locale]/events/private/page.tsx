@@ -101,7 +101,7 @@ export default function PrivateHirePage() {
     <main className="bg-neutral-950 min-h-screen text-white">
       
       {/* 1. HERO SECTION */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <Image
           src={PRIVATE_HIRE_CONTENT.hero.image}
           alt="Private Event Atmosphere"
@@ -156,11 +156,11 @@ export default function PrivateHirePage() {
                    </div>
                 </div>
 
-                <div className="hidden md:flex h-[500px] items-center justify-center">
+                <div className="hidden md:flex h-[400px] items-center justify-center">
                     <BounceCards 
                       images={PRIVATE_HIRE_CONTENT.gameMaster.images}
-                      containerWidth={500}
-                      containerHeight={400}
+                      containerWidth={600}
+                      containerHeight={600}
                       transformStyles={threeCardsTransform}
                       enableHover={true}
                     />
@@ -193,7 +193,7 @@ export default function PrivateHirePage() {
       </section>
 
       {/* 3. THE FEAST */}
-      <section className="py-24 px-4 overflow-hidden">
+      <section className="py-16 px-4 overflow-hidden">
         <div className="container mx-auto flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
              
              <div className="w-full md:w-1/2 relative z-10">
@@ -207,7 +207,7 @@ export default function PrivateHirePage() {
                  <div className="hidden md:flex h-[500px] items-center justify-center">
                      <BounceCards 
                        images={PRIVATE_HIRE_CONTENT.feast.images}
-                       containerWidth={500}
+                       containerWidth={400}
                        containerHeight={400}
                        transformStyles={fourCardsTransform}
                        enableHover={true}

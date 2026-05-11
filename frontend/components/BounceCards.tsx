@@ -20,7 +20,7 @@ export default function BounceCards({
   containerHeight = 400,
   animationDelay = 0.5,
   animationStagger = 0.06,
-  easeType = 'elastic.out(1, 0.8)',
+  easeType = 'elastic.out(1, 0.5)',
   transformStyles = [
     'rotate(10deg) translate(-170px)',
     'rotate(5deg) translate(-85px)',
@@ -136,7 +136,7 @@ export default function BounceCards({
       {images.map((src, idx) => (
         <div
           key={idx}
-          className={`card card-${idx} absolute w-75 h-100 aspect-square border-1 border-secondary rounded-[10px] overflow-hidden`}
+          className={`card card-${idx} absolute w-90 h-115 aspect-square border-1 border-secondary rounded-[10px] overflow-hidden`}
           style={{
             boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
             transform: transformStyles[idx] || 'none'

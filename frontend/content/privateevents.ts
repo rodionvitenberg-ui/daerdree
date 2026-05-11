@@ -4,11 +4,9 @@ export const PRIVATE_HIRE_CONTENT = {
   },
   gameMaster: {
     images: [
-      "/images/hero/2.webp",
-      "/images/hero/5.webp",
-      "/images/hero/1.webp",
-      "/images/hero/4.webp",
-      "/images/hero/4.webp", 
+      "/events/6.png",
+      "/events/7.png",
+      "/events/8.jpg",
     ]
   },
   feast: {
@@ -16,8 +14,6 @@ export const PRIVATE_HIRE_CONTENT = {
       "/images/hero/3.webp",
       "/images/hero/7.webp",
       "/images/hero/4.webp",
-      "/images/hero/4.webp",
-      "/images/hero/1.webp", 
     ]
   },
   cta: {
