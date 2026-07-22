@@ -78,8 +78,6 @@ export default function LocationSection() {
                       {LOCATION_CONTENT.contact.telegram}
                     </a>
                   </li>
-                  <li>
-                  </li>
                 </ul>
               </AnimatedContent>
 

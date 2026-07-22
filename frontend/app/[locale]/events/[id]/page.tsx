@@ -104,10 +104,9 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
               {event.image ? (
                 <Image 
                   src={event.image} 
-                  alt={displayTitle} // Подставили переведенный alt
+                  alt={displayTitle}
                   fill
                   className="object-cover"
-                  unoptimized={true} 
                   priority
                 />
               ) : (

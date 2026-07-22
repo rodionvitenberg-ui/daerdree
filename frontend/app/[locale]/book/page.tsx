@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { BOOKING_CONTENT } from '@/content/home';
-import { useTranslations } from 'next-intl'; // Подключили хук локализации
+import { useTranslations } from 'next-intl';
 
 // === НАСТРОЙКА КАРУСЕЛИ ===
 const CAROUSEL_IMAGES = [
@@ -58,7 +58,7 @@ function BookPageContent() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/bookings/', {
+      const response = await fetch('/api/booking/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -75,8 +75,6 @@ function BookPageContent() {
       setStatus('error');
     }
   };
-
-  const isDev = process.env.NODE_ENV === 'development';
 
   return (
     <main className="min-h-screen bg-background pt-20 lg:pt-0"> 
@@ -96,7 +94,6 @@ function BookPageContent() {
                 alt={`Atmosphere ${index}`}
                 fill
                 className="object-cover contrast-145"
-                unoptimized={isDev}
                 priority={index === 0} 
               />
             </div>

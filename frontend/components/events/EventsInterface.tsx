@@ -187,7 +187,6 @@ export default function EventsInterface() {
                                       alt={event.title} 
                                       fill 
                                       className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
-                                      unoptimized={true}
                                   />
                               ) : (
                                   <div className="absolute inset-0 flex items-center justify-center bg-neutral-800 text-white/10 font-black text-4xl uppercase">

@@ -46,7 +46,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             fill
             className="object-cover opacity-50"
             priority
-            unoptimized
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />

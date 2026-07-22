@@ -202,7 +202,7 @@ export default function PublicEventsPage() {
                         <div className="relative bg-neutral-900 border border-white/10 overflow-hidden hover:border-accent/50 transition-colors flex flex-col h-full">
                             <div className="relative h-64 w-full bg-neutral-800">
                                 {event.image ? (
-                                    <Image src={event.image} alt={displayTitle} fill className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" unoptimized />
+                                    <Image src={event.image} alt={displayTitle} fill className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />
                                 ) : <div className="absolute inset-0 flex items-center justify-center bg-neutral-800 text-white/10">{t("noImage")}</div>}
                                 <div className="absolute top-4 left-4 bg-accent text-black font-bold font-serif px-3 py-2 text-center leading-none border border-black/10 shadow-lg z-10">
                                     <span className="block text-sm">{day}</span>

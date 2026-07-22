@@ -1,151 +1,60 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 
 interface BounceCardsProps {
+  images: string[];
   className?: string;
-  images?: string[];
-  containerWidth?: number;
-  containerHeight?: number;
-  animationDelay?: number;
-  animationStagger?: number;
-  easeType?: string;
-  transformStyles?: string[];
   enableHover?: boolean;
 }
 
 export default function BounceCards({
-  className = '',
-  images = [],
-  containerWidth = 400,
-  containerHeight = 400,
-  animationDelay = 0.5,
-  animationStagger = 0.06,
-  easeType = 'elastic.out(1, 0.5)',
-  transformStyles = [
-    'rotate(10deg) translate(-170px)',
-    'rotate(5deg) translate(-85px)',
-    'rotate(-3deg)',
-    'rotate(-10deg) translate(85px)',
-    'rotate(2deg) translate(170px)'
-  ],
-  enableHover = false
+  className = "",
+  enableHover = false,
+  images,
 }: BounceCardsProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.card',
-        { scale: 0 },
-        {
-          scale: 1,
-          stagger: animationStagger,
-          ease: easeType,
-          delay: animationDelay
-        }
-      );
-    }, containerRef);
-    return () => ctx.revert();
-  }, [animationDelay, animationStagger, easeType]);
-
-  const getNoRotationTransform = (transformStr: string): string => {
-    const hasRotate = /rotate\([\s\S]*?\)/.test(transformStr);
-    if (hasRotate) {
-      return transformStr.replace(/rotate\([\s\S]*?\)/, 'rotate(0deg)');
-    } else if (transformStr === 'none') {
-      return 'rotate(0deg)';
-    } else {
-      return `${transformStr} rotate(0deg)`;
-    }
-  };
-
-  const getPushedTransform = (baseTransform: string, offsetX: number): string => {
-    const translateRegex = /translate\(([-0-9.]+)px\)/;
-    const match = baseTransform.match(translateRegex);
-    if (match) {
-      const currentX = parseFloat(match[1]);
-      const newX = currentX + offsetX;
-      return baseTransform.replace(translateRegex, `translate(${newX}px)`);
-    } else {
-      return baseTransform === 'none' ? `translate(${offsetX}px)` : `${baseTransform} translate(${offsetX}px)`;
-    }
-  };
-
-  const pushSiblings = (hoveredIdx: number) => {
-    const q = gsap.utils.selector(containerRef);
-    if (!enableHover || !containerRef.current) return;
-
-    images.forEach((_, i) => {
-      const selector = q(`.card-${i}`);
-      gsap.killTweensOf(selector);
-
-      const baseTransform = transformStyles[i] || 'none';
-
-      if (i === hoveredIdx) {
-        const noRotation = getNoRotationTransform(baseTransform);
-        gsap.to(selector, {
-          transform: noRotation,
-          duration: 0.4,
-          ease: 'back.out(1.4)',
-          overwrite: 'auto'
-        });
-      } else {
-        const offsetX = i < hoveredIdx ? -160 : 160;
-        const pushedTransform = getPushedTransform(baseTransform, offsetX);
-
-        const distance = Math.abs(hoveredIdx - i);
-        const delay = distance * 0.05;
-
-        gsap.to(selector, {
-          transform: pushedTransform,
-          duration: 0.4,
-          ease: 'back.out(1.4)',
-          delay,
-          overwrite: 'auto'
-        });
-      }
-    });
-  };
-
-  const resetSiblings = () => {
-    if (!enableHover || !containerRef.current) return;
-    const q = gsap.utils.selector(containerRef);
-
-    images.forEach((_, i) => {
-      const selector = q(`.card-${i}`);
-      gsap.killTweensOf(selector);
-
-      const baseTransform = transformStyles[i] || 'none';
-      gsap.to(selector, {
-        transform: baseTransform,
-        duration: 0.4,
-        ease: 'back.out(1.4)',
-        overwrite: 'auto'
-      });
-    });
-  };
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <div
+      ref={ref}
       className={`relative flex items-center justify-center ${className}`}
-      ref={containerRef}
-      style={{
-        width: containerWidth,
-        height: containerHeight
-      }}
     >
-      {images.map((src, idx) => (
-        <div
-          key={idx}
-          className={`card card-${idx} absolute w-90 h-115 aspect-square border-1 border-secondary rounded-[10px] overflow-hidden`}
-          style={{
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-            transform: transformStyles[idx] || 'none'
+      {images.map((src, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-48 h-64 md:w-56 md:h-72 rounded-lg overflow-hidden shadow-xl border border-white/10"
+          initial={{ opacity: 0, y: 50, rotate: -10 + i * 10 }}
+          animate={
+            isInView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                  rotate: -5 + i * 5,
+                  x: (i - (images.length - 1) / 2) * 40,
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.6,
+            delay: i * 0.15,
+            ease: "easeOut",
           }}
-          onMouseEnter={() => pushSiblings(idx)}
-          onMouseLeave={resetSiblings}
+          whileHover={
+            enableHover
+              ? { scale: 1.05, zIndex: 10, transition: { duration: 0.2 } }
+              : undefined
+          }
         >
-          <img className="w-full h-full object-cover" src={src} alt={`card-${idx}`} />
-        </div>
+          <img
+            src={src}
+            alt={`Daerdree private hire atmosphere ${i + 1}`}
+            className="w-full h-full object-cover"
+            draggable={false}
+          />
+        </motion.div>
       ))}
     </div>
   );

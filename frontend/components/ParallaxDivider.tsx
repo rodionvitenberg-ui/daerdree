@@ -67,7 +67,7 @@ export default function ParallaxDivider() {
   return (
     <div 
       ref={containerRef} 
-      className="relative w-full h-[15vh] min-h-[300px] overflow-hidden bg-neutral-900 border-y border-secondary-1 z-10 flex items-center justify-center"
+      className="relative w-full h-[15vh] min-h-[300px] overflow-hidden bg-neutral-900 border-y border-secondary z-10 flex items-center justify-center"
     >
       {/* --- ФОН --- */}
       <div className="absolute inset-0 -top-[75%] h-[250%] w-full">

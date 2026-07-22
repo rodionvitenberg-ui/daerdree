@@ -21,5 +21,3 @@ db.sqlite3
 
 # Системные файлы
 .DS_Store
-
-media/

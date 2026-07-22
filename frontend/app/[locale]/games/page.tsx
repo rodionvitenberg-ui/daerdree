@@ -7,6 +7,7 @@ import api, { setApiLanguage } from "@/lib/api";
 import AnimatedContent from "@/components/AnimatedContent";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
+import GamesSeoContent from "./seo-content";
 
 export default function GamesLibrary() {
   const t = useTranslations("GamesLibrary");
@@ -103,9 +104,17 @@ export default function GamesLibrary() {
         
         <div className="mb-12 flex flex-col items-center">
           <AnimatedContent delay={0.1} direction="vertical">
-            <h1 className="mb-8 text-center font-serif text-5xl font-black uppercase tracking-widest text-accent md:text-7xl">
-              {t("title")}
+            <h1 className="mb-4 text-center font-serif text-5xl font-black uppercase tracking-widest text-accent md:text-7xl">
+              {locale === "ru" ? "Настольные игры на Кипре" : "Board Games in Cyprus"}
             </h1>
+          </AnimatedContent>
+          <AnimatedContent delay={0.15} direction="vertical" className="mb-6 max-w-3xl text-center">
+            <p className="font-sans text-foreground/60 text-sm md:text-base leading-relaxed px-4">
+              {locale === "ru"
+                ? "Daerdree — первый бар настольных игр в Ларнаке. Более 50 настолок на любой вкус: от классических \"Монополии\" и \"Уно\" до современных хитов — \"Колонизаторов\", \"Каркассона\" и \"Эпических схваток\". Уютный зал, крафтовые коктейли и тёплая компания каждый вечер. Приходите с друзьями — мы подберём игру под вашу компанию."
+                : "Daerdree — the first board game bar in Larnaca, Cyprus. Over 50 board games for every taste: from classics like Monopoly and Uno to modern hits — Settlers of Catan, Carcassonne, and epic battles. Cozy atmosphere, craft cocktails, and great company every evening. Bring your friends — we'll pick the perfect game for your group."
+              }
+            </p>
           </AnimatedContent>
 
           {/* ЯЗЫКОВОЙ ПЕРЕКЛЮЧАТЕЛЬ КОНТЕНТА */}
@@ -265,13 +274,49 @@ export default function GamesLibrary() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {games.map((game, index) => (
               <AnimatedContent key={game.id} delay={index * 0.05} distance={20} direction="vertical">
-                {/* Важно: передаем contentLanguage в GameCard, 
-                  чтобы карточка знала, на каком языке показывать данные 
-                */}
                 <GameCard game={game} contentLocale={contentLanguage} />
               </AnimatedContent>
             ))}
           </div>
+        )}
+
+        <GamesSeoContent />
+
+        {/* BreadcrumbList Schema & ItemList Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: locale === "ru" ? "Главная" : "Home", item: `/${locale}` },
+                { "@type": "ListItem", position: 2, name: locale === "ru" ? "Настольные игры" : "Board Games", item: `/${locale}/games` },
+              ],
+            }),
+          }}
+        />
+        {games.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                name: locale === "ru" ? "Настольные игры в Daerdree" : "Board Games at Daerdree",
+                itemListElement: games.map((game, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  item: {
+                    "@type": "Game",
+                    name: locale === "ru" ? (game.title_ru || game.title) : (game.title_en || game.title),
+                    url: `/${locale}/games/${game.id}`,
+                    description: locale === "ru" ? (game.description_ru || game.description).slice(0, 300) : (game.description_en || game.description).slice(0, 300),
+                  },
+                })),
+              }),
+            }}
+          />
         )}
       </div>
     </main>
