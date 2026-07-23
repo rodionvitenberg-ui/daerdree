@@ -1,113 +1,261 @@
 {% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  /* ========== CMS Translation — тёмная тема Daerdree ========== */
+
+  .cms-toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .cms-toolbar h2 {
+    font-family: 'Literata', Georgia, serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: hsl(0, 13%, 91%);
+    margin: 0;
+    flex: 1;
+  }
+
+  .cms-toolbar button {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 8px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 7px;
+    background: transparent;
+    color: hsl(0, 13%, 91%);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .cms-toolbar button:hover {
+    background: rgba(0, 150, 136, 0.08);
+    border-color: hsl(187, 83%, 26%);
+    color: hsl(187, 83%, 26%);
+  }
+
+  /* Секции-аккордеоны */
+  .cms-group {
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: hsl(56, 100%, 3%);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .cms-group summary {
+    padding: 14px 20px;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: hsl(0, 13%, 91%);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+  }
+
+  .cms-group summary::-webkit-details-marker { display: none; }
+
+  .cms-group summary::before {
+    content: '▸';
+    display: inline-block;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+    color: hsl(187, 83%, 26%);
+  }
+
+  .cms-group[open] summary::before { transform: rotate(90deg); }
+
+  .cms-group[open] summary {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Таблица внутри секции */
+  .cms-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .cms-table th {
+    padding: 10px 16px;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: transparent;
+  }
+
+  .cms-table td {
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    vertical-align: top;
+  }
+
+  .cms-table tr:last-child td { border-bottom: none; }
+
+  .cms-key {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    word-break: break-all;
+    padding: 4px 0;
+  }
+
+  .cms-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 13px;
+    color: hsl(0, 13%, 91%);
+    background: hsl(60, 4%, 9%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    resize: vertical;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    min-height: 36px;
+  }
+
+  .cms-input:focus {
+    border-color: hsl(187, 83%, 26%);
+    box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.08);
+    outline: none;
+  }
+
+  /* Sticky save bar */
+  .cms-savebar {
+    position: sticky;
+    bottom: 0;
+    padding: 14px 20px;
+    background: hsl(56, 100%, 3%);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 100;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 16px;
+    border-radius: 10px;
+  }
+
+  .cms-savebar input[type="submit"] {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 28px;
+    background: hsl(187, 83%, 26%);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .cms-savebar input[type="submit"]:hover {
+    background: hsl(187, 65%, 32%);
+  }
+
+  .cms-savebar .cms-count {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-left: auto;
+  }
+
+  .cms-empty {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.45);
+    padding: 32px 20px;
+    text-align: center;
+    background: hsl(56, 100%, 3%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+  }
+</style>
+{% endblock %}
 
 {% block content %}
-<style>
-    /* Стили для аккордеона */
-    .translation-group { 
-        margin-bottom: 15px; 
-        border: 1px solid var(--border-color, #ccc); 
-        background: var(--body-bg, #fff); 
-        border-radius: 4px;
-        overflow: hidden;
-    }
-    .group-title {
-        padding: 12px 15px;
-        background: var(--darkened-bg, #2b3035); /* Подстроено под Jazzmin Darkly */
-        color: var(--body-fg, #fff);
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        user-select: none;
-        list-style: none; /* Убираем стандартный маркер в некоторых браузерах */
-    }
-    .group-title::-webkit-details-marker {
-        display: none;
-    }
-    .group-title::before {
-        content: '►';
-        display: inline-block;
-        margin-right: 10px;
-        font-size: 12px;
-        transition: transform 0.2s ease;
-    }
-    .translation-group[open] .group-title::before {
-        transform: rotate(90deg);
-    }
-    .translation-group[open] .group-title {
-        border-bottom: 1px solid var(--border-color, #ccc);
-    }
-    
-    /* Стили для таблицы */
-    .translation-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    .translation-table th, .translation-table td {
-        padding: 10px;
-        border-bottom: 1px solid var(--border-color, #eee);
-        text-align: left;
-        vertical-align: top;
-    }
-    .translation-table th {
-        background: var(--body-bg, #f9f9f9);
-        font-weight: bold;
-        color: var(--body-fg, #333);
-    }
-    .translation-key {
-        font-family: monospace;
-        background: var(--darkened-bg, #f4f4f4);
-        padding: 2px 6px;
-        border-radius: 3px;
-        word-break: break-all;
-    }
-    .translation-input {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 8px;
-        border: 1px solid var(--border-color, #ccc);
-        border-radius: 4px;
-        resize: vertical;
-        background: var(--body-bg, #fff);
-        color: var(--body-fg, #000);
-    }
-</style>
-
 <div id="content-main">
-    <form method="post" id="changelist-form">
-        {% csrf_token %}
-        
-        {% if not grouped_data %}
-            <p class="errornote">JSON файлы не найдены или пусты. Убедитесь, что файлы ru.json, en.json и es.json лежат в папке frontend/messages.</p>
-        {% endif %}
+  <form method="post" id="changelist-form">
+    {% csrf_token %}
 
+    {% if not grouped_data %}
+      <div class="cms-empty">
+        JSON файлы не найдены или пусты. Убедитесь, что файлы <strong>ru.json</strong> и <strong>en.json</strong> лежат в папке <code>frontend/messages</code>.
+      </div>
+    {% else %}
+      <div class="cms-toolbar">
+        <h2>🌐 Переводы сайта</h2>
+        <button type="button" id="cms-expand-all">Развернуть всё</button>
+        <button type="button" id="cms-collapse-all">Свернуть всё</button>
+      </div>
+
+      <div class="cms-groups">
         {% for group, items in grouped_data.items %}
-        <details class="translation-group">
-            <summary class="group-title">Секция: {{ group }}</summary>
-            <table class="translation-table">
-                <thead>
-                    <tr>
-                        <th style="width: 20%;">Поле (Ключ)</th>
-                        <th>Русский (ru)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in items %}
-                    <tr>
-                        <td>
-                            <span class="translation-key">{{ item.display_key }}</span>
-                        </td>
-                        <td><textarea name="ru_{{ item.full_key }}" class="translation-input" rows="2">{{ item.ru }}</textarea></td>
-                        <td><textarea name="en_{{ item.full_key }}" class="translation-input" rows="2">{{ item.en }}</textarea></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <details class="cms-group" data-group="{{ group }}">
+          <summary>{{ group }}</summary>
+          <table class="cms-table">
+            <thead>
+              <tr>
+                <th style="width: 18%;">Ключ</th>
+                <th>Русский (ru)</th>
+                <th>Английский (en)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in items %}
+              <tr>
+                <td><div class="cms-key">{{ item.display_key }}</div></td>
+                <td><textarea name="ru_{{ item.full_key }}" class="cms-input" rows="2">{{ item.ru }}</textarea></td>
+                <td><textarea name="en_{{ item.full_key }}" class="cms-input" rows="2">{{ item.en }}</textarea></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </details>
         {% endfor %}
-        
-        <div class="submit-row" style="position: sticky; bottom: 0; background: var(--body-bg); padding: 10px; border-top: 1px solid var(--border-color); z-index: 100;">
-            <input type="submit" value="Сохранить переводы" class="default" name="_save" style="width: 100%; padding: 15px; font-size: 16px;">
-        </div>
-    </form>
+      </div>
+
+      <div class="cms-savebar">
+        <input type="submit" value="💾 Сохранить переводы" name="_save">
+        <span class="cms-count">Всего секций: {{ grouped_data|length }}</span>
+      </div>
+    {% endif %}
+  </form>
 </div>
+
+<script>
+  (function() {
+    const expandBtn = document.getElementById('cms-expand-all');
+    const collapseBtn = document.getElementById('cms-collapse-all');
+    const groups = document.querySelectorAll('.cms-group');
+
+    if (expandBtn) {
+      expandBtn.addEventListener('click', function() {
+        groups.forEach(g => g.open = true);
+      });
+    }
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', function() {
+        groups.forEach(g => g.open = false);
+      });
+    }
+  })();
+</script>
 {% endblock %}

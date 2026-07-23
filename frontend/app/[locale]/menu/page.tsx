@@ -21,7 +21,7 @@ export default function MenuPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-background pt-20 pb-20">
+    <div className="min-h-dvh bg-background pt-20 pb-20">
       <div className="container mx-auto px-4">
         
         {/* Заголовок */}
@@ -74,11 +74,11 @@ export default function MenuPage() {
       {/* === LIGHTBOX (МОДАЛКА) === */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 pt-[max(1rem,var(--safe-top))] pb-[max(1rem,var(--safe-bottom))] animate-in fade-in duration-200"
           onClick={() => setSelectedImage(null)} 
         >
           {/* Кнопка закрытия */}
-          <button className="absolute top-6 right-6 text-white/70 hover:text-accent transition-colors p-2 z-50">
+          <button className="absolute top-[max(1.5rem,var(--safe-top))] right-[max(1.5rem,var(--safe-right))] text-white/70 hover:text-accent transition-colors p-2 z-50 min-h-11 min-w-11 flex items-center justify-center" aria-label="Close">
              <X size={40} /> 
           </button>
 
@@ -100,6 +100,6 @@ export default function MenuPage() {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }

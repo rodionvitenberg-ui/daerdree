@@ -1,0 +1,3617 @@
+{
+  "export_date": "2026-07-23T15:23:27.154744",
+  "export_version": 2,
+  "boardgames": {
+    "categories": [
+      {
+        "slug": "expansion-for-base-game",
+        "name": "Расширение для базовой игры",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "animals",
+        "name": "Животные",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "environmental",
+        "name": "Относящийся к окружающей среде",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "card-game",
+        "name": "Карточная игра",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "arabian",
+        "name": "арабский",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "dice",
+        "name": "Кости",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "racing",
+        "name": "Гонки",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "childrens-game",
+        "name": "Детская игра",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "action-dexterity",
+        "name": "Действие/Ловкость",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "exploration",
+        "name": "Разведка",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "real-time",
+        "name": "В режиме реального времени",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "maze",
+        "name": "Лабиринт",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "fantasy",
+        "name": "Фантастика",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "fighting",
+        "name": "Боевые действия",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "science-fiction",
+        "name": "Научная фантастика",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "territory-building",
+        "name": "Территория Строительство",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "economic",
+        "name": "Экономический",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "trains",
+        "name": "Поезда",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "murder-mystery",
+        "name": "Убийство / Тайна",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "deduction",
+        "name": "Вычет",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "medieval",
+        "name": "Средневековый",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "bluffing",
+        "name": "Блеф",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "farming",
+        "name": "Сельское хозяйство",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "renaissance",
+        "name": "Ренессанс",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "abstract-strategy",
+        "name": "Абстрактная стратегия",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "industry-manufacturing",
+        "name": "Промышленность / Производство",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "transportation",
+        "name": "Транспорт",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "post-napoleonic",
+        "name": "Пост-наполеоновский",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "age-of-reason",
+        "name": "Возраст разума",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "american-west",
+        "name": "Американский Запад",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "city-building",
+        "name": "Городское здание",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "civilization",
+        "name": "Цивилизация",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "ancient",
+        "name": "Древний",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "party-game",
+        "name": "Вечеринка",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "humor",
+        "name": "Юмор",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "movies-tv-radio-theme",
+        "name": "Тема «Кино/ТВ/Радио»",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "political",
+        "name": "Политический",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "novel-based",
+        "name": "На основе романа",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "print-play",
+        "name": "Распечатай и играй",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "educational",
+        "name": "Образовательный",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "negotiation",
+        "name": "Переговоры",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "wargame",
+        "name": "Варгейм",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "mythology",
+        "name": "Мифология",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "adventure",
+        "name": "Приключение",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "spies-secret-agents",
+        "name": "Шпионы / Секретные агенты",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "word-game",
+        "name": "Игра в слова",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "miniatures",
+        "name": "Миниатюры",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "mafia",
+        "name": "Мафия",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "puzzle",
+        "name": "Головоломка",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "mature-adult",
+        "name": "Зрелый / Взрослый",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "horror",
+        "name": "Ужас",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "aviation-flight",
+        "name": "Авиация / Полет",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "pirates",
+        "name": "Пираты",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "nautical",
+        "name": "Морской",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "trivia",
+        "name": "Пустяки",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "video-game-theme",
+        "name": "Тема видеоигры",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "prehistoric",
+        "name": "доисторический",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "medical",
+        "name": "Медицинский",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "travel",
+        "name": "Путешествовать",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "space-exploration",
+        "name": "Исследование космоса",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "memory",
+        "name": "Память",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "number",
+        "name": "Число",
+        "icon": "",
+        "description": ""
+      }
+    ],
+    "tags": [
+      {
+        "slug": "contracts",
+        "name": "Контракты",
+        "icon": ""
+      },
+      {
+        "slug": "end-game-bonuses",
+        "name": "Бонусы в конце игры",
+        "icon": ""
+      },
+      {
+        "slug": "grid-coverage",
+        "name": "Покрытие сетки",
+        "icon": ""
+      },
+      {
+        "slug": "hand-management",
+        "name": "Ручное управление",
+        "icon": ""
+      },
+      {
+        "slug": "events",
+        "name": "События",
+        "icon": ""
+      },
+      {
+        "slug": "open-drafting",
+        "name": "Открыть чертеж",
+        "icon": ""
+      },
+      {
+        "slug": "income",
+        "name": "Доход",
+        "icon": ""
+      },
+      {
+        "slug": "simulation",
+        "name": "Моделирование",
+        "icon": ""
+      },
+      {
+        "slug": "worker-placement",
+        "name": "Трудоустройство",
+        "icon": ""
+      },
+      {
+        "slug": "variable-set-up",
+        "name": "Настройка переменных",
+        "icon": ""
+      },
+      {
+        "slug": "betting-and-bluffing",
+        "name": "Ставки и блеф",
+        "icon": ""
+      },
+      {
+        "slug": "roll-spin-and-move",
+        "name": "Катитесь/вращайтесь и двигайтесь",
+        "icon": ""
+      },
+      {
+        "slug": "track-movement",
+        "name": "Отслеживать движение",
+        "icon": ""
+      },
+      {
+        "slug": "pattern-recognition",
+        "name": "Распознавание образов",
+        "icon": ""
+      },
+      {
+        "slug": "set-collection",
+        "name": "Коллекция наборов",
+        "icon": ""
+      },
+      {
+        "slug": "cooperative-game",
+        "name": "Кооперативная игра",
+        "icon": ""
+      },
+      {
+        "slug": "grid-movement",
+        "name": "Движение сетки",
+        "icon": ""
+      },
+      {
+        "slug": "communication-limits",
+        "name": "Ограничения связи",
+        "icon": ""
+      },
+      {
+        "slug": "map-addition",
+        "name": "Добавление карты",
+        "icon": ""
+      },
+      {
+        "slug": "elapsed-real-time-ending",
+        "name": "Прошедшее окончание в реальном времени",
+        "icon": ""
+      },
+      {
+        "slug": "card-play-conflict-resolution",
+        "name": "Разрешение конфликтов при игре в карты",
+        "icon": ""
+      },
+      {
+        "slug": "force-commitment",
+        "name": "Принудительное обязательство",
+        "icon": ""
+      },
+      {
+        "slug": "area-majority-influence",
+        "name": "Территориальное большинство/влияние",
+        "icon": ""
+      },
+      {
+        "slug": "dice-rolling",
+        "name": "Бросок костей",
+        "icon": ""
+      },
+      {
+        "slug": "area-movement",
+        "name": "Движение по площади",
+        "icon": ""
+      },
+      {
+        "slug": "increase-value-of-unchosen-resources",
+        "name": "Увеличьте ценность невыбранных ресурсов",
+        "icon": ""
+      },
+      {
+        "slug": "hidden-victory-points",
+        "name": "Скрытые победные очки",
+        "icon": ""
+      },
+      {
+        "slug": "connections",
+        "name": "Соединения",
+        "icon": ""
+      },
+      {
+        "slug": "network-and-route-building",
+        "name": "Построение сети и маршрутов",
+        "icon": ""
+      },
+      {
+        "slug": "deduction",
+        "name": "Вычет",
+        "icon": ""
+      },
+      {
+        "slug": "scenario-mission-campaign-game",
+        "name": "Сценарий/Миссия/Кампания Игра",
+        "icon": ""
+      },
+      {
+        "slug": "solo-solitaire-game",
+        "name": "Соло/пасьянс",
+        "icon": ""
+      },
+      {
+        "slug": "delayed-purchase",
+        "name": "Отложенная покупка",
+        "icon": ""
+      },
+      {
+        "slug": "deck-bag-and-pool-building",
+        "name": "Постройка колоды, сумки и бассейна",
+        "icon": ""
+      },
+      {
+        "slug": "finale-ending",
+        "name": "Финальная концовка",
+        "icon": ""
+      },
+      {
+        "slug": "roles-with-asymmetric-information",
+        "name": "Роли с асимметричной информацией",
+        "icon": ""
+      },
+      {
+        "slug": "simultaneous-action-selection",
+        "name": "Выбор одновременного действия",
+        "icon": ""
+      },
+      {
+        "slug": "team-based-game",
+        "name": "Командная игра",
+        "icon": ""
+      },
+      {
+        "slug": "hidden-roles",
+        "name": "Скрытые роли",
+        "icon": ""
+      },
+      {
+        "slug": "enclosure",
+        "name": "Корпус",
+        "icon": ""
+      },
+      {
+        "slug": "closed-drafting",
+        "name": "Закрытое составление",
+        "icon": ""
+      },
+      {
+        "slug": "automatic-resource-growth",
+        "name": "Автоматический рост ресурсов",
+        "icon": ""
+      },
+      {
+        "slug": "chaining",
+        "name": "Цепочка",
+        "icon": ""
+      },
+      {
+        "slug": "pattern-building",
+        "name": "Построение шаблонов",
+        "icon": ""
+      },
+      {
+        "slug": "take-that",
+        "name": "Возьми это",
+        "icon": ""
+      },
+      {
+        "slug": "variable-player-powers",
+        "name": "Переменные полномочия игрока",
+        "icon": ""
+      },
+      {
+        "slug": "loans",
+        "name": "Кредиты",
+        "icon": ""
+      },
+      {
+        "slug": "hot-potato",
+        "name": "Горячий картофель",
+        "icon": ""
+      },
+      {
+        "slug": "player-elimination",
+        "name": "Удаление игрока",
+        "icon": ""
+      },
+      {
+        "slug": "kill-steal",
+        "name": "Убить, украсть",
+        "icon": ""
+      },
+      {
+        "slug": "melding-and-splaying",
+        "name": "Слияние и распространение",
+        "icon": ""
+      },
+      {
+        "slug": "multi-use-cards",
+        "name": "Многофункциональные карты",
+        "icon": ""
+      },
+      {
+        "slug": "move-through-deck",
+        "name": "Перемещение по колоде",
+        "icon": ""
+      },
+      {
+        "slug": "push-your-luck",
+        "name": "Испытай свою удачу",
+        "icon": ""
+      },
+      {
+        "slug": "voting",
+        "name": "Голосование",
+        "icon": ""
+      },
+      {
+        "slug": "targeted-clues",
+        "name": "Целевые подсказки",
+        "icon": ""
+      },
+      {
+        "slug": "singing",
+        "name": "Пение",
+        "icon": ""
+      },
+      {
+        "slug": "race",
+        "name": "Раса",
+        "icon": ""
+      },
+      {
+        "slug": "storytelling",
+        "name": "Рассказывание историй",
+        "icon": ""
+      },
+      {
+        "slug": "die-icon-resolution",
+        "name": "Разрешение значка штампа",
+        "icon": ""
+      },
+      {
+        "slug": "hexagon-grid",
+        "name": "Шестиугольная сетка",
+        "icon": ""
+      },
+      {
+        "slug": "action-drafting",
+        "name": "Составление действий",
+        "icon": ""
+      },
+      {
+        "slug": "variable-phase-order",
+        "name": "Переменный порядок фаз",
+        "icon": ""
+      },
+      {
+        "slug": "action-points",
+        "name": "Очки действия",
+        "icon": ""
+      },
+      {
+        "slug": "movement-points",
+        "name": "Очки движения",
+        "icon": ""
+      },
+      {
+        "slug": "memory",
+        "name": "Память",
+        "icon": ""
+      },
+      {
+        "slug": "action-retrieval",
+        "name": "Поиск действий",
+        "icon": ""
+      },
+      {
+        "slug": "action-queue",
+        "name": "Очередь действий",
+        "icon": ""
+      },
+      {
+        "slug": "once-per-game-abilities",
+        "name": "Способности, используемые один раз за игру",
+        "icon": ""
+      },
+      {
+        "slug": "modular-board",
+        "name": "Модульная доска",
+        "icon": ""
+      },
+      {
+        "slug": "king-of-the-hill",
+        "name": "Царь горы",
+        "icon": ""
+      },
+      {
+        "slug": "acting",
+        "name": "Действуя",
+        "icon": ""
+      },
+      {
+        "slug": "negotiation",
+        "name": "Переговоры",
+        "icon": ""
+      },
+      {
+        "slug": "programmed-movement",
+        "name": "Запрограммированное движение",
+        "icon": ""
+      },
+      {
+        "slug": "paper-and-pencil",
+        "name": "Бумага и карандаш",
+        "icon": ""
+      },
+      {
+        "slug": "traitor-game",
+        "name": "игра предателя",
+        "icon": ""
+      },
+      {
+        "slug": "role-playing",
+        "name": "Ролевые игры",
+        "icon": ""
+      },
+      {
+        "slug": "point-to-point-movement",
+        "name": "Движение от точки к точке",
+        "icon": ""
+      },
+      {
+        "slug": "square-grid",
+        "name": "Квадратная сетка",
+        "icon": ""
+      },
+      {
+        "slug": "lose-a-turn",
+        "name": "Потерять ход",
+        "icon": ""
+      },
+      {
+        "slug": "prisoners-dilemma",
+        "name": "Дилемма заключенного",
+        "icon": ""
+      },
+      {
+        "slug": "campaign-battle-card-driven",
+        "name": "Кампания / Боевая карта",
+        "icon": ""
+      },
+      {
+        "slug": "tile-placement",
+        "name": "Размещение плитки",
+        "icon": ""
+      },
+      {
+        "slug": "turn-order-claim-action",
+        "name": "Порядок хода: действие претензии",
+        "icon": ""
+      },
+      {
+        "slug": "action-event",
+        "name": "Действие/Событие",
+        "icon": ""
+      },
+      {
+        "slug": "auction-bidding",
+        "name": "Аукцион / Торги",
+        "icon": ""
+      },
+      {
+        "slug": "pick-up-and-deliver",
+        "name": "Забрать и доставить",
+        "icon": ""
+      },
+      {
+        "slug": "cube-tower",
+        "name": "Кубическая Башня",
+        "icon": ""
+      },
+      {
+        "slug": "mancala",
+        "name": "Манкала",
+        "icon": ""
+      },
+      {
+        "slug": "market",
+        "name": "Рынок",
+        "icon": ""
+      },
+      {
+        "slug": "rock-paper-scissors",
+        "name": "Камень-ножницы-бумага",
+        "icon": ""
+      },
+      {
+        "slug": "hidden-movement",
+        "name": "Скрытое движение",
+        "icon": ""
+      },
+      {
+        "slug": "resource-to-move",
+        "name": "Ресурс для перемещения",
+        "icon": ""
+      },
+      {
+        "slug": "bingo",
+        "name": "Бинго",
+        "icon": ""
+      },
+      {
+        "slug": "auction-dutch",
+        "name": "Аукцион: Голландский",
+        "icon": ""
+      },
+      {
+        "slug": "layering",
+        "name": "Многослойность",
+        "icon": ""
+      },
+      {
+        "slug": "tags",
+        "name": "Теги",
+        "icon": ""
+      },
+      {
+        "slug": "auction-sealed-bid",
+        "name": "Аукцион: Закрытая ставка",
+        "icon": ""
+      },
+      {
+        "slug": "advantage-token",
+        "name": "Токен преимущества",
+        "icon": ""
+      },
+      {
+        "slug": "alliances",
+        "name": "Альянсы",
+        "icon": ""
+      },
+      {
+        "slug": "random-production",
+        "name": "Случайное производство",
+        "icon": ""
+      },
+      {
+        "slug": "three-dimensional-movement",
+        "name": "Трехмерное движение",
+        "icon": ""
+      },
+      {
+        "slug": "trading",
+        "name": "Торговля",
+        "icon": ""
+      },
+      {
+        "slug": "follow",
+        "name": "Следовать",
+        "icon": ""
+      },
+      {
+        "slug": "ordering",
+        "name": "Заказ",
+        "icon": ""
+      },
+      {
+        "slug": "score-and-reset-game",
+        "name": "Игра со счетом и сбросом",
+        "icon": ""
+      }
+    ],
+    "games": [
+      {
+        "slug": "concept",
+        "title": "Концепт",
+        "categories": [
+          "deduction",
+          "party-game",
+          "word-game"
+        ],
+        "tags": [
+          "team-based-game",
+          "race",
+          "communication-limits"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "cryptid",
+        "title": "Криптид",
+        "categories": [
+          "deduction"
+        ],
+        "tags": [
+          "deduction",
+          "race",
+          "hexagon-grid",
+          "modular-board",
+          "pattern-recognition"
+        ],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nКатегория\nСправочник (правила/варианты улучшения игры)\n\nИз аннотации издателя:\n\nСтражницы Дрог\n\nФормация знаний из нашей истории. Jej zadaniem было pilnowanie traktów przed rozbojnikami. Wiele razy przyczyniali się też do wykrycia and rozbica rozbójniczych Band. Стражников может быть умён в каждом свидании, где есть истинные тракты, которые могут привести к увеличению числа покупок. Чтобы получить мандат на крыльцо, вы можете получить административное задание, чтобы узнать, как они работают, и как получить прибыль, погулять по дому, чтобы получить мой конец.\n\nДесять конкретных нестандартных предложений, которые можно использовать для одного человека - два случая и три месяца. Когда ты на патруле, поружаешь, понимаешь, знаешь. С первыми игроками Финли и Альдо, с невысоким ростом и мускулистым капитаном Донованом, с крепкими, часто лекко неравнодушными, когда нахожусь у Джошема. Шик замка Имоджен, pilnująca tyłów. Grupa potrafi się bardzo szybko и sprawnie przemieszczać drogami, ale zna też skróty and przejścia przez las. Я te bezpieczne и te, z których mogą korzystać przestępcy.\n\nВ группу, которая может быть отправлена ​​в различные ситуации. Если вы хотите получить право на работу с товарами, которые вам нужны, вы можете решить проблемы, возникающие между вами. Если вы хотите получить бесплатную помощь в борьбе со страхом - Стражницы могут быть отправлены на прогулку до ночного человека, чтобы найти главных специалистов. Проблемы, возникающие между Стражниками, можно узнать и получить информацию о почтовых отправлениях.\n\n«BNi do wzięcia» для цикла вдохновенных материалов для Mistrzów Gry, szukających ciekawych Bnów, группы Bnów lub inspiracji do sesji opartych na postaciach BNow и relacjach między Nimi. \"Wędrowcy\" в чешский цикл, описание группы с конвенциальными фэнтези, которые можно найти в магазине.\n\nМатериал запроса:\n- история истории, просмотр и мотивация 25 BNow, podzielonych na pięć grup;\n- 5 карт локаций в цветах (и есть cz-b)\n- описание способа działania каждой группы,\n- расслабьтесь в группах и потенциальных конфликтах,\n- предложение, как выбрать описанную группу в составе группы союзников или посредников BG.\n\nПеревод предоставлен Google:\n\nДорожная охрана\n\nФормирование, известное из нашей истории. Ее задачей была охрана дорог от бандитов. Неоднократно они также способствовали раскрытию и разгрому грабительских банд. Дорожную охрану можно разместить в любом мире, где есть маршруты, по которым часто ездят богатые торговцы. Обычно они действуют по мандату короля, реже дворян, управляющих определенной территорией, и их полномочия варьируются от преследования преступников, борьбы с контрабандой до сбора пошлин.\n\nВ состав данного конкретного подразделения входят пять человек – две женщины и трое мужчин. Когда они патрулируют, то передвигаются, конечно, верхом. Финли и Альдо обычно едут впереди, высокий и мускулистый капитан Донован посередине, а коренастый, иногда немного неуверенный в себе Джош. Массив замыкает Имоджин, охраняя спину. Группа может двигаться очень быстро и эффективно, но они также знают короткие пути и переходы через лес. И безопасные, и те, которыми могут воспользоваться преступники.\n\nЭто группа, которую можно вводить в различных ситуациях. Если игроки играют законопослушных персонажей — в качестве помощников или компаньонов, внутренние трения которых могут вызвать проблемы или потребовать вмешательства. Если персонажи игрока действуют больше в серой зоне — стражи могут стать препятствием на пути к злой цели или даже главными противниками. Тогда проблемы между Стражами можно будет узнать и использовать для персонажа.\n\n«BNi Available» — это серия вдохновляющих материалов для гейм-мастеров, которые ищут интересные BN, группы BN или вдохновение для сессий, основанных на персонажах BN и отношениях между ними. «Странники» — часть цикла, описывающая группы фэнтезийных съездов, которые можно встретить на тропе.\n\nМатериал включает в себя:\n- описание истории, появления и мотивации 25 БН, разделенных на пять групп;\n- 5 цветных карт локаций (и еще пять черно-белых)\n- описание того, как будет работать каждая группа,\n- БН взаимоотношения внутри группы и возможные конфликты,\n- предложения по использованию описанных групп в приключении в качестве союзников или противников БГ.\n\n+ Еще\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор товара BGG: 298048",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "king-of-tokyo",
+        "title": "Повелитель Токио",
+        "categories": [
+          "dice",
+          "fighting",
+          "science-fiction",
+          "movies-tv-radio-theme"
+        ],
+        "tags": [
+          "dice-rolling",
+          "king-of-the-hill",
+          "open-drafting",
+          "die-icon-resolution",
+          "player-elimination"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "svintus",
+        "title": "Свинтус",
+        "categories": [
+          "animals",
+          "card-game",
+          "childrens-game",
+          "humor"
+        ],
+        "tags": [
+          "hand-management"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "camel-up",
+        "title": "Camel Up",
+        "categories": [
+          "animals",
+          "arabian",
+          "dice",
+          "racing"
+        ],
+        "tags": [
+          "variable-set-up",
+          "track-movement",
+          "end-game-bonuses",
+          "betting-and-bluffing",
+          "roll-spin-and-move"
+        ],
+        "description": "Какой верблюд победит? Делайте ставки в этой забавной семейной игре о верблюжьих бегах.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "colt-express",
+        "title": "Кольт Экспресс",
+        "categories": [
+          "fighting",
+          "trains",
+          "american-west"
+        ],
+        "tags": [
+          "take-that",
+          "memory",
+          "action-queue",
+          "programmed-movement",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "codenames",
+        "title": "Коднеймс",
+        "categories": [
+          "card-game",
+          "deduction",
+          "party-game",
+          "spies-secret-agents",
+          "word-game"
+        ],
+        "tags": [
+          "deduction",
+          "team-based-game",
+          "race",
+          "memory",
+          "communication-limits"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "secret-hitler",
+        "title": "Секретный Гитлер",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game",
+          "humor"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles",
+          "voting",
+          "traitor-game",
+          "player-elimination"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "the-resistance-avalon",
+        "title": "Авалон",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "deduction",
+          "medieval",
+          "bluffing"
+        ],
+        "tags": [
+          "finale-ending",
+          "roles-with-asymmetric-information",
+          "team-based-game",
+          "hidden-roles",
+          "simultaneous-action-selection"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "dany",
+        "title": "Дэни. Голоса в голове",
+        "categories": [
+          "deduction",
+          "bluffing",
+          "party-game"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "one-night-ultimate-werewolf",
+        "title": "Одна ночь с оборотнем",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game",
+          "horror"
+        ],
+        "tags": [
+          "roles-with-asymmetric-information",
+          "hidden-roles",
+          "voting",
+          "traitor-game",
+          "role-playing",
+          "variable-player-powers"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "spyfall",
+        "title": "Спайфол",
+        "categories": [
+          "deduction",
+          "bluffing",
+          "party-game",
+          "humor",
+          "spies-secret-agents"
+        ],
+        "tags": [
+          "roles-with-asymmetric-information",
+          "memory",
+          "acting",
+          "role-playing",
+          "communication-limits"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "citadels",
+        "title": "Цитадели",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "deduction",
+          "medieval",
+          "bluffing",
+          "city-building"
+        ],
+        "tags": [
+          "closed-drafting",
+          "lose-a-turn",
+          "income",
+          "set-collection",
+          "action-drafting"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "bang",
+        "title": "Бэнг",
+        "categories": [
+          "card-game",
+          "fighting",
+          "deduction",
+          "bluffing",
+          "american-west"
+        ],
+        "tags": [
+          "hidden-roles",
+          "hot-potato",
+          "kill-steal",
+          "hand-management",
+          "player-elimination"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "saboteur",
+        "title": "Гномы-вредители",
+        "categories": [
+          "card-game",
+          "exploration",
+          "fantasy",
+          "deduction",
+          "bluffing",
+          "party-game"
+        ],
+        "tags": [
+          "map-addition",
+          "hidden-victory-points",
+          "network-and-route-building",
+          "hidden-roles",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "feed-the-kraken",
+        "title": "Feed the Kraken",
+        "categories": [
+          "fantasy",
+          "deduction",
+          "bluffing",
+          "party-game",
+          "pirates",
+          "nautical"
+        ],
+        "tags": [
+          "hidden-roles",
+          "acting",
+          "grid-movement",
+          "betting-and-bluffing",
+          "player-elimination"
+        ],
+        "description": "Игроки стараются надеть правильный носок как можно скорее.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "kemet",
+        "title": "Кемет",
+        "categories": [
+          "fantasy",
+          "ancient",
+          "wargame",
+          "mythology"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "action-points",
+          "card-play-conflict-resolution",
+          "hand-management",
+          "area-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "agricola",
+        "title": "Агрикола",
+        "categories": [
+          "animals",
+          "economic",
+          "farming"
+        ],
+        "tags": [
+          "solo-solitaire-game",
+          "enclosure",
+          "closed-drafting",
+          "automatic-resource-growth",
+          "increase-value-of-unchosen-resources"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "dune-imperium",
+        "title": "Дюна: Битва за Арракис",
+        "categories": [
+          "science-fiction",
+          "movies-tv-radio-theme",
+          "political",
+          "novel-based"
+        ],
+        "tags": [
+          "delayed-purchase",
+          "card-play-conflict-resolution",
+          "force-commitment",
+          "deck-bag-and-pool-building",
+          "increase-value-of-unchosen-resources"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "just-a-moment-19",
+        "title": "Дюна: Апрайзинг",
+        "categories": [],
+        "tags": [],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nКатегория\nСценарий/Приключение/Модуль\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nНа основе класса (пилот, волшебник, ученый и т. д.)\nКости (Разные)\nНа основе уровня (зарабатывайте XP и повышайте уровень)\nНа основе расы (раса/вид игрока влияет на игровой процесс)\n\nИз аннотации издателя:\n\nЭта кампания рассчитана на уровни персонажей: с 5-го по 10-й. Он имеет\nлогово дракона с грибным Зеленым Драконом, обслуживаемым Хаотическим Мицелианцем\nкультисты и другие грибные опасности. Это высокий риск, высокая награда.\n\nКампания Drops представляет собой нейтральные локации и короткие приключения, предназначенные для мгновенного включения в вашу кампанию. Этот Drop Campaign совместим\nс Old School Essentials и другими ретро-клонами игр B/X.\n\nДракон Аманитус представляет необычное испытание для ваших игроков.\nХотя некоторые игроки могут быть знакомы с основными способностями Зеленого\nДракон, это древний змей. Он разработал несколько уникальных способностей\nи собрал по пути несколько последователей. Его логово тоже опасно. Взятый\nвместе искатели приключений сталкиваются с опасным испытанием.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор товара BGG: 380007",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "root",
+        "title": "Корни",
+        "categories": [
+          "animals",
+          "fantasy",
+          "territory-building",
+          "negotiation",
+          "wargame"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "action-points",
+          "action-retrieval",
+          "action-queue",
+          "area-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "civilization-a-new-dawn",
+        "title": "Цивилизация",
+        "categories": [
+          "exploration",
+          "civilization",
+          "video-game-theme"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "race",
+          "hexagon-grid",
+          "modular-board",
+          "variable-player-powers",
+          "increase-value-of-unchosen-resources"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "brass-birmingham",
+        "title": "Брасс: Бирмингем",
+        "categories": [
+          "economic",
+          "trains",
+          "industry-manufacturing",
+          "transportation",
+          "post-napoleonic",
+          "age-of-reason"
+        ],
+        "tags": [
+          "chaining",
+          "loans",
+          "income",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "black-rose-wars",
+        "title": "Войны Черной Розы",
+        "categories": [
+          "fantasy",
+          "bluffing",
+          "renaissance",
+          "miniatures"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "campaign-battle-card-driven",
+          "action-queue",
+          "area-movement",
+          "deck-bag-and-pool-building"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "7-wonders",
+        "title": "7 Wonders",
+        "categories": [
+          "card-game",
+          "economic",
+          "city-building",
+          "civilization",
+          "ancient"
+        ],
+        "tags": [
+          "closed-drafting",
+          "multi-use-cards",
+          "end-game-bonuses",
+          "hand-management",
+          "melding-and-splaying"
+        ],
+        "description": "Собирайте карты, чтобы развивать свою древнюю цивилизацию и построить чудо света.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "the-castles-of-burgundy",
+        "title": "Замки Бургундии",
+        "categories": [
+          "dice",
+          "territory-building",
+          "medieval"
+        ],
+        "tags": [
+          "dice-rolling",
+          "pattern-building",
+          "hexagon-grid",
+          "grid-coverage",
+          "end-game-bonuses"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "everdell",
+        "title": "Эверделл",
+        "categories": [
+          "animals",
+          "card-game",
+          "fantasy",
+          "city-building"
+        ],
+        "tags": [
+          "open-drafting",
+          "income",
+          "contracts",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "dixit",
+        "title": "Диксит",
+        "categories": [
+          "card-game",
+          "party-game",
+          "humor"
+        ],
+        "tags": [
+          "voting",
+          "singing",
+          "race",
+          "storytelling",
+          "targeted-clues"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "imaginarium",
+        "title": "Имаджинариум",
+        "categories": [
+          "fantasy"
+        ],
+        "tags": [
+          "take-that",
+          "variable-phase-order",
+          "set-collection",
+          "action-drafting",
+          "contracts"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "azul",
+        "title": "Азул",
+        "categories": [
+          "renaissance",
+          "abstract-strategy"
+        ],
+        "tags": [
+          "chaining",
+          "pattern-building",
+          "open-drafting",
+          "grid-coverage",
+          "end-game-bonuses"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "azul-summer-pavilion",
+        "title": "Азул: Летний Дворец",
+        "categories": [
+          "abstract-strategy",
+          "puzzle"
+        ],
+        "tags": [
+          "pattern-building",
+          "tile-placement",
+          "open-drafting",
+          "set-collection",
+          "turn-order-claim-action",
+          "end-game-bonuses"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "azul-queens-garden",
+        "title": "Азул: Сады королевы",
+        "categories": [
+          "renaissance",
+          "abstract-strategy",
+          "puzzle"
+        ],
+        "tags": [
+          "pattern-building",
+          "tile-placement",
+          "set-collection",
+          "turn-order-claim-action",
+          "end-game-bonuses"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "cascadia",
+        "title": "Каскадия",
+        "categories": [
+          "animals",
+          "environmental"
+        ],
+        "tags": [
+          "solo-solitaire-game",
+          "pattern-building",
+          "hexagon-grid",
+          "open-drafting",
+          "end-game-bonuses"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "the-isle-of-cats",
+        "title": "Остров кошек",
+        "categories": [
+          "animals",
+          "fantasy",
+          "puzzle",
+          "pirates",
+          "nautical"
+        ],
+        "tags": [
+          "hidden-victory-points",
+          "closed-drafting",
+          "open-drafting",
+          "income",
+          "grid-coverage"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "wingspan",
+        "title": "Крылья",
+        "categories": [
+          "animals",
+          "card-game"
+        ],
+        "tags": [
+          "open-drafting",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "paleo",
+        "title": "Палео",
+        "categories": [
+          "card-game",
+          "exploration",
+          "prehistoric"
+        ],
+        "tags": [
+          "memory",
+          "action-event",
+          "cooperative-game",
+          "scenario-mission-campaign-game",
+          "deck-bag-and-pool-building"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "catan",
+        "title": "Катан",
+        "categories": [
+          "economic",
+          "negotiation"
+        ],
+        "tags": [
+          "dice-rolling",
+          "hidden-victory-points",
+          "chaining",
+          "hexagon-grid",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "unfathomable",
+        "title": "Непостижимое",
+        "categories": [
+          "fantasy",
+          "deduction",
+          "bluffing",
+          "novel-based",
+          "horror"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles",
+          "traitor-game",
+          "hand-management",
+          "area-movement",
+          "variable-player-powers"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "inis",
+        "title": "Иниш",
+        "categories": [
+          "card-game",
+          "exploration",
+          "ancient",
+          "wargame",
+          "mythology"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "closed-drafting",
+          "campaign-battle-card-driven",
+          "action-drafting",
+          "area-movement"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "marrakesh",
+        "title": "Марракеш",
+        "categories": [
+          "city-building"
+        ],
+        "tags": [
+          "cube-tower",
+          "open-drafting",
+          "end-game-bonuses",
+          "simultaneous-action-selection"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "robinson-crusoe-adventures-on-the-cursed-island",
+        "title": "Робинзон Крузо",
+        "categories": [
+          "exploration",
+          "fighting",
+          "territory-building",
+          "novel-based",
+          "adventure"
+        ],
+        "tags": [
+          "dice-rolling",
+          "die-icon-resolution",
+          "action-queue",
+          "cooperative-game",
+          "area-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "istanbul",
+        "title": "Истанбул",
+        "categories": [
+          "economic"
+        ],
+        "tags": [
+          "dice-rolling",
+          "mancala",
+          "market",
+          "grid-movement",
+          "contracts"
+        ],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nСерия\nГероические карты\nКатегория\nАксессуар (кубики, карты, ширмы, карты)\n\nИз аннотации издателя:\n\nEdgmoor Manor — это распечатанный план подземелья, совместимый с любой ролевой игрой/игрой Dungeon-Crawl. Его можно использовать как отдельную игровую доску или комбинировать с любым набором плиток того же масштаба.\n\nПоместье Эдгмур представляет собой план небольшого укрепленного усадебного дома (или небольшого замка) с оборонительной стеной и внутренним двором, а также небольшими постройками на территории. Поместье Эджмур представлено нетронутым, а также разрушенным и заросшим спустя столетия после его разрушения.\n\nПары карт можно было использовать независимо друг от друга или использовать в сценах «воспоминаний» или историях о путешествиях во времени.\n\nТакже в комплект входит набор полноразмерных изображений JPG с разрешением 300 точек на дюйм для печати плакатов или VTT.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nКод товара BGG: 154435",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "among-cultists",
+        "title": "Among Cultists",
+        "categories": [
+          "deduction",
+          "horror"
+        ],
+        "tags": [
+          "deduction",
+          "team-based-game",
+          "hidden-roles",
+          "action-event",
+          "point-to-point-movement"
+        ],
+        "description": "Игроки соревнуются, чтобы заработать как можно больше денег, прежде чем они умрут.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "magic-maze",
+        "title": "Magic Maze",
+        "categories": [
+          "exploration",
+          "real-time",
+          "maze",
+          "fantasy"
+        ],
+        "tags": [
+          "map-addition",
+          "grid-movement",
+          "cooperative-game",
+          "communication-limits",
+          "elapsed-real-time-ending"
+        ],
+        "description": "Молча сотрудничайте, чтобы ограбить лабиринт торгового центра, прежде чем истечет время.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "small-world",
+        "title": "Small World",
+        "categories": [
+          "fantasy",
+          "fighting",
+          "territory-building"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "dice-rolling",
+          "hidden-victory-points",
+          "area-movement",
+          "increase-value-of-unchosen-resources"
+        ],
+        "description": "Управляйте одной фэнтезийной расой за другой, чтобы быстро распространиться по всей стране.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "carcassonne",
+        "title": "Каркассон",
+        "categories": [
+          "territory-building",
+          "medieval"
+        ],
+        "tags": [
+          "map-addition",
+          "area-majority-influence",
+          "enclosure",
+          "pattern-building",
+          "kill-steal"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ticket-to-ride",
+        "title": "Ticket to Ride",
+        "categories": [
+          "trains"
+        ],
+        "tags": [
+          "connections",
+          "network-and-route-building",
+          "contracts",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "Все на борт!  Собирайте поезда, чух-чух-выбирайте маршруты, выполняйте пункт назначения!",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "wyrmspan",
+        "title": "Wyrmspan",
+        "categories": [
+          "animals",
+          "card-game",
+          "fantasy"
+        ],
+        "tags": [
+          "solo-solitaire-game",
+          "open-drafting",
+          "once-per-game-abilities",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "just-a-moment-48",
+        "title": "Лоскутное королевство",
+        "categories": [],
+        "tags": [],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "fury-of-dracula",
+        "title": "Ярость Дракулы",
+        "categories": [
+          "fighting",
+          "deduction",
+          "novel-based",
+          "adventure",
+          "horror"
+        ],
+        "tags": [
+          "point-to-point-movement",
+          "card-play-conflict-resolution",
+          "hidden-movement",
+          "resource-to-move",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "just-a-moment-50",
+        "title": "Barenpark",
+        "categories": [
+          "expansion-for-base-game"
+        ],
+        "tags": [
+          "open-drafting",
+          "income",
+          "simulation",
+          "worker-placement"
+        ],
+        "description": "Дополнительные варианты подсчета очков в финале и случайные события раунда.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "munchkin",
+        "title": "Манчкин",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "fighting",
+          "humor"
+        ],
+        "tags": [
+          "take-that",
+          "race",
+          "hand-management",
+          "variable-player-powers"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "cartographers",
+        "title": "Картографы",
+        "categories": [
+          "fantasy",
+          "territory-building"
+        ],
+        "tags": [
+          "enclosure",
+          "paper-and-pencil",
+          "grid-coverage",
+          "bingo",
+          "end-game-bonuses"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "welcome-to-your-perfect-home",
+        "title": "Welcome to Your Perfect Home",
+        "categories": [
+          "city-building"
+        ],
+        "tags": [
+          "multi-use-cards",
+          "paper-and-pencil",
+          "bingo",
+          "contracts",
+          "end-game-bonuses"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "diamant",
+        "title": "Диамант",
+        "categories": [
+          "card-game",
+          "exploration",
+          "bluffing"
+        ],
+        "tags": [
+          "move-through-deck",
+          "simultaneous-action-selection",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "saboteur-the-lost-mines",
+        "title": "Гномы-вредители: Древние шахты",
+        "categories": [
+          "card-game",
+          "maze",
+          "fantasy",
+          "deduction"
+        ],
+        "tags": [
+          "team-based-game",
+          "tile-placement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "scythe",
+        "title": "Scythe",
+        "categories": [
+          "fighting",
+          "science-fiction",
+          "territory-building",
+          "economic"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "card-play-conflict-resolution",
+          "contracts",
+          "end-game-bonuses",
+          "force-commitment"
+        ],
+        "description": "Пять фракций соперничают за господство в раздираемой войной, наполненной роботами дизельпанковой Европе 1920-х годов.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "through-the-ages-a-new-story-of-civilization",
+        "title": "Сквозь века",
+        "categories": [
+          "card-game",
+          "economic",
+          "civilization"
+        ],
+        "tags": [
+          "action-points",
+          "auction-bidding",
+          "events",
+          "income",
+          "auction-dutch"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "terraforming-mars",
+        "title": "Терраформирование Марса",
+        "categories": [
+          "environmental",
+          "science-fiction",
+          "economic",
+          "industry-manufacturing",
+          "civilization"
+        ],
+        "tags": [
+          "closed-drafting",
+          "hexagon-grid",
+          "contracts",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "unconscious-mind",
+        "title": "Unconscious Mind",
+        "categories": [
+          "post-napoleonic",
+          "medical"
+        ],
+        "tags": [
+          "open-drafting",
+          "layering",
+          "contracts",
+          "end-game-bonuses",
+          "melding-and-splaying"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "evolution",
+        "title": "Эволюция",
+        "categories": [
+          "animals",
+          "environmental",
+          "card-game",
+          "print-play",
+          "educational",
+          "prehistoric"
+        ],
+        "tags": [
+          "action-points",
+          "simulation",
+          "hand-management",
+          "simultaneous-action-selection",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "santa-monica",
+        "title": "Санта-Моника",
+        "categories": [
+          "city-building",
+          "travel"
+        ],
+        "tags": [
+          "chaining",
+          "tile-placement",
+          "open-drafting",
+          "set-collection",
+          "tags"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "clank",
+        "title": "Кланк",
+        "categories": [
+          "fantasy",
+          "adventure"
+        ],
+        "tags": [
+          "delayed-purchase",
+          "action-points",
+          "movement-points",
+          "end-game-bonuses",
+          "deck-bag-and-pool-building"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "arkham-horror",
+        "title": "Ужас Аркхэма",
+        "categories": [
+          "fighting",
+          "novel-based",
+          "adventure",
+          "horror"
+        ],
+        "tags": [
+          "dice-rolling",
+          "finale-ending",
+          "events",
+          "hand-management",
+          "cooperative-game"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "fallout",
+        "title": "Фоллаут",
+        "categories": [
+          "exploration",
+          "science-fiction",
+          "adventure",
+          "video-game-theme"
+        ],
+        "tags": [
+          "dice-rolling",
+          "action-points",
+          "modular-board",
+          "hand-management",
+          "area-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "pandemic",
+        "title": "Пандемия",
+        "categories": [
+          "medical",
+          "travel"
+        ],
+        "tags": [
+          "chaining",
+          "action-points",
+          "events",
+          "contracts",
+          "cooperative-game"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "underwater-cities",
+        "title": "Подводные города",
+        "categories": [
+          "card-game",
+          "science-fiction",
+          "industry-manufacturing",
+          "city-building",
+          "nautical"
+        ],
+        "tags": [
+          "network-and-route-building",
+          "solo-solitaire-game",
+          "income",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "fluxx",
+        "title": "Fluxx",
+        "categories": [
+          "card-game"
+        ],
+        "tags": [
+          "set-collection",
+          "hand-management"
+        ],
+        "description": "Играйте в карты и изменяйте правила этой постоянно меняющейся карточной игры!",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "bohnanza",
+        "title": "Бонанза",
+        "categories": [
+          "card-game",
+          "farming",
+          "negotiation"
+        ],
+        "tags": [
+          "multi-use-cards",
+          "negotiation",
+          "set-collection",
+          "trading",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "carnegie",
+        "title": "Carnegie",
+        "categories": [
+          "economic",
+          "industry-manufacturing",
+          "post-napoleonic"
+        ],
+        "tags": [
+          "connections",
+          "action-retrieval",
+          "follow",
+          "end-game-bonuses",
+          "area-movement"
+        ],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези (Высокое Фэнтези)\nКатегория\nСправочник (правила/варианты улучшения игры)\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nКости (Разные)\nНа основе уровня (зарабатывайте XP и повышайте уровень)\nНа основе расы (раса/вид игрока влияет на игровой процесс)\nНа основе навыков (купить или получить навыки)\nСистема\nСистема следопыта\n\nИз аннотации издателя:\n\nСможешь ли ты это выкопать?!\n\nСуглинки — это новый предок второго издания ролевой игры Pathfinder. По форме похожие на кротов, суглинки имеют сильную связь с землей, и рост растений делает их естественными земледельцами, друидами и травниками. В этом полностью иллюстрированном PDF-файле, написанном опытным дизайнером второго издания Майклом Сэйром, представлены странствующие предки со всеми ролевыми примечаниями, предысторией и правилами игры (включая четыре наследия и 20 подвигов предков), необходимыми, чтобы сделать их интересной и всесторонней частью вашей кампании!\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор предмета BGG: 324447",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "hanabi",
+        "title": "Ханаби",
+        "categories": [
+          "card-game",
+          "deduction",
+          "memory"
+        ],
+        "tags": [
+          "memory",
+          "set-collection",
+          "hand-management",
+          "cooperative-game",
+          "communication-limits",
+          "ordering"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "red7",
+        "title": "Red7",
+        "categories": [
+          "card-game",
+          "number"
+        ],
+        "tags": [
+          "pattern-building",
+          "multi-use-cards",
+          "set-collection",
+          "score-and-reset-game",
+          "hand-management",
+          "player-elimination"
+        ],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nБоевик / Приключения (Супергерои)\nСерия\nКолеса правосудия\nКатегория\nАксессуар (кубики, карты, ширмы, карты)\nСправочник (правила/варианты улучшения игры)\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nКости (в основном d6)\nГенерация случайных атрибутов (во время персонажа…\nНа основе навыков (купить или получить навыки)\nНа основе черт/аспектов (личность влияет…\n\nИз аннотации издателя:\n\n«Колеса правосудия №16» — это призрачный полет в опасный мир несуществующего человека.\n\nЧерный Всадник, молодой одиночка, который (вместе со своим суперкаром с искусственным интеллектом C.O.R.A) участвует в крестовом походе, защищая интересы невиновных, беспомощных и бессильных в мире преступников, действующих выше закона.\n\nЭтот PDF-файл содержит характеристики, изображения и бумажные миниатюры ICONS для одного персонажа и его фирменного автомобиля, а также советы по их использованию в качестве героя или злодея в вашей игре.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n2\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nКод товара BGG: 138680",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ark-nova",
+        "title": "Ark Nova",
+        "categories": [
+          "animals",
+          "environmental",
+          "card-game"
+        ],
+        "tags": [
+          "events",
+          "grid-coverage",
+          "contracts",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "Спланируйте и постройте современный, научно управляемый зоопарк для поддержки природоохранных проектов.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "mafia",
+        "title": "Мафия",
+        "categories": [
+          "deduction",
+          "party-game",
+          "mafia"
+        ],
+        "tags": [
+          "hidden-roles",
+          "memory",
+          "acting",
+          "negotiation",
+          "player-elimination"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "decoder",
+        "title": "Декодер",
+        "categories": [
+          "party-game",
+          "puzzle"
+        ],
+        "tags": [
+          "paper-and-pencil"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "bunker",
+        "title": "Бункер",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game",
+          "mature-adult"
+        ],
+        "tags": [
+          "hidden-roles",
+          "voting",
+          "storytelling",
+          "player-elimination"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ghost-letters",
+        "title": "Письма призрака",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game"
+        ],
+        "tags": [
+          "deduction",
+          "hidden-roles",
+          "voting",
+          "communication-limits",
+          "targeted-clues"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "celestia",
+        "title": "Селестия",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "adventure",
+          "aviation-flight"
+        ],
+        "tags": [
+          "dice-rolling",
+          "hidden-victory-points",
+          "betting-and-bluffing",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "overboard",
+        "title": "За бортом",
+        "categories": [
+          "abstract-strategy"
+        ],
+        "tags": [
+          "square-grid",
+          "point-to-point-movement"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ekivoki",
+        "title": "Экивоки",
+        "categories": [
+          "racing",
+          "party-game",
+          "word-game",
+          "trivia"
+        ],
+        "tags": [
+          "team-based-game",
+          "acting",
+          "point-to-point-movement"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "think-fast",
+        "title": "Think Fast",
+        "categories": [
+          "party-game",
+          "trivia"
+        ],
+        "tags": [
+          "memory"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "blood-on-the-clocktower",
+        "title": "Кровь на часовой башне",
+        "categories": [
+          "murder-mystery",
+          "deduction",
+          "bluffing",
+          "party-game"
+        ],
+        "tags": [
+          "deduction",
+          "hidden-roles",
+          "negotiation",
+          "prisoners-dilemma",
+          "betting-and-bluffing"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "grand-austria-hotel",
+        "title": "Гранд отель Австрия",
+        "categories": [
+          "economic"
+        ],
+        "tags": [
+          "dice-rolling",
+          "action-drafting",
+          "contracts",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "industry",
+        "title": "Индустрия",
+        "categories": [
+          "economic",
+          "industry-manufacturing"
+        ],
+        "tags": [
+          "auction-bidding"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ganymede",
+        "title": "Ганимед",
+        "categories": [
+          "card-game",
+          "science-fiction"
+        ],
+        "tags": [
+          "open-drafting",
+          "set-collection",
+          "pick-up-and-deliver"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "plague",
+        "title": "Мор",
+        "categories": [
+          "animals",
+          "medieval"
+        ],
+        "tags": [
+          "dice-rolling",
+          "take-that",
+          "race",
+          "paper-and-pencil",
+          "pick-up-and-deliver",
+          "roll-spin-and-move"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "isidore",
+        "title": "Isidore",
+        "categories": [],
+        "tags": [
+          "set-collection",
+          "rock-paper-scissors",
+          "roll-spin-and-move"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "pax-pamir",
+        "title": "Пакс Памир",
+        "categories": [
+          "card-game",
+          "economic",
+          "political",
+          "negotiation",
+          "spies-secret-agents"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "simulation",
+          "hand-management",
+          "area-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "not-enough-mana",
+        "title": "Not Enough Mana",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "party-game",
+          "humor",
+          "print-play",
+          "mature-adult"
+        ],
+        "tags": [
+          "negotiation",
+          "events",
+          "hand-management",
+          "player-elimination",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "3000-scoundrels",
+        "title": "3000 негодяев",
+        "categories": [
+          "bluffing",
+          "american-west"
+        ],
+        "tags": [
+          "hidden-victory-points",
+          "open-drafting"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "excavation",
+        "title": "Раскопки",
+        "categories": [
+          "science-fiction",
+          "economic"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "market",
+          "open-drafting",
+          "point-to-point-movement",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "the-lord-of-the-rings",
+        "title": "Властелин колец",
+        "categories": [
+          "card-game",
+          "fantasy"
+        ],
+        "tags": [
+          "open-drafting",
+          "hand-management",
+          "deck-bag-and-pool-building"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "game-of-thrones-the-board-game",
+        "title": "Игра престолов",
+        "categories": [
+          "fantasy",
+          "bluffing",
+          "political",
+          "novel-based",
+          "negotiation",
+          "wargame"
+        ],
+        "tags": [
+          "auction-bidding",
+          "auction-sealed-bid",
+          "advantage-token",
+          "alliances",
+          "area-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "jackal",
+        "title": "Шакал",
+        "categories": [
+          "exploration",
+          "pirates"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "action-points",
+          "modular-board",
+          "pick-up-and-deliver",
+          "hand-management",
+          "area-movement"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "foodies",
+        "title": "Foodies",
+        "categories": [
+          "economic"
+        ],
+        "tags": [
+          "dice-rolling",
+          "connections",
+          "market",
+          "grid-coverage",
+          "random-production",
+          "contracts"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "space-contact",
+        "title": "Космический контакт",
+        "categories": [
+          "science-fiction",
+          "wargame",
+          "space-exploration"
+        ],
+        "tags": [
+          "hexagon-grid",
+          "simulation",
+          "variable-set-up",
+          "three-dimensional-movement",
+          "end-game-bonuses",
+          "simultaneous-action-selection"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "chickens",
+        "title": "Куры",
+        "categories": [
+          "animals",
+          "card-game",
+          "science-fiction",
+          "humor"
+        ],
+        "tags": [
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "deep-sea-adventure",
+        "title": "Deep Sea Adventures",
+        "categories": [
+          "dice",
+          "exploration",
+          "party-game",
+          "nautical"
+        ],
+        "tags": [
+          "pick-up-and-deliver",
+          "roll-spin-and-move",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      }
+    ],
+    "expansions": []
+  }
+}

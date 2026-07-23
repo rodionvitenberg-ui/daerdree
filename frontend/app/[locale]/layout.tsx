@@ -4,9 +4,15 @@ import Header from '@/components/Header';
 import Footer from '@/components/footer';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://daerdree.bar';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
@@ -88,10 +94,10 @@ export default async function RootLayout({
   return (
     // Применяем переменную --font-literata
     <html lang={locale} className={`${manrope.variable} ${literata.variable}`}>
-      <body className="antialiased bg-background text-foreground flex flex-col min-h-screen">
+      <body className="antialiased bg-background text-foreground flex flex-col min-h-dvh overflow-x-clip">
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="flex-grow">
+          <main className="flex-grow min-w-0">
             {children}
           </main>
           <Footer />

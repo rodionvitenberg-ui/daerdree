@@ -83,7 +83,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   });
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20">
+    <div className="min-h-dvh bg-background pt-32 pb-20">
       <div className="container mx-auto px-4 max-w-5xl">
         
         {/* Хлебные крошки */}
@@ -163,6 +163,6 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
         </article>
       </div>
-    </main>
+    </div>
   );
 }

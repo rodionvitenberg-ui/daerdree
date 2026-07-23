@@ -45,7 +45,7 @@ export default function SimpleCarousel({ cards }: SimpleCarouselProps) {
             key={card.id || index}
             // min-w-[85vw]: На мобилке карточка занимает 85% экрана (виден край следующей)
             // md:min-w-[600px]: На десктопе фиксированная ширина
-            className="relative shrink-0 w-[85vw] md:w-[600px] h-[500px] snap-center bg-neutral-900 border border-white/10 select-none"
+            className="relative shrink-0 w-[min(85vw,24rem)] sm:w-[85vw] md:w-[600px] h-[min(70dvh,500px)] snap-center bg-neutral-900 border border-white/10 select-none"
           >
             
             {/* КАРТИНКА */}

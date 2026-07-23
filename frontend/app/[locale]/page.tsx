@@ -6,7 +6,6 @@ import ParallaxDivider from "@/components/ParallaxDivider";
 import EventMasonry from "@/components/EventMasonry";
 import CateringStory from "@/components/CateringStory";
 import LocationSection from "@/components/LocationSection";
-import Footer from "@/components/footer";
 import { getLocale } from "next-intl/server";
 
 export default async function Home() {
@@ -51,7 +50,7 @@ export default async function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -64,6 +63,6 @@ export default async function Home() {
       <MenuTeaser />
       <EventMasonry />
       <LocationSection /> 
-    </main>
+    </div>
   );
 }

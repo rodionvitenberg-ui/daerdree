@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { HERO_CONTENT } from '@/content/home';
 import AnimatedContent from './AnimatedContent';
-import { useTranslations } from 'next-intl'; // Подключили хук
+import { useTranslations } from 'next-intl';
 
 export default function Hero() {
-  const t = useTranslations('Hero'); // Инициализировали переводы
+  const t = useTranslations('Hero');
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -18,23 +18,23 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[80vh] w-full overflow-hidden">
+    <section className="relative h-[80dvh] min-h-[80dvh] w-full overflow-hidden">
       
       {HERO_CONTENT.slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 h-[80vh] w-full transition-opacity duration-1000 ease-in-out
+          className={`absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out
             ${index === currentSlide ? 'opacity-100 z-0' : 'opacity-0 -z-10'}
           `}
         >
           
           {/* --- DESKTOP (TRIPTYCH) --- */}
-          <div className="hidden md:grid h-[80vh] w-full grid-cols-3 gap-0"> 
+          <div className="hidden md:grid h-full w-full grid-cols-3 gap-0"> 
              {slide.desktop.map((item, colIndex) => (
-               <div key={colIndex} className="relative h-[80vh] w-full overflow-hidden">
+               <div key={colIndex} className="relative h-full w-full overflow-hidden">
                  {item.type === 'video' ? (
                    <video
-                     className="h-[80vh] w-full object-cover"
+                     className="h-full w-full object-cover"
                      src={item.src}
                      autoPlay loop muted playsInline
                    />
@@ -53,17 +53,16 @@ export default function Hero() {
           </div>
 
           {/* --- MOBILE (FULLSCREEN SOLO) --- */}
-          <div className="block md:hidden h-[80vh] w-full relative">
+          <div className="block md:hidden h-full w-full relative">
              
-             {/* Проверяем тип контента для мобилки */}
              {slide.mobile.type === 'video' ? (
                 <video
-                  className="h-[80vh] w-full object-cover"
+                  className="h-full w-full object-cover"
                   src={slide.mobile.src}
                   autoPlay
                   loop
                   muted
-                  playsInline // КРИТИЧНО ВАЖНО для iOS, иначе видео не запустится
+                  playsInline
                 />
              ) : (
                 <Image
@@ -75,7 +74,6 @@ export default function Hero() {
                 />
              )}
 
-             {/* Затемнение */}
              <div className="absolute inset-0 bg-black/50" />
           </div>
 
@@ -87,7 +85,6 @@ export default function Hero() {
         
         <div className="flex flex-col items-center gap-6">
             
-            {/* АНИМАЦИЯ ЗАГОЛОВКА */}
             <AnimatedContent
               distance={150}
               direction="vertical"
@@ -100,12 +97,11 @@ export default function Hero() {
               threshold={0.2}
               delay={0.1}
             >
-              <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-5xl lg:text-6xl drop-shadow-[0_1px_30px_rgba(0,0,0,0.5)]">
+              <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-5xl lg:text-6xl drop-shadow-[0_1px_30px_rgba(0,0,0,0.5)] text-balance">
                   {t('title')}
               </h1>
             </AnimatedContent>
             
-            {/* АНИМАЦИЯ ПОДЗАГОЛОВКА */}
             <AnimatedContent
               distance={200}
               direction="vertical"
@@ -118,23 +114,19 @@ export default function Hero() {
               threshold={0.2}
               delay={0.3}
             >
-              <p className="font-serif text-lg font-medium tracking-wide text-gray-200 md:text-2xl drop-shadow-lg max-w-2xl">
+              <p className="font-serif text-lg font-medium tracking-wide text-gray-200 md:text-2xl drop-shadow-lg max-w-2xl text-pretty">
                   {t('subtitle')}
               </p>
             </AnimatedContent>
 
-            {/* АНИМАЦИЯ КНОПКИ */}
             <Link 
               href="/book"
-              className="group relative mt-4 inline-block overflow-hidden px-3 py-4 transition-all duration-300"
+              className="group relative mt-4 inline-flex min-h-11 min-w-[11rem] items-center justify-center overflow-hidden px-8 py-4 transition-all duration-300"
             >
-                {/* Фон с градиентом (при наведении) */}
                 <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
                 
-                {/* Основной фон (исчезает при наведении) */}
                 <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
                 
-                {/* Текст */}
                 <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
                     {t('buttonText')}
                 </span>

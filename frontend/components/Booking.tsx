@@ -56,10 +56,10 @@ function BookingContent() {
   return (
     <section id="booking" className="relative w-full bg-background border-b border-white/5 z-10">
       
-      <div className="flex flex-col lg:flex-row lg:h-screen">
+      <div className="flex flex-col lg:flex-row lg:min-h-dvh">
         
         {/* 1. ИЗОБРАЖЕНИЕ */}
-        <div className="relative h-[50vh] w-full lg:h-full lg:w-[67%]">
+        <div className="relative h-[50dvh] min-h-[280px] w-full lg:min-h-dvh lg:h-auto lg:w-[67%]">
           <Image
             src={BOOKING_CONTENT.image}
             alt="Booking Atmosphere"
@@ -136,6 +136,8 @@ function BookingContent() {
                               required
                               type="text" 
                               name="name"
+                              autoComplete="name"
+                              enterKeyHint="next"
                               disabled={status === 'loading'}
                               placeholder={t("form.namePlaceholder")}
                               className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
@@ -150,6 +152,9 @@ function BookingContent() {
                               required
                               type="number" 
                               name="guests"
+                              min={1}
+                              inputMode="numeric"
+                              enterKeyHint="next"
                               disabled={status === 'loading'}
                               placeholder={t("form.guestsPlaceholder")}
                               className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
@@ -162,13 +167,11 @@ function BookingContent() {
                           </label>
                           <input 
                               required
-                              // Используем datetime-local для корректной работы с defaultValue
                               type="datetime-local" 
                               name="date"
                               defaultValue={defaultDate}
                               disabled={status === 'loading'}
-                              // Убрал placeholder, так как для типа date он обычно не работает стандартным образом
-                              className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50 [color-scheme:dark]"
+                              className="w-full min-h-11 border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50 [color-scheme:dark]"
                           />
                       </div>
 
@@ -180,6 +183,8 @@ function BookingContent() {
                               required
                               type="text" 
                               name="contact"
+                              autoComplete="tel"
+                              enterKeyHint="done"
                               disabled={status === 'loading'}
                               placeholder={t("form.contactPlaceholder")}
                               className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
@@ -189,7 +194,7 @@ function BookingContent() {
                       <button 
                           type="submit" 
                           disabled={status === 'loading'}
-                          className="mt-8 w-full bg-white py-4 font-serif font-bold uppercase tracking-widest text-black transition-transform hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                          className="mt-8 w-full min-h-12 bg-white py-4 font-serif font-bold uppercase tracking-widest text-black transition-transform hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
                       >
                           {status === 'loading' && (
                               <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -232,7 +237,7 @@ function BookingContent() {
 // Экспортируем обертку, чтобы Next.js корректно обрабатывал параметры URL
 export default function Booking() {
   return (
-    <Suspense fallback={<div className="h-screen w-full bg-neutral-950" />}>
+    <Suspense fallback={<div className="min-h-dvh w-full bg-neutral-950" />}>
       <BookingContent />
     </Suspense>
   );

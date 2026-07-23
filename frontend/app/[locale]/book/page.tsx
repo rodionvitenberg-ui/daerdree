@@ -77,11 +77,11 @@ function BookPageContent() {
   };
 
   return (
-    <main className="min-h-screen bg-background pt-20 lg:pt-0"> 
-      <div className="flex flex-col lg:flex-row lg:h-screen">
+    <div className="min-h-dvh bg-background pt-20 lg:pt-0"> 
+      <div className="flex flex-col lg:flex-row lg:min-h-dvh">
         
-        {/* 1. ЛЕВАЯ ЧАСТЬ: СЛАЙДЕР (Без изменений) */}
-        <div className="relative h-[40vh] w-full lg:h-full lg:w-[67%] overflow-hidden bg-black">
+        {/* 1. ЛЕВАЯ ЧАСТЬ: СЛАЙДЕР */}
+        <div className="relative h-[40dvh] min-h-[220px] w-full lg:min-h-dvh lg:h-auto lg:w-[67%] overflow-hidden bg-black">
           {CAROUSEL_IMAGES.map((src, index) => (
             <div 
               key={index}
@@ -167,6 +167,8 @@ function BookPageContent() {
                             required
                             type="text" 
                             name="name"
+                            autoComplete="name"
+                            enterKeyHint="next"
                             disabled={status === 'loading'}
                             placeholder={t("form.namePlaceholder")}
                             className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
@@ -181,6 +183,9 @@ function BookPageContent() {
                             required
                             type="number" 
                             name="guests"
+                            min={1}
+                            inputMode="numeric"
+                            enterKeyHint="next"
                             disabled={status === 'loading'}
                             placeholder={t("form.guestsPlaceholder")}
                             className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
@@ -193,13 +198,11 @@ function BookPageContent() {
                         </label>
                         <input 
                             required
-                            // Изменено на datetime-local
                             type="datetime-local" 
                             name="date"
                             defaultValue={defaultDate}
                             disabled={status === 'loading'}
-                            // Добавлен класс [color-scheme:dark] для красивого календаря в темной теме
-                            className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50 [color-scheme:dark]"
+                            className="w-full min-h-11 border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50 [color-scheme:dark]"
                         />
                     </div>
 
@@ -211,6 +214,8 @@ function BookPageContent() {
                             required
                             type="text" 
                             name="contact"
+                            autoComplete="tel"
+                            enterKeyHint="done"
                             disabled={status === 'loading'}
                             placeholder={t("form.contactPlaceholder")}
                             className="w-full border-b border-white/20 bg-transparent py-2 text-lg text-foreground outline-none transition-colors focus:border-secondary placeholder:text-white/20 disabled:opacity-50"
@@ -220,7 +225,7 @@ function BookPageContent() {
                     <button 
                         type="submit" 
                         disabled={status === 'loading'}
-                        className="mt-8 w-full bg-white py-4 font-serif font-bold uppercase tracking-widest text-black transition-transform hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                        className="mt-8 w-full min-h-12 bg-white py-4 font-serif font-bold uppercase tracking-widest text-black transition-transform hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
                     >
                         {status === 'loading' && (
                             <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -257,14 +262,14 @@ function BookPageContent() {
         </div>
       </div>
 
-    </main>
+    </div>
   );
 }
 
 // Экспортируем обертку для корректной работы с useSearchParams
 export default function BookPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-background pt-20" />}>
+    <Suspense fallback={<div className="min-h-dvh bg-background pt-20" />}>
       <BookPageContent />
     </Suspense>
   );

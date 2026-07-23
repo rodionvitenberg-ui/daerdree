@@ -17,7 +17,7 @@ export default function FAQPage() {
   const t = useTranslations("FAQPage");
 
   return (
-    <main className="min-h-screen w-full bg-black text-white pt-24 pb-20">
+    <div className="min-h-dvh w-full bg-black text-white pt-24 pb-20">
       
       {/* HEADER */}
       <section className="container mx-auto px-4 mb-20 text-center">
@@ -45,13 +45,13 @@ export default function FAQPage() {
           return (
             <section 
               key={block.id} 
-              className={`w-full min-h-[80vh] flex flex-col lg:flex-row overflow-hidden ${
+              className={`w-full min-h-[80dvh] flex flex-col lg:flex-row overflow-hidden ${
                 !isEven ? 'lg:flex-row-reverse' : ''
               }`}
             >
               
               {/* IMAGE SIDE */}
-              <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-auto min-h-[400px]">
+              <div className="relative w-full lg:w-1/2 h-[50dvh] lg:h-auto min-h-[400px]">
                 <Image
                   src={block.image}
                   alt="FAQ Illustration"
@@ -136,6 +136,6 @@ export default function FAQPage() {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 }

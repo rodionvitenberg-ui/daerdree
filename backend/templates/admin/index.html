@@ -1,0 +1,307 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+/* ==============================
+   Daerdree Dashboard — clean, minimal, operational
+   ============================== */
+
+.dash-wrap {
+  max-width: 1200px;
+}
+
+/* --- welcome banner --- */
+.dash-banner {
+  margin-bottom: 36px;
+}
+
+.dash-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dash-banner-inner img {
+  height: 48px;
+  width: auto;
+  opacity: .85;
+}
+
+.dash-banner-text h1 {
+  font-family: 'Literata', Georgia, serif;
+  font-weight: 500;
+  font-size: 26px;
+  color: hsl(0, 13%, 91%);
+  margin: 0 0 2px;
+}
+
+.dash-banner-text p {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, .4);
+  margin: 0;
+}
+
+/* --- section title --- */
+.dash-section-title {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .3);
+  margin: 0 0 14px;
+}
+
+/* --- card grid --- */
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.dash-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: hsl(56, 100%, 3%);
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 10px;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: hsl(0, 13%, 91%);
+  transition: border-color .12s, background .12s;
+}
+
+.dash-card:hover {
+  border-color: hsl(187, 83%, 26%);
+  background: hsl(56, 100%, 5%);
+}
+
+.dash-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dash-card-icon i {
+  font-size: 18px;
+  color: hsl(187, 83%, 26%);
+}
+
+.dash-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-card-body strong {
+  display: block;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.dash-card-body span {
+  display: block;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, .35);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- utility button (for links like "add") --- */
+.dash-card-action {
+  flex-shrink: 0;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  color: rgba(255, 255, 255, .5);
+  text-decoration: none;
+  transition: border-color .12s, color .12s;
+}
+
+.dash-card-action:hover {
+  border-color: hsl(187, 83%, 26%);
+  color: hsl(187, 83%, 26%);
+}
+
+/* --- link row (recent actions etc.) --- */
+.dash-link-row {
+  background: hsl(56, 100%, 3%);
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.dash-link-row a {
+  color: hsl(187, 83%, 26%);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dash-link-row a:hover {
+  text-decoration: underline;
+}
+
+.dash-link-row table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dash-link-row td {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .04);
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .6);
+}
+
+.dash-link-row td:last-child {
+  color: rgba(255, 255, 255, .3);
+  text-align: right;
+  font-size: 12px;
+}
+
+.dash-link-row tr:last-child td {
+  border-bottom: none;
+}
+
+.dash-empty {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .3);
+  padding: 20px 0;
+}
+
+/* ==============================
+   Hidden Jazzmin default content
+   ============================== */
+.content-header {
+  display: none !important;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dash-wrap">
+
+  <!-- Banner -->
+  <div class="dash-banner">
+    <div class="dash-banner-inner">
+      <img src="{% static 'admin/img/daerdree.png' %}" alt="">
+      <div class="dash-banner-text">
+        <h1>Daerdree</h1>
+        <p>Панель управления</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Секция: контент -->
+  <p class="dash-section-title">Контент</p>
+  <div class="dash-grid">
+    <a href="{% url 'admin:events_event_changelist' %}" class="dash-card">
+      <div class="dash-card-icon"><i class="fas fa-calendar-alt"></i></div>
+      <div class="dash-card-body">
+        <strong>События</strong>
+        <span>Афиша, импорт из Telegram</span>
+      </div>
+      <span class="dash-card-action">К списку →</span>
+    </a>
+
+    <a href="{% url 'admin:cms_sitetranslation_changelist' %}" class="dash-card">
+      <div class="dash-card-icon"><i class="fas fa-language"></i></div>
+      <div class="dash-card-body">
+        <strong>Переводы</strong>
+        <span>Тексты RU / EN</span>
+      </div>
+      <span class="dash-card-action">К списку →</span>
+    </a>
+  </div>
+
+  <!-- Секция: каталог -->
+  <p class="dash-section-title">Каталог</p>
+  <div class="dash-grid">
+    <a href="{% url 'admin:boardgames_boardgame_changelist' %}" class="dash-card">
+      <div class="dash-card-icon"><i class="fas fa-dice-d6"></i></div>
+      <div class="dash-card-body">
+        <strong>Настольные игры</strong>
+        <span>{{ boardgame_count|default:"Весь каталог" }}</span>
+      </div>
+      <span class="dash-card-action">К списку →</span>
+    </a>
+
+    <a href="{% url 'admin:boardgames_category_changelist' %}" class="dash-card">
+      <div class="dash-card-icon"><i class="fas fa-tags"></i></div>
+      <div class="dash-card-body">
+        <strong>Категории</strong>
+        <span>Жанры игр</span>
+      </div>
+      <span class="dash-card-action">К списку →</span>
+    </a>
+
+    <a href="{% url 'admin:boardgames_tag_changelist' %}" class="dash-card">
+      <div class="dash-card-icon"><i class="fas fa-cogs"></i></div>
+      <div class="dash-card-body">
+        <strong>Механики и теги</strong>
+        <span>Свойства игр</span>
+      </div>
+      <span class="dash-card-action">К списку →</span>
+    </a>
+  </div>
+
+  <!-- Секция: операции -->
+  <p class="dash-section-title">Операции</p>
+  <div class="dash-grid">
+    <a href="{% url 'admin:bookings_booking_changelist' %}" class="dash-card">
+      <div class="dash-card-icon"><i class="fas fa-clipboard-list"></i></div>
+      <div class="dash-card-body">
+        <strong>Бронирования</strong>
+        <span>Заявки на бронь</span>
+      </div>
+      <span class="dash-card-action">К списку →</span>
+    </a>
+  </div>
+
+  <!-- Недавние действия -->
+  <p class="dash-section-title">Недавние действия</p>
+  <div class="dash-link-row">
+    {% load log %}
+    {% get_admin_log 10 as admin_log for_user user %}
+    {% if admin_log %}
+    <table>
+      {% for entry in admin_log %}
+      <tr>
+        <td>
+          {% if entry.is_addition %}+{% elif entry.is_change %}~{% elif entry.is_deletion %}−{% endif %}
+          {% if entry.content_type %}{{ entry.content_type.name }}:{% endif %}
+          {% if entry.is_deletion or not entry.get_admin_url %}
+            {{ entry.object_repr }}
+          {% else %}
+            <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+          {% endif %}
+        </td>
+        <td>{{ entry.action_time|date:"d.m H:i" }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <div class="dash-empty">Пока нет действий.</div>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}

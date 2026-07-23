@@ -99,7 +99,7 @@ export default function GamesLibrary() {
   const hasActiveFilters = Object.values(filters).some(val => val !== "") || searchTerm !== "";
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20">
+    <div className="min-h-dvh bg-background pt-32 pb-20">
       <div className="container mx-auto px-4">
         
         <div className="mb-12 flex flex-col items-center">
@@ -319,6 +319,6 @@ export default function GamesLibrary() {
           />
         )}
       </div>
-    </main>
+    </div>
   );
 }

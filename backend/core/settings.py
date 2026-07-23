@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['daerdree.bar', 'www.daerdree.bar', '193.181.208.36', 'localhos
 
 INSTALLED_APPS = [
     'modeltranslation',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -149,6 +150,9 @@ MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -187,4 +191,159 @@ CKEDITOR_CONFIGS = {
         ],
         'width': '100%',
     }
+}
+
+# =============================================================================
+# DJANGO JAZZMIN — настройка админки под бренд Daerdree
+# =============================================================================
+
+JAZZMIN_SETTINGS = {
+    # заголовок окна браузера
+    "site_title": "Daerdree Admin",
+
+    # заголовок на странице входа
+    "site_header": "Daerdree Admin",
+
+    # текст на брендовой полоске (html-теги не поддерживаются, только текст)
+    "site_brand": "Daerdree",
+
+    # логотип (относительно static/)
+    "site_logo": "admin/img/daerdree.png",
+
+    # логотип для тёмной темы (Django 5+)
+    "site_logo_dark": "admin/img/daerdree.png",
+
+    # favicon
+    "site_icon": "admin/img/daerdree.png",
+
+    # Welcome text on the login screen
+    "welcome_sign": "Войдите в панель управления Daerdree",
+
+    # Copyright on the footer
+    "copyright": "Daerdree Bar & Timeclub",
+
+    # List of model admins to search from the search bar
+    "search_model": [
+        "auth.User",
+        "boardgames.BoardGame",
+        "events.Event",
+    ],
+
+    # Link to your Brand logo on login screen
+    "site_logo_css": "max-height: 60px; width: auto;",
+
+    # Field name on user model that contains avatar image
+    "user_avatar": None,
+
+    ############
+    # Top Menu #
+    ############
+
+    # Links on top menu
+    "topmenu_links": [
+        {"name": "Дашборд", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "На сайт", "url": "/", "new_window": True},
+        {"model": "auth.User"},
+    ],
+
+    #############
+    # User Menu #
+    #############
+
+    "usermenu_links": [
+        {"name": "Профиль", "model": "auth.User"},
+    ],
+
+    #############
+    # Side Menu #
+    #############
+
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+
+    # Order of apps
+    "order_with_respect_to": [
+        "events",
+        "boardgames",
+        "bookings",
+        "cms",
+        "auth",
+    ],
+
+    # Custom icons for apps/models
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.User": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "events.Event": "fas fa-calendar-alt",
+        "boardgames.BoardGame": "fas fa-dice-d6",
+        "boardgames.Category": "fas fa-tags",
+        "boardgames.Tag": "fas fa-cogs",
+        "boardgames.Expansion": "fas fa-puzzle-piece",
+        "bookings.Booking": "fas fa-clipboard-list",
+        "cms.SiteTranslation": "fas fa-language",
+    },
+
+    # Icons that are used when one is not manually specified
+    "default_icon_parents": "fas fa-folder",
+    "default_icon_children": "fas fa-circle",
+
+    #################
+    # Related Modal #
+    #################
+    "related_modal_active": False,
+
+    #############
+    # UI Tweaks #
+    #############
+
+    # Relative paths to custom CSS/JS
+    "custom_css": "admin/css/admin_custom.css",
+    "custom_js": None,
+
+    # Whether to show the UI customizer on the sidebar
+    "show_ui_builder": False,
+
+    ###############
+    # Change view #
+    ###############
+
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {
+        "auth.User": "collapsible",
+        "auth.Group": "collapsible",
+    },
+
+    # Добавляем иконку Font Awesome
+    "icons_prefix": "fas",
+}
+
+
+JAZZMIN_UI_TWEAKS = {
+    # Базовая тема: darkly — тёмная, близкая к Daerdree
+    "theme": "darkly",
+
+    # Цветовая схема (primary = наш teal-акцент)
+    "primary": "hsl(187, 83%, 26%)",
+
+    # Показывать границу между карточками
+    "card_border": False,
+
+    # Стиль кнопок
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success",
+    },
+
+    # Темный сайдбар
+    "dark_mode_theme": "darkly",
+    "navbar": "navbar-dark",
+    "no_navbar_border": True,
+    "sidebar": "sidebar-dark-primary",
 }

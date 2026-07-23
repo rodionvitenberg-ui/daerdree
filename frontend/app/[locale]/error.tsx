@@ -7,7 +7,7 @@ export default function ErrorPage({ error, reset }: { error: Error & { digest?: 
   useEffect(() => { console.error(error); }, [error]);
 
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center">
+    <div className="min-h-dvh bg-background flex items-center justify-center">
       <div className="text-center px-4">
         <h1 className="text-6xl md:text-8xl font-serif font-black uppercase tracking-widest text-red-500 mb-4">500</h1>
         <p className="text-xl md:text-2xl text-foreground/50 mb-8 font-sans">Something went wrong</p>
@@ -16,6 +16,6 @@ export default function ErrorPage({ error, reset }: { error: Error & { digest?: 
           <Link href="/" className="px-8 py-3 border border-accent text-accent font-serif font-bold uppercase tracking-widest text-sm hover:bg-accent hover:text-black transition-colors">Back to Home</Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

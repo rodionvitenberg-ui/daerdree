@@ -3,14 +3,21 @@
 import Image from "next/image";
 import { FOOTER_CONTENT } from "@/content/home";
 import { BOOKING_CONTENT } from "@/content/home";
-import { useTranslations } from "next-intl"; // Подключили хук локализации
+import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
-  const t = useTranslations("Footer"); // Инициализировали переводы
-  const currentYear = new Date().getFullYear(); // Динамический год
+  const t = useTranslations("Footer");
+  const pathname = usePathname();
+  const currentYear = new Date().getFullYear();
+
+  // Full-viewport events hub — hide footer so panels fill the screen without extra scroll
+  if (/^\/(en|ru)\/events\/?$/.test(pathname)) {
+    return null;
+  }
 
   return (
-    <footer className="w-full bg-background border-t border-white/5 py-16">
+    <footer className="w-full bg-background border-t border-white/5 py-16 pb-[calc(4rem+var(--safe-bottom))]">
       <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-10">
         
         {/* 1. ЛОГОТИП (PNG без фона) */}
@@ -39,17 +46,17 @@ export default function Footer() {
              </a>
         </div>
 
-        {/* 3. КРЕДИТЫ (IkSoft) */}
+        {/* 3. КРЕДИТЫ (BUSISART) */}
         <div className="mt-4">
           <p className="font-sans text-xs text-white/20 tracking-widest uppercase cursor-default">
             {t("poweredBy")}{" "}
             <a 
-              href="https://iksoft.pro" 
+              href="https://busisart.space" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white/40 hover:text-white transition-colors border-b border-transparent hover:border-white/40"
             >
-              IkSoft
+              BUSISART
             </a>, {currentYear}
           </p>
         </div>

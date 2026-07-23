@@ -37,7 +37,11 @@ class BoardGame(models.Model):
     tags = models.ManyToManyField(Tag, blank=True, verbose_name="Механики")
 
     description = RichTextField(verbose_name="Описание")
-    
+
+    # ДАННЫЕ С BGG
+    designer = models.CharField(max_length=300, blank=True, verbose_name="Создатель")
+    bgg_type = models.CharField(max_length=50, blank=True, default='boardgame', verbose_name="Тип игры (BGG)")
+
     # ИЗОБРАЖЕНИЯ
     image = models.ImageField(upload_to='games/', blank=True, null=True, verbose_name="Фото коробки")
     setup_image = models.ImageField(upload_to='games/setups/', blank=True, null=True, verbose_name="Фото расклада")

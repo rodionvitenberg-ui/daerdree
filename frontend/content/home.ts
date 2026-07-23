@@ -30,8 +30,9 @@ export const MENU_CONTENT = {
 
 
 export const DIVIDER_CONTENT = {
-  image: "/images/separator.png",
-  alt: "Bar Interior Detail",
+  type: 'image',
+  src: "/events/11.png",
+  alt: "Private Event Atmosphere",
 };
 
 export const EVENTS_CONTENT = {

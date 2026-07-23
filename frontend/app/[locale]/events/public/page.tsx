@@ -107,7 +107,7 @@ export default function PublicEventsPage() {
     : events;
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20 px-4 md:px-8">
+    <div className="min-h-dvh bg-background pt-32 pb-20 px-4 md:px-8">
       
       {/* --- HEADER BLOCK --- */}
       <div className="container mx-auto mb-16">
@@ -245,6 +245,6 @@ export default function PublicEventsPage() {
             </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

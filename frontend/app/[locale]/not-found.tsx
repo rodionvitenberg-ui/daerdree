@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function LocaleNotFound() {
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center">
+    <div className="min-h-dvh bg-background flex items-center justify-center">
       <div className="text-center px-4">
         <h1 className="text-6xl md:text-8xl font-serif font-black uppercase tracking-widest text-accent mb-4">
           404
@@ -17,6 +17,6 @@ export default function LocaleNotFound() {
           Back to Home
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

@@ -35,10 +35,10 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
   const heroImage = game.setup_image || game.image;
 
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       
       {/* 1. HERO (ФОН) */}
-      <div className="relative h-[45vh] md:h-[50vh] w-full overflow-hidden z-0">
+      <div className="relative h-[45dvh] md:h-[50dvh] w-full overflow-hidden z-0">
         {heroImage && (
           <Image
             src={getImageUrl(heroImage)}
@@ -191,6 +191,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -10,25 +10,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ParallaxDivider() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
-  const textRef = useRef<HTMLDivElement>(null); // Ref для текста
+  const mediaRef = useRef<HTMLVideoElement & HTMLImageElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
-    const image = imageRef.current;
+    const media = mediaRef.current;
     const text = textRef.current;
 
-    if (!container || !image || !text) return;
+    if (!container || !media || !text) return;
 
     const ctx = gsap.context(() => {
-      // 1. Анимация ФОНА (Картинка)
+      // 1. Параллакс фона (видео/картинка)
       gsap.fromTo(
-        image,
+        media,
+        { yPercent: -30 },
         {
-          yPercent: -30, // СТАРТ
-        },
-        {
-          yPercent: 30, // ФИНИШ
+          yPercent: 30,
           ease: "none",
           scrollTrigger: {
             trigger: container,
@@ -39,22 +37,18 @@ export default function ParallaxDivider() {
         }
       );
 
-      // 2. Анимация ТЕКСТА (Parallax эффект глубины)
-      // Текст двигается медленнее фона, создавая объем
+      // 2. Анимация текста
       gsap.fromTo(
         text,
+        { y: -50, opacity: 0 },
         {
-          y: -50, // Начинает чуть выше
-          opacity: 0, 
-        },
-        {
-          y: 50, // Заканчивает чуть ниже
-          opacity: 1, // Плавно появляется, когда доскролливаем
+          y: 50,
+          opacity: 1,
           ease: "none",
           scrollTrigger: {
             trigger: container,
-            start: "top bottom", // Начинаем чуть раньше появления
-            end: "center center", // К центру экрана полностью проявляется
+            start: "top bottom",
+            end: "center center",
             scrub: true,
           },
         }
@@ -65,41 +59,49 @@ export default function ParallaxDivider() {
   }, []);
 
   return (
-    <div 
-      ref={containerRef} 
-      className="relative w-full h-[15vh] min-h-[300px] overflow-hidden bg-neutral-900 border-y border-secondary z-10 flex items-center justify-center"
+    <div
+      ref={containerRef}
+      className="relative w-full h-[15dvh] min-h-[300px] overflow-hidden bg-neutral-900 border-y border-secondary z-10 flex items-center justify-center"
     >
-      {/* --- ФОН --- */}
+      {/* --- ФОН: видео или изображение --- */}
       <div className="absolute inset-0 -top-[75%] h-[250%] w-full">
-        <Image
-          ref={imageRef}
-          src={DIVIDER_CONTENT.image}
-          alt={DIVIDER_CONTENT.alt}
-          fill
-          className="object-cover contrast-125 brightness-90" // Чуть затемнил и обесцветил для стиля
-          priority
-        />
-        
-        {/* Плотное затемнение, чтобы белый текст читался идеально */}
+        {DIVIDER_CONTENT.type === 'video' ? (
+          <video
+            ref={mediaRef}
+            className="absolute inset-0 w-full h-full object-cover"
+            src={DIVIDER_CONTENT.src}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : (
+          <Image
+            ref={mediaRef}
+            src={DIVIDER_CONTENT.src}
+            alt={DIVIDER_CONTENT.alt}
+            fill
+            className="object-cover contrast-125 brightness-90"
+            priority
+          />
+        )}
+
+        {/* Затемнение для читаемости текста */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* --- ТЕКСТ --- */}
-      <div 
+      <div
         ref={textRef}
         className="relative z-20 text-center flex flex-col items-center gap-4 px-4"
       >
-        {/* Заголовок */}
         <h2 className="font-serif text-5xl md:text-8xl font-black uppercase tracking-widest text-white drop-shadow-2xl select-none">
           Daerdree
         </h2>
-
-        {/* Подзаголовок */}
         <p className="font-sans text-md lg:text-xl uppercase tracking-[0.5em] text-secondary font-bold select-none">
           Bar & Timeclub
         </p>
       </div>
-
     </div>
   );
 }

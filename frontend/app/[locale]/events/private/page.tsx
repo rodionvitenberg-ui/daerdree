@@ -98,10 +98,10 @@ export default function PrivateHirePage() {
   const gameMasterFeatures = t.raw("gameMaster.features") as string[];
 
   return (
-    <main className="bg-neutral-950 min-h-screen text-white">
+    <div className="bg-neutral-950 min-h-dvh text-white">
       
       {/* 1. HERO SECTION */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[80dvh] min-h-[80dvh] flex items-center justify-center overflow-hidden">
         <Image
           src={PRIVATE_HIRE_CONTENT.hero.image}
           alt="Private Event Atmosphere"
@@ -239,7 +239,7 @@ export default function PrivateHirePage() {
       {/* 4. CTA */}
       <section 
         ref={ctaContainerRef}
-        className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden border-t border-accent/20"
+        className="relative h-[60dvh] min-h-[500px] flex items-center justify-center overflow-hidden border-t border-accent/20"
       >
         <div className="absolute inset-0 -top-[50%] h-[200%] w-full">
             <Image
@@ -264,6 +264,6 @@ export default function PrivateHirePage() {
         </div>
       </section>
 
-    </main>
+    </div>
   );
 }

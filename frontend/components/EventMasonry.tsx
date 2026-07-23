@@ -49,7 +49,7 @@ export default function EventsMasonry() {
   }, []);
 
   return (
-    <section className="py-20 bg-background overflow-hidden w-full max-w-[100vw]">
+    <section className="py-20 bg-background overflow-x-clip w-full max-w-full">
       <div className="container mx-auto px-4">
         
         {/* === ЗАГОЛОВОК === */}
