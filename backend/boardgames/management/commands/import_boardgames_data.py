@@ -59,21 +59,20 @@ class Command(BaseCommand):
 
     def _import_categories(self, categories_data):
         created = 0
-        skipped = 0
+        updated = 0
         for item in categories_data:
-            slug = item["slug"]
-            obj, is_new = Category.objects.get_or_create(
-                slug=slug,
+            obj, was_created = Category.objects.update_or_create(
+                name=item["name"],
                 defaults={
-                    "name": item["name"],
+                    "slug": item["slug"],
                     "description": item.get("description", ""),
                 }
             )
-            if is_new:
+            if was_created:
                 created += 1
             else:
-                skipped += 1
-        return f"создано {created}, пропущено {skipped}"
+                updated += 1
+        return f"создано {created}, обновлено {updated}"
 
     # ------------------------------------------------------------------
     # Теги
@@ -81,20 +80,19 @@ class Command(BaseCommand):
 
     def _import_tags(self, tags_data):
         created = 0
-        skipped = 0
+        updated = 0
         for item in tags_data:
-            slug = item["slug"]
-            obj, is_new = Tag.objects.get_or_create(
-                slug=slug,
+            obj, was_created = Tag.objects.update_or_create(
+                name=item["name"],
                 defaults={
-                    "name": item["name"],
+                    "slug": item["slug"],
                 }
             )
-            if is_new:
+            if was_created:
                 created += 1
             else:
-                skipped += 1
-        return f"создано {created}, пропущено {skipped}"
+                updated += 1
+        return f"создано {created}, обновлено {updated}"
 
     # ------------------------------------------------------------------
     # Игры
