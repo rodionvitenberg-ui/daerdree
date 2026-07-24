@@ -2,12 +2,12 @@
 
 import { API_ENDPOINTS } from '@/lib/constants';
 import { getImageUrl } from '@/lib/utils';
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedContent from '@/components/AnimatedContent'; 
-import api, { setApiLanguage } from "@/lib/api"; // Подключили axios
-import { useTranslations, useLocale } from "next-intl"; // Подключили локализацию
+import useSWR from "swr";
+import { fetcher } from "@/lib/swr-fetcher";
+import { useTranslations, useLocale } from "next-intl";
 
 interface GameMarqueeItem {
   id: number;
@@ -19,42 +19,23 @@ interface GameMarqueeItem {
 }
 
 export default function GamesMarquee() {
-  const t = useTranslations("GamesMarquee"); // Инициализировали переводы
+  const t = useTranslations("GamesMarquee");
   const locale = useLocale();
 
-  const [games, setGames] = useState<GameMarqueeItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: games, error, isLoading } = useSWR<GameMarqueeItem[]>(
+    `${API_ENDPOINTS.MARQUEE}?lang=${locale}`,
+    fetcher,
+    {
+      dedupingInterval: 300_000, // 5 min cache
+      revalidateOnFocus: false,
+      keepPreviousData: true,
+    }
+  );
 
-  // Синхронизируем язык API
-  useEffect(() => {
-    setApiLanguage(locale);
-  }, [locale]);
+  if (!isLoading && games?.length === 0) return null;
 
-  useEffect(() => {
-    const fetchGames = async () => {
-      try {
-        // Используем axios, передаем язык, чтобы получать только актуальные игры
-        const res = await api.get(API_ENDPOINTS.MARQUEE, {
-          params: { lang: locale }
-        });
-        
-        // ВРЕМЕННЫЙ ЛОГ: Посмотрим, что приходит в консоль браузера
-        console.log("Marquee Data:", res.data); 
-        
-        setGames(res.data);
-      } catch (error) {
-        console.error("Error:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchGames();
-  }, [locale]);
-
-  if (!isLoading && games.length === 0) return null;
-
-  const duplicatedGames = [...games, ...games];
+  const safeGames = games || [];
+  const duplicatedGames = [...safeGames, ...safeGames];
 
   return (
     <section className="relative w-full overflow-hidden bg-background py-20 lg:py-15">
@@ -119,6 +100,7 @@ export default function GamesMarquee() {
                       fill
                       className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
                       sizes="(max-width: 768px) 130px, 200px"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-white/5">
@@ -151,6 +133,7 @@ export default function GamesMarquee() {
                       fill
                       className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
                       sizes="(max-width: 768px) 130px, 200px"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-white/5">

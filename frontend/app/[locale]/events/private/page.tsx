@@ -3,14 +3,12 @@
 import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import AnimatedContent from "@/components/AnimatedContent";
-import BounceCards from "@/components/BounceCards";
-import SimpleCarousel from "@/components/SimpleCarousel"; 
+import DimensionalImageStack from "@/components/DimensionalImageStack";
 import { PRIVATE_HIRE_CONTENT } from "@/content/privateevents";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTranslations } from "next-intl"; // <-- Импорт локализации
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,35 +62,6 @@ export default function PrivateHirePage() {
     return () => ctx.revert();
   }, []);
 
-  const threeCardsTransform = [
-    "rotate(5deg) translate(-250px)",
-    "rotate(0deg) translate(-140px)",
-    "rotate(-5deg)",
-    "rotate(5deg) translate(140px)",
-    "rotate(-5deg) translate(250px)"
-  ];
-
-  const fourCardsTransform = [
-    "rotate(5deg) translate(-250px)",
-    "rotate(0deg) translate(-140px)",
-    "rotate(-5deg)",
-    "rotate(5deg) translate(140px)",
-    "rotate(-5deg) translate(250px)"
-  ];
-
-  const gmCarouselData = PRIVATE_HIRE_CONTENT.gameMaster.images.map((src, i) => ({
-    id: i,
-    image: src,
-    title: "", 
-    description: ""
-  }));
-
-  const feastCarouselData = PRIVATE_HIRE_CONTENT.feast.images.map((src, i) => ({
-    id: i,
-    image: src,
-    title: "",
-    description: ""
-  }));
 
   // Получаем массив особенностей из JSON для рендеринга
   const gameMasterFeatures = t.raw("gameMaster.features") as string[];
@@ -125,12 +94,7 @@ export default function PrivateHirePage() {
             </p>
           </AnimatedContent>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-12"
-          >
+          <div className="mt-12">
             <Link 
               href="/book" 
               className="group relative mt-4 inline-block overflow-hidden px-3 py-4 transition-all duration-300" 
@@ -141,7 +105,7 @@ export default function PrivateHirePage() {
                     {t("hero.buttonText")}
                 </span>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -150,22 +114,11 @@ export default function PrivateHirePage() {
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-24">
             
             <div className="w-full md:w-1/2 relative z-10">
-                <div className="block md:hidden w-full pb-8">
-                   <div className="-mx-4 w-[calc(100%+2rem)]"> 
-                      <SimpleCarousel cards={gmCarouselData as any} />
-                   </div>
-                </div>
-
-                <div className="hidden md:flex h-[400px] items-center justify-center">
-                    <BounceCards 
-                      images={PRIVATE_HIRE_CONTENT.gameMaster.images}
-                      containerWidth={600}
-                      containerHeight={600}
-                      transformStyles={threeCardsTransform}
-                      enableHover={true}
-                    />
-                    <div className="absolute inset-0 bg-accent/10 blur-3xl rounded-full -z-10 transform scale-75" />
-                </div>
+                <DimensionalImageStack
+                  images={PRIVATE_HIRE_CONTENT.gameMaster.images}
+                  containerHeight={450}
+                  className="py-4"
+                />
             </div>
             
             <div className="md:w-1/2 relative z-20">
@@ -197,23 +150,11 @@ export default function PrivateHirePage() {
         <div className="container mx-auto flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
              
              <div className="w-full md:w-1/2 relative z-10">
-                 <div className="block md:hidden w-full pb-8">
-                    <div className="-mx-4 w-[calc(100%+2rem)]">
-                       {/* ИСПРАВЛЕНО: Теперь здесь feastCarouselData */}
-                       <SimpleCarousel cards={feastCarouselData as any} />
-                    </div>
-                 </div>
-
-                 <div className="hidden md:flex h-[500px] items-center justify-center">
-                     <BounceCards 
-                       images={PRIVATE_HIRE_CONTENT.feast.images}
-                       containerWidth={400}
-                       containerHeight={400}
-                       transformStyles={fourCardsTransform}
-                       enableHover={true}
-                     />
-                     <div className="absolute inset-0 bg-secondary/5 blur-3xl rounded-full -z-10 transform scale-75" />
-                 </div>
+                <DimensionalImageStack
+                  images={PRIVATE_HIRE_CONTENT.feast.images}
+                  containerHeight={450}
+                  className="py-4"
+                />
             </div>
 
             <div className="md:w-1/2 relative z-20">

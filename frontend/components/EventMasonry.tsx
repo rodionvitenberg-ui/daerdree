@@ -98,15 +98,16 @@ export default function EventsMasonry() {
             >
               <div className="relative w-full h-full overflow-hidden bg-neutral-800 group cursor-pointer">
                 
-                <div className={`relative w-full ${item.height === 'tall' ? 'aspect-[3/5]' : 'aspect-square'}`}>
-                  <Image
-                    src={item.src}
-                    alt={t(`gallery.${item.id}`)} // Берем название из словаря для alt
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 16vw"
-                  />
-                </div>
+                  <div className={`relative w-full ${item.height === 'tall' ? 'aspect-[3/5]' : 'aspect-square'}`}>
+                    <Image
+                      src={item.src}
+                      alt={t(`gallery.${item.id}`)}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 768px) 50vw, 16vw"
+                      loading="lazy"
+                    />
+                  </div>
                 
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600%] h-[20%] bg-accent/10 blur-[80px] rounded-full pointer-events-none" />
 

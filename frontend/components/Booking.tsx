@@ -65,6 +65,7 @@ function BookingContent() {
             alt="Booking Atmosphere"
             fill
             className="object-cover contrast-135"
+            priority
           />
           <div className="absolute inset-0 bg-black/65" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 pb-32 lg:pb-6">

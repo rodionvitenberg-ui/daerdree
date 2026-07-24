@@ -7,8 +7,7 @@ import ExpandableCards from "./ui/expandable-cards";
 import SimpleCarousel from "./SimpleCarousel";   
 import BlurText from "./BlurText";               
 import { CATERING_STACK_CONTENT } from "@/content/home";
-import { AnimatePresence, motion } from "framer-motion";
-import { useTranslations } from "next-intl"; // Подключили хук
+import { useTranslations } from "next-intl";
 
 // Тип для текстов, которые придут из JSON
 interface TranslatedCard {
@@ -49,34 +48,28 @@ export default function CateringStory() {
         {/* Контент */}
         <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
           <div className="flex flex-col gap-3">
-            <AnimatePresence mode="wait">
-              {isExpanded && (
-                <motion.div
-                  key="content-active"
-                  className="flex flex-col gap-2"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0, transition: { duration: 0.1 } }}
-                >
-                  <div className="font-serif font-bold uppercase tracking-widest text-white text-3xl">
-                     <BlurText
-                        text={card.title}
-                        delay={10}
-                        className="text-white"
-                        animateBy="words"
-                     />
-                  </div>
-                  
-                  <div className="font-sans text-gray-300 text-base leading-relaxed max-w-md min-w-[250px]">
-                    <BlurText
-                        text={card.description}
-                        delay={20}
-                        className="text-gray-300"
-                     />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div
+              className={`flex flex-col gap-2 transition-opacity duration-300 ${
+                isExpanded ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <div className="font-serif font-bold uppercase tracking-widest text-white text-3xl">
+                 <BlurText
+                    text={card.title}
+                    delay={10}
+                    className="text-white"
+                    animateBy="words"
+                 />
+              </div>
+              
+              <div className="font-sans text-gray-300 text-base leading-relaxed max-w-md min-w-[250px]">
+                <BlurText
+                    text={card.description}
+                    delay={20}
+                    className="text-gray-300"
+                 />
+              </div>
+            </div>
           </div>
         </div>
       </div>

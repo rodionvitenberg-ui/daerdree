@@ -38,41 +38,43 @@ export default function Hero() {
                      src={item.src}
                      autoPlay loop muted playsInline
                    />
-                 ) : (
-                   <Image
-                      src={item.src}
-                      alt={`Desktop slide ${index} part ${colIndex}`}
-                      fill
-                      className="object-cover"
-                      priority={index === 0}
-                   />
-                 )}
-                 <div className="absolute inset-0 bg-black/50" />
-               </div>
-             ))}
-          </div>
+                  ) : (
+                    <Image
+                       src={item.src}
+                       alt={`Desktop slide ${index} part ${colIndex}`}
+                       fill
+                       className="object-cover"
+                       priority={index === currentSlide && index === 0}
+                       loading={index === currentSlide ? undefined : "lazy"}
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black/50" />
+                </div>
+              ))}
+           </div>
 
-          {/* --- MOBILE (FULLSCREEN SOLO) --- */}
-          <div className="block md:hidden h-full w-full relative">
-             
-             {slide.mobile.type === 'video' ? (
-                <video
-                  className="h-full w-full object-cover"
-                  src={slide.mobile.src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-             ) : (
-                <Image
-                  src={slide.mobile.src}
-                  alt={`Mobile slide ${index}`}
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
-                />
-             )}
+           {/* --- MOBILE (FULLSCREEN SOLO) --- */}
+           <div className="block md:hidden h-full w-full relative">
+              
+               {slide.mobile.type === 'video' ? (
+                  <video
+                    className="h-full w-full object-cover"
+                    src={slide.mobile.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+               ) : (
+                  <Image
+                    src={slide.mobile.src}
+                    alt={`Mobile slide ${index}`}
+                    fill
+                    className="object-cover"
+                    priority={index === currentSlide}
+                    loading={index === currentSlide ? undefined : "lazy"}
+                  />
+               )}
 
              <div className="absolute inset-0 bg-black/50" />
           </div>

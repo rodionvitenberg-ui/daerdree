@@ -1,12 +1,9 @@
 "use client";
 import { useState } from "react";
-import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-// Изменили тип content: теперь это функция, которая получает isExpanded
 interface ExpandableCard {
   id: number;
-  // content может быть просто узлом ИЛИ функцией
   content: React.ReactNode | ((isExpanded: boolean) => React.ReactNode);
 }
 
@@ -23,43 +20,29 @@ export default function ExpandableCards({
 }: ExpandableCardsProps) {
   const [expandedId, setExpandedId] = useState<number>(defaultExpanded);
 
-  const getCardVariants = (): Variants => ({
-    expanded: { flex: 3, transition: { duration: 0.5, ease: "easeInOut" } },
-    collapsed: { flex: 1, transition: { duration: 0.5, ease: "easeInOut" } },
-  });
-
   return (
     <div className={cn("flex gap-3 sm:gap-4 w-full h-full", className)}>
       {cards.map((card) => {
         const isExpanded = expandedId === card.id;
 
         return (
-          <motion.div
+          <div
             key={card.id}
-            className="relative h-full overflow-hidden cursor-pointer"
-            variants={getCardVariants()}
-            initial={isExpanded ? "expanded" : "collapsed"}
-            animate={isExpanded ? "expanded" : "collapsed"}
+            className="relative h-full overflow-hidden cursor-pointer transition-[flex] duration-500 ease-in-out"
+            style={{ flex: isExpanded ? 3 : 1 }}
             onMouseEnter={() => setExpandedId(card.id)}
-            // Добавляем onClick для мобилок, где нет hover
             onClick={() => setExpandedId(card.id)} 
           >
             <div className="absolute inset-0">
-              {/* Проверяем: если content - это функция, вызываем её с флагом isExpanded */}
               {typeof card.content === "function" 
                 ? card.content(isExpanded) 
                 : card.content}
             </div>
 
-            {/* Затемнение для неактивных карточек (опционально, если не нужно - убери) */}
             {!isExpanded && (
-              <motion.div
-                className="absolute inset-0 bg-black/40 transition-colors duration-300"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              />
+              <div className="absolute inset-0 bg-black/40 transition-opacity duration-300" />
             )}
-          </motion.div>
+          </div>
         );
       })}
     </div>

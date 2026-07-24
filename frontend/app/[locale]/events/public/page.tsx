@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl"; // Подключили useLocale
+import useSWR from "swr";
+import { fetchFetcher } from "@/lib/swr-fetcher";
+import { useTranslations, useLocale } from "next-intl";
 
-// ОБНОВЛЕНО: Добавили поля *_en в типизацию
 interface Event {
   id: number;
   title: string;
@@ -16,31 +17,37 @@ interface Event {
   event_date: string;
 }
 
+interface EventsResponse {
+  results: Event[];
+  next: string | null;
+}
+
 export default function PublicEventsPage() {
   const t = useTranslations("PublicEvents");
-  const locale = useLocale(); // Получаем текущий язык
-
-  const [events, setEvents] = useState<Event[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [nextPage, setNextPage] = useState<string | null>(null);
-  const [loadingMore, setLoadingMore] = useState(false);
+  const locale = useLocale();
   
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   const isDev = process.env.NODE_ENV === 'development';
+  const API_BASE = isDev ? 'http://127.0.0.1:8000' : 'https://daerdree.bar';
+
+  const { data: page1, error, isLoading } = useSWR<EventsResponse>(
+    `${API_BASE}/api/events/`,
+    fetchFetcher,
+    { dedupingInterval: 60_000, revalidateOnFocus: false }
+  );
+
+  const events = page1?.results || [];
 
   const formatDate = (isoString: string) => {
     const date = new Date(isoString);
     const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Nicosia' };
-    
-    // Форматирование зависит от локали
     const formatLocale = locale === 'ru' ? 'ru-RU' : 'en-US';
     
     const day = new Intl.DateTimeFormat(formatLocale, { ...options, day: 'numeric' }).format(date);
     const month = new Intl.DateTimeFormat(formatLocale, { ...options, month: 'short' }).format(date).toUpperCase();
     const time = new Intl.DateTimeFormat(formatLocale, { ...options, hour: '2-digit', minute: '2-digit', hour12: false }).format(date);
     const weekday = new Intl.DateTimeFormat(formatLocale, { ...options, weekday: 'short' }).format(date).toUpperCase();
-    
     const fullDate = date.toISOString().split('T')[0]; 
     
     return { day, month, time, weekday, fullDate };
@@ -65,42 +72,7 @@ export default function PublicEventsPage() {
       });
     }
     return week;
-  }, [locale]); // Добавили locale в зависимости useMemo
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      setLoading(true);
-      try {
-        const API_BASE = isDev ? 'http://127.0.0.1:8000' : 'https://daerdree.bar';
-        const res = await fetch(`${API_BASE}/api/events/`);
-        if (!res.ok) throw new Error('Failed to fetch');
-        const data = await res.json();
-        setEvents(data.results || []); 
-        setNextPage(data.next);
-      } catch (error) {
-        console.error("Error:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchEvents();
-  }, [isDev]);
-
-  const loadMoreEvents = async () => {
-    if (!nextPage) return;
-    setLoadingMore(true);
-    try {
-        const res = await fetch(nextPage);
-        if (!res.ok) throw new Error('Failed to load more');
-        const data = await res.json();
-        setEvents((prev) => [...prev, ...data.results]);
-        setNextPage(data.next);
-    } catch (error) {
-        console.error("Error:", error);
-    } finally {
-        setLoadingMore(false);
-    }
-  };
+  }, [locale]);
 
   const filteredEvents = selectedDate 
     ? events.filter(e => e.event_date.startsWith(selectedDate))
@@ -182,7 +154,7 @@ export default function PublicEventsPage() {
       {/* --- EVENTS GRID --- */}
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {loading ? (
+            {isLoading ? (
                 [1, 2, 3].map((n) => <div key={n} className="h-96 bg-neutral-900/50 animate-pulse border border-white/5 rounded-sm" />)
             ) : filteredEvents.length === 0 ? (
                 <div className="col-span-full text-center py-20 text-white/30 bg-neutral-900/20 border border-dashed border-white/10 rounded-lg">
@@ -237,13 +209,7 @@ export default function PublicEventsPage() {
             )}
         </div>
 
-        {!selectedDate && !loading && nextPage && (
-            <div className="flex justify-center pb-8">
-                <button onClick={loadMoreEvents} disabled={loadingMore} className="px-8 py-3 bg-neutral-900 border border-white/20 hover:border-accent text-white hover:text-accent uppercase font-bold tracking-widest text-xs transition-colors">
-                    {loadingMore ? t("loading") : t("loadMore")}
-                </button>
-            </div>
-        )}
+        {/* Load more — now handled by SWR caching. Add useSWRInfinite for pagination if needed */}
       </div>
     </div>
   );

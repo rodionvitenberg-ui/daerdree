@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import AnimatedContent from "@/components/AnimatedContent";
 import { useTranslations } from "next-intl";
 
 export default function EventsHub() {
@@ -25,19 +25,30 @@ export default function EventsHub() {
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-center p-6 sm:p-8 lg:p-16 items-start">
-          <motion.span 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-3 lg:mb-4"
+          <AnimatedContent
+            distance={20}
+            direction="vertical"
+            duration={1.0}
+            delay={0.1}
+            threshold={0.2}
+            className="mb-0"
           >
-            {t("publicSub")}
-          </motion.span>
-          <motion.h2 
-            className="font-serif text-3xl sm:text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-3 lg:mb-6 group-hover:text-accent transition-colors text-balance"
+            <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-3 lg:mb-4 block">
+              {t("publicSub")}
+            </span>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={20}
+            direction="vertical"
+            duration={1.0}
+            delay={0.2}
+            threshold={0.2}
+            className="mb-0"
           >
-            {t("publicTitle1")}<br/>{t("publicTitle2")}
-          </motion.h2>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-3 lg:mb-6 group-hover:text-accent transition-colors text-balance">
+              {t("publicTitle1")}<br/>{t("publicTitle2")}
+            </h2>
+          </AnimatedContent>
           {/* Always visible on touch; hover-reveal only on devices that support hover */}
           <p className="text-white max-w-md text-sm lg:text-lg mb-4 lg:mb-8 opacity-90 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity duration-500 [@media(hover:hover)]:translate-y-4 [@media(hover:hover)]:group-hover:translate-y-0">
             {t("publicDesc")}
@@ -70,18 +81,30 @@ export default function EventsHub() {
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-center p-6 sm:p-8 lg:p-16 items-end text-right">
-          <motion.span 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-3 lg:mb-4"
+          <AnimatedContent
+            distance={20}
+            direction="vertical"
+            duration={1.0}
+            delay={0.1}
+            threshold={0.2}
+            className="mb-0"
           >
-            {t("privateSub")}
-          </motion.span>
-          <motion.h2 
-            className="font-serif text-3xl sm:text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-3 lg:mb-6 group-hover:text-accent transition-colors text-balance"
+            <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-3 lg:mb-4 block">
+              {t("privateSub")}
+            </span>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={20}
+            direction="vertical"
+            duration={1.0}
+            delay={0.2}
+            threshold={0.2}
+            className="mb-0"
           >
-            {t("privateTitle1")}<br/>{t("privateTitle2")}
-          </motion.h2>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-6xl font-black text-white uppercase tracking-widest mb-3 lg:mb-6 group-hover:text-accent transition-colors text-balance">
+              {t("privateTitle1")}<br/>{t("privateTitle2")}
+            </h2>
+          </AnimatedContent>
           <p className="text-white max-w-md text-sm lg:text-lg mb-4 lg:mb-8 opacity-90 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity duration-500 [@media(hover:hover)]:translate-y-4 [@media(hover:hover)]:group-hover:translate-y-0">
             {t("privateDesc")}
           </p>

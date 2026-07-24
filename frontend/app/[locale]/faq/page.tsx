@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { faqData } from "@/content/faq"; 
 import Link from "next/link";
 import { useTranslations } from "next-intl"; // Подключаем хук
@@ -21,14 +20,9 @@ export default function FAQPage() {
       
       {/* HEADER */}
       <section className="container mx-auto px-4 mb-20 text-center">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="font-serif text-5xl lg:text-7xl font-black uppercase tracking-widest"
-        >
+        <h1 className="font-serif text-5xl lg:text-7xl font-black uppercase tracking-widest animate-in fade-in slide-in-from-bottom-4 duration-700">
           {t("title_1")}<br className="lg:hidden"/> {t("title_2")}<br className="lg:hidden"/> {t("title_3")}
-        </motion.h1>
+        </h1>
       </section>
 
       {/* FAQ BLOCKS */}
@@ -68,13 +62,10 @@ export default function FAQPage() {
                 <div className="max-w-xl mx-auto lg:mx-0">
                   
                   {items.map((item, i) => (
-                    <motion.div 
+                    <div 
                       key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      className="mb-10 last:mb-0"
+                      className="mb-10 last:mb-0 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                      style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'both' }}
                     >
                       {item.question && (
                         <h3 className="text-xl lg:text-2xl font-serif font-bold text-accent mb-4">
@@ -97,16 +88,12 @@ export default function FAQPage() {
                           </ul>
                         )}
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
 
                   {/* CTA / Extra Elements */}
                   {block.cta && ctaText && (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      className="mt-12 pt-8"
-                    >
+                    <div className="mt-12 pt-8 animate-in fade-in duration-700">
                       {block.cta.link ? (
                         <Link 
                           href={block.cta.link} 
@@ -126,7 +113,7 @@ export default function FAQPage() {
                         <div className="flex flex-col items-center lg:items-start gap-4 text-accent">
                         </div>
                       )}
-                    </motion.div>
+                    </div>
                   )}
 
                 </div>
