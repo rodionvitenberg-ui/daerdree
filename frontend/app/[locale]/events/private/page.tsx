@@ -70,14 +70,16 @@ export default function PrivateHirePage() {
     <div className="bg-neutral-950 min-h-dvh text-white">
       
       {/* 1. HERO SECTION */}
-      <section className="relative h-[80dvh] min-h-[80dvh] flex items-center justify-center overflow-hidden">
-        <Image
-          src={PRIVATE_HIRE_CONTENT.hero.image}
-          alt="Private Event Atmosphere"
-          fill
-          className="object-cover opacity-40"
-          priority
-        />
+      <section className="relative min-h-dvh flex items-center justify-center pb-16 md:pb-0">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src={PRIVATE_HIRE_CONTENT.hero.image}
+            alt="Private Event Atmosphere"
+            fill
+            className="object-cover opacity-40"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b via-transparent to-neutral-950" />
         
         <div className="relative z-10 text-center px-4">
@@ -96,12 +98,12 @@ export default function PrivateHirePage() {
           
           <div className="mt-12">
             <Link 
-              href="/book" 
-              className="group relative mt-4 inline-block overflow-hidden px-3 py-4 transition-all duration-300" 
+              href="/book"
+              className="group relative mt-4 inline-flex min-h-11 min-w-[11rem] items-center justify-center overflow-hidden px-8 py-4 transition-all duration-300"
             >
-                <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
+                <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50" />
                 <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
-                <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-secondary">
+                <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
                     {t("hero.buttonText")}
                 </span>
             </Link>
@@ -197,10 +199,15 @@ export default function PrivateHirePage() {
             <h2 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-widest text-white mb-8 drop-shadow-2xl">
                 {t("cta.title")}
             </h2>
-            <Link href="/book">
-                <button className="px-12 py-5 bg-secondary text-black font-black uppercase tracking-[0.25em] hover:bg-accent hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+            <Link 
+              href="/book"
+              className="group relative mt-4 inline-flex min-h-11 min-w-[11rem] items-center justify-center overflow-hidden px-8 py-4 transition-all duration-300"
+            >
+                <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50" />
+                <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
+                <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
                     {t("cta.buttonText")}
-                </button>
+                </span>
             </Link>
         </div>
       </section>

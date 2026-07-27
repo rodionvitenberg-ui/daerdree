@@ -1,4 +1,3 @@
-"use client";
 
 import { useRef, useEffect, useState, useCallback } from "react";
 import Image from "next/image";
@@ -165,7 +164,7 @@ export default function DimensionalImageStack({
               <div key={i} ref={(el) => { cardsRef.current[i] = el; }}
                 className="absolute cursor-pointer select-none"
                 style={{ width: CARD_WIDTH, height: CARD_HEIGHT, transformStyle: "preserve-3d", backfaceVisibility: "hidden",
-                  zIndex: images.length - Math.abs(i - activeIndex) }}
+                  zIndex: images.length - Math.abs(i - activeIndex), opacity: 0 }}
                 onClick={() => handleCardClick(i)}>
                 <div className="relative w-full h-full overflow-hidden rounded-lg border border-white/10 shadow-2xl">
                   <Image src={src} alt={`Gallery ${i + 1}`} fill className="object-cover pointer-events-none" sizes={`${CARD_WIDTH}px`} />

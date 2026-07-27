@@ -80,6 +80,38 @@ class BoardGame(models.Model):
         return self.title
 
 # НОВАЯ МОДЕЛЬ ДЛЯ ДОПОЛНЕНИЙ
+class GameImage(models.Model):
+    """Изображение в галерее игры (обложка / фон / галерея)"""
+    class ImageType(models.TextChoices):
+        COVER = 'cover', 'Обложка'
+        BACKGROUND = 'background', 'Фон'
+        GALLERY = 'gallery', 'Галерея'
+
+    game = models.ForeignKey(
+        BoardGame,
+        related_name='images',
+        on_delete=models.CASCADE,
+        verbose_name='Игра'
+    )
+    image = models.ImageField(upload_to='games/gallery/', verbose_name='Изображение')
+    image_type = models.CharField(
+        max_length=20,
+        choices=ImageType.choices,
+        default=ImageType.GALLERY,
+        verbose_name='Тип изображения'
+    )
+    order = models.PositiveIntegerField(default=0, verbose_name='Порядок')
+    alt = models.CharField(max_length=300, blank=True, verbose_name='Alt-текст')
+
+    class Meta:
+        verbose_name = 'Изображение игры'
+        verbose_name_plural = 'Изображения игр'
+        ordering = ['order']
+
+    def __str__(self):
+        return f'{self.game.title} — {self.get_image_type_display()} ({self.order})'
+
+
 class Expansion(models.Model):
     """Дополнение к настольной игре"""
     # related_name='expansions' позволит нам обращаться к дополнениям игры как game.expansions.all()

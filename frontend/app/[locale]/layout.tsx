@@ -2,6 +2,7 @@ import { Manrope, Literata } from 'next/font/google';
 import "./globals.css";
 import Header from '@/components/Header';
 import Footer from '@/components/footer';
+import ChunkRetryProvider from '@/components/ChunkRetryProvider';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Metadata, Viewport } from 'next';
@@ -96,11 +97,13 @@ export default async function RootLayout({
     <html lang={locale} className={`${manrope.variable} ${literata.variable}`}>
       <body className="antialiased bg-background text-foreground flex flex-col min-h-dvh overflow-x-clip">
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex-grow min-w-0">
-            {children}
-          </main>
-          <Footer />
+          <ChunkRetryProvider>
+            <Header />
+            <main className="flex-grow min-w-0">
+              {children}
+            </main>
+            <Footer />
+          </ChunkRetryProvider>
         </NextIntlClientProvider>
       </body>
     </html>

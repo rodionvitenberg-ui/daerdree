@@ -4,7 +4,7 @@ from django.contrib import admin
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
-from .models import Category, Tag, BoardGame, Expansion
+from .models import Category, Tag, BoardGame, Expansion, GameImage
 
 class BoardGameAdminForm(forms.ModelForm):
     class Meta:
@@ -34,6 +34,12 @@ class TagAdmin(TranslationAdmin): # Наследуем от TranslationAdmin
     prepopulated_fields = {'slug': ('name',)}
 
 # Используем TranslationStackedInline для перевода внутри инлайнов
+class GameImageInline(admin.TabularInline):
+    model = GameImage
+    extra = 1
+    fields = ('image', 'image_type', 'order', 'alt')
+    ordering = ('order',)
+
 class ExpansionInline(TranslationStackedInline): 
     form = ExpansionAdminForm
     model = Expansion
@@ -59,7 +65,7 @@ class BoardGameAdmin(TranslationAdmin):
     search_fields = ('title', 'description')
     
     prepopulated_fields = {'slug': ('title',)}
-    inlines = [ExpansionInline]
+    inlines = [GameImageInline, ExpansionInline]
 
     fieldsets = (
         ('Основная информация', {
