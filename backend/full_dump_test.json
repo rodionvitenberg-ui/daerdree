@@ -1,0 +1,5922 @@
+{
+  "export_date": "2026-07-29T11:23:17.917610",
+  "export_version": 1,
+  "boardgames": {
+    "categories": [
+      {
+        "slug": "expansion-for-base-game",
+        "name": "Расширение для базовой игры",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "animals",
+        "name": "Животные",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "environmental",
+        "name": "Экология",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "card-game",
+        "name": "Карточная игра",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "arabian",
+        "name": "Арабская тематика",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "dice",
+        "name": "Кости",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "racing",
+        "name": "Гонки",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "childrens-game",
+        "name": "Детская игра",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "action-dexterity",
+        "name": "Экшн / Ловкость",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "exploration",
+        "name": "Исследование",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "real-time",
+        "name": "Реальное время",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "maze",
+        "name": "Лабиринт",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "fantasy",
+        "name": "Фэнтези",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "fighting",
+        "name": "Драки / Сражения",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "science-fiction",
+        "name": "Научная фантастика",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "territory-building",
+        "name": "Захват территорий",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "economic",
+        "name": "Экономическая",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "trains",
+        "name": "Поезда",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "murder-mystery",
+        "name": "Убийство / Тайна",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "deduction",
+        "name": "Дедукция",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "medieval",
+        "name": "Средневековье",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "bluffing",
+        "name": "Блеф",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "farming",
+        "name": "Фермерство",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "renaissance",
+        "name": "Ренессанс",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "abstract-strategy",
+        "name": "Абстрактная стратегия",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "industry-manufacturing",
+        "name": "Промышленность / Производство",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "transportation",
+        "name": "Транспорт",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "post-napoleonic",
+        "name": "Пост-наполеоновский период",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "age-of-reason",
+        "name": "Эпоха Просвещения",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "american-west",
+        "name": "Дикий Запад",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "city-building",
+        "name": "Градостроение",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "civilization",
+        "name": "Цивилизация",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "ancient",
+        "name": "Древний мир",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "party-game",
+        "name": "Патигейм",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "humor",
+        "name": "Юмор",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "movies-tv-radio-theme",
+        "name": "Кино / ТВ / Радио",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "political",
+        "name": "Политика",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "novel-based",
+        "name": "По роману",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "print-play",
+        "name": "Print & Play",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "educational",
+        "name": "Образовательная",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "negotiation",
+        "name": "Переговоры",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "wargame",
+        "name": "Варгейм",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "mythology",
+        "name": "Мифология",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "adventure",
+        "name": "Приключения",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "spies-secret-agents",
+        "name": "Шпионы / Секретные агенты",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "word-game",
+        "name": "Словесная игра",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "miniatures",
+        "name": "Миниатюры",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "mafia",
+        "name": "Мафия",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "puzzle",
+        "name": "Головоломка",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "mature-adult",
+        "name": "Для взрослых",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "horror",
+        "name": "Ужасы",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "aviation-flight",
+        "name": "Авиация / Полёт",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "pirates",
+        "name": "Пираты",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "nautical",
+        "name": "Морская тематика",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "trivia",
+        "name": "Викторина",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "video-game-theme",
+        "name": "Видеоигры",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "prehistoric",
+        "name": "Доисторический период",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "medical",
+        "name": "Медицина",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "travel",
+        "name": "Путешествия",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "space-exploration",
+        "name": "Космос",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "memory",
+        "name": "Память",
+        "icon": "",
+        "description": ""
+      },
+      {
+        "slug": "number",
+        "name": "Числа",
+        "icon": "",
+        "description": ""
+      }
+    ],
+    "tags": [
+      {
+        "slug": "contracts",
+        "name": "Контракты",
+        "icon": ""
+      },
+      {
+        "slug": "end-game-bonuses",
+        "name": "Бонусы в конце игры",
+        "icon": ""
+      },
+      {
+        "slug": "grid-coverage",
+        "name": "Покрытие сетки",
+        "icon": ""
+      },
+      {
+        "slug": "hand-management",
+        "name": "Управление картами",
+        "icon": ""
+      },
+      {
+        "slug": "events",
+        "name": "События",
+        "icon": ""
+      },
+      {
+        "slug": "open-drafting",
+        "name": "Открытый драфт",
+        "icon": ""
+      },
+      {
+        "slug": "income",
+        "name": "Доход",
+        "icon": ""
+      },
+      {
+        "slug": "simulation",
+        "name": "Симуляция",
+        "icon": ""
+      },
+      {
+        "slug": "worker-placement",
+        "name": "Размещение работников",
+        "icon": ""
+      },
+      {
+        "slug": "variable-set-up",
+        "name": "Переменная подготовка",
+        "icon": ""
+      },
+      {
+        "slug": "betting-and-bluffing",
+        "name": "Ставки и блеф",
+        "icon": ""
+      },
+      {
+        "slug": "roll-spin-and-move",
+        "name": "Брось и двигайся",
+        "icon": ""
+      },
+      {
+        "slug": "track-movement",
+        "name": "Движение по треку",
+        "icon": ""
+      },
+      {
+        "slug": "pattern-recognition",
+        "name": "Распознавание образов",
+        "icon": ""
+      },
+      {
+        "slug": "set-collection",
+        "name": "Сет-коллекция",
+        "icon": ""
+      },
+      {
+        "slug": "cooperative-game",
+        "name": "Кооперативная игра",
+        "icon": ""
+      },
+      {
+        "slug": "grid-movement",
+        "name": "Движение по сетке",
+        "icon": ""
+      },
+      {
+        "slug": "communication-limits",
+        "name": "Ограничения общения",
+        "icon": ""
+      },
+      {
+        "slug": "map-addition",
+        "name": "Добавление карты",
+        "icon": ""
+      },
+      {
+        "slug": "elapsed-real-time-ending",
+        "name": "Окончание по таймеру",
+        "icon": ""
+      },
+      {
+        "slug": "card-play-conflict-resolution",
+        "name": "Разрешение картами",
+        "icon": ""
+      },
+      {
+        "slug": "force-commitment",
+        "name": "Принудительное обязательство",
+        "icon": ""
+      },
+      {
+        "slug": "area-majority-influence",
+        "name": "Большинство / Влияние",
+        "icon": ""
+      },
+      {
+        "slug": "dice-rolling",
+        "name": "Бросок кубиков",
+        "icon": ""
+      },
+      {
+        "slug": "area-movement",
+        "name": "Перемещение по областям",
+        "icon": ""
+      },
+      {
+        "slug": "increase-value-of-unchosen-resources",
+        "name": "Рост ценности ресурсов",
+        "icon": ""
+      },
+      {
+        "slug": "hidden-victory-points",
+        "name": "Скрытые победные очки",
+        "icon": ""
+      },
+      {
+        "slug": "connections",
+        "name": "Соединения",
+        "icon": ""
+      },
+      {
+        "slug": "network-and-route-building",
+        "name": "Построение сетей и маршрутов",
+        "icon": ""
+      },
+      {
+        "slug": "deduction",
+        "name": "Дедукция",
+        "icon": ""
+      },
+      {
+        "slug": "scenario-mission-campaign-game",
+        "name": "Сценарий / Кампания",
+        "icon": ""
+      },
+      {
+        "slug": "solo-solitaire-game",
+        "name": "Соло / Пасьянс",
+        "icon": ""
+      },
+      {
+        "slug": "delayed-purchase",
+        "name": "Отложенная покупка",
+        "icon": ""
+      },
+      {
+        "slug": "deck-bag-and-pool-building",
+        "name": "Построение колоды / пула",
+        "icon": ""
+      },
+      {
+        "slug": "finale-ending",
+        "name": "Концовка-финал",
+        "icon": ""
+      },
+      {
+        "slug": "roles-with-asymmetric-information",
+        "name": "Асимметричные роли",
+        "icon": ""
+      },
+      {
+        "slug": "simultaneous-action-selection",
+        "name": "Одновременный выбор действий",
+        "icon": ""
+      },
+      {
+        "slug": "team-based-game",
+        "name": "Командная игра",
+        "icon": ""
+      },
+      {
+        "slug": "hidden-roles",
+        "name": "Скрытые роли",
+        "icon": ""
+      },
+      {
+        "slug": "enclosure",
+        "name": "Сектора / Ограждения",
+        "icon": ""
+      },
+      {
+        "slug": "closed-drafting",
+        "name": "Закрытый драфт",
+        "icon": ""
+      },
+      {
+        "slug": "automatic-resource-growth",
+        "name": "Автоматический рост ресурсов",
+        "icon": ""
+      },
+      {
+        "slug": "chaining",
+        "name": "Цепочки",
+        "icon": ""
+      },
+      {
+        "slug": "pattern-building",
+        "name": "Построение узоров",
+        "icon": ""
+      },
+      {
+        "slug": "take-that",
+        "name": "Удар по сопернику",
+        "icon": ""
+      },
+      {
+        "slug": "variable-player-powers",
+        "name": "Разные способности игроков",
+        "icon": ""
+      },
+      {
+        "slug": "loans",
+        "name": "Кредиты / Займы",
+        "icon": ""
+      },
+      {
+        "slug": "hot-potato",
+        "name": "Горячая картошка",
+        "icon": ""
+      },
+      {
+        "slug": "player-elimination",
+        "name": "Выбывание игроков",
+        "icon": ""
+      },
+      {
+        "slug": "kill-steal",
+        "name": "Перехват",
+        "icon": ""
+      },
+      {
+        "slug": "melding-and-splaying",
+        "name": "Слияние и раскрытие",
+        "icon": ""
+      },
+      {
+        "slug": "multi-use-cards",
+        "name": "Многофункциональные карты",
+        "icon": ""
+      },
+      {
+        "slug": "move-through-deck",
+        "name": "Движение по колоде",
+        "icon": ""
+      },
+      {
+        "slug": "push-your-luck",
+        "name": "Испытай удачу",
+        "icon": ""
+      },
+      {
+        "slug": "voting",
+        "name": "Голосование",
+        "icon": ""
+      },
+      {
+        "slug": "targeted-clues",
+        "name": "Целевые подсказки",
+        "icon": ""
+      },
+      {
+        "slug": "singing",
+        "name": "Пение",
+        "icon": ""
+      },
+      {
+        "slug": "race",
+        "name": "Гонка / Наперегонки",
+        "icon": ""
+      },
+      {
+        "slug": "storytelling",
+        "name": "Рассказывание историй",
+        "icon": ""
+      },
+      {
+        "slug": "die-icon-resolution",
+        "name": "Значки на кубиках",
+        "icon": ""
+      },
+      {
+        "slug": "hexagon-grid",
+        "name": "Шестиугольная сетка",
+        "icon": ""
+      },
+      {
+        "slug": "action-drafting",
+        "name": "Драфт действий",
+        "icon": ""
+      },
+      {
+        "slug": "variable-phase-order",
+        "name": "Переменный порядок фаз",
+        "icon": ""
+      },
+      {
+        "slug": "action-points",
+        "name": "Очки действий",
+        "icon": ""
+      },
+      {
+        "slug": "movement-points",
+        "name": "Очки передвижения",
+        "icon": ""
+      },
+      {
+        "slug": "memory",
+        "name": "Память",
+        "icon": ""
+      },
+      {
+        "slug": "action-retrieval",
+        "name": "Возврат действий",
+        "icon": ""
+      },
+      {
+        "slug": "action-queue",
+        "name": "Очередь действий",
+        "icon": ""
+      },
+      {
+        "slug": "once-per-game-abilities",
+        "name": "Способности раз за партию",
+        "icon": ""
+      },
+      {
+        "slug": "modular-board",
+        "name": "Модульное поле",
+        "icon": ""
+      },
+      {
+        "slug": "king-of-the-hill",
+        "name": "Царь горы",
+        "icon": ""
+      },
+      {
+        "slug": "acting",
+        "name": "Актёрская игра",
+        "icon": ""
+      },
+      {
+        "slug": "negotiation",
+        "name": "Переговоры",
+        "icon": ""
+      },
+      {
+        "slug": "programmed-movement",
+        "name": "Программирование ходов",
+        "icon": ""
+      },
+      {
+        "slug": "paper-and-pencil",
+        "name": "Бумага и карандаш",
+        "icon": ""
+      },
+      {
+        "slug": "traitor-game",
+        "name": "Предатель",
+        "icon": ""
+      },
+      {
+        "slug": "role-playing",
+        "name": "Ролевая игра",
+        "icon": ""
+      },
+      {
+        "slug": "point-to-point-movement",
+        "name": "Движение от точки к точке",
+        "icon": ""
+      },
+      {
+        "slug": "square-grid",
+        "name": "Квадратная сетка",
+        "icon": ""
+      },
+      {
+        "slug": "lose-a-turn",
+        "name": "Пропуск хода",
+        "icon": ""
+      },
+      {
+        "slug": "prisoners-dilemma",
+        "name": "Дилемма заключённого",
+        "icon": ""
+      },
+      {
+        "slug": "campaign-battle-card-driven",
+        "name": "Карточная кампания / бой",
+        "icon": ""
+      },
+      {
+        "slug": "tile-placement",
+        "name": "Размещение плиток",
+        "icon": ""
+      },
+      {
+        "slug": "turn-order-claim-action",
+        "name": "Захват очереди хода",
+        "icon": ""
+      },
+      {
+        "slug": "action-event",
+        "name": "Действие / Событие",
+        "icon": ""
+      },
+      {
+        "slug": "auction-bidding",
+        "name": "Аукцион / Торги",
+        "icon": ""
+      },
+      {
+        "slug": "pick-up-and-deliver",
+        "name": "Забрать и доставить",
+        "icon": ""
+      },
+      {
+        "slug": "cube-tower",
+        "name": "Кубическая башня",
+        "icon": ""
+      },
+      {
+        "slug": "mancala",
+        "name": "Манкала",
+        "icon": ""
+      },
+      {
+        "slug": "market",
+        "name": "Рынок",
+        "icon": ""
+      },
+      {
+        "slug": "rock-paper-scissors",
+        "name": "Камень-ножницы-бумага",
+        "icon": ""
+      },
+      {
+        "slug": "hidden-movement",
+        "name": "Скрытое перемещение",
+        "icon": ""
+      },
+      {
+        "slug": "resource-to-move",
+        "name": "Ресурс для перемещения",
+        "icon": ""
+      },
+      {
+        "slug": "bingo",
+        "name": "Бинго",
+        "icon": ""
+      },
+      {
+        "slug": "auction-dutch",
+        "name": "Аукцион: Голландский",
+        "icon": ""
+      },
+      {
+        "slug": "layering",
+        "name": "Наслоение",
+        "icon": ""
+      },
+      {
+        "slug": "tags",
+        "name": "Теги",
+        "icon": ""
+      },
+      {
+        "slug": "auction-sealed-bid",
+        "name": "Аукцион: Закрытые ставки",
+        "icon": ""
+      },
+      {
+        "slug": "advantage-token",
+        "name": "Жетон преимущества",
+        "icon": ""
+      },
+      {
+        "slug": "alliances",
+        "name": "Альянсы",
+        "icon": ""
+      },
+      {
+        "slug": "random-production",
+        "name": "Случайное производство",
+        "icon": ""
+      },
+      {
+        "slug": "three-dimensional-movement",
+        "name": "Трёхмерное движение",
+        "icon": ""
+      },
+      {
+        "slug": "trading",
+        "name": "Торговля",
+        "icon": ""
+      },
+      {
+        "slug": "follow",
+        "name": "Следование",
+        "icon": ""
+      },
+      {
+        "slug": "ordering",
+        "name": "Упорядочивание",
+        "icon": ""
+      },
+      {
+        "slug": "score-and-reset-game",
+        "name": "Сброс и пересчёт",
+        "icon": ""
+      }
+    ],
+    "games": [
+      {
+        "slug": "concept",
+        "title": "Концепт",
+        "categories": [
+          "deduction",
+          "party-game",
+          "word-game"
+        ],
+        "tags": [
+          "team-based-game",
+          "race",
+          "communication-limits"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "cryptid",
+        "title": "Криптид",
+        "categories": [
+          "deduction"
+        ],
+        "tags": [
+          "deduction",
+          "race",
+          "hexagon-grid",
+          "modular-board",
+          "pattern-recognition"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "king-of-tokyo",
+        "title": "Повелитель Токио",
+        "categories": [
+          "dice",
+          "fighting",
+          "science-fiction",
+          "movies-tv-radio-theme"
+        ],
+        "tags": [
+          "dice-rolling",
+          "king-of-the-hill",
+          "open-drafting",
+          "player-elimination",
+          "die-icon-resolution"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "svintus",
+        "title": "Свинтус",
+        "categories": [
+          "card-game",
+          "childrens-game",
+          "humor",
+          "animals"
+        ],
+        "tags": [
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "camel-up",
+        "title": "Camel Up",
+        "categories": [
+          "arabian",
+          "dice",
+          "racing",
+          "animals"
+        ],
+        "tags": [
+          "variable-set-up",
+          "track-movement",
+          "end-game-bonuses",
+          "betting-and-bluffing",
+          "roll-spin-and-move"
+        ],
+        "description": "Какой верблюд победит? Делайте ставки в этой забавной семейной игре о верблюжьих бегах.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "/media/games/cover_camel-up.jpg",
+        "setup_image": "/media/games/setups/setup_camel-up.jpg",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "colt-express",
+        "title": "Кольт Экспресс",
+        "categories": [
+          "fighting",
+          "trains",
+          "american-west"
+        ],
+        "tags": [
+          "take-that",
+          "memory",
+          "hand-management",
+          "action-queue",
+          "programmed-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "codenames",
+        "title": "Коднеймс",
+        "categories": [
+          "card-game",
+          "deduction",
+          "party-game",
+          "spies-secret-agents",
+          "word-game"
+        ],
+        "tags": [
+          "deduction",
+          "team-based-game",
+          "race",
+          "memory",
+          "communication-limits"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "secret-hitler",
+        "title": "Секретный Гитлер",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game",
+          "humor"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles",
+          "voting",
+          "traitor-game",
+          "player-elimination"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "the-resistance-avalon",
+        "title": "Авалон",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "deduction",
+          "medieval",
+          "bluffing"
+        ],
+        "tags": [
+          "finale-ending",
+          "roles-with-asymmetric-information",
+          "team-based-game",
+          "hidden-roles",
+          "simultaneous-action-selection"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "dany",
+        "title": "Дэни. Голоса в голове",
+        "categories": [
+          "deduction",
+          "bluffing",
+          "party-game"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "one-night-ultimate-werewolf",
+        "title": "Одна ночь с оборотнем",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game",
+          "horror"
+        ],
+        "tags": [
+          "roles-with-asymmetric-information",
+          "team-based-game",
+          "hidden-roles",
+          "player-elimination"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "spyfall",
+        "title": "Спайфолл",
+        "categories": [
+          "deduction",
+          "bluffing",
+          "party-game",
+          "spies-secret-agents"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles",
+          "voting"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "citadels",
+        "title": "Цитадели",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "deduction",
+          "medieval",
+          "bluffing",
+          "city-building"
+        ],
+        "tags": [
+          "closed-drafting",
+          "lose-a-turn",
+          "income",
+          "set-collection",
+          "action-drafting"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "bang",
+        "title": "Бэнг!",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "fighting",
+          "deduction",
+          "american-west"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles",
+          "take-that",
+          "hand-management",
+          "player-elimination"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "saboteur",
+        "title": "Саботажник",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles",
+          "tile-placement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "feed-the-kraken",
+        "title": "Feed the Kraken",
+        "categories": [
+          "fantasy",
+          "deduction",
+          "bluffing",
+          "party-game",
+          "pirates",
+          "nautical"
+        ],
+        "tags": [
+          "hidden-roles",
+          "acting",
+          "grid-movement",
+          "betting-and-bluffing",
+          "player-elimination"
+        ],
+        "description": "Игроки стараются надеть правильный носок как можно скорее.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "kemet",
+        "title": "Кемет",
+        "categories": [
+          "fantasy",
+          "ancient",
+          "wargame",
+          "mythology"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "action-points",
+          "hand-management",
+          "area-movement",
+          "card-play-conflict-resolution"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "agricola",
+        "title": "Агрикола",
+        "categories": [
+          "economic",
+          "farming",
+          "animals"
+        ],
+        "tags": [
+          "solo-solitaire-game",
+          "enclosure",
+          "closed-drafting",
+          "automatic-resource-growth",
+          "increase-value-of-unchosen-resources"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "dune-imperium",
+        "title": "Дюна: Империум",
+        "categories": [
+          "fighting",
+          "science-fiction",
+          "economic",
+          "negotiation"
+        ],
+        "tags": [
+          "hand-management",
+          "worker-placement",
+          "deck-bag-and-pool-building",
+          "variable-player-powers"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "just-a-moment-19",
+        "title": "Дюна: Апрайзинг",
+        "categories": [],
+        "tags": [],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nКатегория\nСценарий/Приключение/Модуль\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nНа основе класса (пилот, волшебник, ученый и т. д.)\nКости (Разные)\nНа основе уровня (зарабатывайте XP и повышайте уровень)\nНа основе расы (раса/вид игрока влияет на игровой процесс)\n\nИз аннотации издателя:\n\nЭта кампания рассчитана на уровни персонажей: с 5-го по 10-й. Он имеет\nлогово дракона с грибным Зеленым Драконом, обслуживаемым Хаотическим Мицелианцем\nкультисты и другие грибные опасности. Это высокий риск, высокая награда.\n\nКампания Drops представляет собой нейтральные локации и короткие приключения, предназначенные для мгновенного включения в вашу кампанию. Этот Drop Campaign совместим\nс Old School Essentials и другими ретро-клонами игр B/X.\n\nДракон Аманитус представляет необычное испытание для ваших игроков.\nХотя некоторые игроки могут быть знакомы с основными способностями Зеленого\nДракон, это древний змей. Он разработал несколько уникальных способностей\nи собрал по пути несколько последователей. Его логово тоже опасно. Взятый\nвместе искатели приключений сталкиваются с опасным испытанием.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор товара BGG: 380007",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "root",
+        "title": "Корни",
+        "categories": [
+          "fantasy",
+          "territory-building",
+          "negotiation",
+          "wargame",
+          "animals"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "action-points",
+          "action-retrieval",
+          "area-movement",
+          "action-queue"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "civilization-a-new-dawn",
+        "title": "Цивилизация",
+        "categories": [
+          "exploration",
+          "civilization",
+          "video-game-theme"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "race",
+          "hexagon-grid",
+          "modular-board",
+          "variable-player-powers",
+          "increase-value-of-unchosen-resources"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "brass-birmingham",
+        "title": "Брасс: Бирмингем",
+        "categories": [
+          "economic",
+          "trains",
+          "industry-manufacturing",
+          "transportation",
+          "post-napoleonic",
+          "age-of-reason"
+        ],
+        "tags": [
+          "chaining",
+          "loans",
+          "income",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "black-rose-wars",
+        "title": "Войны Черной Розы",
+        "categories": [
+          "fantasy",
+          "bluffing",
+          "renaissance",
+          "miniatures"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "campaign-battle-card-driven",
+          "area-movement",
+          "deck-bag-and-pool-building",
+          "action-queue"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "7-wonders",
+        "title": "7 Wonders",
+        "categories": [
+          "card-game",
+          "economic",
+          "civilization",
+          "ancient"
+        ],
+        "tags": [
+          "open-drafting",
+          "set-collection",
+          "hand-management",
+          "simultaneous-action-selection"
+        ],
+        "description": "Собирайте карты, чтобы развивать свою древнюю цивилизацию и построить чудо света.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "the-castles-of-burgundy",
+        "title": "Замки Бургундии",
+        "categories": [
+          "dice",
+          "territory-building",
+          "medieval"
+        ],
+        "tags": [
+          "dice-rolling",
+          "pattern-building",
+          "hexagon-grid",
+          "end-game-bonuses",
+          "grid-coverage"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "everdell",
+        "title": "Эверделл",
+        "categories": [
+          "fantasy",
+          "city-building",
+          "animals"
+        ],
+        "tags": [
+          "open-drafting",
+          "income",
+          "set-collection",
+          "hand-management",
+          "worker-placement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "dixit",
+        "title": "Диксит",
+        "categories": [
+          "fantasy",
+          "party-game",
+          "humor"
+        ],
+        "tags": [
+          "voting",
+          "race",
+          "storytelling"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "imaginarium",
+        "title": "Имаджинариум",
+        "categories": [
+          "fantasy",
+          "party-game",
+          "humor"
+        ],
+        "tags": [
+          "voting",
+          "storytelling"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "azul",
+        "title": "Азул",
+        "categories": [
+          "renaissance",
+          "abstract-strategy"
+        ],
+        "tags": [
+          "pattern-building",
+          "tile-placement",
+          "open-drafting",
+          "set-collection"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "azul-summer-pavilion",
+        "title": "Азул: Летний Дворец",
+        "categories": [
+          "abstract-strategy",
+          "puzzle"
+        ],
+        "tags": [
+          "pattern-building",
+          "tile-placement",
+          "open-drafting",
+          "set-collection",
+          "end-game-bonuses",
+          "turn-order-claim-action"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "azul-queens-garden",
+        "title": "Азул: Сады королевы",
+        "categories": [
+          "renaissance",
+          "abstract-strategy",
+          "puzzle"
+        ],
+        "tags": [
+          "pattern-building",
+          "tile-placement",
+          "set-collection",
+          "end-game-bonuses",
+          "turn-order-claim-action"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "cascadia",
+        "title": "Каскадия",
+        "categories": [
+          "environmental",
+          "animals"
+        ],
+        "tags": [
+          "solo-solitaire-game",
+          "pattern-building",
+          "hexagon-grid",
+          "open-drafting",
+          "end-game-bonuses"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "the-isle-of-cats",
+        "title": "Остров кошек",
+        "categories": [
+          "fantasy",
+          "puzzle",
+          "pirates",
+          "nautical",
+          "animals"
+        ],
+        "tags": [
+          "hidden-victory-points",
+          "closed-drafting",
+          "open-drafting",
+          "income",
+          "grid-coverage"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "wingspan",
+        "title": "Крылья",
+        "categories": [
+          "economic",
+          "educational",
+          "animals"
+        ],
+        "tags": [
+          "open-drafting",
+          "income",
+          "set-collection",
+          "hand-management",
+          "variable-player-powers"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "paleo",
+        "title": "Палео",
+        "categories": [
+          "card-game",
+          "exploration",
+          "prehistoric"
+        ],
+        "tags": [
+          "memory",
+          "action-event",
+          "cooperative-game",
+          "scenario-mission-campaign-game",
+          "deck-bag-and-pool-building"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "catan",
+        "title": "Колонизаторы",
+        "categories": [
+          "territory-building",
+          "economic",
+          "negotiation"
+        ],
+        "tags": [
+          "dice-rolling",
+          "negotiation",
+          "tile-placement",
+          "open-drafting",
+          "trading"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "unfathomable",
+        "title": "Непостижимое",
+        "categories": [
+          "fantasy",
+          "deduction",
+          "bluffing",
+          "novel-based",
+          "horror"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles",
+          "traitor-game",
+          "hand-management",
+          "area-movement",
+          "variable-player-powers"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "inis",
+        "title": "Иниш",
+        "categories": [
+          "card-game",
+          "exploration",
+          "ancient",
+          "wargame",
+          "mythology"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "closed-drafting",
+          "campaign-battle-card-driven",
+          "area-movement",
+          "action-drafting"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "marrakesh",
+        "title": "Марракеш",
+        "categories": [
+          "city-building"
+        ],
+        "tags": [
+          "cube-tower",
+          "open-drafting",
+          "end-game-bonuses",
+          "simultaneous-action-selection"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "robinson-crusoe-adventures-on-the-cursed-island",
+        "title": "Робинзон Крузо",
+        "categories": [
+          "exploration",
+          "fighting",
+          "territory-building",
+          "novel-based",
+          "adventure"
+        ],
+        "tags": [
+          "dice-rolling",
+          "cooperative-game",
+          "area-movement",
+          "die-icon-resolution",
+          "action-queue"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "istanbul",
+        "title": "Истанбул",
+        "categories": [
+          "economic"
+        ],
+        "tags": [
+          "dice-rolling",
+          "mancala",
+          "market",
+          "grid-movement",
+          "contracts"
+        ],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nСерия\nГероические карты\nКатегория\nАксессуар (кубики, карты, ширмы, карты)\n\nИз аннотации издателя:\n\nEdgmoor Manor — это распечатанный план подземелья, совместимый с любой ролевой игрой/игрой Dungeon-Crawl. Его можно использовать как отдельную игровую доску или комбинировать с любым набором плиток того же масштаба.\n\nПоместье Эдгмур представляет собой план небольшого укрепленного усадебного дома (или небольшого замка) с оборонительной стеной и внутренним двором, а также небольшими постройками на территории. Поместье Эджмур представлено нетронутым, а также разрушенным и заросшим спустя столетия после его разрушения.\n\nПары карт можно было использовать независимо друг от друга или использовать в сценах «воспоминаний» или историях о путешествиях во времени.\n\nТакже в комплект входит набор полноразмерных изображений JPG с разрешением 300 точек на дюйм для печати плакатов или VTT.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nКод товара BGG: 154435",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "among-cultists",
+        "title": "Among Cultists",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "horror"
+        ],
+        "tags": [
+          "team-based-game",
+          "hidden-roles"
+        ],
+        "description": "Игроки соревнуются, чтобы заработать как можно больше денег, прежде чем они умрут.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "magic-maze",
+        "title": "Magic Maze",
+        "categories": [
+          "exploration",
+          "real-time",
+          "maze",
+          "fantasy"
+        ],
+        "tags": [
+          "map-addition",
+          "grid-movement",
+          "cooperative-game",
+          "communication-limits",
+          "elapsed-real-time-ending"
+        ],
+        "description": "Молча сотрудничайте, чтобы ограбить лабиринт торгового центра, прежде чем истечет время.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "small-world",
+        "title": "Small World",
+        "categories": [
+          "fantasy",
+          "fighting",
+          "territory-building"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "dice-rolling",
+          "hidden-victory-points",
+          "area-movement",
+          "increase-value-of-unchosen-resources"
+        ],
+        "description": "Управляйте одной фэнтезийной расой за другой, чтобы быстро распространиться по всей стране.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "carcassonne",
+        "title": "Каркассон",
+        "categories": [
+          "territory-building",
+          "medieval",
+          "city-building"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "tile-placement",
+          "set-collection"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ticket-to-ride",
+        "title": "Билет на поезд",
+        "categories": [
+          "economic",
+          "trains",
+          "transportation"
+        ],
+        "tags": [
+          "connections",
+          "network-and-route-building",
+          "set-collection"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "wyrmspan",
+        "title": "Wyrmspan",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "animals"
+        ],
+        "tags": [
+          "solo-solitaire-game",
+          "open-drafting",
+          "end-game-bonuses",
+          "hand-management",
+          "once-per-game-abilities"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "just-a-moment-48",
+        "title": "Лоскутное королевство",
+        "categories": [],
+        "tags": [],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "fury-of-dracula",
+        "title": "Ярость Дракулы",
+        "categories": [
+          "fighting",
+          "deduction",
+          "adventure",
+          "horror"
+        ],
+        "tags": [
+          "deduction",
+          "team-based-game",
+          "hand-management",
+          "variable-player-powers",
+          "hidden-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "just-a-moment-50",
+        "title": "Barenpark",
+        "categories": [
+          "expansion-for-base-game"
+        ],
+        "tags": [
+          "open-drafting",
+          "income",
+          "simulation",
+          "worker-placement"
+        ],
+        "description": "Дополнительные варианты подсчета очков в финале и случайные события раунда.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "munchkin",
+        "title": "Манчкин",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "fighting",
+          "humor"
+        ],
+        "tags": [
+          "dice-rolling",
+          "take-that",
+          "hand-management",
+          "deck-bag-and-pool-building"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "cartographers",
+        "title": "Картографы",
+        "categories": [
+          "fantasy",
+          "territory-building"
+        ],
+        "tags": [
+          "enclosure",
+          "paper-and-pencil",
+          "end-game-bonuses",
+          "grid-coverage",
+          "bingo"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "welcome-to-your-perfect-home",
+        "title": "Welcome to Your Perfect Home",
+        "categories": [
+          "city-building"
+        ],
+        "tags": [
+          "multi-use-cards",
+          "paper-and-pencil",
+          "end-game-bonuses",
+          "bingo",
+          "contracts"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "diamant",
+        "title": "Диамант",
+        "categories": [
+          "card-game",
+          "exploration",
+          "bluffing"
+        ],
+        "tags": [
+          "move-through-deck",
+          "simultaneous-action-selection",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "saboteur-the-lost-mines",
+        "title": "Гномы-вредители: Древние шахты",
+        "categories": [
+          "card-game",
+          "maze",
+          "fantasy",
+          "deduction"
+        ],
+        "tags": [
+          "team-based-game",
+          "tile-placement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "scythe",
+        "title": "Scythe",
+        "categories": [
+          "fighting",
+          "science-fiction",
+          "territory-building",
+          "economic"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "end-game-bonuses",
+          "force-commitment",
+          "card-play-conflict-resolution",
+          "contracts"
+        ],
+        "description": "Пять фракций соперничают за господство в раздираемой войной, наполненной роботами дизельпанковой Европе 1920-х годов.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "through-the-ages-a-new-story-of-civilization",
+        "title": "Сквозь века",
+        "categories": [
+          "card-game",
+          "economic",
+          "civilization"
+        ],
+        "tags": [
+          "action-points",
+          "auction-bidding",
+          "events",
+          "income",
+          "auction-dutch"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "terraforming-mars",
+        "title": "Терраформирование Марса",
+        "categories": [
+          "science-fiction",
+          "economic",
+          "industry-manufacturing",
+          "space-exploration"
+        ],
+        "tags": [
+          "tile-placement",
+          "income",
+          "set-collection",
+          "hand-management",
+          "variable-player-powers"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "unconscious-mind",
+        "title": "Unconscious Mind",
+        "categories": [
+          "post-napoleonic",
+          "medical"
+        ],
+        "tags": [
+          "open-drafting",
+          "end-game-bonuses",
+          "melding-and-splaying",
+          "layering",
+          "contracts"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "evolution",
+        "title": "Эволюция",
+        "categories": [
+          "environmental",
+          "card-game",
+          "print-play",
+          "educational",
+          "prehistoric",
+          "animals"
+        ],
+        "tags": [
+          "action-points",
+          "simulation",
+          "hand-management",
+          "simultaneous-action-selection",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "santa-monica",
+        "title": "Санта-Моника",
+        "categories": [
+          "city-building",
+          "travel"
+        ],
+        "tags": [
+          "chaining",
+          "tile-placement",
+          "open-drafting",
+          "set-collection",
+          "tags"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "clank",
+        "title": "Кланк!",
+        "categories": [
+          "exploration",
+          "fantasy",
+          "fighting",
+          "adventure"
+        ],
+        "tags": [
+          "set-collection",
+          "deck-bag-and-pool-building",
+          "push-your-luck",
+          "movement-points"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "arkham-horror",
+        "title": "Ужас Аркхэма",
+        "categories": [
+          "fighting",
+          "novel-based",
+          "adventure",
+          "horror"
+        ],
+        "tags": [
+          "dice-rolling",
+          "finale-ending",
+          "events",
+          "hand-management",
+          "cooperative-game"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "fallout",
+        "title": "Фоллаут",
+        "categories": [
+          "exploration",
+          "science-fiction",
+          "adventure",
+          "video-game-theme"
+        ],
+        "tags": [
+          "dice-rolling",
+          "action-points",
+          "modular-board",
+          "hand-management",
+          "area-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "pandemic",
+        "title": "Пандемия",
+        "categories": [
+          "science-fiction",
+          "deduction",
+          "medical"
+        ],
+        "tags": [
+          "action-points",
+          "set-collection",
+          "hand-management",
+          "cooperative-game"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "underwater-cities",
+        "title": "Подводные города",
+        "categories": [
+          "card-game",
+          "science-fiction",
+          "industry-manufacturing",
+          "city-building",
+          "nautical"
+        ],
+        "tags": [
+          "network-and-route-building",
+          "solo-solitaire-game",
+          "income",
+          "end-game-bonuses",
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "fluxx",
+        "title": "Fluxx",
+        "categories": [
+          "card-game"
+        ],
+        "tags": [
+          "set-collection",
+          "hand-management"
+        ],
+        "description": "Играйте в карты и изменяйте правила этой постоянно меняющейся карточной игры!",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "bohnanza",
+        "title": "Бонанза",
+        "categories": [
+          "card-game",
+          "farming",
+          "negotiation"
+        ],
+        "tags": [
+          "multi-use-cards",
+          "negotiation",
+          "set-collection",
+          "hand-management",
+          "trading"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "carnegie",
+        "title": "Carnegie",
+        "categories": [
+          "economic",
+          "industry-manufacturing",
+          "post-napoleonic"
+        ],
+        "tags": [
+          "connections",
+          "action-retrieval",
+          "end-game-bonuses",
+          "area-movement",
+          "follow"
+        ],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези (Высокое Фэнтези)\nКатегория\nСправочник (правила/варианты улучшения игры)\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nКости (Разные)\nНа основе уровня (зарабатывайте XP и повышайте уровень)\nНа основе расы (раса/вид игрока влияет на игровой процесс)\nНа основе навыков (купить или получить навыки)\nСистема\nСистема следопыта\n\nИз аннотации издателя:\n\nСможешь ли ты это выкопать?!\n\nСуглинки — это новый предок второго издания ролевой игры Pathfinder. По форме похожие на кротов, суглинки имеют сильную связь с землей, и рост растений делает их естественными земледельцами, друидами и травниками. В этом полностью иллюстрированном PDF-файле, написанном опытным дизайнером второго издания Майклом Сэйром, представлены странствующие предки со всеми ролевыми примечаниями, предысторией и правилами игры (включая четыре наследия и 20 подвигов предков), необходимыми, чтобы сделать их интересной и всесторонней частью вашей кампании!\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор предмета BGG: 324447",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "hanabi",
+        "title": "Ханаби",
+        "categories": [
+          "card-game",
+          "deduction"
+        ],
+        "tags": [
+          "memory",
+          "set-collection",
+          "cooperative-game",
+          "communication-limits"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "red7",
+        "title": "Red7",
+        "categories": [
+          "card-game",
+          "number"
+        ],
+        "tags": [
+          "pattern-building",
+          "multi-use-cards",
+          "set-collection",
+          "hand-management",
+          "player-elimination",
+          "score-and-reset-game"
+        ],
+        "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nБоевик / Приключения (Супергерои)\nСерия\nКолеса правосудия\nКатегория\nАксессуар (кубики, карты, ширмы, карты)\nСправочник (правила/варианты улучшения игры)\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nКости (в основном d6)\nГенерация случайных атрибутов (во время персонажа…\nНа основе навыков (купить или получить навыки)\nНа основе черт/аспектов (личность влияет…\n\nИз аннотации издателя:\n\n«Колеса правосудия №16» — это призрачный полет в опасный мир несуществующего человека.\n\nЧерный Всадник, молодой одиночка, который (вместе со своим суперкаром с искусственным интеллектом C.O.R.A) участвует в крестовом походе, защищая интересы невиновных, беспомощных и бессильных в мире преступников, действующих выше закона.\n\nЭтот PDF-файл содержит характеристики, изображения и бумажные миниатюры ICONS для одного персонажа и его фирменного автомобиля, а также советы по их использованию в качестве героя или злодея в вашей игре.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n2\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nКод товара BGG: 138680",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ark-nova",
+        "title": "Ark Nova",
+        "categories": [
+          "environmental",
+          "economic",
+          "educational",
+          "animals"
+        ],
+        "tags": [
+          "open-drafting",
+          "income",
+          "set-collection",
+          "hand-management",
+          "worker-placement"
+        ],
+        "description": "Спланируйте и постройте современный, научно управляемый зоопарк для поддержки природоохранных проектов.",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "mafia",
+        "title": "Мафия",
+        "categories": [
+          "deduction",
+          "party-game",
+          "mafia"
+        ],
+        "tags": [
+          "hidden-roles",
+          "memory",
+          "acting",
+          "negotiation",
+          "player-elimination"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "decoder",
+        "title": "Декодер",
+        "categories": [
+          "party-game",
+          "puzzle"
+        ],
+        "tags": [
+          "paper-and-pencil"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "bunker",
+        "title": "Бункер",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game",
+          "mature-adult"
+        ],
+        "tags": [
+          "hidden-roles",
+          "voting",
+          "storytelling",
+          "player-elimination"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ghost-letters",
+        "title": "Письма призрака",
+        "categories": [
+          "card-game",
+          "deduction",
+          "bluffing",
+          "party-game"
+        ],
+        "tags": [
+          "deduction",
+          "hidden-roles",
+          "voting",
+          "communication-limits",
+          "targeted-clues"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "celestia",
+        "title": "Селестия",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "adventure",
+          "aviation-flight"
+        ],
+        "tags": [
+          "dice-rolling",
+          "hidden-victory-points",
+          "betting-and-bluffing",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "overboard",
+        "title": "За бортом",
+        "categories": [
+          "abstract-strategy"
+        ],
+        "tags": [
+          "square-grid",
+          "point-to-point-movement"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ekivoki",
+        "title": "Экивоки",
+        "categories": [
+          "racing",
+          "party-game",
+          "word-game",
+          "trivia"
+        ],
+        "tags": [
+          "team-based-game",
+          "acting",
+          "point-to-point-movement"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "think-fast",
+        "title": "Think Fast",
+        "categories": [
+          "party-game",
+          "trivia"
+        ],
+        "tags": [
+          "memory"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "blood-on-the-clocktower",
+        "title": "Кровь на часовой башне",
+        "categories": [
+          "murder-mystery",
+          "deduction",
+          "bluffing",
+          "party-game"
+        ],
+        "tags": [
+          "deduction",
+          "hidden-roles",
+          "negotiation",
+          "betting-and-bluffing",
+          "prisoners-dilemma"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "grand-austria-hotel",
+        "title": "Гранд отель Австрия",
+        "categories": [
+          "economic"
+        ],
+        "tags": [
+          "dice-rolling",
+          "end-game-bonuses",
+          "hand-management",
+          "action-drafting",
+          "contracts"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "industry",
+        "title": "Индустрия",
+        "categories": [
+          "economic",
+          "industry-manufacturing"
+        ],
+        "tags": [
+          "auction-bidding"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "ganymede",
+        "title": "Ганимед",
+        "categories": [
+          "card-game",
+          "science-fiction"
+        ],
+        "tags": [
+          "open-drafting",
+          "set-collection",
+          "pick-up-and-deliver"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "plague",
+        "title": "Мор",
+        "categories": [
+          "medieval",
+          "animals"
+        ],
+        "tags": [
+          "dice-rolling",
+          "take-that",
+          "race",
+          "paper-and-pencil",
+          "roll-spin-and-move",
+          "pick-up-and-deliver"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "isidore",
+        "title": "Isidore",
+        "categories": [],
+        "tags": [
+          "set-collection",
+          "roll-spin-and-move",
+          "rock-paper-scissors"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "pax-pamir",
+        "title": "Пакс Памир",
+        "categories": [
+          "card-game",
+          "economic",
+          "political",
+          "negotiation",
+          "spies-secret-agents"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "simulation",
+          "hand-management",
+          "area-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "not-enough-mana",
+        "title": "Not Enough Mana",
+        "categories": [
+          "card-game",
+          "fantasy",
+          "party-game",
+          "humor",
+          "print-play",
+          "mature-adult"
+        ],
+        "tags": [
+          "negotiation",
+          "events",
+          "hand-management",
+          "player-elimination",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "3000-scoundrels",
+        "title": "3000 негодяев",
+        "categories": [
+          "card-game",
+          "economic",
+          "bluffing",
+          "american-west"
+        ],
+        "tags": [
+          "hand-management",
+          "deck-bag-and-pool-building"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "excavation",
+        "title": "Раскопки",
+        "categories": [
+          "science-fiction",
+          "economic"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "market",
+          "open-drafting",
+          "hand-management",
+          "point-to-point-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "the-lord-of-the-rings",
+        "title": "Властелин колец",
+        "categories": [
+          "card-game",
+          "fantasy"
+        ],
+        "tags": [
+          "open-drafting",
+          "hand-management",
+          "deck-bag-and-pool-building"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "game-of-thrones-the-board-game",
+        "title": "Игра престолов",
+        "categories": [
+          "fantasy",
+          "bluffing",
+          "political",
+          "novel-based",
+          "negotiation",
+          "wargame"
+        ],
+        "tags": [
+          "auction-bidding",
+          "area-movement",
+          "auction-sealed-bid",
+          "advantage-token",
+          "alliances"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "jackal",
+        "title": "Шакал",
+        "categories": [
+          "exploration",
+          "pirates"
+        ],
+        "tags": [
+          "area-majority-influence",
+          "action-points",
+          "modular-board",
+          "hand-management",
+          "area-movement",
+          "pick-up-and-deliver"
+        ],
+        "description": "Добавить краткое описание",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "foodies",
+        "title": "Foodies",
+        "categories": [
+          "economic"
+        ],
+        "tags": [
+          "dice-rolling",
+          "connections",
+          "market",
+          "grid-coverage",
+          "random-production",
+          "contracts"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "space-contact",
+        "title": "Космический контакт",
+        "categories": [
+          "science-fiction",
+          "wargame",
+          "space-exploration"
+        ],
+        "tags": [
+          "hexagon-grid",
+          "simulation",
+          "variable-set-up",
+          "end-game-bonuses",
+          "simultaneous-action-selection",
+          "three-dimensional-movement"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "chickens",
+        "title": "Куры",
+        "categories": [
+          "card-game",
+          "science-fiction",
+          "humor",
+          "animals"
+        ],
+        "tags": [
+          "hand-management"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      },
+      {
+        "slug": "deep-sea-adventure",
+        "title": "Глубоководное приключение",
+        "categories": [
+          "dice",
+          "adventure",
+          "nautical"
+        ],
+        "tags": [
+          "dice-rolling",
+          "race",
+          "push-your-luck"
+        ],
+        "description": "",
+        "designer": "",
+        "bgg_type": "boardgame",
+        "image": "",
+        "setup_image": "",
+        "min_players": 2,
+        "max_players": 4,
+        "play_time": 30,
+        "difficulty": 2,
+        "is_active": true,
+        "is_visible_ru": true,
+        "is_visible_en": false
+      }
+    ],
+    "images": [
+      {
+        "game_slug": "7-wonders",
+        "image": "/media/games/gallery/img_05.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "7 Wonders — фото 6"
+      },
+      {
+        "game_slug": "7-wonders",
+        "image": "/media/games/gallery/img_06.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "7 Wonders — фото 7"
+      },
+      {
+        "game_slug": "7-wonders",
+        "image": "/media/games/gallery/img_07.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "7 Wonders — фото 8"
+      },
+      {
+        "game_slug": "7-wonders",
+        "image": "/media/games/gallery/img_08.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "7 Wonders — фото 9"
+      },
+      {
+        "game_slug": "7-wonders",
+        "image": "/media/games/gallery/img_09.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "7 Wonders — фото 10"
+      },
+      {
+        "game_slug": "7-wonders",
+        "image": "/media/games/gallery/img_10.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "7 Wonders — фото 11"
+      },
+      {
+        "game_slug": "ark-nova",
+        "image": "/media/games/gallery/img_05_7hnlSPa.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Ark Nova — фото 6"
+      },
+      {
+        "game_slug": "ark-nova",
+        "image": "/media/games/gallery/img_06_Povvlyh.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Ark Nova — фото 7"
+      },
+      {
+        "game_slug": "ark-nova",
+        "image": "/media/games/gallery/img_07_pdBJM3H.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Ark Nova — фото 8"
+      },
+      {
+        "game_slug": "ark-nova",
+        "image": "/media/games/gallery/img_08_Qmlg54P.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Ark Nova — фото 9"
+      },
+      {
+        "game_slug": "just-a-moment-50",
+        "image": "/media/games/gallery/img_05_mffsm6o.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Barenpark — фото 6"
+      },
+      {
+        "game_slug": "just-a-moment-50",
+        "image": "/media/games/gallery/img_06_PNlNasN.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Barenpark — фото 7"
+      },
+      {
+        "game_slug": "just-a-moment-50",
+        "image": "/media/games/gallery/img_07_xv3uYBT.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Barenpark — фото 8"
+      },
+      {
+        "game_slug": "just-a-moment-50",
+        "image": "/media/games/gallery/img_08_0LYsZtZ.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Barenpark — фото 9"
+      },
+      {
+        "game_slug": "camel-up",
+        "image": "/media/games/gallery/img_05_AEKShGU.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Camel Up — фото 6"
+      },
+      {
+        "game_slug": "camel-up",
+        "image": "/media/games/gallery/img_06_VCGumb8.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Camel Up — фото 7"
+      },
+      {
+        "game_slug": "camel-up",
+        "image": "/media/games/gallery/img_07_U52xiVm.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Camel Up — фото 8"
+      },
+      {
+        "game_slug": "camel-up",
+        "image": "/media/games/gallery/img_08_QG08oMe.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Camel Up — фото 9"
+      },
+      {
+        "game_slug": "camel-up",
+        "image": "/media/games/gallery/img_09_h0CF6Ey.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Camel Up — фото 10"
+      },
+      {
+        "game_slug": "camel-up",
+        "image": "/media/games/gallery/img_10_DyESfkN.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Camel Up — фото 11"
+      },
+      {
+        "game_slug": "camel-up",
+        "image": "/media/games/gallery/img_11.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Camel Up — фото 12"
+      },
+      {
+        "game_slug": "fluxx",
+        "image": "/media/games/gallery/img_06_HH28zPC.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Fluxx — фото 7"
+      },
+      {
+        "game_slug": "fluxx",
+        "image": "/media/games/gallery/img_07_901rlc6.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Fluxx — фото 8"
+      },
+      {
+        "game_slug": "fluxx",
+        "image": "/media/games/gallery/img_08_P5ZEepz.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Fluxx — фото 9"
+      },
+      {
+        "game_slug": "fluxx",
+        "image": "/media/games/gallery/img_09_qzZ9oQ0.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Fluxx — фото 10"
+      },
+      {
+        "game_slug": "fluxx",
+        "image": "/media/games/gallery/img_10_W9zlqyh.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Fluxx — фото 11"
+      },
+      {
+        "game_slug": "magic-maze",
+        "image": "/media/games/gallery/img_05_Nir1wQW.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Magic Maze — фото 6"
+      },
+      {
+        "game_slug": "magic-maze",
+        "image": "/media/games/gallery/img_06_RE1mfRx.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Magic Maze — фото 7"
+      },
+      {
+        "game_slug": "magic-maze",
+        "image": "/media/games/gallery/img_07_Hqze2hv.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Magic Maze — фото 8"
+      },
+      {
+        "game_slug": "magic-maze",
+        "image": "/media/games/gallery/img_08_qkkpQmS.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Magic Maze — фото 9"
+      },
+      {
+        "game_slug": "magic-maze",
+        "image": "/media/games/gallery/img_09_2e6DblR.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Magic Maze — фото 10"
+      },
+      {
+        "game_slug": "magic-maze",
+        "image": "/media/games/gallery/img_10_44INB6e.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Magic Maze — фото 11"
+      },
+      {
+        "game_slug": "magic-maze",
+        "image": "/media/games/gallery/img_11_3rloDot.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Magic Maze — фото 12"
+      },
+      {
+        "game_slug": "scythe",
+        "image": "/media/games/gallery/img_05_vjbPTqe.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Scythe — фото 6"
+      },
+      {
+        "game_slug": "scythe",
+        "image": "/media/games/gallery/img_06_EtSfLxx.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Scythe — фото 7"
+      },
+      {
+        "game_slug": "scythe",
+        "image": "/media/games/gallery/img_07_rgQ8a0Z.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Scythe — фото 8"
+      },
+      {
+        "game_slug": "scythe",
+        "image": "/media/games/gallery/img_08_ZnYkVq6.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Scythe — фото 9"
+      },
+      {
+        "game_slug": "scythe",
+        "image": "/media/games/gallery/img_09_xgaxfTO.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Scythe — фото 10"
+      },
+      {
+        "game_slug": "scythe",
+        "image": "/media/games/gallery/img_10_PCIOlr2.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Scythe — фото 11"
+      },
+      {
+        "game_slug": "scythe",
+        "image": "/media/games/gallery/img_11_8Vvtx0s.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Scythe — фото 12"
+      },
+      {
+        "game_slug": "small-world",
+        "image": "/media/games/gallery/img_05_zALxsUL.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Small World — фото 6"
+      },
+      {
+        "game_slug": "small-world",
+        "image": "/media/games/gallery/img_06_pCyYIzO.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Small World — фото 7"
+      },
+      {
+        "game_slug": "small-world",
+        "image": "/media/games/gallery/img_07_ZKnQyIj.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Small World — фото 8"
+      },
+      {
+        "game_slug": "small-world",
+        "image": "/media/games/gallery/img_08_LShuFKL.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Small World — фото 9"
+      },
+      {
+        "game_slug": "small-world",
+        "image": "/media/games/gallery/img_09_gjT8ClP.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Small World — фото 10"
+      },
+      {
+        "game_slug": "small-world",
+        "image": "/media/games/gallery/img_10_Ta2Utjl.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Small World — фото 11"
+      },
+      {
+        "game_slug": "small-world",
+        "image": "/media/games/gallery/img_11_O3oejnD.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Small World — фото 12"
+      },
+      {
+        "game_slug": "welcome-to-your-perfect-home",
+        "image": "/media/games/gallery/img_05_VSfjVLH.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Welcome to Your Perfect Home — фото 6"
+      },
+      {
+        "game_slug": "welcome-to-your-perfect-home",
+        "image": "/media/games/gallery/img_06_VLeKAZo.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Welcome to Your Perfect Home — фото 7"
+      },
+      {
+        "game_slug": "welcome-to-your-perfect-home",
+        "image": "/media/games/gallery/img_07_vSjMkbt.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Welcome to Your Perfect Home — фото 8"
+      },
+      {
+        "game_slug": "welcome-to-your-perfect-home",
+        "image": "/media/games/gallery/img_08_WuCDb1C.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Welcome to Your Perfect Home — фото 9"
+      },
+      {
+        "game_slug": "welcome-to-your-perfect-home",
+        "image": "/media/games/gallery/img_09_q2SIcZ4.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Welcome to Your Perfect Home — фото 10"
+      },
+      {
+        "game_slug": "welcome-to-your-perfect-home",
+        "image": "/media/games/gallery/img_10_1GVa5iO.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Welcome to Your Perfect Home — фото 11"
+      },
+      {
+        "game_slug": "welcome-to-your-perfect-home",
+        "image": "/media/games/gallery/img_11_d3ePPMr.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Welcome to Your Perfect Home — фото 12"
+      },
+      {
+        "game_slug": "welcome-to-your-perfect-home",
+        "image": "/media/games/gallery/img_12_N27HLs3.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Welcome to Your Perfect Home — фото 13"
+      },
+      {
+        "game_slug": "the-resistance-avalon",
+        "image": "/media/games/gallery/img_05_cAn87ai.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Авалон — фото 6"
+      },
+      {
+        "game_slug": "the-resistance-avalon",
+        "image": "/media/games/gallery/img_06_Pq9FSEV.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Авалон — фото 7"
+      },
+      {
+        "game_slug": "the-resistance-avalon",
+        "image": "/media/games/gallery/img_07_jslz7U0.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Авалон — фото 8"
+      },
+      {
+        "game_slug": "the-resistance-avalon",
+        "image": "/media/games/gallery/img_08_zcL3idn.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Авалон — фото 9"
+      },
+      {
+        "game_slug": "the-resistance-avalon",
+        "image": "/media/games/gallery/img_09_ukgztZk.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Авалон — фото 10"
+      },
+      {
+        "game_slug": "the-resistance-avalon",
+        "image": "/media/games/gallery/img_10_zX5wZdW.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Авалон — фото 11"
+      },
+      {
+        "game_slug": "the-resistance-avalon",
+        "image": "/media/games/gallery/img_11_Cx4C78u.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Авалон — фото 12"
+      },
+      {
+        "game_slug": "agricola",
+        "image": "/media/games/gallery/img_03.jpg",
+        "image_type": "gallery",
+        "order": 3,
+        "alt": "Агрикола — фото 4"
+      },
+      {
+        "game_slug": "agricola",
+        "image": "/media/games/gallery/img_04.jpg",
+        "image_type": "gallery",
+        "order": 4,
+        "alt": "Агрикола — фото 5"
+      },
+      {
+        "game_slug": "agricola",
+        "image": "/media/games/gallery/img_05_ZwxOb5c.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Агрикола — фото 6"
+      },
+      {
+        "game_slug": "agricola",
+        "image": "/media/games/gallery/img_06_68YGoNh.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Агрикола — фото 7"
+      },
+      {
+        "game_slug": "agricola",
+        "image": "/media/games/gallery/img_07_mu4W4JM.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Агрикола — фото 8"
+      },
+      {
+        "game_slug": "azul",
+        "image": "/media/games/gallery/img_05_qoqLowO.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Азул — фото 6"
+      },
+      {
+        "game_slug": "azul",
+        "image": "/media/games/gallery/img_06_yLJZLnm.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Азул — фото 7"
+      },
+      {
+        "game_slug": "azul",
+        "image": "/media/games/gallery/img_07_2TXry8j.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Азул — фото 8"
+      },
+      {
+        "game_slug": "azul",
+        "image": "/media/games/gallery/img_08_23l5civ.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Азул — фото 9"
+      },
+      {
+        "game_slug": "azul",
+        "image": "/media/games/gallery/img_09_2zElC79.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Азул — фото 10"
+      },
+      {
+        "game_slug": "azul",
+        "image": "/media/games/gallery/img_10_8Dq6e5I.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Азул — фото 11"
+      },
+      {
+        "game_slug": "azul",
+        "image": "/media/games/gallery/img_11_Hfbto6o.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Азул — фото 12"
+      },
+      {
+        "game_slug": "azul",
+        "image": "/media/games/gallery/img_12_vViEzh9.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Азул — фото 13"
+      },
+      {
+        "game_slug": "azul-summer-pavilion",
+        "image": "/media/games/gallery/img_05_fhr8PXe.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Азул: Летний Дворец — фото 6"
+      },
+      {
+        "game_slug": "azul-summer-pavilion",
+        "image": "/media/games/gallery/img_06_MbQBZ1W.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Азул: Летний Дворец — фото 7"
+      },
+      {
+        "game_slug": "azul-summer-pavilion",
+        "image": "/media/games/gallery/img_07_Yd4rxKj.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Азул: Летний Дворец — фото 8"
+      },
+      {
+        "game_slug": "azul-summer-pavilion",
+        "image": "/media/games/gallery/img_08_4MMm12W.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Азул: Летний Дворец — фото 9"
+      },
+      {
+        "game_slug": "azul-summer-pavilion",
+        "image": "/media/games/gallery/img_09_ZDU7PVZ.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Азул: Летний Дворец — фото 10"
+      },
+      {
+        "game_slug": "azul-summer-pavilion",
+        "image": "/media/games/gallery/img_10_sknuRPx.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Азул: Летний Дворец — фото 11"
+      },
+      {
+        "game_slug": "azul-summer-pavilion",
+        "image": "/media/games/gallery/img_11_OyoxI5i.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Азул: Летний Дворец — фото 12"
+      },
+      {
+        "game_slug": "azul-summer-pavilion",
+        "image": "/media/games/gallery/img_12_ht4LW3g.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Азул: Летний Дворец — фото 13"
+      },
+      {
+        "game_slug": "azul-queens-garden",
+        "image": "/media/games/gallery/img_05_PjcOjiO.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Азул: Сады королевы — фото 6"
+      },
+      {
+        "game_slug": "azul-queens-garden",
+        "image": "/media/games/gallery/img_06_G1wq1kk.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Азул: Сады королевы — фото 7"
+      },
+      {
+        "game_slug": "azul-queens-garden",
+        "image": "/media/games/gallery/img_07_cDuWOro.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Азул: Сады королевы — фото 8"
+      },
+      {
+        "game_slug": "azul-queens-garden",
+        "image": "/media/games/gallery/img_08_gHfD9D5.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Азул: Сады королевы — фото 9"
+      },
+      {
+        "game_slug": "azul-queens-garden",
+        "image": "/media/games/gallery/img_09_YIFkIcR.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Азул: Сады королевы — фото 10"
+      },
+      {
+        "game_slug": "azul-queens-garden",
+        "image": "/media/games/gallery/img_10_Kw0nCBP.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Азул: Сады королевы — фото 11"
+      },
+      {
+        "game_slug": "azul-queens-garden",
+        "image": "/media/games/gallery/img_11_tKBhwf3.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Азул: Сады королевы — фото 12"
+      },
+      {
+        "game_slug": "azul-queens-garden",
+        "image": "/media/games/gallery/img_12_6KTTn1x.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Азул: Сады королевы — фото 13"
+      },
+      {
+        "game_slug": "ticket-to-ride",
+        "image": "/media/games/gallery/img_05_gsLt2l8.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Билет на поезд — фото 6"
+      },
+      {
+        "game_slug": "ticket-to-ride",
+        "image": "/media/games/gallery/img_06_XZTv3wp.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Билет на поезд — фото 7"
+      },
+      {
+        "game_slug": "ticket-to-ride",
+        "image": "/media/games/gallery/img_07_99rE5ux.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Билет на поезд — фото 8"
+      },
+      {
+        "game_slug": "ticket-to-ride",
+        "image": "/media/games/gallery/img_08_CeN3Wlt.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Билет на поезд — фото 9"
+      },
+      {
+        "game_slug": "ticket-to-ride",
+        "image": "/media/games/gallery/img_09_N4JftB5.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Билет на поезд — фото 10"
+      },
+      {
+        "game_slug": "bohnanza",
+        "image": "/media/games/gallery/img_05_OoWPLMQ.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Бонанза — фото 6"
+      },
+      {
+        "game_slug": "bohnanza",
+        "image": "/media/games/gallery/img_06_Tl5xJEr.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Бонанза — фото 7"
+      },
+      {
+        "game_slug": "bohnanza",
+        "image": "/media/games/gallery/img_07_vhGzthm.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Бонанза — фото 8"
+      },
+      {
+        "game_slug": "bohnanza",
+        "image": "/media/games/gallery/img_08_xR7114x.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Бонанза — фото 9"
+      },
+      {
+        "game_slug": "bohnanza",
+        "image": "/media/games/gallery/img_09_vY5ifcf.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Бонанза — фото 10"
+      },
+      {
+        "game_slug": "bohnanza",
+        "image": "/media/games/gallery/img_10_rYglOMa.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Бонанза — фото 11"
+      },
+      {
+        "game_slug": "brass-birmingham",
+        "image": "/media/games/gallery/img_05_Fa2be6w.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Брасс: Бирмингем — фото 6"
+      },
+      {
+        "game_slug": "brass-birmingham",
+        "image": "/media/games/gallery/img_06_iq2ECWJ.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Брасс: Бирмингем — фото 7"
+      },
+      {
+        "game_slug": "brass-birmingham",
+        "image": "/media/games/gallery/img_07_iNzngJp.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Брасс: Бирмингем — фото 8"
+      },
+      {
+        "game_slug": "brass-birmingham",
+        "image": "/media/games/gallery/img_08_18ne0vt.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Брасс: Бирмингем — фото 9"
+      },
+      {
+        "game_slug": "brass-birmingham",
+        "image": "/media/games/gallery/img_09_Y3RISPa.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Брасс: Бирмингем — фото 10"
+      },
+      {
+        "game_slug": "brass-birmingham",
+        "image": "/media/games/gallery/img_10_ArBq4cm.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Брасс: Бирмингем — фото 11"
+      },
+      {
+        "game_slug": "brass-birmingham",
+        "image": "/media/games/gallery/img_11_3Ffe7KD.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Брасс: Бирмингем — фото 12"
+      },
+      {
+        "game_slug": "brass-birmingham",
+        "image": "/media/games/gallery/img_12_8GiulOJ.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Брасс: Бирмингем — фото 13"
+      },
+      {
+        "game_slug": "bang",
+        "image": "/media/games/gallery/img_05_ZH01bZk.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Бэнг! — фото 6"
+      },
+      {
+        "game_slug": "bang",
+        "image": "/media/games/gallery/img_06_LG0RpuZ.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Бэнг! — фото 7"
+      },
+      {
+        "game_slug": "bang",
+        "image": "/media/games/gallery/img_07_89eDMtP.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Бэнг! — фото 8"
+      },
+      {
+        "game_slug": "bang",
+        "image": "/media/games/gallery/img_08_vhUPrL0.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Бэнг! — фото 9"
+      },
+      {
+        "game_slug": "bang",
+        "image": "/media/games/gallery/img_09_XUKJWAC.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Бэнг! — фото 10"
+      },
+      {
+        "game_slug": "bang",
+        "image": "/media/games/gallery/img_10_JbiwoXn.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Бэнг! — фото 11"
+      },
+      {
+        "game_slug": "bang",
+        "image": "/media/games/gallery/img_11_WlxKNIq.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Бэнг! — фото 12"
+      },
+      {
+        "game_slug": "bang",
+        "image": "/media/games/gallery/img_12_0Q4FtP4.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Бэнг! — фото 13"
+      },
+      {
+        "game_slug": "saboteur-the-lost-mines",
+        "image": "/media/games/gallery/img_05_LykL55b.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Гномы-вредители: Древние шахты — фото 6"
+      },
+      {
+        "game_slug": "saboteur-the-lost-mines",
+        "image": "/media/games/gallery/img_06_cBpMYnz.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Гномы-вредители: Древние шахты — фото 7"
+      },
+      {
+        "game_slug": "saboteur-the-lost-mines",
+        "image": "/media/games/gallery/img_07_DnFGcbF.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Гномы-вредители: Древние шахты — фото 8"
+      },
+      {
+        "game_slug": "saboteur-the-lost-mines",
+        "image": "/media/games/gallery/img_08_8mM0ruT.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Гномы-вредители: Древние шахты — фото 9"
+      },
+      {
+        "game_slug": "saboteur-the-lost-mines",
+        "image": "/media/games/gallery/img_09_7hCq94g.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Гномы-вредители: Древние шахты — фото 10"
+      },
+      {
+        "game_slug": "saboteur-the-lost-mines",
+        "image": "/media/games/gallery/img_10_cL4I95V.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Гномы-вредители: Древние шахты — фото 11"
+      },
+      {
+        "game_slug": "saboteur-the-lost-mines",
+        "image": "/media/games/gallery/img_11_fT9JefO.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Гномы-вредители: Древние шахты — фото 12"
+      },
+      {
+        "game_slug": "diamant",
+        "image": "/media/games/gallery/img_05_FzhKkrl.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Диамант — фото 6"
+      },
+      {
+        "game_slug": "diamant",
+        "image": "/media/games/gallery/img_06_qwhHsUm.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Диамант — фото 7"
+      },
+      {
+        "game_slug": "diamant",
+        "image": "/media/games/gallery/img_07_PGjn5kT.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Диамант — фото 8"
+      },
+      {
+        "game_slug": "diamant",
+        "image": "/media/games/gallery/img_08_QYo6QAR.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Диамант — фото 9"
+      },
+      {
+        "game_slug": "diamant",
+        "image": "/media/games/gallery/img_09_X9WAcMA.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Диамант — фото 10"
+      },
+      {
+        "game_slug": "dixit",
+        "image": "/media/games/gallery/img_05_ZoScb15.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Диксит — фото 6"
+      },
+      {
+        "game_slug": "dixit",
+        "image": "/media/games/gallery/img_06_VvAfAyl.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Диксит — фото 7"
+      },
+      {
+        "game_slug": "dixit",
+        "image": "/media/games/gallery/img_07_Enxiouh.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Диксит — фото 8"
+      },
+      {
+        "game_slug": "dixit",
+        "image": "/media/games/gallery/img_08_Q0LUr5J.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Диксит — фото 9"
+      },
+      {
+        "game_slug": "dixit",
+        "image": "/media/games/gallery/img_09_OsiHOWP.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Диксит — фото 10"
+      },
+      {
+        "game_slug": "dixit",
+        "image": "/media/games/gallery/img_10_K2cTF6c.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Диксит — фото 11"
+      },
+      {
+        "game_slug": "dixit",
+        "image": "/media/games/gallery/img_11_Lquy01z.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Диксит — фото 12"
+      },
+      {
+        "game_slug": "dixit",
+        "image": "/media/games/gallery/img_12_tEM21N2.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Диксит — фото 13"
+      },
+      {
+        "game_slug": "dany",
+        "image": "/media/games/gallery/img_05.png",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Дэни. Голоса в голове — фото 6"
+      },
+      {
+        "game_slug": "dany",
+        "image": "/media/games/gallery/img_06_0TWpoPz.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Дэни. Голоса в голове — фото 7"
+      },
+      {
+        "game_slug": "dany",
+        "image": "/media/games/gallery/img_07_2to6FlO.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Дэни. Голоса в голове — фото 8"
+      },
+      {
+        "game_slug": "dany",
+        "image": "/media/games/gallery/img_08_wgr6o25.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Дэни. Голоса в голове — фото 9"
+      },
+      {
+        "game_slug": "dany",
+        "image": "/media/games/gallery/img_09_AALBkVe.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Дэни. Голоса в голове — фото 10"
+      },
+      {
+        "game_slug": "dany",
+        "image": "/media/games/gallery/img_10_Idw2iTb.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Дэни. Голоса в голове — фото 11"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_05_mQWvby5.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Замки Бургундии — фото 6"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_06_3Uj4L63.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Замки Бургундии — фото 7"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_07_fDVTqIn.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Замки Бургундии — фото 8"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_08_dSBhw4R.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Замки Бургундии — фото 9"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_09_eMxowOy.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Замки Бургундии — фото 10"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_10_3qC90Fa.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Замки Бургундии — фото 11"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_11_3VzxCXe.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Замки Бургундии — фото 12"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_12_j3QynBy.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Замки Бургундии — фото 13"
+      },
+      {
+        "game_slug": "the-castles-of-burgundy",
+        "image": "/media/games/gallery/img_13.jpg",
+        "image_type": "gallery",
+        "order": 13,
+        "alt": "Замки Бургундии — фото 14"
+      },
+      {
+        "game_slug": "carcassonne",
+        "image": "/media/games/gallery/img_05_zXEkvdp.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Каркассон — фото 6"
+      },
+      {
+        "game_slug": "carcassonne",
+        "image": "/media/games/gallery/img_06_fkkfpZQ.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Каркассон — фото 7"
+      },
+      {
+        "game_slug": "carcassonne",
+        "image": "/media/games/gallery/img_07_IWjmk43.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Каркассон — фото 8"
+      },
+      {
+        "game_slug": "carcassonne",
+        "image": "/media/games/gallery/img_08_GmnryzE.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Каркассон — фото 9"
+      },
+      {
+        "game_slug": "carcassonne",
+        "image": "/media/games/gallery/img_09_hq8cB7E.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Каркассон — фото 10"
+      },
+      {
+        "game_slug": "cascadia",
+        "image": "/media/games/gallery/img_05_MoX6Dao.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Каскадия — фото 6"
+      },
+      {
+        "game_slug": "cascadia",
+        "image": "/media/games/gallery/img_06_lkBhdJC.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Каскадия — фото 7"
+      },
+      {
+        "game_slug": "cascadia",
+        "image": "/media/games/gallery/img_07_cAusVJT.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Каскадия — фото 8"
+      },
+      {
+        "game_slug": "cascadia",
+        "image": "/media/games/gallery/img_08_cp4EO26.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Каскадия — фото 9"
+      },
+      {
+        "game_slug": "cascadia",
+        "image": "/media/games/gallery/img_09_T21Ghbd.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Каскадия — фото 10"
+      },
+      {
+        "game_slug": "cascadia",
+        "image": "/media/games/gallery/img_10_j7J8ea7.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Каскадия — фото 11"
+      },
+      {
+        "game_slug": "kemet",
+        "image": "/media/games/gallery/img_05_U09ZL1T.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Кемет — фото 6"
+      },
+      {
+        "game_slug": "kemet",
+        "image": "/media/games/gallery/img_06_DZZuyDM.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Кемет — фото 7"
+      },
+      {
+        "game_slug": "kemet",
+        "image": "/media/games/gallery/img_07_k1x155V.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Кемет — фото 8"
+      },
+      {
+        "game_slug": "kemet",
+        "image": "/media/games/gallery/img_08_Zsiu3Bq.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Кемет — фото 9"
+      },
+      {
+        "game_slug": "kemet",
+        "image": "/media/games/gallery/img_09_BpDwUxs.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Кемет — фото 10"
+      },
+      {
+        "game_slug": "kemet",
+        "image": "/media/games/gallery/img_10_eRjVVjw.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Кемет — фото 11"
+      },
+      {
+        "game_slug": "kemet",
+        "image": "/media/games/gallery/img_11_KWV9kCB.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Кемет — фото 12"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_05_8oDy79A.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Кланк! — фото 6"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_06_2kw7Ow3.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Кланк! — фото 7"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_07_rghz0uK.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Кланк! — фото 8"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_08_5Y6Vawe.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Кланк! — фото 9"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_09_5YkevpF.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Кланк! — фото 10"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_10_YVFVfDg.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Кланк! — фото 11"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_11_vf2Wrom.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Кланк! — фото 12"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_12_ffREDPM.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Кланк! — фото 13"
+      },
+      {
+        "game_slug": "clank",
+        "image": "/media/games/gallery/img_13_NSw1mNg.jpg",
+        "image_type": "gallery",
+        "order": 13,
+        "alt": "Кланк! — фото 14"
+      },
+      {
+        "game_slug": "codenames",
+        "image": "/media/games/gallery/img_05_i7rdcYc.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Коднеймс — фото 6"
+      },
+      {
+        "game_slug": "codenames",
+        "image": "/media/games/gallery/img_06_8vj8teX.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Коднеймс — фото 7"
+      },
+      {
+        "game_slug": "codenames",
+        "image": "/media/games/gallery/img_07_R9wNIyL.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Коднеймс — фото 8"
+      },
+      {
+        "game_slug": "codenames",
+        "image": "/media/games/gallery/img_08_D5X9Qmm.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Коднеймс — фото 9"
+      },
+      {
+        "game_slug": "codenames",
+        "image": "/media/games/gallery/img_09_jYRvGuP.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Коднеймс — фото 10"
+      },
+      {
+        "game_slug": "codenames",
+        "image": "/media/games/gallery/img_10_N4jYHtV.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Коднеймс — фото 11"
+      },
+      {
+        "game_slug": "colt-express",
+        "image": "/media/games/gallery/img_05_H03StmV.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Кольт Экспресс — фото 6"
+      },
+      {
+        "game_slug": "colt-express",
+        "image": "/media/games/gallery/img_06_pA1hISD.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Кольт Экспресс — фото 7"
+      },
+      {
+        "game_slug": "colt-express",
+        "image": "/media/games/gallery/img_07_fc5zm1g.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Кольт Экспресс — фото 8"
+      },
+      {
+        "game_slug": "colt-express",
+        "image": "/media/games/gallery/img_08_or4mnhK.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Кольт Экспресс — фото 9"
+      },
+      {
+        "game_slug": "colt-express",
+        "image": "/media/games/gallery/img_09_q2GKmGs.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Кольт Экспресс — фото 10"
+      },
+      {
+        "game_slug": "colt-express",
+        "image": "/media/games/gallery/img_10_Vu7gVCV.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Кольт Экспресс — фото 11"
+      },
+      {
+        "game_slug": "colt-express",
+        "image": "/media/games/gallery/img_11_kLcNDQo.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Кольт Экспресс — фото 12"
+      },
+      {
+        "game_slug": "concept",
+        "image": "/media/games/gallery/img_05_JdSx8xb.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Концепт — фото 6"
+      },
+      {
+        "game_slug": "concept",
+        "image": "/media/games/gallery/img_06_dyW9w84.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Концепт — фото 7"
+      },
+      {
+        "game_slug": "concept",
+        "image": "/media/games/gallery/img_07_EZb5MWH.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Концепт — фото 8"
+      },
+      {
+        "game_slug": "concept",
+        "image": "/media/games/gallery/img_08_66j3W0e.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Концепт — фото 9"
+      },
+      {
+        "game_slug": "concept",
+        "image": "/media/games/gallery/img_09_KbNenYP.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Концепт — фото 10"
+      },
+      {
+        "game_slug": "concept",
+        "image": "/media/games/gallery/img_10_CT2mvNu.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Концепт — фото 11"
+      },
+      {
+        "game_slug": "concept",
+        "image": "/media/games/gallery/img_11_d4qHq8C.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Концепт — фото 12"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_05_bn7qNUI.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Корни — фото 6"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_06_ZcCm2Wg.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Корни — фото 7"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_07_ZzVF2Tf.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Корни — фото 8"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_08_aQg4du3.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Корни — фото 9"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_09_RHT68bW.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Корни — фото 10"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_10_yEkg43k.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Корни — фото 11"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_11_UY9Cosf.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Корни — фото 12"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_12_mXi8Wax.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Корни — фото 13"
+      },
+      {
+        "game_slug": "root",
+        "image": "/media/games/gallery/img_13_wGYY58X.jpg",
+        "image_type": "gallery",
+        "order": 13,
+        "alt": "Корни — фото 14"
+      },
+      {
+        "game_slug": "wingspan",
+        "image": "/media/games/gallery/img_05_RtNoQxg.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Крылья — фото 6"
+      },
+      {
+        "game_slug": "wingspan",
+        "image": "/media/games/gallery/img_06_9lukvdI.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Крылья — фото 7"
+      },
+      {
+        "game_slug": "wingspan",
+        "image": "/media/games/gallery/img_07_iv8mcik.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Крылья — фото 8"
+      },
+      {
+        "game_slug": "wingspan",
+        "image": "/media/games/gallery/img_08_Oqg0AHn.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Крылья — фото 9"
+      },
+      {
+        "game_slug": "wingspan",
+        "image": "/media/games/gallery/img_09_YmPdgfo.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Крылья — фото 10"
+      },
+      {
+        "game_slug": "wingspan",
+        "image": "/media/games/gallery/img_10_2xnF1kU.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Крылья — фото 11"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_03_4WioPR9.jpg",
+        "image_type": "gallery",
+        "order": 3,
+        "alt": "Манчкин — фото 4"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_04_eP3D8za.jpg",
+        "image_type": "gallery",
+        "order": 4,
+        "alt": "Манчкин — фото 5"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_05_FJScHUB.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Манчкин — фото 6"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_06_3DXrJzO.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Манчкин — фото 7"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_07_K2lTPmx.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Манчкин — фото 8"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_08_vOzo261.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Манчкин — фото 9"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_09_ESzf0Wd.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Манчкин — фото 10"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_10_g7acwD8.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Манчкин — фото 11"
+      },
+      {
+        "game_slug": "munchkin",
+        "image": "/media/games/gallery/img_11_8COY3ZG.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Манчкин — фото 12"
+      },
+      {
+        "game_slug": "one-night-ultimate-werewolf",
+        "image": "/media/games/gallery/img_05_URbcIUG.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Одна ночь с оборотнем — фото 6"
+      },
+      {
+        "game_slug": "one-night-ultimate-werewolf",
+        "image": "/media/games/gallery/img_06_mZnwGUC.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Одна ночь с оборотнем — фото 7"
+      },
+      {
+        "game_slug": "one-night-ultimate-werewolf",
+        "image": "/media/games/gallery/img_07_4qgV8Nn.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Одна ночь с оборотнем — фото 8"
+      },
+      {
+        "game_slug": "one-night-ultimate-werewolf",
+        "image": "/media/games/gallery/img_08_XSsZtHg.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Одна ночь с оборотнем — фото 9"
+      },
+      {
+        "game_slug": "one-night-ultimate-werewolf",
+        "image": "/media/games/gallery/img_09_kUwXKPf.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Одна ночь с оборотнем — фото 10"
+      },
+      {
+        "game_slug": "one-night-ultimate-werewolf",
+        "image": "/media/games/gallery/img_10_1guN2Zg.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Одна ночь с оборотнем — фото 11"
+      },
+      {
+        "game_slug": "one-night-ultimate-werewolf",
+        "image": "/media/games/gallery/img_11_Gqfuv2h.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Одна ночь с оборотнем — фото 12"
+      },
+      {
+        "game_slug": "one-night-ultimate-werewolf",
+        "image": "/media/games/gallery/img_12_amM33TQ.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Одна ночь с оборотнем — фото 13"
+      },
+      {
+        "game_slug": "the-isle-of-cats",
+        "image": "/media/games/gallery/img_05_eTgLrcD.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Остров кошек — фото 6"
+      },
+      {
+        "game_slug": "the-isle-of-cats",
+        "image": "/media/games/gallery/img_06_GbBd0gx.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Остров кошек — фото 7"
+      },
+      {
+        "game_slug": "the-isle-of-cats",
+        "image": "/media/games/gallery/img_07_egM7dbc.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Остров кошек — фото 8"
+      },
+      {
+        "game_slug": "the-isle-of-cats",
+        "image": "/media/games/gallery/img_08_E9VK8xw.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Остров кошек — фото 9"
+      },
+      {
+        "game_slug": "the-isle-of-cats",
+        "image": "/media/games/gallery/img_09_m4ICJUI.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Остров кошек — фото 10"
+      },
+      {
+        "game_slug": "the-isle-of-cats",
+        "image": "/media/games/gallery/img_10_JuwMu4C.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Остров кошек — фото 11"
+      },
+      {
+        "game_slug": "the-isle-of-cats",
+        "image": "/media/games/gallery/img_11_MdKTmaB.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Остров кошек — фото 12"
+      },
+      {
+        "game_slug": "the-isle-of-cats",
+        "image": "/media/games/gallery/img_12_OVp18Qp.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Остров кошек — фото 13"
+      },
+      {
+        "game_slug": "paleo",
+        "image": "/media/games/gallery/img_05_AYWrV5J.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Палео — фото 6"
+      },
+      {
+        "game_slug": "paleo",
+        "image": "/media/games/gallery/img_06_BpKUkn7.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Палео — фото 7"
+      },
+      {
+        "game_slug": "paleo",
+        "image": "/media/games/gallery/img_07_vDIuT7X.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Палео — фото 8"
+      },
+      {
+        "game_slug": "paleo",
+        "image": "/media/games/gallery/img_08_ctsiw9r.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Палео — фото 9"
+      },
+      {
+        "game_slug": "paleo",
+        "image": "/media/games/gallery/img_09_j9TIYX6.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Палео — фото 10"
+      },
+      {
+        "game_slug": "paleo",
+        "image": "/media/games/gallery/img_10_mDAxou2.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Палео — фото 11"
+      },
+      {
+        "game_slug": "paleo",
+        "image": "/media/games/gallery/img_11_t04YAqY.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Палео — фото 12"
+      },
+      {
+        "game_slug": "paleo",
+        "image": "/media/games/gallery/img_12_0NE2ms2.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Палео — фото 13"
+      },
+      {
+        "game_slug": "pandemic",
+        "image": "/media/games/gallery/img_05_lGPI7IH.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Пандемия — фото 6"
+      },
+      {
+        "game_slug": "pandemic",
+        "image": "/media/games/gallery/img_06_NDYlpMR.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Пандемия — фото 7"
+      },
+      {
+        "game_slug": "pandemic",
+        "image": "/media/games/gallery/img_07_JMrsmm4.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Пандемия — фото 8"
+      },
+      {
+        "game_slug": "pandemic",
+        "image": "/media/games/gallery/img_08_zwbfXlE.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Пандемия — фото 9"
+      },
+      {
+        "game_slug": "pandemic",
+        "image": "/media/games/gallery/img_09_LMdf8xn.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Пандемия — фото 10"
+      },
+      {
+        "game_slug": "pandemic",
+        "image": "/media/games/gallery/img_10_aAC7vnC.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Пандемия — фото 11"
+      },
+      {
+        "game_slug": "pandemic",
+        "image": "/media/games/gallery/img_11_5sIaSdH.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Пандемия — фото 12"
+      },
+      {
+        "game_slug": "pandemic",
+        "image": "/media/games/gallery/img_12_1I1ZRLo.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Пандемия — фото 13"
+      },
+      {
+        "game_slug": "robinson-crusoe-adventures-on-the-cursed-island",
+        "image": "/media/games/gallery/img_06_8LxJ9pS.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Робинзон Крузо — фото 7"
+      },
+      {
+        "game_slug": "robinson-crusoe-adventures-on-the-cursed-island",
+        "image": "/media/games/gallery/img_07_9S6nSxi.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Робинзон Крузо — фото 8"
+      },
+      {
+        "game_slug": "robinson-crusoe-adventures-on-the-cursed-island",
+        "image": "/media/games/gallery/img_08_F5pyRMc.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Робинзон Крузо — фото 9"
+      },
+      {
+        "game_slug": "robinson-crusoe-adventures-on-the-cursed-island",
+        "image": "/media/games/gallery/img_09_fsJTggP.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Робинзон Крузо — фото 10"
+      },
+      {
+        "game_slug": "robinson-crusoe-adventures-on-the-cursed-island",
+        "image": "/media/games/gallery/img_10_Lb8ktPe.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Робинзон Крузо — фото 11"
+      },
+      {
+        "game_slug": "robinson-crusoe-adventures-on-the-cursed-island",
+        "image": "/media/games/gallery/img_11_oPMUlWF.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Робинзон Крузо — фото 12"
+      },
+      {
+        "game_slug": "santa-monica",
+        "image": "/media/games/gallery/img_05_1jkTanD.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Санта-Моника — фото 6"
+      },
+      {
+        "game_slug": "santa-monica",
+        "image": "/media/games/gallery/img_06_nSJgmCX.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Санта-Моника — фото 7"
+      },
+      {
+        "game_slug": "santa-monica",
+        "image": "/media/games/gallery/img_07_FbqIChO.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Санта-Моника — фото 8"
+      },
+      {
+        "game_slug": "santa-monica",
+        "image": "/media/games/gallery/img_08_ywZG9DF.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Санта-Моника — фото 9"
+      },
+      {
+        "game_slug": "santa-monica",
+        "image": "/media/games/gallery/img_09_rZn33pE.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Санта-Моника — фото 10"
+      },
+      {
+        "game_slug": "svintus",
+        "image": "/media/games/gallery/img_05_lEMJHCL.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Свинтус — фото 6"
+      },
+      {
+        "game_slug": "svintus",
+        "image": "/media/games/gallery/img_06_4oqozw8.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Свинтус — фото 7"
+      },
+      {
+        "game_slug": "svintus",
+        "image": "/media/games/gallery/img_07_oEQv9eO.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Свинтус — фото 8"
+      },
+      {
+        "game_slug": "svintus",
+        "image": "/media/games/gallery/img_08_NvQ0GIg.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Свинтус — фото 9"
+      },
+      {
+        "game_slug": "svintus",
+        "image": "/media/games/gallery/img_09_5XjG64Z.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Свинтус — фото 10"
+      },
+      {
+        "game_slug": "svintus",
+        "image": "/media/games/gallery/img_10_4T2JYXY.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Свинтус — фото 11"
+      },
+      {
+        "game_slug": "svintus",
+        "image": "/media/games/gallery/img_11_mKQ2sEW.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Свинтус — фото 12"
+      },
+      {
+        "game_slug": "svintus",
+        "image": "/media/games/gallery/img_12_A0BnEMY.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Свинтус — фото 13"
+      },
+      {
+        "game_slug": "secret-hitler",
+        "image": "/media/games/gallery/img_05_WU5u3X1.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Секретный Гитлер — фото 6"
+      },
+      {
+        "game_slug": "secret-hitler",
+        "image": "/media/games/gallery/img_06_Nj0faAb.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Секретный Гитлер — фото 7"
+      },
+      {
+        "game_slug": "secret-hitler",
+        "image": "/media/games/gallery/img_07_KizatHj.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Секретный Гитлер — фото 8"
+      },
+      {
+        "game_slug": "secret-hitler",
+        "image": "/media/games/gallery/img_08_Uk9qNtT.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Секретный Гитлер — фото 9"
+      },
+      {
+        "game_slug": "secret-hitler",
+        "image": "/media/games/gallery/img_09_ovgqjko.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Секретный Гитлер — фото 10"
+      },
+      {
+        "game_slug": "spyfall",
+        "image": "/media/games/gallery/img_05_KzB8v3y.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Спайфолл — фото 6"
+      },
+      {
+        "game_slug": "spyfall",
+        "image": "/media/games/gallery/img_06_vmW7Idn.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Спайфолл — фото 7"
+      },
+      {
+        "game_slug": "spyfall",
+        "image": "/media/games/gallery/img_07_4kHPz5T.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Спайфолл — фото 8"
+      },
+      {
+        "game_slug": "spyfall",
+        "image": "/media/games/gallery/img_08_3uZE0qe.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Спайфолл — фото 9"
+      },
+      {
+        "game_slug": "spyfall",
+        "image": "/media/games/gallery/img_09_6E0XC04.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Спайфолл — фото 10"
+      },
+      {
+        "game_slug": "spyfall",
+        "image": "/media/games/gallery/img_10_BxHyOgV.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Спайфолл — фото 11"
+      },
+      {
+        "game_slug": "spyfall",
+        "image": "/media/games/gallery/img_11_tgGPZiw.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Спайфолл — фото 12"
+      },
+      {
+        "game_slug": "terraforming-mars",
+        "image": "/media/games/gallery/img_05_fEEnFM2.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Терраформирование Марса — фото 6"
+      },
+      {
+        "game_slug": "terraforming-mars",
+        "image": "/media/games/gallery/img_06_tSmJlJe.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Терраформирование Марса — фото 7"
+      },
+      {
+        "game_slug": "terraforming-mars",
+        "image": "/media/games/gallery/img_07_meUtyuM.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Терраформирование Марса — фото 8"
+      },
+      {
+        "game_slug": "terraforming-mars",
+        "image": "/media/games/gallery/img_08_fxUtVUw.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Терраформирование Марса — фото 9"
+      },
+      {
+        "game_slug": "terraforming-mars",
+        "image": "/media/games/gallery/img_09_Qs7e0FN.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Терраформирование Марса — фото 10"
+      },
+      {
+        "game_slug": "terraforming-mars",
+        "image": "/media/games/gallery/img_10_jWwqHLu.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Терраформирование Марса — фото 11"
+      },
+      {
+        "game_slug": "arkham-horror",
+        "image": "/media/games/gallery/img_05_naMuRiV.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Ужас Аркхэма — фото 6"
+      },
+      {
+        "game_slug": "arkham-horror",
+        "image": "/media/games/gallery/img_06_RQBZoMX.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Ужас Аркхэма — фото 7"
+      },
+      {
+        "game_slug": "fallout",
+        "image": "/media/games/gallery/img_05_ToiZoVv.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Фоллаут — фото 6"
+      },
+      {
+        "game_slug": "fallout",
+        "image": "/media/games/gallery/img_06_ou6rtd3.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Фоллаут — фото 7"
+      },
+      {
+        "game_slug": "fallout",
+        "image": "/media/games/gallery/img_07_1b0Kf7z.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Фоллаут — фото 8"
+      },
+      {
+        "game_slug": "fallout",
+        "image": "/media/games/gallery/img_08_jvOwpWU.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Фоллаут — фото 9"
+      },
+      {
+        "game_slug": "fallout",
+        "image": "/media/games/gallery/img_09_I2HOH8L.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Фоллаут — фото 10"
+      },
+      {
+        "game_slug": "fallout",
+        "image": "/media/games/gallery/img_10_zIVM9zd.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Фоллаут — фото 11"
+      },
+      {
+        "game_slug": "fallout",
+        "image": "/media/games/gallery/img_11_ReAoCSF.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Фоллаут — фото 12"
+      },
+      {
+        "game_slug": "hanabi",
+        "image": "/media/games/gallery/img_05_K9TQWMA.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Ханаби — фото 6"
+      },
+      {
+        "game_slug": "hanabi",
+        "image": "/media/games/gallery/img_06_eBKCX98.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Ханаби — фото 7"
+      },
+      {
+        "game_slug": "hanabi",
+        "image": "/media/games/gallery/img_07_zmbeRwR.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Ханаби — фото 8"
+      },
+      {
+        "game_slug": "hanabi",
+        "image": "/media/games/gallery/img_08_I5KJUgq.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Ханаби — фото 9"
+      },
+      {
+        "game_slug": "hanabi",
+        "image": "/media/games/gallery/img_09_ShF52Ii.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Ханаби — фото 10"
+      },
+      {
+        "game_slug": "hanabi",
+        "image": "/media/games/gallery/img_10_hIkyudr.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Ханаби — фото 11"
+      },
+      {
+        "game_slug": "hanabi",
+        "image": "/media/games/gallery/img_11_xSskvzN.jpg",
+        "image_type": "gallery",
+        "order": 11,
+        "alt": "Ханаби — фото 12"
+      },
+      {
+        "game_slug": "hanabi",
+        "image": "/media/games/gallery/img_12_2COQyAX.jpg",
+        "image_type": "gallery",
+        "order": 12,
+        "alt": "Ханаби — фото 13"
+      },
+      {
+        "game_slug": "civilization-a-new-dawn",
+        "image": "/media/games/gallery/img_05_vK7Q8nO.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Цивилизация — фото 6"
+      },
+      {
+        "game_slug": "civilization-a-new-dawn",
+        "image": "/media/games/gallery/img_06_fRRpwh9.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Цивилизация — фото 7"
+      },
+      {
+        "game_slug": "civilization-a-new-dawn",
+        "image": "/media/games/gallery/img_07_qWNfbd6.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Цивилизация — фото 8"
+      },
+      {
+        "game_slug": "civilization-a-new-dawn",
+        "image": "/media/games/gallery/img_08_2m2pIow.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Цивилизация — фото 9"
+      },
+      {
+        "game_slug": "civilization-a-new-dawn",
+        "image": "/media/games/gallery/img_09_lyKys0y.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Цивилизация — фото 10"
+      },
+      {
+        "game_slug": "civilization-a-new-dawn",
+        "image": "/media/games/gallery/img_10_jB53APm.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Цивилизация — фото 11"
+      },
+      {
+        "game_slug": "citadels",
+        "image": "/media/games/gallery/img_03_AwaEMen.jpg",
+        "image_type": "gallery",
+        "order": 3,
+        "alt": "Цитадели — фото 4"
+      },
+      {
+        "game_slug": "citadels",
+        "image": "/media/games/gallery/img_04_URoxhDk.jpg",
+        "image_type": "gallery",
+        "order": 4,
+        "alt": "Цитадели — фото 5"
+      },
+      {
+        "game_slug": "citadels",
+        "image": "/media/games/gallery/img_05_pOb9vmW.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Цитадели — фото 6"
+      },
+      {
+        "game_slug": "citadels",
+        "image": "/media/games/gallery/img_06_OwecIOP.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Цитадели — фото 7"
+      },
+      {
+        "game_slug": "citadels",
+        "image": "/media/games/gallery/img_07_6FtkBl8.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Цитадели — фото 8"
+      },
+      {
+        "game_slug": "citadels",
+        "image": "/media/games/gallery/img_08_VSp0OGm.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Цитадели — фото 9"
+      },
+      {
+        "game_slug": "citadels",
+        "image": "/media/games/gallery/img_09_q5Ygqfr.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Цитадели — фото 10"
+      },
+      {
+        "game_slug": "citadels",
+        "image": "/media/games/gallery/img_10_WRzC52Z.jpg",
+        "image_type": "gallery",
+        "order": 10,
+        "alt": "Цитадели — фото 11"
+      },
+      {
+        "game_slug": "everdell",
+        "image": "/media/games/gallery/img_05_9iKHHyJ.jpg",
+        "image_type": "gallery",
+        "order": 5,
+        "alt": "Эверделл — фото 6"
+      },
+      {
+        "game_slug": "everdell",
+        "image": "/media/games/gallery/img_06_gozIkif.jpg",
+        "image_type": "gallery",
+        "order": 6,
+        "alt": "Эверделл — фото 7"
+      },
+      {
+        "game_slug": "everdell",
+        "image": "/media/games/gallery/img_07_tHcUEc8.jpg",
+        "image_type": "gallery",
+        "order": 7,
+        "alt": "Эверделл — фото 8"
+      },
+      {
+        "game_slug": "everdell",
+        "image": "/media/games/gallery/img_08_sSItRBA.jpg",
+        "image_type": "gallery",
+        "order": 8,
+        "alt": "Эверделл — фото 9"
+      },
+      {
+        "game_slug": "everdell",
+        "image": "/media/games/gallery/img_09_CBqAq6T.jpg",
+        "image_type": "gallery",
+        "order": 9,
+        "alt": "Эверделл — фото 10"
+      }
+    ],
+    "expansions": []
+  },
+  "events": [
+    {
+      "telegram_id": "843",
+      "title": "Порисуем в нашем логове?",
+      "description": "\n🗓 Среда 21 января\n🕐 19:30\n\nЕсли есть творческий порыв и жажда творчества - присоединяйтесь! Рисуем всем подряд, на чем угодно, и уметь рисовать для этого совершенно необязательно! \nКисточки и палитры есть, краски и бумага в наличии, миниатюрок в достатке. А что ещё нужно для спокойного уютного вечера?\n\nP.S.: желательно обозначить свое намерение прийти плюсиком под этим анонсом в нашей группе, это поможет нам распределить места и расходники :)",
+      "image": "/media/events/history_843_C9CQ6j5.jpg",
+      "title_en": "",
+      "description_en": "",
+      "event_date": "2026-01-21T17:30:00+00:00",
+      "is_visible": true
+    }
+  ],
+  "menu": {
+    "categories": [],
+    "items": []
+  }
+}
