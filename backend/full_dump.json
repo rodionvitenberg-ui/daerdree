@@ -1,910 +1,1370 @@
 {
-  "export_date": "2026-07-29T11:25:20.315148",
+  "export_date": "2026-07-29T11:47:50.353720",
   "export_version": 1,
   "boardgames": {
     "categories": [
       {
         "slug": "expansion-for-base-game",
         "name": "Расширение для базовой игры",
+        "name_ru": "Расширение для базовой игры",
+        "name_en": "Expansion for Base-game",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "animals",
         "name": "Животные",
+        "name_ru": "Животные",
+        "name_en": "Animals",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "environmental",
         "name": "Экология",
+        "name_ru": "Экология",
+        "name_en": "Environmental",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "card-game",
         "name": "Карточная игра",
+        "name_ru": "Карточная игра",
+        "name_en": "Card Game",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "arabian",
         "name": "Арабская тематика",
+        "name_ru": "Арабская тематика",
+        "name_en": "Arabian",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "dice",
         "name": "Кости",
+        "name_ru": "Кости",
+        "name_en": "Dice",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "racing",
         "name": "Гонки",
+        "name_ru": "Гонки",
+        "name_en": "Racing",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "childrens-game",
         "name": "Детская игра",
+        "name_ru": "Детская игра",
+        "name_en": "Children's Game",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "action-dexterity",
         "name": "Экшн / Ловкость",
+        "name_ru": "Экшн / Ловкость",
+        "name_en": "Action / Dexterity",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "exploration",
         "name": "Исследование",
+        "name_ru": "Исследование",
+        "name_en": "Exploration",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "real-time",
         "name": "Реальное время",
+        "name_ru": "Реальное время",
+        "name_en": "Real-time",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "maze",
         "name": "Лабиринт",
+        "name_ru": "Лабиринт",
+        "name_en": "Maze",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "fantasy",
         "name": "Фэнтези",
+        "name_ru": "Фэнтези",
+        "name_en": "Fantasy",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "fighting",
         "name": "Драки / Сражения",
+        "name_ru": "Драки / Сражения",
+        "name_en": "Fighting",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "science-fiction",
         "name": "Научная фантастика",
+        "name_ru": "Научная фантастика",
+        "name_en": "Science Fiction",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "territory-building",
         "name": "Захват территорий",
+        "name_ru": "Захват территорий",
+        "name_en": "Territory Building",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "economic",
         "name": "Экономическая",
+        "name_ru": "Экономическая",
+        "name_en": "Economic",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "trains",
         "name": "Поезда",
+        "name_ru": "Поезда",
+        "name_en": "Trains",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "murder-mystery",
         "name": "Убийство / Тайна",
+        "name_ru": "Убийство / Тайна",
+        "name_en": "Murder / Mystery",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "deduction",
         "name": "Дедукция",
+        "name_ru": "Дедукция",
+        "name_en": "Deduction",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "medieval",
         "name": "Средневековье",
+        "name_ru": "Средневековье",
+        "name_en": "Medieval",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "bluffing",
         "name": "Блеф",
+        "name_ru": "Блеф",
+        "name_en": "Bluffing",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "farming",
         "name": "Фермерство",
+        "name_ru": "Фермерство",
+        "name_en": "Farming",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "renaissance",
         "name": "Ренессанс",
+        "name_ru": "Ренессанс",
+        "name_en": "Renaissance",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "abstract-strategy",
         "name": "Абстрактная стратегия",
+        "name_ru": "Абстрактная стратегия",
+        "name_en": "Abstract Strategy",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "industry-manufacturing",
         "name": "Промышленность / Производство",
+        "name_ru": "Промышленность / Производство",
+        "name_en": "Industry / Manufacturing",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "transportation",
         "name": "Транспорт",
+        "name_ru": "Транспорт",
+        "name_en": "Transportation",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "post-napoleonic",
         "name": "Пост-наполеоновский период",
+        "name_ru": "Пост-наполеоновский период",
+        "name_en": "Post-Napoleonic",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "age-of-reason",
         "name": "Эпоха Просвещения",
+        "name_ru": "Эпоха Просвещения",
+        "name_en": "Age of Reason",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "american-west",
         "name": "Дикий Запад",
+        "name_ru": "Дикий Запад",
+        "name_en": "American West",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "city-building",
         "name": "Градостроение",
+        "name_ru": "Градостроение",
+        "name_en": "City Building",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "civilization",
         "name": "Цивилизация",
+        "name_ru": "Цивилизация",
+        "name_en": "Civilization",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "ancient",
         "name": "Древний мир",
+        "name_ru": "Древний мир",
+        "name_en": "Ancient",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "party-game",
         "name": "Патигейм",
+        "name_ru": "Патигейм",
+        "name_en": "Party Game",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "humor",
         "name": "Юмор",
+        "name_ru": "Юмор",
+        "name_en": "Humor",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "movies-tv-radio-theme",
         "name": "Кино / ТВ / Радио",
+        "name_ru": "Кино / ТВ / Радио",
+        "name_en": "Movies / TV / Radio theme",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "political",
         "name": "Политика",
+        "name_ru": "Политика",
+        "name_en": "Political",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "novel-based",
         "name": "По роману",
+        "name_ru": "По роману",
+        "name_en": "Novel-based",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "print-play",
         "name": "Print & Play",
+        "name_ru": "Print & Play",
+        "name_en": "Print & Play",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "educational",
         "name": "Образовательная",
+        "name_ru": "Образовательная",
+        "name_en": "Educational",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "negotiation",
         "name": "Переговоры",
+        "name_ru": "Переговоры",
+        "name_en": "Negotiation",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "wargame",
         "name": "Варгейм",
+        "name_ru": "Варгейм",
+        "name_en": "Wargame",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "mythology",
         "name": "Мифология",
+        "name_ru": "Мифология",
+        "name_en": "Mythology",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "adventure",
         "name": "Приключения",
+        "name_ru": "Приключения",
+        "name_en": "Adventure",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "spies-secret-agents",
         "name": "Шпионы / Секретные агенты",
+        "name_ru": "Шпионы / Секретные агенты",
+        "name_en": "Spies / Secret Agents",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "word-game",
         "name": "Словесная игра",
+        "name_ru": "Словесная игра",
+        "name_en": "Word Game",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "miniatures",
         "name": "Миниатюры",
+        "name_ru": "Миниатюры",
+        "name_en": "Miniatures",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "mafia",
         "name": "Мафия",
+        "name_ru": "Мафия",
+        "name_en": "Mafia",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "puzzle",
         "name": "Головоломка",
+        "name_ru": "Головоломка",
+        "name_en": "Puzzle",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "mature-adult",
         "name": "Для взрослых",
+        "name_ru": "Для взрослых",
+        "name_en": "Mature / Adult",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "horror",
         "name": "Ужасы",
+        "name_ru": "Ужасы",
+        "name_en": "Horror",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "aviation-flight",
         "name": "Авиация / Полёт",
+        "name_ru": "Авиация / Полёт",
+        "name_en": "Aviation / Flight",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "pirates",
         "name": "Пираты",
+        "name_ru": "Пираты",
+        "name_en": "Pirates",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "nautical",
         "name": "Морская тематика",
+        "name_ru": "Морская тематика",
+        "name_en": "Nautical",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "trivia",
         "name": "Викторина",
+        "name_ru": "Викторина",
+        "name_en": "Trivia",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "video-game-theme",
         "name": "Видеоигры",
+        "name_ru": "Видеоигры",
+        "name_en": "Video Game Theme",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "prehistoric",
         "name": "Доисторический период",
+        "name_ru": "Доисторический период",
+        "name_en": "Prehistoric",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "medical",
         "name": "Медицина",
+        "name_ru": "Медицина",
+        "name_en": "Medical",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "travel",
         "name": "Путешествия",
+        "name_ru": "Путешествия",
+        "name_en": "Travel",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "space-exploration",
         "name": "Космос",
+        "name_ru": "Космос",
+        "name_en": "Space Exploration",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "memory",
         "name": "Память",
+        "name_ru": "Память",
+        "name_en": "Memory",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       },
       {
         "slug": "number",
         "name": "Числа",
+        "name_ru": "Числа",
+        "name_en": "Number",
         "icon": "",
-        "description": ""
+        "description": "",
+        "description_ru": "",
+        "description_en": "None"
       }
     ],
     "tags": [
       {
         "slug": "contracts",
         "name": "Контракты",
+        "name_ru": "Контракты",
+        "name_en": "Contracts",
         "icon": ""
       },
       {
         "slug": "end-game-bonuses",
         "name": "Бонусы в конце игры",
+        "name_ru": "Бонусы в конце игры",
+        "name_en": "End Game Bonuses",
         "icon": ""
       },
       {
         "slug": "grid-coverage",
         "name": "Покрытие сетки",
+        "name_ru": "Покрытие сетки",
+        "name_en": "Grid Coverage",
         "icon": ""
       },
       {
         "slug": "hand-management",
         "name": "Управление картами",
+        "name_ru": "Управление картами",
+        "name_en": "Hand Management",
         "icon": ""
       },
       {
         "slug": "events",
         "name": "События",
+        "name_ru": "События",
+        "name_en": "Events",
         "icon": ""
       },
       {
         "slug": "open-drafting",
         "name": "Открытый драфт",
+        "name_ru": "Открытый драфт",
+        "name_en": "Open Drafting",
         "icon": ""
       },
       {
         "slug": "income",
         "name": "Доход",
+        "name_ru": "Доход",
+        "name_en": "Income",
         "icon": ""
       },
       {
         "slug": "simulation",
         "name": "Симуляция",
+        "name_ru": "Симуляция",
+        "name_en": "Simulation",
         "icon": ""
       },
       {
         "slug": "worker-placement",
         "name": "Размещение работников",
+        "name_ru": "Размещение работников",
+        "name_en": "Worker Placement",
         "icon": ""
       },
       {
         "slug": "variable-set-up",
         "name": "Переменная подготовка",
+        "name_ru": "Переменная подготовка",
+        "name_en": "Variable Set-up",
         "icon": ""
       },
       {
         "slug": "betting-and-bluffing",
         "name": "Ставки и блеф",
+        "name_ru": "Ставки и блеф",
+        "name_en": "Betting and Bluffing",
         "icon": ""
       },
       {
         "slug": "roll-spin-and-move",
         "name": "Брось и двигайся",
+        "name_ru": "Брось и двигайся",
+        "name_en": "Roll / Spin and Move",
         "icon": ""
       },
       {
         "slug": "track-movement",
         "name": "Движение по треку",
+        "name_ru": "Движение по треку",
+        "name_en": "Track Movement",
         "icon": ""
       },
       {
         "slug": "pattern-recognition",
         "name": "Распознавание образов",
+        "name_ru": "Распознавание образов",
+        "name_en": "Pattern Recognition",
         "icon": ""
       },
       {
         "slug": "set-collection",
         "name": "Сет-коллекция",
+        "name_ru": "Сет-коллекция",
+        "name_en": "Set Collection",
         "icon": ""
       },
       {
         "slug": "cooperative-game",
         "name": "Кооперативная игра",
+        "name_ru": "Кооперативная игра",
+        "name_en": "Cooperative Game",
         "icon": ""
       },
       {
         "slug": "grid-movement",
         "name": "Движение по сетке",
+        "name_ru": "Движение по сетке",
+        "name_en": "Grid Movement",
         "icon": ""
       },
       {
         "slug": "communication-limits",
         "name": "Ограничения общения",
+        "name_ru": "Ограничения общения",
+        "name_en": "Communication Limits",
         "icon": ""
       },
       {
         "slug": "map-addition",
         "name": "Добавление карты",
+        "name_ru": "Добавление карты",
+        "name_en": "Map Addition",
         "icon": ""
       },
       {
         "slug": "elapsed-real-time-ending",
         "name": "Окончание по таймеру",
+        "name_ru": "Окончание по таймеру",
+        "name_en": "Elapsed Real Time Ending",
         "icon": ""
       },
       {
         "slug": "card-play-conflict-resolution",
         "name": "Разрешение картами",
+        "name_ru": "Разрешение картами",
+        "name_en": "Card Play Conflict Resolution",
         "icon": ""
       },
       {
         "slug": "force-commitment",
         "name": "Принудительное обязательство",
+        "name_ru": "Принудительное обязательство",
+        "name_en": "Force Commitment",
         "icon": ""
       },
       {
         "slug": "area-majority-influence",
         "name": "Большинство / Влияние",
+        "name_ru": "Большинство / Влияние",
+        "name_en": "Area Majority / Influence",
         "icon": ""
       },
       {
         "slug": "dice-rolling",
         "name": "Бросок кубиков",
+        "name_ru": "Бросок кубиков",
+        "name_en": "Dice Rolling",
         "icon": ""
       },
       {
         "slug": "area-movement",
         "name": "Перемещение по областям",
+        "name_ru": "Перемещение по областям",
+        "name_en": "Area Movement",
         "icon": ""
       },
       {
         "slug": "increase-value-of-unchosen-resources",
         "name": "Рост ценности ресурсов",
+        "name_ru": "Рост ценности ресурсов",
+        "name_en": "Increase Value of Unchosen Resources",
         "icon": ""
       },
       {
         "slug": "hidden-victory-points",
         "name": "Скрытые победные очки",
+        "name_ru": "Скрытые победные очки",
+        "name_en": "Hidden Victory Points",
         "icon": ""
       },
       {
         "slug": "connections",
         "name": "Соединения",
+        "name_ru": "Соединения",
+        "name_en": "Connections",
         "icon": ""
       },
       {
         "slug": "network-and-route-building",
         "name": "Построение сетей и маршрутов",
+        "name_ru": "Построение сетей и маршрутов",
+        "name_en": "Network and Route Building",
         "icon": ""
       },
       {
         "slug": "deduction",
         "name": "Дедукция",
+        "name_ru": "Дедукция",
+        "name_en": "Deduction",
         "icon": ""
       },
       {
         "slug": "scenario-mission-campaign-game",
         "name": "Сценарий / Кампания",
+        "name_ru": "Сценарий / Кампания",
+        "name_en": "Scenario / Mission / Campaign Game",
         "icon": ""
       },
       {
         "slug": "solo-solitaire-game",
         "name": "Соло / Пасьянс",
+        "name_ru": "Соло / Пасьянс",
+        "name_en": "Solo / Solitaire Game",
         "icon": ""
       },
       {
         "slug": "delayed-purchase",
         "name": "Отложенная покупка",
+        "name_ru": "Отложенная покупка",
+        "name_en": "Delayed Purchase",
         "icon": ""
       },
       {
         "slug": "deck-bag-and-pool-building",
         "name": "Построение колоды / пула",
+        "name_ru": "Построение колоды / пула",
+        "name_en": "Deck, Bag, and Pool Building",
         "icon": ""
       },
       {
         "slug": "finale-ending",
         "name": "Концовка-финал",
+        "name_ru": "Концовка-финал",
+        "name_en": "Finale Ending",
         "icon": ""
       },
       {
         "slug": "roles-with-asymmetric-information",
         "name": "Асимметричные роли",
+        "name_ru": "Асимметричные роли",
+        "name_en": "Roles with Asymmetric Information",
         "icon": ""
       },
       {
         "slug": "simultaneous-action-selection",
         "name": "Одновременный выбор действий",
+        "name_ru": "Одновременный выбор действий",
+        "name_en": "Simultaneous Action Selection",
         "icon": ""
       },
       {
         "slug": "team-based-game",
         "name": "Командная игра",
+        "name_ru": "Командная игра",
+        "name_en": "Team-Based Game",
         "icon": ""
       },
       {
         "slug": "hidden-roles",
         "name": "Скрытые роли",
+        "name_ru": "Скрытые роли",
+        "name_en": "Hidden Roles",
         "icon": ""
       },
       {
         "slug": "enclosure",
         "name": "Сектора / Ограждения",
+        "name_ru": "Сектора / Ограждения",
+        "name_en": "Enclosure",
         "icon": ""
       },
       {
         "slug": "closed-drafting",
         "name": "Закрытый драфт",
+        "name_ru": "Закрытый драфт",
+        "name_en": "Closed Drafting",
         "icon": ""
       },
       {
         "slug": "automatic-resource-growth",
         "name": "Автоматический рост ресурсов",
+        "name_ru": "Автоматический рост ресурсов",
+        "name_en": "Automatic Resource Growth",
         "icon": ""
       },
       {
         "slug": "chaining",
         "name": "Цепочки",
+        "name_ru": "Цепочки",
+        "name_en": "Chaining",
         "icon": ""
       },
       {
         "slug": "pattern-building",
         "name": "Построение узоров",
+        "name_ru": "Построение узоров",
+        "name_en": "Pattern Building",
         "icon": ""
       },
       {
         "slug": "take-that",
         "name": "Удар по сопернику",
+        "name_ru": "Удар по сопернику",
+        "name_en": "Take That",
         "icon": ""
       },
       {
         "slug": "variable-player-powers",
         "name": "Разные способности игроков",
+        "name_ru": "Разные способности игроков",
+        "name_en": "Variable Player Powers",
         "icon": ""
       },
       {
         "slug": "loans",
         "name": "Кредиты / Займы",
+        "name_ru": "Кредиты / Займы",
+        "name_en": "Loans",
         "icon": ""
       },
       {
         "slug": "hot-potato",
         "name": "Горячая картошка",
+        "name_ru": "Горячая картошка",
+        "name_en": "Hot Potato",
         "icon": ""
       },
       {
         "slug": "player-elimination",
         "name": "Выбывание игроков",
+        "name_ru": "Выбывание игроков",
+        "name_en": "Player Elimination",
         "icon": ""
       },
       {
         "slug": "kill-steal",
         "name": "Перехват",
+        "name_ru": "Перехват",
+        "name_en": "Kill Steal",
         "icon": ""
       },
       {
         "slug": "melding-and-splaying",
         "name": "Слияние и раскрытие",
+        "name_ru": "Слияние и раскрытие",
+        "name_en": "Melding and Splaying",
         "icon": ""
       },
       {
         "slug": "multi-use-cards",
         "name": "Многофункциональные карты",
+        "name_ru": "Многофункциональные карты",
+        "name_en": "Multi-Use Cards",
         "icon": ""
       },
       {
         "slug": "move-through-deck",
         "name": "Движение по колоде",
+        "name_ru": "Движение по колоде",
+        "name_en": "Move Through Deck",
         "icon": ""
       },
       {
         "slug": "push-your-luck",
         "name": "Испытай удачу",
+        "name_ru": "Испытай удачу",
+        "name_en": "Push Your Luck",
         "icon": ""
       },
       {
         "slug": "voting",
         "name": "Голосование",
+        "name_ru": "Голосование",
+        "name_en": "Voting",
         "icon": ""
       },
       {
         "slug": "targeted-clues",
         "name": "Целевые подсказки",
+        "name_ru": "Целевые подсказки",
+        "name_en": "Targeted Clues",
         "icon": ""
       },
       {
         "slug": "singing",
         "name": "Пение",
+        "name_ru": "Пение",
+        "name_en": "Singing",
         "icon": ""
       },
       {
         "slug": "race",
         "name": "Гонка / Наперегонки",
+        "name_ru": "Гонка / Наперегонки",
+        "name_en": "Race",
         "icon": ""
       },
       {
         "slug": "storytelling",
         "name": "Рассказывание историй",
+        "name_ru": "Рассказывание историй",
+        "name_en": "Storytelling",
         "icon": ""
       },
       {
         "slug": "die-icon-resolution",
         "name": "Значки на кубиках",
+        "name_ru": "Значки на кубиках",
+        "name_en": "Die Icon Resolution",
         "icon": ""
       },
       {
         "slug": "hexagon-grid",
         "name": "Шестиугольная сетка",
+        "name_ru": "Шестиугольная сетка",
+        "name_en": "Hexagon Grid",
         "icon": ""
       },
       {
         "slug": "action-drafting",
         "name": "Драфт действий",
+        "name_ru": "Драфт действий",
+        "name_en": "Action Drafting",
         "icon": ""
       },
       {
         "slug": "variable-phase-order",
         "name": "Переменный порядок фаз",
+        "name_ru": "Переменный порядок фаз",
+        "name_en": "Variable Phase Order",
         "icon": ""
       },
       {
         "slug": "action-points",
         "name": "Очки действий",
+        "name_ru": "Очки действий",
+        "name_en": "Action Points",
         "icon": ""
       },
       {
         "slug": "movement-points",
         "name": "Очки передвижения",
+        "name_ru": "Очки передвижения",
+        "name_en": "Movement Points",
         "icon": ""
       },
       {
         "slug": "memory",
         "name": "Память",
+        "name_ru": "Память",
+        "name_en": "Memory",
         "icon": ""
       },
       {
         "slug": "action-retrieval",
         "name": "Возврат действий",
+        "name_ru": "Возврат действий",
+        "name_en": "Action Retrieval",
         "icon": ""
       },
       {
         "slug": "action-queue",
         "name": "Очередь действий",
+        "name_ru": "Очередь действий",
+        "name_en": "Action Queue",
         "icon": ""
       },
       {
         "slug": "once-per-game-abilities",
         "name": "Способности раз за партию",
+        "name_ru": "Способности раз за партию",
+        "name_en": "Once-Per-Game Abilities",
         "icon": ""
       },
       {
         "slug": "modular-board",
         "name": "Модульное поле",
+        "name_ru": "Модульное поле",
+        "name_en": "Modular Board",
         "icon": ""
       },
       {
         "slug": "king-of-the-hill",
         "name": "Царь горы",
+        "name_ru": "Царь горы",
+        "name_en": "King of the Hill",
         "icon": ""
       },
       {
         "slug": "acting",
         "name": "Актёрская игра",
+        "name_ru": "Актёрская игра",
+        "name_en": "Acting",
         "icon": ""
       },
       {
         "slug": "negotiation",
         "name": "Переговоры",
+        "name_ru": "Переговоры",
+        "name_en": "Negotiation",
         "icon": ""
       },
       {
         "slug": "programmed-movement",
         "name": "Программирование ходов",
+        "name_ru": "Программирование ходов",
+        "name_en": "Programmed Movement",
         "icon": ""
       },
       {
         "slug": "paper-and-pencil",
         "name": "Бумага и карандаш",
+        "name_ru": "Бумага и карандаш",
+        "name_en": "Paper-and-Pencil",
         "icon": ""
       },
       {
         "slug": "traitor-game",
         "name": "Предатель",
+        "name_ru": "Предатель",
+        "name_en": "Traitor Game",
         "icon": ""
       },
       {
         "slug": "role-playing",
         "name": "Ролевая игра",
+        "name_ru": "Ролевая игра",
+        "name_en": "Role Playing",
         "icon": ""
       },
       {
         "slug": "point-to-point-movement",
         "name": "Движение от точки к точке",
+        "name_ru": "Движение от точки к точке",
+        "name_en": "Point to Point Movement",
         "icon": ""
       },
       {
         "slug": "square-grid",
         "name": "Квадратная сетка",
+        "name_ru": "Квадратная сетка",
+        "name_en": "Square Grid",
         "icon": ""
       },
       {
         "slug": "lose-a-turn",
         "name": "Пропуск хода",
+        "name_ru": "Пропуск хода",
+        "name_en": "Lose a Turn",
         "icon": ""
       },
       {
         "slug": "prisoners-dilemma",
         "name": "Дилемма заключённого",
+        "name_ru": "Дилемма заключённого",
+        "name_en": "Prisoner's Dilemma",
         "icon": ""
       },
       {
         "slug": "campaign-battle-card-driven",
         "name": "Карточная кампания / бой",
+        "name_ru": "Карточная кампания / бой",
+        "name_en": "Campaign / Battle Card Driven",
         "icon": ""
       },
       {
         "slug": "tile-placement",
         "name": "Размещение плиток",
+        "name_ru": "Размещение плиток",
+        "name_en": "Tile Placement",
         "icon": ""
       },
       {
         "slug": "turn-order-claim-action",
         "name": "Захват очереди хода",
+        "name_ru": "Захват очереди хода",
+        "name_en": "Turn Order: Claim Action",
         "icon": ""
       },
       {
         "slug": "action-event",
         "name": "Действие / Событие",
+        "name_ru": "Действие / Событие",
+        "name_en": "Action / Event",
         "icon": ""
       },
       {
         "slug": "auction-bidding",
         "name": "Аукцион / Торги",
+        "name_ru": "Аукцион / Торги",
+        "name_en": "Auction / Bidding",
         "icon": ""
       },
       {
         "slug": "pick-up-and-deliver",
         "name": "Забрать и доставить",
+        "name_ru": "Забрать и доставить",
+        "name_en": "Pick-up and Deliver",
         "icon": ""
       },
       {
         "slug": "cube-tower",
         "name": "Кубическая башня",
+        "name_ru": "Кубическая башня",
+        "name_en": "Cube Tower",
         "icon": ""
       },
       {
         "slug": "mancala",
         "name": "Манкала",
+        "name_ru": "Манкала",
+        "name_en": "Mancala",
         "icon": ""
       },
       {
         "slug": "market",
         "name": "Рынок",
+        "name_ru": "Рынок",
+        "name_en": "Market",
         "icon": ""
       },
       {
         "slug": "rock-paper-scissors",
         "name": "Камень-ножницы-бумага",
+        "name_ru": "Камень-ножницы-бумага",
+        "name_en": "Rock-Paper-Scissors",
         "icon": ""
       },
       {
         "slug": "hidden-movement",
         "name": "Скрытое перемещение",
+        "name_ru": "Скрытое перемещение",
+        "name_en": "Hidden Movement",
         "icon": ""
       },
       {
         "slug": "resource-to-move",
         "name": "Ресурс для перемещения",
+        "name_ru": "Ресурс для перемещения",
+        "name_en": "Resource to Move",
         "icon": ""
       },
       {
         "slug": "bingo",
         "name": "Бинго",
+        "name_ru": "Бинго",
+        "name_en": "Bingo",
         "icon": ""
       },
       {
         "slug": "auction-dutch",
         "name": "Аукцион: Голландский",
+        "name_ru": "Аукцион: Голландский",
+        "name_en": "Auction: Dutch",
         "icon": ""
       },
       {
         "slug": "layering",
         "name": "Наслоение",
+        "name_ru": "Наслоение",
+        "name_en": "Layering",
         "icon": ""
       },
       {
         "slug": "tags",
         "name": "Теги",
+        "name_ru": "Теги",
+        "name_en": "Tags",
         "icon": ""
       },
       {
         "slug": "auction-sealed-bid",
         "name": "Аукцион: Закрытые ставки",
+        "name_ru": "Аукцион: Закрытые ставки",
+        "name_en": "Auction: Sealed Bid",
         "icon": ""
       },
       {
         "slug": "advantage-token",
         "name": "Жетон преимущества",
+        "name_ru": "Жетон преимущества",
+        "name_en": "Advantage Token",
         "icon": ""
       },
       {
         "slug": "alliances",
         "name": "Альянсы",
+        "name_ru": "Альянсы",
+        "name_en": "Alliances",
         "icon": ""
       },
       {
         "slug": "random-production",
         "name": "Случайное производство",
+        "name_ru": "Случайное производство",
+        "name_en": "Random Production",
         "icon": ""
       },
       {
         "slug": "three-dimensional-movement",
         "name": "Трёхмерное движение",
+        "name_ru": "Трёхмерное движение",
+        "name_en": "Three Dimensional Movement",
         "icon": ""
       },
       {
         "slug": "trading",
         "name": "Торговля",
+        "name_ru": "Торговля",
+        "name_en": "Trading",
         "icon": ""
       },
       {
         "slug": "follow",
         "name": "Следование",
+        "name_ru": "Следование",
+        "name_en": "Follow",
         "icon": ""
       },
       {
         "slug": "ordering",
         "name": "Упорядочивание",
+        "name_ru": "Упорядочивание",
+        "name_en": "Ordering",
         "icon": ""
       },
       {
         "slug": "score-and-reset-game",
         "name": "Сброс и пересчёт",
+        "name_ru": "Сброс и пересчёт",
+        "name_en": "Score-and-Reset Game",
         "icon": ""
       }
     ],
@@ -912,6 +1372,8 @@
       {
         "slug": "concept",
         "title": "Концепт",
+        "title_ru": "Концепт",
+        "title_en": "Concept",
         "categories": [
           "deduction",
           "party-game",
@@ -923,6 +1385,8 @@
           "communication-limits"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -938,6 +1402,8 @@
       {
         "slug": "cryptid",
         "title": "Криптид",
+        "title_ru": "Криптид",
+        "title_en": "Cryptid",
         "categories": [
           "deduction"
         ],
@@ -949,6 +1415,8 @@
           "pattern-recognition"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -964,6 +1432,8 @@
       {
         "slug": "king-of-tokyo",
         "title": "Повелитель Токио",
+        "title_ru": "Повелитель Токио",
+        "title_en": "King of Tokyo",
         "categories": [
           "dice",
           "fighting",
@@ -978,6 +1448,8 @@
           "die-icon-resolution"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -993,6 +1465,8 @@
       {
         "slug": "svintus",
         "title": "Свинтус",
+        "title_ru": "Свинтус",
+        "title_en": "Svintus",
         "categories": [
           "card-game",
           "childrens-game",
@@ -1003,6 +1477,8 @@
           "hand-management"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1018,6 +1494,8 @@
       {
         "slug": "camel-up",
         "title": "Camel Up",
+        "title_ru": "Camel Up",
+        "title_en": "Camel Up",
         "categories": [
           "arabian",
           "dice",
@@ -1032,6 +1510,8 @@
           "roll-spin-and-move"
         ],
         "description": "Какой верблюд победит? Делайте ставки в этой забавной семейной игре о верблюжьих бегах.",
+        "description_ru": "Какой верблюд победит? Делайте ставки в этой забавной семейной игре о верблюжьих бегах.",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "/media/games/cover_camel-up.jpg",
@@ -1047,6 +1527,8 @@
       {
         "slug": "colt-express",
         "title": "Кольт Экспресс",
+        "title_ru": "Кольт Экспресс",
+        "title_en": "Colt Express",
         "categories": [
           "fighting",
           "trains",
@@ -1060,6 +1542,8 @@
           "programmed-movement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1075,6 +1559,8 @@
       {
         "slug": "codenames",
         "title": "Коднеймс",
+        "title_ru": "Коднеймс",
+        "title_en": "Codenames",
         "categories": [
           "card-game",
           "deduction",
@@ -1090,6 +1576,8 @@
           "communication-limits"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1105,6 +1593,8 @@
       {
         "slug": "secret-hitler",
         "title": "Секретный Гитлер",
+        "title_ru": "Секретный Гитлер",
+        "title_en": "Secret Hitler",
         "categories": [
           "card-game",
           "deduction",
@@ -1120,6 +1610,8 @@
           "player-elimination"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1135,6 +1627,8 @@
       {
         "slug": "the-resistance-avalon",
         "title": "Авалон",
+        "title_ru": "Авалон",
+        "title_en": "The Resistance: Avalon",
         "categories": [
           "card-game",
           "fantasy",
@@ -1150,6 +1644,8 @@
           "simultaneous-action-selection"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1165,6 +1661,8 @@
       {
         "slug": "dany",
         "title": "Дэни. Голоса в голове",
+        "title_ru": "Дэни. Голоса в голове",
+        "title_en": "Dany. Voices in the Head",
         "categories": [
           "deduction",
           "bluffing",
@@ -1175,6 +1673,8 @@
           "hidden-roles"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1190,6 +1690,8 @@
       {
         "slug": "one-night-ultimate-werewolf",
         "title": "Одна ночь с оборотнем",
+        "title_ru": "Одна ночь с оборотнем",
+        "title_en": "One Night Ultimate Werewolf",
         "categories": [
           "card-game",
           "deduction",
@@ -1204,6 +1706,8 @@
           "player-elimination"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1219,6 +1723,8 @@
       {
         "slug": "spyfall",
         "title": "Спайфолл",
+        "title_ru": "Спайфолл",
+        "title_en": "Spyfall",
         "categories": [
           "deduction",
           "bluffing",
@@ -1231,6 +1737,8 @@
           "voting"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1246,6 +1754,8 @@
       {
         "slug": "citadels",
         "title": "Цитадели",
+        "title_ru": "Цитадели",
+        "title_en": null,
         "categories": [
           "card-game",
           "fantasy",
@@ -1262,6 +1772,8 @@
           "action-drafting"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1277,6 +1789,8 @@
       {
         "slug": "bang",
         "title": "Бэнг!",
+        "title_ru": "Бэнг!",
+        "title_en": "Bang!",
         "categories": [
           "card-game",
           "fantasy",
@@ -1292,6 +1806,8 @@
           "player-elimination"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1307,6 +1823,8 @@
       {
         "slug": "saboteur",
         "title": "Саботажник",
+        "title_ru": "Саботажник",
+        "title_en": "Saboteur",
         "categories": [
           "card-game",
           "deduction",
@@ -1319,6 +1837,8 @@
           "tile-placement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1334,6 +1854,8 @@
       {
         "slug": "feed-the-kraken",
         "title": "Feed the Kraken",
+        "title_ru": "Feed the Kraken",
+        "title_en": null,
         "categories": [
           "fantasy",
           "deduction",
@@ -1350,6 +1872,8 @@
           "player-elimination"
         ],
         "description": "Игроки стараются надеть правильный носок как можно скорее.",
+        "description_ru": "Игроки стараются надеть правильный носок как можно скорее.",
+        "description_en": "Players attempt to the correct sock as soon as possible.",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1365,6 +1889,8 @@
       {
         "slug": "kemet",
         "title": "Кемет",
+        "title_ru": "Кемет",
+        "title_en": null,
         "categories": [
           "fantasy",
           "ancient",
@@ -1379,6 +1905,8 @@
           "card-play-conflict-resolution"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1394,6 +1922,8 @@
       {
         "slug": "agricola",
         "title": "Агрикола",
+        "title_ru": "Агрикола",
+        "title_en": null,
         "categories": [
           "economic",
           "farming",
@@ -1407,6 +1937,8 @@
           "increase-value-of-unchosen-resources"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1422,6 +1954,8 @@
       {
         "slug": "dune-imperium",
         "title": "Дюна: Империум",
+        "title_ru": "Дюна: Империум",
+        "title_en": "Dune: Imperium",
         "categories": [
           "fighting",
           "science-fiction",
@@ -1435,6 +1969,8 @@
           "variable-player-powers"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1450,9 +1986,13 @@
       {
         "slug": "just-a-moment-19",
         "title": "Дюна: Апрайзинг",
+        "title_ru": "Дюна: Апрайзинг",
+        "title_en": null,
         "categories": [],
         "tags": [],
         "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nКатегория\nСценарий/Приключение/Модуль\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nНа основе класса (пилот, волшебник, ученый и т. д.)\nКости (Разные)\nНа основе уровня (зарабатывайте XP и повышайте уровень)\nНа основе расы (раса/вид игрока влияет на игровой процесс)\n\nИз аннотации издателя:\n\nЭта кампания рассчитана на уровни персонажей: с 5-го по 10-й. Он имеет\nлогово дракона с грибным Зеленым Драконом, обслуживаемым Хаотическим Мицелианцем\nкультисты и другие грибные опасности. Это высокий риск, высокая награда.\n\nКампания Drops представляет собой нейтральные локации и короткие приключения, предназначенные для мгновенного включения в вашу кампанию. Этот Drop Campaign совместим\nс Old School Essentials и другими ретро-клонами игр B/X.\n\nДракон Аманитус представляет необычное испытание для ваших игроков.\nХотя некоторые игроки могут быть знакомы с основными способностями Зеленого\nДракон, это древний змей. Он разработал несколько уникальных способностей\nи собрал по пути несколько последователей. Его логово тоже опасно. Взятый\nвместе искатели приключений сталкиваются с опасным испытанием.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор товара BGG: 380007",
+        "description_ru": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nКатегория\nСценарий/Приключение/Модуль\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nНа основе класса (пилот, волшебник, ученый и т. д.)\nКости (Разные)\nНа основе уровня (зарабатывайте XP и повышайте уровень)\nНа основе расы (раса/вид игрока влияет на игровой процесс)\n\nИз аннотации издателя:\n\nЭта кампания рассчитана на уровни персонажей: с 5-го по 10-й. Он имеет\nлогово дракона с грибным Зеленым Драконом, обслуживаемым Хаотическим Мицелианцем\nкультисты и другие грибные опасности. Это высокий риск, высокая награда.\n\nКампания Drops представляет собой нейтральные локации и короткие приключения, предназначенные для мгновенного включения в вашу кампанию. Этот Drop Campaign совместим\nс Old School Essentials и другими ретро-клонами игр B/X.\n\nДракон Аманитус представляет необычное испытание для ваших игроков.\nХотя некоторые игроки могут быть знакомы с основными способностями Зеленого\nДракон, это древний змей. Он разработал несколько уникальных способностей\nи собрал по пути несколько последователей. Его логово тоже опасно. Взятый\nвместе искатели приключений сталкиваются с опасным испытанием.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор товара BGG: 380007",
+        "description_en": "CLASSIFICATION\t\nEdit\nGenre\nFantasy\nCategory\nScenario / Adventure / Module\nMechanic\nAttribute/Stat Based (STR, CON, PER, etc)\nClass Based (Pilot, Wizard, Scientist, etc)\nDice (Various)\nLevel Based (Earn XP and level up)\nRace Based (Player Race/Species affects gameplay)\n\nFrom the publishers blurb:\n\nThis Campaign Drop is designed for character levels: 5th to 10th. It features\na dragon’s lair with a fungal Green Dragon served by Chaotic Mycelian\ncultists and other fungal dangers. It is high risk, high reward.\n\nCampaign Drops are setting neutral locations and short adventures designed for instant inclusion in your campaign. This Campaign Drop is compatible\nwith Old School Essentials and other Retro-Clones of B/X gaming.\n\nAmanitus the dragon presents for an unusual challenge to your players.\nWhile some players might be familiar with the basic abilities of a Green\nDragon, this is an ancient wyrm. He’s developed a few unique capabilities\nand gathered a few followers along the way. His lair is hazardous too. Taken\ntogether, the adventurers face a dangerous challenge.\n\nOFFICIAL LINKS\nPropose Official Link\nCOMMUNITY STATS\nOwn:\n0\nWishlist:\n0\nFor Trade: \nFind For Trade Matches\n0\nWant In Trade: \nFind Want in Trade Matches\n0\nHas Parts:\n0\nWants Parts:\n0\nSee All Stats\nBGG Item ID: 380007",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1468,6 +2008,8 @@
       {
         "slug": "root",
         "title": "Корни",
+        "title_ru": "Корни",
+        "title_en": null,
         "categories": [
           "fantasy",
           "territory-building",
@@ -1483,6 +2025,8 @@
           "action-queue"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1498,6 +2042,8 @@
       {
         "slug": "civilization-a-new-dawn",
         "title": "Цивилизация",
+        "title_ru": "Цивилизация",
+        "title_en": null,
         "categories": [
           "exploration",
           "civilization",
@@ -1512,6 +2058,8 @@
           "increase-value-of-unchosen-resources"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1527,6 +2075,8 @@
       {
         "slug": "brass-birmingham",
         "title": "Брасс: Бирмингем",
+        "title_ru": "Брасс: Бирмингем",
+        "title_en": null,
         "categories": [
           "economic",
           "trains",
@@ -1543,6 +2093,8 @@
           "hand-management"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1558,6 +2110,8 @@
       {
         "slug": "black-rose-wars",
         "title": "Войны Черной Розы",
+        "title_ru": "Войны Черной Розы",
+        "title_en": null,
         "categories": [
           "fantasy",
           "bluffing",
@@ -1572,6 +2126,8 @@
           "action-queue"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1587,6 +2143,8 @@
       {
         "slug": "7-wonders",
         "title": "7 Wonders",
+        "title_ru": "7 Wonders",
+        "title_en": "7 Wonders",
         "categories": [
           "card-game",
           "economic",
@@ -1600,6 +2158,8 @@
           "simultaneous-action-selection"
         ],
         "description": "Собирайте карты, чтобы развивать свою древнюю цивилизацию и построить чудо света.",
+        "description_ru": "Собирайте карты, чтобы развивать свою древнюю цивилизацию и построить чудо света.",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1615,6 +2175,8 @@
       {
         "slug": "the-castles-of-burgundy",
         "title": "Замки Бургундии",
+        "title_ru": "Замки Бургундии",
+        "title_en": null,
         "categories": [
           "dice",
           "territory-building",
@@ -1628,6 +2190,8 @@
           "grid-coverage"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1643,6 +2207,8 @@
       {
         "slug": "everdell",
         "title": "Эверделл",
+        "title_ru": "Эверделл",
+        "title_en": "Everdell",
         "categories": [
           "fantasy",
           "city-building",
@@ -1656,6 +2222,8 @@
           "worker-placement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1671,6 +2239,8 @@
       {
         "slug": "dixit",
         "title": "Диксит",
+        "title_ru": "Диксит",
+        "title_en": "Dixit",
         "categories": [
           "fantasy",
           "party-game",
@@ -1682,6 +2252,8 @@
           "storytelling"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1697,6 +2269,8 @@
       {
         "slug": "imaginarium",
         "title": "Имаджинариум",
+        "title_ru": "Имаджинариум",
+        "title_en": "Imaginarium",
         "categories": [
           "fantasy",
           "party-game",
@@ -1707,6 +2281,8 @@
           "storytelling"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1722,6 +2298,8 @@
       {
         "slug": "azul",
         "title": "Азул",
+        "title_ru": "Азул",
+        "title_en": "Azul",
         "categories": [
           "renaissance",
           "abstract-strategy"
@@ -1733,6 +2311,8 @@
           "set-collection"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1748,6 +2328,8 @@
       {
         "slug": "azul-summer-pavilion",
         "title": "Азул: Летний Дворец",
+        "title_ru": "Азул: Летний Дворец",
+        "title_en": null,
         "categories": [
           "abstract-strategy",
           "puzzle"
@@ -1761,6 +2343,8 @@
           "turn-order-claim-action"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1776,6 +2360,8 @@
       {
         "slug": "azul-queens-garden",
         "title": "Азул: Сады королевы",
+        "title_ru": "Азул: Сады королевы",
+        "title_en": null,
         "categories": [
           "renaissance",
           "abstract-strategy",
@@ -1789,6 +2375,8 @@
           "turn-order-claim-action"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1804,6 +2392,8 @@
       {
         "slug": "cascadia",
         "title": "Каскадия",
+        "title_ru": "Каскадия",
+        "title_en": null,
         "categories": [
           "environmental",
           "animals"
@@ -1816,6 +2406,8 @@
           "end-game-bonuses"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1831,6 +2423,8 @@
       {
         "slug": "the-isle-of-cats",
         "title": "Остров кошек",
+        "title_ru": "Остров кошек",
+        "title_en": null,
         "categories": [
           "fantasy",
           "puzzle",
@@ -1846,6 +2440,8 @@
           "grid-coverage"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1861,6 +2457,8 @@
       {
         "slug": "wingspan",
         "title": "Крылья",
+        "title_ru": "Крылья",
+        "title_en": "Wingspan",
         "categories": [
           "economic",
           "educational",
@@ -1874,6 +2472,8 @@
           "variable-player-powers"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1889,6 +2489,8 @@
       {
         "slug": "paleo",
         "title": "Палео",
+        "title_ru": "Палео",
+        "title_en": null,
         "categories": [
           "card-game",
           "exploration",
@@ -1902,6 +2504,8 @@
           "deck-bag-and-pool-building"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1917,6 +2521,8 @@
       {
         "slug": "catan",
         "title": "Колонизаторы",
+        "title_ru": "Колонизаторы",
+        "title_en": "Catan",
         "categories": [
           "territory-building",
           "economic",
@@ -1930,6 +2536,8 @@
           "trading"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1945,6 +2553,8 @@
       {
         "slug": "unfathomable",
         "title": "Непостижимое",
+        "title_ru": "Непостижимое",
+        "title_en": null,
         "categories": [
           "fantasy",
           "deduction",
@@ -1961,6 +2571,8 @@
           "variable-player-powers"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -1976,6 +2588,8 @@
       {
         "slug": "inis",
         "title": "Иниш",
+        "title_ru": "Иниш",
+        "title_en": null,
         "categories": [
           "card-game",
           "exploration",
@@ -1991,6 +2605,8 @@
           "action-drafting"
         ],
         "description": "Добавить краткое описание",
+        "description_ru": "Добавить краткое описание",
+        "description_en": "Add a Brief Description",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2006,6 +2622,8 @@
       {
         "slug": "marrakesh",
         "title": "Марракеш",
+        "title_ru": "Марракеш",
+        "title_en": null,
         "categories": [
           "city-building"
         ],
@@ -2016,6 +2634,8 @@
           "simultaneous-action-selection"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2031,6 +2651,8 @@
       {
         "slug": "robinson-crusoe-adventures-on-the-cursed-island",
         "title": "Робинзон Крузо",
+        "title_ru": "Робинзон Крузо",
+        "title_en": null,
         "categories": [
           "exploration",
           "fighting",
@@ -2046,6 +2668,8 @@
           "action-queue"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2061,6 +2685,8 @@
       {
         "slug": "istanbul",
         "title": "Истанбул",
+        "title_ru": "Истанбул",
+        "title_en": null,
         "categories": [
           "economic"
         ],
@@ -2072,6 +2698,8 @@
           "contracts"
         ],
         "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nСерия\nГероические карты\nКатегория\nАксессуар (кубики, карты, ширмы, карты)\n\nИз аннотации издателя:\n\nEdgmoor Manor — это распечатанный план подземелья, совместимый с любой ролевой игрой/игрой Dungeon-Crawl. Его можно использовать как отдельную игровую доску или комбинировать с любым набором плиток того же масштаба.\n\nПоместье Эдгмур представляет собой план небольшого укрепленного усадебного дома (или небольшого замка) с оборонительной стеной и внутренним двором, а также небольшими постройками на территории. Поместье Эджмур представлено нетронутым, а также разрушенным и заросшим спустя столетия после его разрушения.\n\nПары карт можно было использовать независимо друг от друга или использовать в сценах «воспоминаний» или историях о путешествиях во времени.\n\nТакже в комплект входит набор полноразмерных изображений JPG с разрешением 300 точек на дюйм для печати плакатов или VTT.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nКод товара BGG: 154435",
+        "description_ru": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези\nСерия\nГероические карты\nКатегория\nАксессуар (кубики, карты, ширмы, карты)\n\nИз аннотации издателя:\n\nEdgmoor Manor — это распечатанный план подземелья, совместимый с любой ролевой игрой/игрой Dungeon-Crawl. Его можно использовать как отдельную игровую доску или комбинировать с любым набором плиток того же масштаба.\n\nПоместье Эдгмур представляет собой план небольшого укрепленного усадебного дома (или небольшого замка) с оборонительной стеной и внутренним двором, а также небольшими постройками на территории. Поместье Эджмур представлено нетронутым, а также разрушенным и заросшим спустя столетия после его разрушения.\n\nПары карт можно было использовать независимо друг от друга или использовать в сценах «воспоминаний» или историях о путешествиях во времени.\n\nТакже в комплект входит набор полноразмерных изображений JPG с разрешением 300 точек на дюйм для печати плакатов или VTT.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nКод товара BGG: 154435",
+        "description_en": "CLASSIFICATION\t\nEdit\nGenre\nFantasy\nSeries\nHeroic Maps\nCategory\nAccessory (dice, maps, screens, cards)\n\nFrom publisher blurb:\n\nEdgmoor Manor is a printable dungeon floorplan compatible with any RPG/Dungeon-Crawl game. It can be used as a standalone gameboard, or combined with any same-scale tileset.\n\nEdgmoor Manor shows the layout of a small fortified manor house (or small castle), with a defensive wall and courtyard, and small buildings in the grounds. Edgmoor Manor is presented intact, and also ruined and overgrown, centuries after it was destroyed.\n\nThe pairs of maps could be used independently of each other, or used in 'flashback' scenes or time-travelling stories.\n\nAlso included is a set of 300dpi full size jpgs, for poster printing or VTT.\n\nOFFICIAL LINKS\nPropose Official Link\nCOMMUNITY STATS\nOwn:\n0\nWishlist:\n0\nFor Trade: \nFind For Trade Matches\n0\nWant In Trade: \nFind Want in Trade Matches\n0\nHas Parts:\n0\nWants Parts:\n0\nSee All Stats\nBGG Item ID: 154435",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2087,6 +2715,8 @@
       {
         "slug": "among-cultists",
         "title": "Among Cultists",
+        "title_ru": "Among Cultists",
+        "title_en": "Among Cultists",
         "categories": [
           "card-game",
           "deduction",
@@ -2098,6 +2728,8 @@
           "hidden-roles"
         ],
         "description": "Игроки соревнуются, чтобы заработать как можно больше денег, прежде чем они умрут.",
+        "description_ru": "Игроки соревнуются, чтобы заработать как можно больше денег, прежде чем они умрут.",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2113,6 +2745,8 @@
       {
         "slug": "magic-maze",
         "title": "Magic Maze",
+        "title_ru": "Magic Maze",
+        "title_en": null,
         "categories": [
           "exploration",
           "real-time",
@@ -2127,6 +2761,8 @@
           "elapsed-real-time-ending"
         ],
         "description": "Молча сотрудничайте, чтобы ограбить лабиринт торгового центра, прежде чем истечет время.",
+        "description_ru": "Молча сотрудничайте, чтобы ограбить лабиринт торгового центра, прежде чем истечет время.",
+        "description_en": "Silently cooperate to rob a labyrinthine shopping mall before time runs out.",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2142,6 +2778,8 @@
       {
         "slug": "small-world",
         "title": "Small World",
+        "title_ru": "Small World",
+        "title_en": null,
         "categories": [
           "fantasy",
           "fighting",
@@ -2155,6 +2793,8 @@
           "increase-value-of-unchosen-resources"
         ],
         "description": "Управляйте одной фэнтезийной расой за другой, чтобы быстро распространиться по всей стране.",
+        "description_ru": "Управляйте одной фэнтезийной расой за другой, чтобы быстро распространиться по всей стране.",
+        "description_en": "Control one fantasy race after another to expand quickly throughout the land.",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2170,6 +2810,8 @@
       {
         "slug": "carcassonne",
         "title": "Каркассон",
+        "title_ru": "Каркассон",
+        "title_en": "Carcassonne",
         "categories": [
           "territory-building",
           "medieval",
@@ -2181,6 +2823,8 @@
           "set-collection"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2196,6 +2840,8 @@
       {
         "slug": "ticket-to-ride",
         "title": "Билет на поезд",
+        "title_ru": "Билет на поезд",
+        "title_en": "Ticket to Ride",
         "categories": [
           "economic",
           "trains",
@@ -2207,6 +2853,8 @@
           "set-collection"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2222,6 +2870,8 @@
       {
         "slug": "wyrmspan",
         "title": "Wyrmspan",
+        "title_ru": "Wyrmspan",
+        "title_en": null,
         "categories": [
           "card-game",
           "fantasy",
@@ -2235,6 +2885,8 @@
           "once-per-game-abilities"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2250,9 +2902,13 @@
       {
         "slug": "just-a-moment-48",
         "title": "Лоскутное королевство",
+        "title_ru": "Лоскутное королевство",
+        "title_en": null,
         "categories": [],
         "tags": [],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2268,6 +2924,8 @@
       {
         "slug": "fury-of-dracula",
         "title": "Ярость Дракулы",
+        "title_ru": "Ярость Дракулы",
+        "title_en": "Fury of Dracula",
         "categories": [
           "fighting",
           "deduction",
@@ -2282,6 +2940,8 @@
           "hidden-movement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2297,6 +2957,8 @@
       {
         "slug": "just-a-moment-50",
         "title": "Barenpark",
+        "title_ru": "Barenpark",
+        "title_en": null,
         "categories": [
           "expansion-for-base-game"
         ],
@@ -2307,6 +2969,8 @@
           "worker-placement"
         ],
         "description": "Дополнительные варианты подсчета очков в финале и случайные события раунда.",
+        "description_ru": "Дополнительные варианты подсчета очков в финале и случайные события раунда.",
+        "description_en": "Additional endgame scoring options and random round events.",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2322,6 +2986,8 @@
       {
         "slug": "munchkin",
         "title": "Манчкин",
+        "title_ru": "Манчкин",
+        "title_en": "Munchkin",
         "categories": [
           "card-game",
           "fantasy",
@@ -2335,6 +3001,8 @@
           "deck-bag-and-pool-building"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2350,6 +3018,8 @@
       {
         "slug": "cartographers",
         "title": "Картографы",
+        "title_ru": "Картографы",
+        "title_en": null,
         "categories": [
           "fantasy",
           "territory-building"
@@ -2362,6 +3032,8 @@
           "bingo"
         ],
         "description": "Добавить краткое описание",
+        "description_ru": "Добавить краткое описание",
+        "description_en": "Add a Brief Description",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2377,6 +3049,8 @@
       {
         "slug": "welcome-to-your-perfect-home",
         "title": "Welcome to Your Perfect Home",
+        "title_ru": "Welcome to Your Perfect Home",
+        "title_en": null,
         "categories": [
           "city-building"
         ],
@@ -2388,6 +3062,8 @@
           "contracts"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2403,6 +3079,8 @@
       {
         "slug": "diamant",
         "title": "Диамант",
+        "title_ru": "Диамант",
+        "title_en": null,
         "categories": [
           "card-game",
           "exploration",
@@ -2414,6 +3092,8 @@
           "push-your-luck"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2429,6 +3109,8 @@
       {
         "slug": "saboteur-the-lost-mines",
         "title": "Гномы-вредители: Древние шахты",
+        "title_ru": "Гномы-вредители: Древние шахты",
+        "title_en": null,
         "categories": [
           "card-game",
           "maze",
@@ -2440,6 +3122,8 @@
           "tile-placement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2455,6 +3139,8 @@
       {
         "slug": "scythe",
         "title": "Scythe",
+        "title_ru": "Scythe",
+        "title_en": null,
         "categories": [
           "fighting",
           "science-fiction",
@@ -2469,6 +3155,8 @@
           "contracts"
         ],
         "description": "Пять фракций соперничают за господство в раздираемой войной, наполненной роботами дизельпанковой Европе 1920-х годов.",
+        "description_ru": "Пять фракций соперничают за господство в раздираемой войной, наполненной роботами дизельпанковой Европе 1920-х годов.",
+        "description_en": "Five factions vie for dominance in a war-torn, mech-filled, dieselpunk 1920s Europe.",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2484,6 +3172,8 @@
       {
         "slug": "through-the-ages-a-new-story-of-civilization",
         "title": "Сквозь века",
+        "title_ru": "Сквозь века",
+        "title_en": null,
         "categories": [
           "card-game",
           "economic",
@@ -2497,6 +3187,8 @@
           "auction-dutch"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2512,6 +3204,8 @@
       {
         "slug": "terraforming-mars",
         "title": "Терраформирование Марса",
+        "title_ru": "Терраформирование Марса",
+        "title_en": "Terraforming Mars",
         "categories": [
           "science-fiction",
           "economic",
@@ -2526,6 +3220,8 @@
           "variable-player-powers"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2541,6 +3237,8 @@
       {
         "slug": "unconscious-mind",
         "title": "Unconscious Mind",
+        "title_ru": "Unconscious Mind",
+        "title_en": null,
         "categories": [
           "post-napoleonic",
           "medical"
@@ -2553,6 +3251,8 @@
           "contracts"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2568,6 +3268,8 @@
       {
         "slug": "evolution",
         "title": "Эволюция",
+        "title_ru": "Эволюция",
+        "title_en": null,
         "categories": [
           "environmental",
           "card-game",
@@ -2584,6 +3286,8 @@
           "push-your-luck"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2599,6 +3303,8 @@
       {
         "slug": "santa-monica",
         "title": "Санта-Моника",
+        "title_ru": "Санта-Моника",
+        "title_en": null,
         "categories": [
           "city-building",
           "travel"
@@ -2611,6 +3317,8 @@
           "tags"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2626,6 +3334,8 @@
       {
         "slug": "clank",
         "title": "Кланк!",
+        "title_ru": "Кланк!",
+        "title_en": "Clank!",
         "categories": [
           "exploration",
           "fantasy",
@@ -2639,6 +3349,8 @@
           "movement-points"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2654,6 +3366,8 @@
       {
         "slug": "arkham-horror",
         "title": "Ужас Аркхэма",
+        "title_ru": "Ужас Аркхэма",
+        "title_en": null,
         "categories": [
           "fighting",
           "novel-based",
@@ -2668,6 +3382,8 @@
           "cooperative-game"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2683,6 +3399,8 @@
       {
         "slug": "fallout",
         "title": "Фоллаут",
+        "title_ru": "Фоллаут",
+        "title_en": null,
         "categories": [
           "exploration",
           "science-fiction",
@@ -2697,6 +3415,8 @@
           "area-movement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2712,6 +3432,8 @@
       {
         "slug": "pandemic",
         "title": "Пандемия",
+        "title_ru": "Пандемия",
+        "title_en": "Pandemic",
         "categories": [
           "science-fiction",
           "deduction",
@@ -2724,6 +3446,8 @@
           "cooperative-game"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2739,6 +3463,8 @@
       {
         "slug": "underwater-cities",
         "title": "Подводные города",
+        "title_ru": "Подводные города",
+        "title_en": null,
         "categories": [
           "card-game",
           "science-fiction",
@@ -2754,6 +3480,8 @@
           "hand-management"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2769,6 +3497,8 @@
       {
         "slug": "fluxx",
         "title": "Fluxx",
+        "title_ru": "Fluxx",
+        "title_en": null,
         "categories": [
           "card-game"
         ],
@@ -2777,6 +3507,8 @@
           "hand-management"
         ],
         "description": "Играйте в карты и изменяйте правила этой постоянно меняющейся карточной игры!",
+        "description_ru": "Играйте в карты и изменяйте правила этой постоянно меняющейся карточной игры!",
+        "description_en": "Play cards and alter the rules in this ever changing card game!",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2792,6 +3524,8 @@
       {
         "slug": "bohnanza",
         "title": "Бонанза",
+        "title_ru": "Бонанза",
+        "title_en": null,
         "categories": [
           "card-game",
           "farming",
@@ -2805,6 +3539,8 @@
           "trading"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2820,6 +3556,8 @@
       {
         "slug": "carnegie",
         "title": "Carnegie",
+        "title_ru": "Carnegie",
+        "title_en": null,
         "categories": [
           "economic",
           "industry-manufacturing",
@@ -2833,6 +3571,8 @@
           "follow"
         ],
         "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези (Высокое Фэнтези)\nКатегория\nСправочник (правила/варианты улучшения игры)\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nКости (Разные)\nНа основе уровня (зарабатывайте XP и повышайте уровень)\nНа основе расы (раса/вид игрока влияет на игровой процесс)\nНа основе навыков (купить или получить навыки)\nСистема\nСистема следопыта\n\nИз аннотации издателя:\n\nСможешь ли ты это выкопать?!\n\nСуглинки — это новый предок второго издания ролевой игры Pathfinder. По форме похожие на кротов, суглинки имеют сильную связь с землей, и рост растений делает их естественными земледельцами, друидами и травниками. В этом полностью иллюстрированном PDF-файле, написанном опытным дизайнером второго издания Майклом Сэйром, представлены странствующие предки со всеми ролевыми примечаниями, предысторией и правилами игры (включая четыре наследия и 20 подвигов предков), необходимыми, чтобы сделать их интересной и всесторонней частью вашей кампании!\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор предмета BGG: 324447",
+        "description_ru": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nФэнтези (Высокое Фэнтези)\nКатегория\nСправочник (правила/варианты улучшения игры)\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nКости (Разные)\nНа основе уровня (зарабатывайте XP и повышайте уровень)\nНа основе расы (раса/вид игрока влияет на игровой процесс)\nНа основе навыков (купить или получить навыки)\nСистема\nСистема следопыта\n\nИз аннотации издателя:\n\nСможешь ли ты это выкопать?!\n\nСуглинки — это новый предок второго издания ролевой игры Pathfinder. По форме похожие на кротов, суглинки имеют сильную связь с землей, и рост растений делает их естественными земледельцами, друидами и травниками. В этом полностью иллюстрированном PDF-файле, написанном опытным дизайнером второго издания Майклом Сэйром, представлены странствующие предки со всеми ролевыми примечаниями, предысторией и правилами игры (включая четыре наследия и 20 подвигов предков), необходимыми, чтобы сделать их интересной и всесторонней частью вашей кампании!\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n0\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nИдентификатор предмета BGG: 324447",
+        "description_en": "CLASSIFICATION\t\nEdit\nGenre\nFantasy (High Fantasy)\nCategory\nSourcebook (rules/options to enhance play)\nMechanic\nAttribute/Stat Based (STR, CON, PER, etc)\nDice (Various)\nLevel Based (Earn XP and level up)\nRace Based (Player Race/Species affects gameplay)\nSkill Based (buy or gain skills)\nSystem\nPathfinder System\n\nFrom publisher blurb:\n\nCan You Dig It?!\n\nLoamlings are a new ancestry for the second edition of the Pathfinder Roleplaying Game. Molelike in form, loamlings have a strong connection to the earth and growing things makes that loamlings natural farmers, druids, and herbalists. Written by veteran second-edition designer Michael Sayre, this fully-illustrated pdf presents the loamling ancestry with all the roleplaying notes, background, and game rules (including four heritages and 20 ancestry feats) needed to make them an interesting and well-rounded part of your campaign!\n\nOFFICIAL LINKS\nPropose Official Link\nCOMMUNITY STATS\nOwn:\n0\nWishlist:\n0\nFor Trade: \nFind For Trade Matches\n0\nWant In Trade: \nFind Want in Trade Matches\n0\nHas Parts:\n0\nWants Parts:\n0\nSee All Stats\nBGG Item ID: 324447",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2848,6 +3588,8 @@
       {
         "slug": "hanabi",
         "title": "Ханаби",
+        "title_ru": "Ханаби",
+        "title_en": "Hanabi",
         "categories": [
           "card-game",
           "deduction"
@@ -2859,6 +3601,8 @@
           "communication-limits"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2874,6 +3618,8 @@
       {
         "slug": "red7",
         "title": "Red7",
+        "title_ru": "Red7",
+        "title_en": null,
         "categories": [
           "card-game",
           "number"
@@ -2887,6 +3633,8 @@
           "score-and-reset-game"
         ],
         "description": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nБоевик / Приключения (Супергерои)\nСерия\nКолеса правосудия\nКатегория\nАксессуар (кубики, карты, ширмы, карты)\nСправочник (правила/варианты улучшения игры)\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nКости (в основном d6)\nГенерация случайных атрибутов (во время персонажа…\nНа основе навыков (купить или получить навыки)\nНа основе черт/аспектов (личность влияет…\n\nИз аннотации издателя:\n\n«Колеса правосудия №16» — это призрачный полет в опасный мир несуществующего человека.\n\nЧерный Всадник, молодой одиночка, который (вместе со своим суперкаром с искусственным интеллектом C.O.R.A) участвует в крестовом походе, защищая интересы невиновных, беспомощных и бессильных в мире преступников, действующих выше закона.\n\nЭтот PDF-файл содержит характеристики, изображения и бумажные миниатюры ICONS для одного персонажа и его фирменного автомобиля, а также советы по их использованию в качестве героя или злодея в вашей игре.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n2\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nКод товара BGG: 138680",
+        "description_ru": "КЛАССИФИКАЦИЯ\t\nРедактировать\nЖанр\nБоевик / Приключения (Супергерои)\nСерия\nКолеса правосудия\nКатегория\nАксессуар (кубики, карты, ширмы, карты)\nСправочник (правила/варианты улучшения игры)\nМеханик\nНа основе атрибутов/статистики (STR, CON, PER и т. д.)\nКости (в основном d6)\nГенерация случайных атрибутов (во время персонажа…\nНа основе навыков (купить или получить навыки)\nНа основе черт/аспектов (личность влияет…\n\nИз аннотации издателя:\n\n«Колеса правосудия №16» — это призрачный полет в опасный мир несуществующего человека.\n\nЧерный Всадник, молодой одиночка, который (вместе со своим суперкаром с искусственным интеллектом C.O.R.A) участвует в крестовом походе, защищая интересы невиновных, беспомощных и бессильных в мире преступников, действующих выше закона.\n\nЭтот PDF-файл содержит характеристики, изображения и бумажные миниатюры ICONS для одного персонажа и его фирменного автомобиля, а также советы по их использованию в качестве героя или злодея в вашей игре.\n\nОФИЦИАЛЬНЫЕ ССЫЛКИ\nПредложить официальную ссылку\nСТАТИСТИКА СООБЩЕСТВА\nСобственный:\n2\nСписок желаний:\n0\nДля торговли: \nНайти совпадения для обмена\n0\nХочу в торговле: \nНайдите разыскиваемое в торговых матчах\n0\nИмеет части:\n0\nТребуются запчасти:\n0\nПосмотреть всю статистику\nКод товара BGG: 138680",
+        "description_en": "CLASSIFICATION\t\nEdit\nGenre\nAction / Adventure (Superheroes)\nSeries\nJustice Wheels\nCategory\nAccessory (dice, maps, screens, cards)\nSourcebook (rules/options to enhance play)\nMechanic\nAttribute/Stat Based (STR, CON, PER, etc)\nDice (Primarily d6)\nRandom Attribute Generation (during Character…\nSkill Based (buy or gain skills)\nTrait / Aspect Based (personality affects…\n\nFrom publisher blurb:\n\nJustice Wheels #16 is a shadowy flight into the dangerous world of a man who does not exist.\n\nBlack Rider, a young loner who (along with his artificially intelligent supercar, C.O.R.A) is on a crusade to champion the cause of the innocent, the helpless and the powerless, in a world of criminals who operate above the law.\n\nThis PDF contains the ICONS stats, images, and paper miniatures for one character and their signature vehicle along with tips for using them as either a hero or villain in your game.\n\nOFFICIAL LINKS\nPropose Official Link\nCOMMUNITY STATS\nOwn:\n2\nWishlist:\n0\nFor Trade: \nFind For Trade Matches\n0\nWant In Trade: \nFind Want in Trade Matches\n0\nHas Parts:\n0\nWants Parts:\n0\nSee All Stats\nBGG Item ID: 138680",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2902,6 +3650,8 @@
       {
         "slug": "ark-nova",
         "title": "Ark Nova",
+        "title_ru": "Ark Nova",
+        "title_en": "Ark Nova",
         "categories": [
           "environmental",
           "economic",
@@ -2916,6 +3666,8 @@
           "worker-placement"
         ],
         "description": "Спланируйте и постройте современный, научно управляемый зоопарк для поддержки природоохранных проектов.",
+        "description_ru": "Спланируйте и постройте современный, научно управляемый зоопарк для поддержки природоохранных проектов.",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2931,6 +3683,8 @@
       {
         "slug": "mafia",
         "title": "Мафия",
+        "title_ru": "Мафия",
+        "title_en": null,
         "categories": [
           "deduction",
           "party-game",
@@ -2944,6 +3698,8 @@
           "player-elimination"
         ],
         "description": "Добавить краткое описание",
+        "description_ru": "Добавить краткое описание",
+        "description_en": "Add a Brief Description",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2959,6 +3715,8 @@
       {
         "slug": "decoder",
         "title": "Декодер",
+        "title_ru": "Декодер",
+        "title_en": null,
         "categories": [
           "party-game",
           "puzzle"
@@ -2967,6 +3725,8 @@
           "paper-and-pencil"
         ],
         "description": "Добавить краткое описание",
+        "description_ru": "Добавить краткое описание",
+        "description_en": "Add a Brief Description",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -2982,6 +3742,8 @@
       {
         "slug": "bunker",
         "title": "Бункер",
+        "title_ru": "Бункер",
+        "title_en": null,
         "categories": [
           "card-game",
           "deduction",
@@ -2996,6 +3758,8 @@
           "player-elimination"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3011,6 +3775,8 @@
       {
         "slug": "ghost-letters",
         "title": "Письма призрака",
+        "title_ru": "Письма призрака",
+        "title_en": null,
         "categories": [
           "card-game",
           "deduction",
@@ -3025,6 +3791,8 @@
           "targeted-clues"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3040,6 +3808,8 @@
       {
         "slug": "celestia",
         "title": "Селестия",
+        "title_ru": "Селестия",
+        "title_en": null,
         "categories": [
           "card-game",
           "fantasy",
@@ -3053,6 +3823,8 @@
           "push-your-luck"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3068,6 +3840,8 @@
       {
         "slug": "overboard",
         "title": "За бортом",
+        "title_ru": "За бортом",
+        "title_en": null,
         "categories": [
           "abstract-strategy"
         ],
@@ -3076,6 +3850,8 @@
           "point-to-point-movement"
         ],
         "description": "Добавить краткое описание",
+        "description_ru": "Добавить краткое описание",
+        "description_en": "Add a Brief Description",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3091,6 +3867,8 @@
       {
         "slug": "ekivoki",
         "title": "Экивоки",
+        "title_ru": "Экивоки",
+        "title_en": null,
         "categories": [
           "racing",
           "party-game",
@@ -3103,6 +3881,8 @@
           "point-to-point-movement"
         ],
         "description": "Добавить краткое описание",
+        "description_ru": "Добавить краткое описание",
+        "description_en": "Add a Brief Description",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3118,6 +3898,8 @@
       {
         "slug": "think-fast",
         "title": "Think Fast",
+        "title_ru": "Think Fast",
+        "title_en": null,
         "categories": [
           "party-game",
           "trivia"
@@ -3126,6 +3908,8 @@
           "memory"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3141,6 +3925,8 @@
       {
         "slug": "blood-on-the-clocktower",
         "title": "Кровь на часовой башне",
+        "title_ru": "Кровь на часовой башне",
+        "title_en": null,
         "categories": [
           "murder-mystery",
           "deduction",
@@ -3155,6 +3941,8 @@
           "prisoners-dilemma"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3170,6 +3958,8 @@
       {
         "slug": "grand-austria-hotel",
         "title": "Гранд отель Австрия",
+        "title_ru": "Гранд отель Австрия",
+        "title_en": null,
         "categories": [
           "economic"
         ],
@@ -3181,6 +3971,8 @@
           "contracts"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3196,6 +3988,8 @@
       {
         "slug": "industry",
         "title": "Индустрия",
+        "title_ru": "Индустрия",
+        "title_en": null,
         "categories": [
           "economic",
           "industry-manufacturing"
@@ -3204,6 +3998,8 @@
           "auction-bidding"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3219,6 +4015,8 @@
       {
         "slug": "ganymede",
         "title": "Ганимед",
+        "title_ru": "Ганимед",
+        "title_en": null,
         "categories": [
           "card-game",
           "science-fiction"
@@ -3229,6 +4027,8 @@
           "pick-up-and-deliver"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3244,6 +4044,8 @@
       {
         "slug": "plague",
         "title": "Мор",
+        "title_ru": "Мор",
+        "title_en": null,
         "categories": [
           "medieval",
           "animals"
@@ -3257,6 +4059,8 @@
           "pick-up-and-deliver"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3272,6 +4076,8 @@
       {
         "slug": "isidore",
         "title": "Isidore",
+        "title_ru": "Isidore",
+        "title_en": null,
         "categories": [],
         "tags": [
           "set-collection",
@@ -3279,6 +4085,8 @@
           "rock-paper-scissors"
         ],
         "description": "Добавить краткое описание",
+        "description_ru": "Добавить краткое описание",
+        "description_en": "Add a Brief Description",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3294,6 +4102,8 @@
       {
         "slug": "pax-pamir",
         "title": "Пакс Памир",
+        "title_ru": "Пакс Памир",
+        "title_en": null,
         "categories": [
           "card-game",
           "economic",
@@ -3308,6 +4118,8 @@
           "area-movement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3323,6 +4135,8 @@
       {
         "slug": "not-enough-mana",
         "title": "Not Enough Mana",
+        "title_ru": "Not Enough Mana",
+        "title_en": null,
         "categories": [
           "card-game",
           "fantasy",
@@ -3339,6 +4153,8 @@
           "push-your-luck"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3354,6 +4170,8 @@
       {
         "slug": "3000-scoundrels",
         "title": "3000 негодяев",
+        "title_ru": "3000 негодяев",
+        "title_en": "3000 Scoundrels",
         "categories": [
           "card-game",
           "economic",
@@ -3365,6 +4183,8 @@
           "deck-bag-and-pool-building"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3380,6 +4200,8 @@
       {
         "slug": "excavation",
         "title": "Раскопки",
+        "title_ru": "Раскопки",
+        "title_en": null,
         "categories": [
           "science-fiction",
           "economic"
@@ -3392,6 +4214,8 @@
           "point-to-point-movement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3407,6 +4231,8 @@
       {
         "slug": "the-lord-of-the-rings",
         "title": "Властелин колец",
+        "title_ru": "Властелин колец",
+        "title_en": null,
         "categories": [
           "card-game",
           "fantasy"
@@ -3417,6 +4243,8 @@
           "deck-bag-and-pool-building"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3432,6 +4260,8 @@
       {
         "slug": "game-of-thrones-the-board-game",
         "title": "Игра престолов",
+        "title_ru": "Игра престолов",
+        "title_en": null,
         "categories": [
           "fantasy",
           "bluffing",
@@ -3448,6 +4278,8 @@
           "alliances"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3463,6 +4295,8 @@
       {
         "slug": "jackal",
         "title": "Шакал",
+        "title_ru": "Шакал",
+        "title_en": null,
         "categories": [
           "exploration",
           "pirates"
@@ -3476,6 +4310,8 @@
           "pick-up-and-deliver"
         ],
         "description": "Добавить краткое описание",
+        "description_ru": "Добавить краткое описание",
+        "description_en": "Add a Brief Description",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3491,6 +4327,8 @@
       {
         "slug": "foodies",
         "title": "Foodies",
+        "title_ru": "Foodies",
+        "title_en": null,
         "categories": [
           "economic"
         ],
@@ -3503,6 +4341,8 @@
           "contracts"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3518,6 +4358,8 @@
       {
         "slug": "space-contact",
         "title": "Космический контакт",
+        "title_ru": "Космический контакт",
+        "title_en": null,
         "categories": [
           "science-fiction",
           "wargame",
@@ -3532,6 +4374,8 @@
           "three-dimensional-movement"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3547,6 +4391,8 @@
       {
         "slug": "chickens",
         "title": "Куры",
+        "title_ru": "Куры",
+        "title_en": null,
         "categories": [
           "card-game",
           "science-fiction",
@@ -3557,6 +4403,8 @@
           "hand-management"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",
@@ -3572,6 +4420,8 @@
       {
         "slug": "deep-sea-adventure",
         "title": "Глубоководное приключение",
+        "title_ru": "Глубоководное приключение",
+        "title_en": "Deep Sea Adventure",
         "categories": [
           "dice",
           "adventure",
@@ -3583,6 +4433,8 @@
           "push-your-luck"
         ],
         "description": "",
+        "description_ru": "",
+        "description_en": "",
         "designer": "",
         "bgg_type": "boardgame",
         "image": "",

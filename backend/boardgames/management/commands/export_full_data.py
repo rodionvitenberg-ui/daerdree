@@ -71,8 +71,12 @@ class Command(BaseCommand):
             result.append({
                 "slug": obj.slug,
                 "name": obj.name,
+                "name_ru": getattr(obj, 'name_ru', obj.name),
+                "name_en": getattr(obj, 'name_en', obj.name),
                 "icon": obj.icon.url if obj.icon else "",
-                "description": obj.description,
+                "description": str(obj.description) if obj.description else "",
+                "description_ru": str(getattr(obj, 'description_ru', obj.description or '')),
+                "description_en": str(getattr(obj, 'description_en', obj.description or '')),
             })
         return result
 
@@ -85,6 +89,8 @@ class Command(BaseCommand):
             result.append({
                 "slug": obj.slug,
                 "name": obj.name,
+                "name_ru": getattr(obj, 'name_ru', obj.name),
+                "name_en": getattr(obj, 'name_en', obj.name),
                 "icon": obj.icon.url if obj.icon else "",
             })
         return result
@@ -98,9 +104,13 @@ class Command(BaseCommand):
             result.append({
                 "slug": game.slug,
                 "title": game.title,
+                "title_ru": getattr(game, 'title_ru', game.title),
+                "title_en": getattr(game, 'title_en', game.title),
                 "categories": [c.slug for c in game.categories.all()],
                 "tags": [t.slug for t in game.tags.all()],
-                "description": game.description,
+                "description": str(game.description) if game.description else "",
+                "description_ru": str(getattr(game, 'description_ru', game.description or '')),
+                "description_en": str(getattr(game, 'description_en', game.description or '')),
                 "designer": game.designer,
                 "bgg_type": game.bgg_type,
                 "image": game.image.url if game.image else "",
@@ -139,7 +149,11 @@ class Command(BaseCommand):
             result.append({
                 "game_slug": obj.game.slug,
                 "title": obj.title,
-                "description": obj.description,
+                "title_ru": getattr(obj, 'title_ru', obj.title),
+                "title_en": getattr(obj, 'title_en', obj.title),
+                "description": str(obj.description) if obj.description else "",
+                "description_ru": str(getattr(obj, 'description_ru', obj.description or '')),
+                "description_en": str(getattr(obj, 'description_en', obj.description or '')),
             })
         return result
 

@@ -19,14 +19,20 @@ class ExpansionSerializer(serializers.ModelSerializer):
 
 class BoardGameSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True, read_only=True)
-    tags = TagSerializer(many=True, read_only=True) 
-    
-    # Подключаем дополнения (название поля совпадает с related_name='expansions' в модели)
+    tags = TagSerializer(many=True, read_only=True)
     expansions = ExpansionSerializer(many=True, read_only=True)
 
     class Meta:
         model = BoardGame
         fields = '__all__'
+
+    def to_representation(self, instance):
+        """Безопасная сериализация: приводит RichTextField к строке."""
+        data = super().to_representation(instance)
+        # Принудительно преобразуем description в строку (CKEditor иногда отдаёт объект)
+        if data.get('description') is not None:
+            data['description'] = str(data['description'])
+        return data
 
 class GameMarqueeSerializer(serializers.ModelSerializer):
     """Облегченный сериализатор чисто для бегущей строки"""

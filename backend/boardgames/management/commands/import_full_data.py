@@ -69,12 +69,22 @@ class Command(BaseCommand):
         created = 0
         skipped = 0
         for item in data:
+            defaults = {
+                "name": item["name"],
+                "description": item.get("description", ""),
+            }
+            if "name_ru" in item:
+                defaults["name_ru"] = item["name_ru"] or item["name"]
+            if "name_en" in item:
+                defaults["name_en"] = item["name_en"] or item["name"]
+            if "description_ru" in item:
+                defaults["description_ru"] = item["description_ru"] or ""
+            if "description_en" in item:
+                defaults["description_en"] = item["description_en"] or ""
+
             obj, is_new = Category.objects.get_or_create(
                 slug=item["slug"],
-                defaults={
-                    "name": item["name"],
-                    "description": item.get("description", ""),
-                }
+                defaults=defaults,
             )
             if is_new:
                 created += 1
@@ -89,11 +99,17 @@ class Command(BaseCommand):
         created = 0
         skipped = 0
         for item in data:
+            defaults = {
+                "name": item["name"],
+            }
+            if "name_ru" in item:
+                defaults["name_ru"] = item["name_ru"] or item["name"]
+            if "name_en" in item:
+                defaults["name_en"] = item["name_en"] or item["name"]
+
             obj, is_new = Tag.objects.get_or_create(
                 slug=item["slug"],
-                defaults={
-                    "name": item["name"],
-                }
+                defaults=defaults,
             )
             if is_new:
                 created += 1
@@ -112,21 +128,31 @@ class Command(BaseCommand):
         linked_tags = 0
 
         for item in data:
+            defaults = {
+                "title": item["title"],
+                "description": item.get("description", ""),
+                "designer": item.get("designer", ""),
+                "bgg_type": item.get("bgg_type", "boardgame"),
+                "min_players": item.get("min_players", 2),
+                "max_players": item.get("max_players", 4),
+                "play_time": item.get("play_time", 30),
+                "difficulty": item.get("difficulty", 2),
+                "is_active": item.get("is_active", True),
+                "is_visible_ru": item.get("is_visible_ru", True),
+                "is_visible_en": item.get("is_visible_en", False),
+            }
+            if "title_ru" in item:
+                defaults["title_ru"] = item["title_ru"] or item["title"]
+            if "title_en" in item:
+                defaults["title_en"] = item["title_en"] or item["title"]
+            if "description_ru" in item:
+                defaults["description_ru"] = item["description_ru"] or ""
+            if "description_en" in item:
+                defaults["description_en"] = item["description_en"] or ""
+
             game, is_new = BoardGame.objects.get_or_create(
                 slug=item["slug"],
-                defaults={
-                    "title": item["title"],
-                    "description": item.get("description", ""),
-                    "designer": item.get("designer", ""),
-                    "bgg_type": item.get("bgg_type", "boardgame"),
-                    "min_players": item.get("min_players", 2),
-                    "max_players": item.get("max_players", 4),
-                    "play_time": item.get("play_time", 30),
-                    "difficulty": item.get("difficulty", 2),
-                    "is_active": item.get("is_active", True),
-                    "is_visible_ru": item.get("is_visible_ru", True),
-                    "is_visible_en": item.get("is_visible_en", False),
-                }
+                defaults=defaults,
             )
 
             if is_new:
@@ -226,12 +252,22 @@ class Command(BaseCommand):
                 missing_games += 1
                 continue
 
+            defaults = {
+                "description": item.get("description", ""),
+            }
+            if "title_ru" in item:
+                defaults["title_ru"] = item["title_ru"] or item["title"]
+            if "title_en" in item:
+                defaults["title_en"] = item["title_en"] or item["title"]
+            if "description_ru" in item:
+                defaults["description_ru"] = item["description_ru"] or ""
+            if "description_en" in item:
+                defaults["description_en"] = item["description_en"] or ""
+
             obj, is_new = Expansion.objects.get_or_create(
                 game=game,
                 title=item["title"],
-                defaults={
-                    "description": item.get("description", ""),
-                }
+                defaults=defaults,
             )
             if is_new:
                 created += 1
