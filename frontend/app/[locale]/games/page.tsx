@@ -81,7 +81,7 @@ export default function GamesLibrary() {
         
         <div className="mb-12 flex flex-col items-center">
           <AnimatedContent delay={0.1} direction="vertical">
-            <h1 className="mb-4 text-center font-serif text-5xl font-black uppercase tracking-widest text-accent md:text-7xl">
+            <h1 className="mb-4 text-center font-serif text-3xl font-black uppercase tracking-wide text-accent sm:text-4xl md:text-5xl md:tracking-widest lg:text-7xl">
               {locale === "ru" ? "Настольные игры на Кипре" : "Board Games in Cyprus"}
             </h1>
           </AnimatedContent>
@@ -241,42 +241,6 @@ export default function GamesLibrary() {
         )}
 
         <GamesSeoContent />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: locale === "ru" ? "Главная" : "Home", item: `/${locale}` },
-                { "@type": "ListItem", position: 2, name: locale === "ru" ? "Настольные игры" : "Board Games", item: `/${locale}/games` },
-              ],
-            }),
-          }}
-        />
-        {games.length > 0 && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "ItemList",
-                name: locale === "ru" ? "Настольные игры в Daerdree" : "Board Games at Daerdree",
-                itemListElement: games.map((game: BoardGame, i: number) => ({
-                  "@type": "ListItem",
-                  position: i + 1,
-                  item: {
-                    "@type": "Game",
-                    name: locale === "ru" ? (game.title_ru || game.title) : (game.title_en || game.title),
-                    url: `/${locale}/games/${game.id}`,
-                    description: locale === "ru" ? (game.description_ru || game.description).slice(0, 300) : (game.description_en || game.description).slice(0, 300),
-                  },
-                })),
-              }),
-            }}
-          />
-        )}
       </div>
     </div>
   );

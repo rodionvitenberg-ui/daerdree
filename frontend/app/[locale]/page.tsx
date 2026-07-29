@@ -31,8 +31,10 @@ export default async function Home() {
     sameAs: [
       "https://instagram.com/daerdree",
       "https://t.me/daerdreedm",
+      "https://maps.app.goo.gl/daerdreebarlarnaca",
+      "https://www.facebook.com/daerdreebar",
+      "https://www.tripadvisor.com/daerdree",
     ],
-    servesCuisine: "Bar",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
@@ -47,6 +49,17 @@ export default async function Home() {
       latitude: 34.9081376,
       longitude: 33.6287453,
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "0",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    priceRange: "$$",
+    servesCuisine: ["Bar", "Cocktails", "Snacks"],
+    hasMenu: `${process.env.NEXT_PUBLIC_SITE_URL || "https://daerdree.bar"}/${locale}/menu`,
+    acceptsReservations: true,
   };
 
   return (
