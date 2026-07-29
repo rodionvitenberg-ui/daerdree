@@ -1,3 +1,2 @@
-2026/07/23-06:17:58.064 3a47f Reusing MANIFEST /home/rodion/Project/daerdree/backend/chrome_profile/Default/GCM Store/MANIFEST-000001
-2026/07/23-06:17:58.065 3a47f Recovering log #3
-2026/07/23-06:17:58.065 3a47f Reusing old log /home/rodion/Project/daerdree/backend/chrome_profile/Default/GCM Store/000003.log 
+2026/07/29-05:54:09.376 1d7c4 Creating DB /home/rodion/Project/daerdree/backend/chrome_profile/Default/GCM Store since it was missing.
+2026/07/29-05:54:09.392 1d7c4 Reusing MANIFEST /home/rodion/Project/daerdree/backend/chrome_profile/Default/GCM Store/MANIFEST-000001

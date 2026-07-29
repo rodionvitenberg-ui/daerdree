@@ -1,7 +1,8 @@
 """
 Management command: Парсинг ВСЕХ изображений с BGG и сохранение в GameImage-галерею.
 
-Использует Playwright + playwright_stealth + реальный Chrome для обхода Cloudflare.
+Использует nodriver (форк undetected-chromedriver) — патчит Chrome на этапе запуска,
+практически гарантированно обходит Cloudflare Turnstile.
 
 Использование:
     python manage.py scrape_bgg_images_v2 --all                # все игры
@@ -12,6 +13,7 @@ Management command: Парсинг ВСЕХ изображений с BGG и с�
     python manage.py scrape_bgg_images_v2 --reset-session       # сбросить Cloudflare-профиль
 """
 
+import asyncio
 import json
 import os
 import re
@@ -19,18 +21,18 @@ import time
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote
 
-from django.core.management.base import BaseCommand
+import requests
 from django.core.files.base import ContentFile
+from django.core.management.base import BaseCommand
 from django.utils.text import slugify
 
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 from boardgames.models import BoardGame, GameImage
 
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-from playwright_stealth import Stealth
+import nodriver as uc
 
-# ─── GAMES_MAP: русское название → BGG ID (из scrape_bgg_v2.py) ───
+# ─── GAMES_MAP: русское название → BGG ID ───
 
 GAMES_MAP = {
     "Концепт": 147151,
@@ -139,22 +141,21 @@ GAMES_MAP = {
     "Ark Nova": 342942,
 }
 
-USER_DATA_DIR = Path("chrome_profile")  # постоянный профиль Chrome для Cloudflare
-
 # Допустимые расширения изображений
-IMG_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.webp', '.gif', '.bmp', '.svg'}
+IMG_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".svg"}
+
+# User-Agent для скачивания изображений
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
 
 
 def _is_image_url(url: str) -> bool:
-    """Проверяет, похож ли URL на изображение."""
     if not url:
         return False
     url_lower = url.split("?")[0].lower()
     return any(url_lower.endswith(ext) for ext in IMG_EXTENSIONS)
 
 
-def _resolve_relative_url(base: str, url: str) -> str:
-    """Преобразует относительный URL в абсолютный."""
+def _resolve_relative_url(url: str) -> str:
     if url.startswith("http://") or url.startswith("https://"):
         return url
     if url.startswith("//"):
@@ -165,12 +166,6 @@ def _resolve_relative_url(base: str, url: str) -> str:
 
 
 def _extract_original_url(url: str) -> str:
-    """
-    Извлекает оригинальный URL из прокси (напр. Cloudflare image proxy BGG).
-    Некоторые URL на BGG идут через cdn/image proxy.
-    """
-    # BGG иногда проксирует изображения через собственный CDN
-    # Если URL содержит параметр url=, извлекаем его
     if "url=" in url:
         parsed = urlparse(url)
         qs = parse_qs(parsed.query)
@@ -180,23 +175,20 @@ def _extract_original_url(url: str) -> str:
 
 
 class Command(BaseCommand):
-    help = "Парсинг изображений с BGG в GameImage-галерею (Playwright + Stealth)"
+    help = "Парсинг изображений с BGG в GameImage-галерею (nodriver)"
 
     def add_arguments(self, parser):
-        parser.add_argument("--slug", type=str, default=None,
-                            help="Slug конкретной игры")
-        parser.add_argument("--all", action="store_true", default=False,
-                            help="Обработать все игры")
-        parser.add_argument("--limit", type=int, default=None,
-                            help="Ограничить количество игр")
-        parser.add_argument("--force", action="store_true", default=False,
-                            help="Удалить старые GameImage перед скачиванием новых")
-        parser.add_argument("--headless", action="store_true", default=False,
-                            help="Запустить браузер в headless-режиме")
-        parser.add_argument("--reset-session", action="store_true", default=False,
-                            help="Удалить профиль Chrome (сброс Cloudflare)")
+        parser.add_argument("--slug", type=str, default=None)
+        parser.add_argument("--all", action="store_true", default=False)
+        parser.add_argument("--limit", type=int, default=None)
+        parser.add_argument("--force", action="store_true", default=False)
+        parser.add_argument("--headless", action="store_true", default=False)
+        parser.add_argument("--reset-session", action="store_true", default=False)
 
     def handle(self, *args, **kwargs):
+        asyncio.run(self._handle_async(*args, **kwargs))
+
+    async def _handle_async(self, *args, **kwargs):
         target_slug = kwargs["slug"]
         process_all = kwargs["all"]
         limit = kwargs["limit"]
@@ -204,17 +196,16 @@ class Command(BaseCommand):
         headless = kwargs["headless"]
         reset_session = kwargs["reset_session"]
 
-        # ── Сброс профиля ──
         if reset_session:
             import shutil
-            if USER_DATA_DIR.exists():
-                shutil.rmtree(str(USER_DATA_DIR))
-                self.stdout.write("♻️  Профиль Chrome удалён. При следующем запуске пройдите Cloudflare вручную.")
+            profile = Path.home() / ".nodriver_profile"
+            if profile.exists():
+                shutil.rmtree(str(profile))
+                self.stdout.write("♻️  Профиль nodriver удалён.")
             else:
                 self.stdout.write("ℹ️  Профиль и так отсутствует.")
             return
 
-        # ── Выбор игр ──
         if target_slug:
             games = BoardGame.objects.filter(slug=target_slug)
             if not games.exists():
@@ -224,7 +215,7 @@ class Command(BaseCommand):
             games = BoardGame.objects.all()
         else:
             self.stdout.write(self.style.WARNING(
-                "Укажите --slug <slug> или --all. Пример:\n"
+                "Укажите --slug <slug> или --all.\n"
                 "  python manage.py scrape_bgg_images_v2 --slug camel-up\n"
                 "  python manage.py scrape_bgg_images_v2 --all"
             ))
@@ -236,7 +227,7 @@ class Command(BaseCommand):
             total = len(games)
 
         self.stdout.write("=" * 60)
-        self.stdout.write(f"  Парсер изображений BGG v2")
+        self.stdout.write(f"  Парсер изображений BGG v2 (nodriver)")
         self.stdout.write(f"  Игр: {total} | Force: {force} | Headless: {headless}")
         self.stdout.write("=" * 60)
 
@@ -244,103 +235,87 @@ class Command(BaseCommand):
         total_skipped = 0
         total_errors = 0
 
-        with sync_playwright() as pw:
-            context = pw.chromium.launch_persistent_context(
-                user_data_dir=str(USER_DATA_DIR),
-                headless=headless,
-                channel="chrome",
-                args=[
-                    "--no-sandbox",
-                    "--disable-blink-features=AutomationControlled",
-                ],
-                user_agent=(
-                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/120.0.0.0 Safari/537.36"
-                ),
-            )
-            page = context.new_page()
-            Stealth().apply_stealth_sync(page)
+        browser = await uc.start(
+            headless=headless,
+            browser_executable_path="/usr/bin/google-chrome",
+        )
+        # Открываем начальную вкладку
+        page = await browser.get("about:blank")
 
-            for idx, game in enumerate(games, start=1):
-                # ── Поиск BGG ID ──
-                bgg_id = self._find_bgg_id(game)
-                if not bgg_id:
-                    self.stdout.write(f"\n[{idx}/{total}] {game.title} — ⚠ BGG ID не найден, пропуск")
+        # ── Прогрев: проходим Cloudflare на главной странице ──
+        await self._cloudflare_warmup(page)
+
+        for idx, game in enumerate(games, start=1):
+            bgg_id = self._find_bgg_id(game)
+            if not bgg_id:
+                self.stdout.write(f"\n[{idx}/{total}] {game.title} — ⚠ BGG ID не найден, пропуск")
+                total_skipped += 1
+                continue
+
+            self.stdout.write(f"\n[{idx}/{total}] {game.title} (BGG#{bgg_id})")
+            self.stdout.flush()
+
+            try:
+                url = f"https://boardgamegeek.com/boardgame/{bgg_id}/"
+                await page.get(url)
+
+                # Ждём загрузки Angular-приложения
+                await page.sleep(10)
+
+                # ── Сбор URL изображений ──
+                image_urls = await self._collect_all_image_urls(page)
+                self.stdout.write(f"  🖼️  Найдено URL: {len(image_urls)}")
+
+                if not image_urls:
+                    self.stdout.write("  ⚠ Изображений не найдено на странице")
                     total_skipped += 1
                     continue
 
-                self.stdout.write(f"\n[{idx}/{total}] {game.title} (BGG#{bgg_id})")
-                self.stdout.flush()
+                if force:
+                    old_count = game.images.count()
+                    if old_count:
+                        game.images.all().delete()
+                        self.stdout.write(f"  🗑️  Удалено {old_count} старых изображений")
 
-                try:
-                    # ── Открываем страницу игры ──
-                    url = f"https://boardgamegeek.com/boardgame/{bgg_id}/"
-                    page.goto(url, timeout=60000, wait_until="load")
+                existing = game.images.count()
+                if existing > 0 and not force:
+                    self.stdout.write(f"  ⏩ Уже есть {existing} изображений (пропуск). Используйте --force для перезаписи.")
+                    total_skipped += 1
+                    continue
 
-                    # Ждём загрузки контента
-                    try:
-                        page.wait_for_selector(
-                            "script[type='application/ld+json'], "
-                            "meta[property='og:image'], "
-                            "a[href*='/boardgamecategory/']",
-                            timeout=30000,
-                        )
-                    except PlaywrightTimeout:
-                        self.stdout.write("  ⏳ Страница грузится долго, продолжаю...")
-                        page.wait_for_timeout(10000)
+                saved = 0
+                # Применяем _cleanup_bgg_url для максимального качества
+                clean_urls = [self._cleanup_bgg_url(u) for u in image_urls]
+                # Дедуплицируем после очистки
+                seen_clean = set()
+                unique_urls = []
+                for u in clean_urls:
+                    if u not in seen_clean:
+                        seen_clean.add(u)
+                        unique_urls.append(u)
 
-                    page.wait_for_timeout(2000)
+                for img_idx, img_url in enumerate(unique_urls):
+                    ok = self._download_and_save(game, img_url, img_idx, len(unique_urls))
+                    if ok:
+                        saved += 1
+                    if saved >= 10:
+                        break
 
-                    # ── Сбор всех URL изображений ──
-                    image_urls = self._collect_all_image_urls(page)
-                    self.stdout.write(f"  🖼️  Найдено URL: {len(image_urls)}")
-
-                    if not image_urls:
-                        self.stdout.write("  ⚠ Изображений не найдено на странице")
-                        total_skipped += 1
-                        continue
-
-                    # ── Очистка старых, если --force ──
-                    if force:
-                        old_count = game.images.count()
-                        if old_count:
-                            game.images.all().delete()
-                            self.stdout.write(f"  🗑️  Удалено {old_count} старых изображений")
-
-                    # ── Проверка: есть ли уже изображения ──
-                    existing = game.images.count()
-                    if existing > 0 and not force:
-                        self.stdout.write(f"  ⏩ Уже есть {existing} изображений (пропуск). Используйте --force для перезаписи.")
-                        total_skipped += 1
-                        continue
-
-                    # ── Скачивание и сохранение ──
-                    saved = 0
-                    for img_idx, img_url in enumerate(image_urls):
-                        ok = self._download_and_save(game, context, img_url, img_idx, len(image_urls))
-                        if ok:
-                            saved += 1
-                        if saved >= 10:  # Лимит: не больше 10 изображений на игру
-                            break
-
-                    if saved > 0:
-                        total_downloaded += 1
-                        self.stdout.write(f"  ✅ Сохранено изображений: {saved}")
-                    else:
-                        total_errors += 1
-                        self.stdout.write(f"  ❌ Не удалось скачать ни одного изображения")
-
-                except Exception as e:
-                    self.stdout.write(self.style.WARNING(f"  ⚠ Ошибка: {e}"))
+                if saved > 0:
+                    total_downloaded += 1
+                    self.stdout.write(f"  ✅ Сохранено изображений: {saved}")
+                else:
                     total_errors += 1
+                    self.stdout.write(f"  ❌ Не удалось скачать ни одного изображения")
 
-                # Пауза между играми
-                time.sleep(2)
+            except Exception as e:
+                self.stdout.write(self.style.WARNING(f"  ⚠ Ошибка: {e}"))
+                total_errors += 1
 
-            context.close()
+            await page.sleep(2)
 
-        # ── Итоги ──
+        browser.stop()
+
         self.stdout.write("\n" + "=" * 60)
         self.stdout.write("  ИТОГИ:")
         self.stdout.write(f"    Успешно (есть изображения): {total_downloaded}")
@@ -353,124 +328,163 @@ class Command(BaseCommand):
     # ═══════════════════════════════════════════════════════════
 
     def _find_bgg_id(self, game: BoardGame) -> int | None:
-        """Поиск BGG ID по названию игры в GAMES_MAP."""
         for title_ru, bgg_id in GAMES_MAP.items():
             if bgg_id and title_ru.lower() in game.title.lower():
                 return bgg_id
-        # Пробуем точное совпадение по slug
         for title_ru, bgg_id in GAMES_MAP.items():
             if bgg_id and slugify(title_ru, allow_unicode=True) == game.slug:
                 return bgg_id
         return None
 
-    def _collect_all_image_urls(self, page) -> list[str]:
+    async def _cloudflare_warmup(self, page) -> None:
+        self.stdout.write("\n" + "=" * 60)
+        self.stdout.write("⏳ Открываю boardgamegeek.com в окне Chrome...")
+        self.stdout.write("   Пройдите капчу вручную (если появится),")
+        self.stdout.write("   затем нажмите Enter здесь для продолжения.")
+        self.stdout.write("=" * 60)
+        self.stdout.flush()
+
+        try:
+            await page.get("https://boardgamegeek.com/")
+        except Exception as e:
+            self.stdout.write(f"\n⚠ Ошибка при загрузке главной страницы: {e}")
+            self.stdout.flush()
+            return
+
+        input("\n>>> Нажмите Enter когда Cloudflare пройден: ")
+        self.stdout.write("✅ Начинаю парсинг!\n")
+        self.stdout.flush()
+        await page.sleep(1)
+
+    async def _collect_all_image_urls(self, page) -> list[str]:
         """
-        Собирает ВСЕ URL изображений со страницы BGG:
-        1. JSON-LD (schema.org)
-        2. og:image / twitter:image
-        3. Все <img> с расширениями изображений
-        4. Все <picture> <source>
+        Собирает ВСЕ URL изображений через парсинг HTML (regex).
+        Не использует DOM API — надёжно для Angular/SPA.
         """
+        import re as regex
+
+        html = await page.get_content()
+        self.stdout.write(f"  [DEBUG] HTML размер: {len(html)} байт")
+        self.stdout.flush()
+
         seen = set()
         urls = []
 
         def add(url: str):
-            url = _resolve_relative_url("https://boardgamegeek.com", url)
-            url = _extract_original_url(url)
-            # Отсекаем совсем мелкие иконки и 1px пиксели
-            if url and url not in seen and _is_image_url(url):
-                # Пропускаем аватарки пользователей и иконки интерфейса
-                if any(skip in url.lower() for skip in [
-                    "avatar", "icon_user", "icon_", "pixel", "spacer",
-                    "star_on", "star_off", "flag_", "geek", "bgg_", "logo",
-                    "microbadge", "thumbs", "dropdown",
-                ]):
-                    return
-                seen.add(url)
-                urls.append(url)
+            if not url or url in seen or url.startswith("data:"):
+                return
+            # Пропускаем аватарки и иконки
+            url_lower = url.lower()
+            if any(kw in url_lower for kw in [
+                "avatar", "icon_user", "icon_", "pixel", "spacer",
+                "star_on", "star_off", "flag_", "bgg_", "logo",
+                "microbadge", "thumbs", "dropdown", "geekdo-static",
+                "geeklistimagebar",
+            ]):
+                return
+            # Приводим к абсолютному URL
+            if url.startswith("//"):
+                url = "https:" + url
+            elif url.startswith("/"):
+                url = "https://boardgamegeek.com" + url
+            seen.add(url)
+            urls.append(url)
 
-        # ── 1. JSON-LD ──
-        try:
-            scripts = page.query_selector_all("script[type='application/ld+json']")
-            for s in scripts:
-                data = json.loads(s.inner_html())
-                if isinstance(data, dict):
-                    if data.get("image"):
-                        add(data["image"])
-                elif isinstance(data, list):
-                    for item in data:
-                        if isinstance(item, dict) and item.get("image"):
-                            add(item["image"])
-        except Exception:
-            pass
-
-        # ── 2. Мета-теги ──
-        for meta_sel in [
-            "meta[property='og:image']",
-            "meta[name='twitter:image']",
-            "meta[name='twitter:image:src']",
+        # 1. og:image и twitter:image
+        for pattern in [
+            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
+            r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']',
         ]:
+            for match in regex.finditer(pattern, html, regex.IGNORECASE):
+                add(match.group(1))
+
+        # 2. Все URL с cf.geekdo-images.com (основной CDN BGG) — это самый надёжный метод
+        # Ищем в атрибутах src, srcset, ng-src, ng-srcset, content, href
+        for match in regex.finditer(
+            r'''(?:src|srcset|ng-src|ng-srcset|content|href)=["\']([^"\']*cf\.geekdo-images\.com[^"\']*)["\']''',
+            html,
+            regex.IGNORECASE,
+        ):
+            raw = match.group(1)
+            # Извлекаем URL из srcset (берём первый)
+            if raw and " " in raw and not raw.startswith("http"):
+                raw = raw.split(",")[0].strip().split(" ")[0]
+            add(raw)
+
+        # 3. JSON-LD
+        for match in regex.finditer(
+            r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+            html,
+            regex.DOTALL | regex.IGNORECASE,
+        ):
             try:
-                meta = page.query_selector(meta_sel)
-                if meta:
-                    content = meta.get_attribute("content")
-                    if content:
-                        add(content)
+                data = json.loads(match.group(1))
+                items = data if isinstance(data, list) else [data]
+                for item in items:
+                    if isinstance(item, dict) and item.get("image"):
+                        add(item["image"])
             except Exception:
                 pass
 
-        # ── 3. Все <img> на странице ──
-        try:
-            imgs = page.query_selector_all("img")
-            for img in imgs:
-                for attr in ("src", "data-src", "data-lazy", "data-original"):
-                    src = img.get_attribute(attr)
-                    if src:
-                        add(src)
-                # srcset (берём первый URL)
-                srcset = img.get_attribute("srcset")
-                if srcset:
-                    first = srcset.split(",")[0].strip().split(" ")[0]
-                    if first:
-                        add(first)
-        except Exception:
-            pass
+        # 4. Все <img> src (фоллбэк)
+        for match in regex.finditer(
+            r'<img[^>]+src=["\']([^"\']+\.(?:jpg|jpeg|png|webp|gif|bmp)(?:\?[^"\']*)?)["\']',
+            html,
+            regex.IGNORECASE,
+        ):
+            add(match.group(1))
 
-        # ── 4. <picture> <source> ──
-        try:
-            sources = page.query_selector_all("picture source")
-            for src_el in sources:
-                srcset = src_el.get_attribute("srcset")
-                if srcset:
-                    first = srcset.split(",")[0].strip().split(" ")[0]
-                    if first:
-                        add(first)
-                src = src_el.get_attribute("src")
-                if src:
-                    add(src)
-        except Exception:
-            pass
+        self.stdout.write(f"  [DEBUG] Найдено URL (regex): {len(urls)}")
+        self.stdout.flush()
 
-        # ── 5. Ссылки из галереи BGG (img[src*='pic']) ──
-        try:
-            gallery_imgs = page.query_selector_all("img[src*='pic'], img[src*='image'], img[class*='img'], img[class*='game'], img[class*='photo']")
-            for img in gallery_imgs:
-                src = img.get_attribute("src") or img.get_attribute("data-src")
-                if src:
-                    add(src)
-        except Exception:
-            pass
+        # ── ФИЛЬТРАЦИЯ: отсеиваем превьюшки ──
+        quality_urls = []
+        for url in urls:
+            url = _extract_original_url(url)
+            if self._is_low_quality_url(url):
+                continue
+            if url and url not in quality_urls:
+                quality_urls.append(url)
 
-        return urls
+        skipped = len(urls) - len(quality_urls)
+        if skipped > 0:
+            self.stdout.write(f"  [DEBUG] Отфильтровано превьюшек: {skipped}, осталось: {len(quality_urls)}")
+
+        return quality_urls
+
+    def _cleanup_bgg_url(self, url: str) -> str:
+        """
+        Приводит URL BGG-изображения к наилучшему качеству:
+        - Убирает __crop100, __square100 и т.п. (превью-варианты)
+        - Убирает /fit-in/.../ и другие трансформации, оставляя оригинал
+        """
+        if "cf.geekdo-images.com" not in url:
+            return url
+
+        # Извлекаем базовый хэш (до __) и имя файла
+        # URL: .../HASH__TYPE/img/SIG/TRANSFORM/filename.jpg
+        m = re.search(r'(cf\.geekdo-images\.com/)([^/_]+)(?:__[^/]+)?(/img/)[^/]+/[^/]*/([^/]+\.(?:jpg|jpeg|png|webp))', url)
+        if m:
+            # Собираем URL к оригиналу: HASH/filename
+            return f"https://{m.group(1)}{m.group(2)}/{m.group(4)}"
+
+        # Fallback: просто убираем fit-in/crop из URL
+        url = re.sub(r'/fit-in/\d+x\d+/', '/', url)
+        url = re.sub(r'/crop\d+/', '/', url)
+        url = re.sub(r'/filters:[^/]+/', '/', url)
+        return url
+
+    def _is_low_quality_url(self, url: str) -> bool:
+        """Отсеивает превьюшки и мелкие изображения BGG."""
+        url_lower = url.lower()
+        # Типы превьюшек — все __square*, __crop*, __thumb* и т.д.
+        if re.search(r'__(?:square|crop|thumb|geeklistimagebar|microbadge)\d*', url_lower):
+            return True
+        return False
 
     def _download_and_save(
-        self, game: BoardGame, context, url: str, index: int, total: int
+        self, game: BoardGame, url: str, index: int, total: int
     ) -> bool:
-        """
-        Скачивает изображение через context.request (та же сессия, Cloudflare пропускает)
-        и создаёт запись GameImage.
-        """
-        # ── Определяем расширение из URL ──
         url_path = url.split("?")[0]
         ext = ".jpg"
         for candidate in IMG_EXTENSIONS:
@@ -480,19 +494,17 @@ class Command(BaseCommand):
 
         filename = f"img_{index:02d}{ext}"
 
-        # ── Скачивание через API Playwright (общая сессия с браузером) ──
         try:
-            resp = context.request.get(url, timeout=30000)
-            if resp.status != 200:
-                self.stdout.write(f"    [{index + 1}/{total}] ❌ HTTP {resp.status}: {url[:80]}")
+            r = requests.get(url, headers={"User-Agent": UA, "Referer": "https://boardgamegeek.com/"}, timeout=30)
+            if r.status_code != 200:
+                self.stdout.write(f"    [{index + 1}/{total}] ❌ HTTP {r.status_code}: {url[:100]}")
                 return False
 
-            body = resp.body()
+            body = r.content
             if len(body) < 1000:
                 self.stdout.write(f"    [{index + 1}/{total}] ⚠ Слишком маленькое ({len(body)} байт): {url[:80]}")
                 return False
 
-            # ── Тип изображения ──
             if index == 0:
                 image_type = GameImage.ImageType.COVER
             elif index == 1:
@@ -500,7 +512,6 @@ class Command(BaseCommand):
             else:
                 image_type = GameImage.ImageType.GALLERY
 
-            # ── Создаём запись GameImage ──
             game_image = GameImage(
                 game=game,
                 image_type=image_type,
@@ -510,12 +521,10 @@ class Command(BaseCommand):
             game_image.image.save(filename, ContentFile(body), save=False)
             game_image.save()
 
-            # ── Первое изображение → также в game.image ──
             if index == 0 and not game.image:
                 game.image.save(f"cover_{game.slug}{ext}", ContentFile(body), save=True)
                 self.stdout.write(f"    [{index + 1}/{total}] ✅ cover → game.image")
 
-            # ── Второе изображение → также в game.setup_image ──
             if index == 1 and not game.setup_image:
                 game.setup_image.save(f"setup_{game.slug}{ext}", ContentFile(body), save=True)
                 self.stdout.write(f"    [{index + 1}/{total}] ✅ bg → game.setup_image")

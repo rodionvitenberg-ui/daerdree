@@ -1,3 +1,2 @@
-2026/07/23-06:17:53.695 3a470 Reusing MANIFEST /home/rodion/Project/daerdree/backend/chrome_profile/Default/shared_proto_db/metadata/MANIFEST-000001
-2026/07/23-06:17:53.696 3a470 Recovering log #3
-2026/07/23-06:17:53.696 3a470 Reusing old log /home/rodion/Project/daerdree/backend/chrome_profile/Default/shared_proto_db/metadata/000003.log 
+2026/07/29-05:54:05.837 1d7be Creating DB /home/rodion/Project/daerdree/backend/chrome_profile/Default/shared_proto_db/metadata since it was missing.
+2026/07/29-05:54:05.852 1d7be Reusing MANIFEST /home/rodion/Project/daerdree/backend/chrome_profile/Default/shared_proto_db/metadata/MANIFEST-000001

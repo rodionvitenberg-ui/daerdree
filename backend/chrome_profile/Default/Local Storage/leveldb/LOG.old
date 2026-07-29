@@ -1,3 +1,2 @@
-2026/07/23-06:17:53.468 3a4a2 Reusing MANIFEST /home/rodion/Project/daerdree/backend/chrome_profile/Default/Local Storage/leveldb/MANIFEST-000001
-2026/07/23-06:17:53.481 3a4a2 Recovering log #3
-2026/07/23-06:17:53.482 3a4a2 Reusing old log /home/rodion/Project/daerdree/backend/chrome_profile/Default/Local Storage/leveldb/000003.log 
+2026/07/29-05:54:05.553 1d801 Creating DB /home/rodion/Project/daerdree/backend/chrome_profile/Default/Local Storage/leveldb since it was missing.
+2026/07/29-05:54:05.605 1d801 Reusing MANIFEST /home/rodion/Project/daerdree/backend/chrome_profile/Default/Local Storage/leveldb/MANIFEST-000001
