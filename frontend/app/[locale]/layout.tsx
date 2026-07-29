@@ -100,8 +100,6 @@ export default async function RootLayout({
     // Применяем переменную --font-literata
     <html lang={locale} className={`${manrope.variable} ${literata.variable}`}>
       <head>
-        <link rel="icon" type="image/png" href="/images/daerdree.png" />
-        <link rel="apple-touch-icon" href="/images/daerdree.png" />
         <link rel="dns-prefetch" href="https://daerdree.bar" />
         <link rel="preconnect" href="https://daerdree.bar" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/images/hero/4.webp" fetchPriority="high" />
