@@ -45,12 +45,6 @@ export default function GameJsonLd({ game, locale, baseUrl }: GameJsonLdProps) {
         "Хардкор",
       ][game.difficulty - 1] || undefined,
     }),
-    ...(game.designer && {
-      author: {
-        "@type": "Person",
-        name: game.designer,
-      },
-    }),
     ...(game.categories &&
       game.categories.length > 0 && {
         genre: game.categories.map((cat) =>
