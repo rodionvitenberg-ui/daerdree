@@ -26,3 +26,7 @@ chrome_create_profile
 chrome_descriptions_profile
 chrome_profile
 chrome_text_profile
+
+# Google Cloud сервисный аккаунт (секрет!)
+daerdree-*.json
+*.google-service-account.json

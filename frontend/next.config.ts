@@ -6,6 +6,16 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.daerdree.bar' }],
+        destination: 'https://daerdree.bar/:path*',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     loader: 'custom',
     loaderFile: './lib/imageLoader.ts',

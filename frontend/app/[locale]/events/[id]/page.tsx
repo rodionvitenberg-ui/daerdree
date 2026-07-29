@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
+import type { ReactNode } from "react";
 
 // ОБНОВЛЕНО: Расширили типизацию события
 interface Event {
@@ -13,6 +14,24 @@ interface Event {
   description_en: string | null;
   image: string;
   event_date: string;
+}
+
+// Функция для загрузки данных (выполняется на сервере)
+export async function generateStaticParams() {
+  try {
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    const res = await fetch(`${API_BASE}/api/events/`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    const events: { id: number }[] = Array.isArray(data?.results)
+      ? data.results
+      : (Array.isArray(data) ? data : []);
+    return events.map((event) => ({ id: String(event.id) }));
+  } catch {
+    return [];
+  }
 }
 
 // Функция для загрузки данных (выполняется на сервере)
@@ -82,8 +101,45 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
       timeZone: 'Asia/Nicosia' 
   });
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://daerdree.bar';
+
+  const eventJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: displayTitle,
+    description: displayDescription?.slice(0, 500),
+    url: `${baseUrl}/${locale}/events/${event.id}`,
+    startDate: event.event_date,
+    location: {
+      "@type": "Place",
+      name: "Daerdree Bar & Timeclub",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Nikolaou Rossou 1",
+        addressLocality: "Larnaca",
+        addressCountry: "CY",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 34.9081376,
+        longitude: 33.6287453,
+      },
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "Daerdree Bar & Timeclub",
+      url: baseUrl,
+    },
+    image: event.image ? [event.image] : [],
+    eventStatus: "https://schema.org/EventScheduled",
+  };
+
   return (
     <div className="min-h-dvh bg-background pt-32 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
       <div className="container mx-auto px-4 max-w-5xl">
         
         {/* Хлебные крошки */}

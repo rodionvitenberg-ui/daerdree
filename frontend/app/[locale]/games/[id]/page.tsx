@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,11 +7,16 @@ import { getImageUrl } from "@/lib/utils";
 import { API_ENDPOINTS } from "@/lib/constants";
 import { getTranslations, getLocale } from "next-intl/server"; 
 
-import ExpansionAccordion from "@/components/ExpansionAccordion"; 
+import ExpansionAccordion from "@/components/ExpansionAccordion";
+import GameJsonLd from "@/components/GameJsonLd";
+
+interface GameListItem {
+  id: number;
+}
 
 async function getGame(id: string, locale: string): Promise<BoardGame> {
   const res = await fetch(`${API_ENDPOINTS.GAMES}/${id}/`, {
-    cache: "no-store",
+    next: { revalidate: 3600 },
     headers: {
       'Accept-Language': locale,
     }
@@ -21,6 +27,59 @@ async function getGame(id: string, locale: string): Promise<BoardGame> {
   }
 
   return res.json();
+}
+
+export async function generateStaticParams() {
+  try {
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    const res = await fetch(`${API_BASE}/api/games/`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    const games: GameListItem[] = Array.isArray(data?.results)
+      ? data.results
+      : (Array.isArray(data) ? data : []);
+    return games.map((game) => ({ id: String(game.id) }));
+  } catch {
+    return [];
+  }
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const locale = await getLocale();
+
+  try {
+    const game = await getGame(id, locale);
+    const localizedTitle = locale === 'ru' ? (game.title_ru || game.title) : (game.title_en || game.title);
+    const localizedDescription = locale === 'ru' ? (game.description_ru || game.description) : (game.description_en || game.description);
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://daerdree.bar';
+
+    return {
+      title: `${localizedTitle} — Daerdree`,
+      description: localizedDescription?.slice(0, 160) || `${localizedTitle} at Daerdree Bar & Timeclub`,
+      alternates: {
+        canonical: `/${locale}/games/${id}`,
+        languages: {
+          en: `/en/games/${id}`,
+          ru: `/ru/games/${id}`,
+        },
+      },
+      openGraph: {
+        title: `${localizedTitle} — Daerdree`,
+        description: localizedDescription?.slice(0, 160) || '',
+        url: `${baseUrl}/${locale}/games/${id}`,
+        type: 'website',
+        images: game.image ? [{ url: getImageUrl(game.image), width: 800, height: 600, alt: localizedTitle }] : [],
+      },
+    };
+  } catch {
+    return {
+      title: 'Game — Daerdree',
+      description: 'Board game at Daerdree Bar & Timeclub',
+    };
+  }
 }
 
 export default async function GamePage({ params }: { params: Promise<{ id: string }> }) {
@@ -37,6 +96,9 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
   return (
     <div className="min-h-dvh bg-background">
       
+      {/* JSON-LD Schema.org */}
+      <GameJsonLd game={game} locale={locale} baseUrl={process.env.NEXT_PUBLIC_SITE_URL || 'https://daerdree.bar'} />
+
       {/* 1. HERO (ФОН) */}
       <div className="relative h-[45dvh] md:h-[50dvh] w-full overflow-hidden z-0">
         {heroImage && (

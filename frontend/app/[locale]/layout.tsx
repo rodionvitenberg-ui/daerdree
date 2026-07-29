@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from '@/components/Header';
 import Footer from '@/components/footer';
 import ChunkRetryProvider from '@/components/ChunkRetryProvider';
+import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Metadata, Viewport } from 'next';
@@ -62,7 +63,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: 'website',
       images: [
         {
-          url: '/images/og-image.jpg',
+          url: '/images/hero/4.webp',
           width: 1200,
           height: 630,
           alt: 'Daerdree Bar & Timeclub',
@@ -73,11 +74,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       card: 'summary_large_image',
       title,
       description,
-      images: ['/images/og-image.jpg'],
+      images: ['/images/hero/4.webp'],
     },
     robots: {
       index: true,
       follow: true,
+    },
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     },
   };
 }
@@ -95,9 +99,17 @@ export default async function RootLayout({
   return (
     // Применяем переменную --font-literata
     <html lang={locale} className={`${manrope.variable} ${literata.variable}`}>
+      <head>
+        <link rel="icon" type="image/png" href="/images/daerdree.png" />
+        <link rel="apple-touch-icon" href="/images/daerdree.png" />
+        <link rel="dns-prefetch" href="https://daerdree.bar" />
+        <link rel="preconnect" href="https://daerdree.bar" crossOrigin="anonymous" />
+        <link rel="preload" as="image" href="/images/hero/4.webp" fetchPriority="high" />
+      </head>
       <body className="antialiased bg-background text-foreground flex flex-col min-h-dvh overflow-x-clip">
         <NextIntlClientProvider messages={messages}>
           <ChunkRetryProvider>
+            <LocalBusinessJsonLd locale={locale} baseUrl={SITE_URL} />
             <Header />
             <main className="flex-grow min-w-0">
               {children}
