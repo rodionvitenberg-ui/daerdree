@@ -4,18 +4,18 @@ from .models import Category, Tag, BoardGame, Expansion
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'icon', 'description']
+        fields = ['id', 'name', 'name_ru', 'name_en', 'slug', 'icon', 'description', 'description_ru', 'description_en']
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ['id', 'name', 'slug']
+        fields = ['id', 'name', 'name_ru', 'name_en', 'slug']
 
 # Сериализатор для дополнения
 class ExpansionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expansion
-        fields = ['id', 'title', 'description']
+        fields = ['id', 'title', 'title_ru', 'title_en', 'description', 'description_ru', 'description_en']
 
 class BoardGameSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True, read_only=True)
