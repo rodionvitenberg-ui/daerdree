@@ -5,7 +5,8 @@
 существующие записи:
 
   - ✅ Категории, теги, игры, дополнения, события, меню — перезаписываются
-  - ❌ Изображения (image, setup_image, icon, GameImage) НЕ перезаписываются
+  - ✅ Изображения (image, setup_image, icon) тоже перезаписываются из дампа
+  - ❌ GameImage (галерея) — только INSERT, существующие не трогаем
   - ✅ M2M-связи (categories, tags) синхронизируются — устанавливаются ровно
     те, что указаны в дампе (старые лишние удаляются)
 
@@ -24,7 +25,7 @@ from menu.models import MenuCategory, MenuItem
 
 
 class Command(BaseCommand):
-    help = 'Синхронизация данных из JSON-дампа с перезаписью (кроме изображений)'
+    help = 'Синхронизация данных из JSON-дампа с перезаписью всех полей'
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -86,7 +87,6 @@ class Command(BaseCommand):
 
     # =========================================================================
     # CATEGORIES — update_or_create по slug
-    # Пропускаем: icon (изображение)
     # =========================================================================
     def _sync_categories(self, data):
         created = 0
@@ -95,7 +95,7 @@ class Command(BaseCommand):
             defaults = {
                 "name": item["name"],
                 "description": item.get("description", ""),
-                # icon НЕ перезаписываем — изображение
+                "icon": item.get("icon", ""),
             }
             if "name_ru" in item:
                 defaults["name_ru"] = item["name_ru"] or item["name"]
@@ -118,7 +118,6 @@ class Command(BaseCommand):
 
     # =========================================================================
     # TAGS — update_or_create по slug
-    # Пропускаем: icon (изображение)
     # =========================================================================
     def _sync_tags(self, data):
         created = 0
@@ -126,7 +125,7 @@ class Command(BaseCommand):
         for item in data:
             defaults = {
                 "name": item["name"],
-                # icon НЕ перезаписываем
+                "icon": item.get("icon", ""),
             }
             if "name_ru" in item:
                 defaults["name_ru"] = item["name_ru"] or item["name"]
@@ -145,7 +144,6 @@ class Command(BaseCommand):
 
     # =========================================================================
     # BOARD GAMES — update_or_create по slug
-    # Пропускаем: image, setup_image (изображения НЕ перезаписываем)
     # M2M-связи синхронизируем (удаляем старые, добавляем новые)
     # =========================================================================
     def _sync_games(self, data):
@@ -167,8 +165,8 @@ class Command(BaseCommand):
                 "is_active": item.get("is_active", True),
                 "is_visible_ru": item.get("is_visible_ru", True),
                 "is_visible_en": item.get("is_visible_en", False),
-                # image  — НЕ перезаписываем
-                # setup_image — НЕ перезаписываем
+                "image": item.get("image", ""),
+                "setup_image": item.get("setup_image", ""),
             }
             if "title_ru" in item:
                 defaults["title_ru"] = item["title_ru"] or item["title"]
@@ -316,7 +314,6 @@ class Command(BaseCommand):
 
     # =========================================================================
     # EVENTS — update_or_create по telegram_id (или title + date)
-    # Пропускаем: image (изображение)
     # =========================================================================
     def _sync_events(self, data):
         created = 0
@@ -332,7 +329,7 @@ class Command(BaseCommand):
                 "description_en": item.get("description_en", ""),
                 "event_date": parse_datetime(item["event_date"]) if item.get("event_date") else None,
                 "is_visible": item.get("is_visible", True),
-                # image НЕ перезаписываем
+                "image": item.get("image", ""),
             }
 
             if telegram_id:
@@ -377,7 +374,6 @@ class Command(BaseCommand):
 
     # =========================================================================
     # MENU ITEMS — update_or_create по slug
-    # Пропускаем: image (изображение)
     # =========================================================================
     def _sync_menu_items(self, data):
         created = 0
@@ -402,7 +398,7 @@ class Command(BaseCommand):
                 "volume": item.get("volume", ""),
                 "is_vegetarian": item.get("is_vegetarian", False),
                 "is_available": item.get("is_available", True),
-                # image НЕ перезаписываем
+                "image": item.get("image", ""),
             }
 
             obj, was_created = MenuItem.objects.update_or_create(
