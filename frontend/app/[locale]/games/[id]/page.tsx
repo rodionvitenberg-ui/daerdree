@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       description: cleanDesc || '',
       url: `${baseUrl}/${locale}/games/${id}`,
       type: 'website',
-      images: game.image ? [{ url: `${baseUrl}${game.image}`, width: 800, height: 600, alt: localizedTitle }] : [],
+      images: game.image ? [{ url: `${baseUrl}/media/${game.image}`, width: 800, height: 600, alt: localizedTitle }] : [],
     },
   };
 }

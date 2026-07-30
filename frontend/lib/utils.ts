@@ -11,6 +11,7 @@ export const getImageUrl = (path: string | null | undefined) => {
   
   if (path.startsWith("http")) return path;
 
-  // Теперь адрес берется из constants.ts
-  return `${API_BASE_URL}${path}`;
+  // Django MEDIA_URL = '/media/', поэтому добавляем префикс
+  const mediaPrefix = path.startsWith("media/") ? "" : "media/";
+  return `${API_BASE_URL}/${mediaPrefix}${path}`;
 };
