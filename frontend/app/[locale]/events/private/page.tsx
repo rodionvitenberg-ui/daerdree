@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import AnimatedContent from "@/components/AnimatedContent";
@@ -10,6 +10,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const ROTATION_INTERVAL = 5000; // 5 seconds
+
+/** Returns `count` images from `arr` starting at `startIdx`, wrapping around. */
+function getSlidingImages<T>(arr: T[], startIdx: number, count: number): T[] {
+  const result: T[] = [];
+  for (let i = 0; i < count; i++) {
+    result.push(arr[(startIdx + i) % arr.length]);
+  }
+  return result;
+}
 
 export default function PrivateHirePage() {
   const t = useTranslations("PrivateEvents");
@@ -25,6 +36,25 @@ export default function PrivateHirePage() {
 
   const gameMasterFeatures = t.raw("gameMaster.features") as string[];
 
+  // --- Image rotation state ---
+  const allGameImages = PRIVATE_HIRE_CONTENT.gameMaster.images;
+  const allFeastImages = PRIVATE_HIRE_CONTENT.feast.images;
+
+  const [gameStartIdx, setGameStartIdx] = useState(0);
+  const [feastStartIdx, setFeastStartIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGameStartIdx((prev) => (prev + 1) % allGameImages.length);
+      setFeastStartIdx((prev) => (prev + 1) % allFeastImages.length);
+    }, ROTATION_INTERVAL);
+    return () => clearInterval(interval);
+  }, [allGameImages.length, allFeastImages.length]);
+
+  const visibleGameImages = getSlidingImages(allGameImages, gameStartIdx, 3);
+  const visibleFeastImages = getSlidingImages(allFeastImages, feastStartIdx, 3);
+
+  // --- GSAP animations ---
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Hero parallax
@@ -175,15 +205,16 @@ export default function PrivateHirePage() {
               ref={cardContainerRefs[0]}
               className="grid grid-cols-2 gap-3 perspective-[1200px]"
             >
-              {PRIVATE_HIRE_CONTENT.gameMaster.images.map((src, i) => (
+              {visibleGameImages.map((src, i) => (
                 <div
-                  key={i}
+                  key={`${gameStartIdx}-${i}`}
                   className={`variant-card-a relative overflow-hidden rounded-xl border border-white/10 shadow-2xl ${
                     i === 0 ? "col-span-2 row-span-2" : ""
                   }`}
                   style={{
                     aspectRatio: i === 0 ? "16/9" : "4/3",
                     transformStyle: "preserve-3d",
+                    transition: "opacity 0.7s ease-in-out",
                   }}
                 >
                   <Image
@@ -231,15 +262,16 @@ export default function PrivateHirePage() {
               ref={cardContainerRefs[1]}
               className="grid grid-cols-2 gap-3 perspective-[1200px]"
             >
-              {PRIVATE_HIRE_CONTENT.feast.images.map((src, i) => (
+              {visibleFeastImages.map((src, i) => (
                 <div
-                  key={i}
+                  key={`${feastStartIdx}-${i}`}
                   className={`variant-card-a relative overflow-hidden rounded-xl border border-white/10 shadow-2xl ${
                     i === 2 ? "col-span-2 row-span-2" : ""
                   }`}
                   style={{
                     aspectRatio: i === 2 ? "16/9" : "4/3",
                     transformStyle: "preserve-3d",
+                    transition: "opacity 0.7s ease-in-out",
                   }}
                 >
                   <Image

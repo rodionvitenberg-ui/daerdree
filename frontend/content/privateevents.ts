@@ -1,22 +1,29 @@
 export const PRIVATE_HIRE_CONTENT = {
   hero: {
-    image: "/images/hero/4.webp", 
+    image: "/events/hero.png",
   },
   gameMaster: {
     images: [
-      "/events/6.png",
-      "/events/7.png",
-      "/events/8.jpg",
-    ]
+      "/events/game1.png",
+      "/events/game2.png",
+      "/events/game3.jpg",
+      "/events/game4.jpg",
+      "/events/game5.png",
+      "/events/game6.png",
+      "/events/game7.jpg",
+    ],
   },
   feast: {
     images: [
-      "/images/hero/3.webp",
-      "/images/hero/7.webp",
-      "/images/hero/4.webp",
-    ]
+      "/events/IMG_8191.JPG",
+      "/events/IMG-20260122-WA0000.jpg",
+      "/events/IMG-20260122-WA0002.jpg",
+      "/events/IMG-20260122-WA0006.jpg",
+      "/events/IMG-20260122-WA0015.jpg",
+      "/events/IMG-20260122-WA0016.jpg",
+    ],
   },
   cta: {
-    image: "/events/11.png", 
-  }
+    image: "/events/divider.JPG",
+  },
 };
