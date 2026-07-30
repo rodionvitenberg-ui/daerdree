@@ -73,7 +73,7 @@ class Command(BaseCommand):
                 "name": obj.name,
                 "name_ru": getattr(obj, 'name_ru', obj.name),
                 "name_en": getattr(obj, 'name_en', obj.name),
-                "icon": obj.icon.url if obj.icon else "",
+                "icon": obj.icon.name if obj.icon else "",
                 "description": str(obj.description) if obj.description else "",
                 "description_ru": str(getattr(obj, 'description_ru', obj.description or '')),
                 "description_en": str(getattr(obj, 'description_en', obj.description or '')),
@@ -91,7 +91,7 @@ class Command(BaseCommand):
                 "name": obj.name,
                 "name_ru": getattr(obj, 'name_ru', obj.name),
                 "name_en": getattr(obj, 'name_en', obj.name),
-                "icon": obj.icon.url if obj.icon else "",
+                "icon": obj.icon.name if obj.icon else "",
             })
         return result
 
@@ -113,8 +113,8 @@ class Command(BaseCommand):
                 "description_en": str(getattr(game, 'description_en', game.description or '')),
                 "designer": game.designer,
                 "bgg_type": game.bgg_type,
-                "image": game.image.url if game.image else "",
-                "setup_image": game.setup_image.url if game.setup_image else "",
+                "image": game.image.name if game.image else "",
+                "setup_image": game.setup_image.name if game.setup_image else "",
                 "min_players": game.min_players,
                 "max_players": game.max_players,
                 "play_time": game.play_time,
@@ -133,7 +133,7 @@ class Command(BaseCommand):
         for obj in GameImage.objects.select_related('game').all().order_by('pk'):
             result.append({
                 "game_slug": obj.game.slug,
-                "image": obj.image.url if obj.image else "",
+                "image": obj.image.name if obj.image else "",
                 "image_type": obj.image_type,
                 "order": obj.order,
                 "alt": obj.alt,
@@ -167,7 +167,7 @@ class Command(BaseCommand):
                 "telegram_id": obj.telegram_id,
                 "title": obj.title,
                 "description": obj.description,
-                "image": obj.image.url if obj.image else "",
+                "image": obj.image.name if obj.image else "",
                 "title_en": obj.title_en or "",
                 "description_en": obj.description_en or "",
                 "event_date": obj.event_date.isoformat() if obj.event_date else None,
@@ -199,7 +199,7 @@ class Command(BaseCommand):
                 "slug": obj.slug,
                 "name": obj.name,
                 "description": obj.description,
-                "image": obj.image.url if obj.image else "",
+                "image": obj.image.name if obj.image else "",
                 "price": str(obj.price),
                 "volume": obj.volume,
                 "is_vegetarian": obj.is_vegetarian,

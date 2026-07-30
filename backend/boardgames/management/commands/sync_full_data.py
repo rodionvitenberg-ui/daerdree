@@ -87,6 +87,7 @@ class Command(BaseCommand):
 
     # =========================================================================
     # CATEGORIES — update_or_create по slug
+    # icon устанавливаем отдельно (ImageField)
     # =========================================================================
     def _sync_categories(self, data):
         created = 0
@@ -95,7 +96,7 @@ class Command(BaseCommand):
             defaults = {
                 "name": item["name"],
                 "description": item.get("description", ""),
-                "icon": item.get("icon", ""),
+                # icon — отдельно
             }
             if "name_ru" in item:
                 defaults["name_ru"] = item["name_ru"] or item["name"]
@@ -110,6 +111,10 @@ class Command(BaseCommand):
                 slug=item["slug"],
                 defaults=defaults,
             )
+            # icon напрямую в БД (обходим ImageField)
+            Category.objects.filter(slug=item["slug"]).update(
+                icon=item.get("icon", ""),
+            )
             if was_created:
                 created += 1
             else:
@@ -118,6 +123,7 @@ class Command(BaseCommand):
 
     # =========================================================================
     # TAGS — update_or_create по slug
+    # icon устанавливаем отдельно (ImageField)
     # =========================================================================
     def _sync_tags(self, data):
         created = 0
@@ -125,7 +131,7 @@ class Command(BaseCommand):
         for item in data:
             defaults = {
                 "name": item["name"],
-                "icon": item.get("icon", ""),
+                # icon — отдельно
             }
             if "name_ru" in item:
                 defaults["name_ru"] = item["name_ru"] or item["name"]
@@ -136,6 +142,10 @@ class Command(BaseCommand):
                 slug=item["slug"],
                 defaults=defaults,
             )
+            # icon напрямую в БД (обходим ImageField)
+            Tag.objects.filter(slug=item["slug"]).update(
+                icon=item.get("icon", ""),
+            )
             if was_created:
                 created += 1
             else:
@@ -144,6 +154,7 @@ class Command(BaseCommand):
 
     # =========================================================================
     # BOARD GAMES — update_or_create по slug
+    # Image-поля устанавливаем отдельно через update() (прямая запись в БД)
     # M2M-связи синхронизируем (удаляем старые, добавляем новые)
     # =========================================================================
     def _sync_games(self, data):
@@ -165,8 +176,7 @@ class Command(BaseCommand):
                 "is_active": item.get("is_active", True),
                 "is_visible_ru": item.get("is_visible_ru", True),
                 "is_visible_en": item.get("is_visible_en", False),
-                "image": item.get("image", ""),
-                "setup_image": item.get("setup_image", ""),
+                # image/setup_image устанавливаем отдельно ниже
             }
             if "title_ru" in item:
                 defaults["title_ru"] = item["title_ru"] or item["title"]
@@ -181,6 +191,15 @@ class Command(BaseCommand):
                 slug=item["slug"],
                 defaults=defaults,
             )
+
+            # Устанавливаем image/setup_image напрямую в БД (обходим ImageField валидацию)
+            BoardGame.objects.filter(slug=item["slug"]).update(
+                image=item.get("image", ""),
+                setup_image=item.get("setup_image", ""),
+            )
+            # Обновляем объект в памяти для дальнейшей работы
+            game.image.name = item.get("image", "")
+            game.setup_image.name = item.get("setup_image", "")
 
             # Синхронизируем M2M-связи (полная переустановка)
             cat_slugs = item.get("categories", [])
@@ -314,6 +333,7 @@ class Command(BaseCommand):
 
     # =========================================================================
     # EVENTS — update_or_create по telegram_id (или title + date)
+    # image устанавливаем отдельно (ImageField)
     # =========================================================================
     def _sync_events(self, data):
         created = 0
@@ -329,7 +349,7 @@ class Command(BaseCommand):
                 "description_en": item.get("description_en", ""),
                 "event_date": parse_datetime(item["event_date"]) if item.get("event_date") else None,
                 "is_visible": item.get("is_visible", True),
-                "image": item.get("image", ""),
+                # image — отдельно
             }
 
             if telegram_id:
@@ -343,6 +363,19 @@ class Command(BaseCommand):
                     title=item["title"],
                     event_date=event_date,
                     defaults=defaults,
+                )
+
+            # image напрямую в БД (обходим ImageField)
+            if telegram_id:
+                Event.objects.filter(telegram_id=telegram_id).update(
+                    image=item.get("image", ""),
+                )
+            else:
+                Event.objects.filter(
+                    title=item["title"],
+                    event_date=parse_datetime(item["event_date"]) if item.get("event_date") else None,
+                ).update(
+                    image=item.get("image", ""),
                 )
 
             if was_created:
@@ -374,6 +407,7 @@ class Command(BaseCommand):
 
     # =========================================================================
     # MENU ITEMS — update_or_create по slug
+    # image устанавливаем отдельно (ImageField)
     # =========================================================================
     def _sync_menu_items(self, data):
         created = 0
@@ -398,12 +432,16 @@ class Command(BaseCommand):
                 "volume": item.get("volume", ""),
                 "is_vegetarian": item.get("is_vegetarian", False),
                 "is_available": item.get("is_available", True),
-                "image": item.get("image", ""),
+                # image — отдельно
             }
 
             obj, was_created = MenuItem.objects.update_or_create(
                 slug=item["slug"],
                 defaults=defaults,
+            )
+            # image напрямую в БД (обходим ImageField)
+            MenuItem.objects.filter(slug=item["slug"]).update(
+                image=item.get("image", ""),
             )
             if was_created:
                 created += 1
