@@ -30,3 +30,6 @@ chrome_text_profile
 # Google Cloud сервисный аккаунт (секрет!)
 daerdree-*.json
 *.google-service-account.json
+
+/skills
+/skills2
