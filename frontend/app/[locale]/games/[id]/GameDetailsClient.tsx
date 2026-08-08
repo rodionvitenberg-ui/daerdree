@@ -63,7 +63,7 @@ export default function GameDetailsClient({ game }: Props) {
                 <div>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-white/40 leading-none">{t("players")}</span>
                   <div className="mt-1 flex h-5 items-center">
-                    <span className="text-sm font-bold text-white leading-none">{t("playersRange", { min: game.min_players, max: game.max_players })}</span>
+                    <span className="text-sm font-bold text-white leading-none tabular-nums">{t("playersRange", { min: game.min_players, max: game.max_players })}</span>
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function GameDetailsClient({ game }: Props) {
                 <div>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-white/40 leading-none">{t("playTime")}</span>
                   <div className="mt-1 flex h-5 items-center">
-                    <span className="text-sm font-bold text-white leading-none">{t("minutes", { time: game.play_time })}</span>
+                    <span className="text-sm font-bold text-white leading-none tabular-nums">{t("minutes", { time: game.play_time })}</span>
                   </div>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function GameDetailsClient({ game }: Props) {
                 </div>
               )}
 
-              <Link href="/#booking" className="mt-4 block w-full rounded-lg bg-accent py-3 text-center font-serif text-sm font-bold uppercase tracking-widest text-black transition-transform hover:scale-105 hover:bg-white">
+              <Link href="/#booking" className="btn btn-primary mt-4 w-full">
                 {t("bookButton")}
               </Link>
             </div>

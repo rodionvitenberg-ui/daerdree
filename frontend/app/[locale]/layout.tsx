@@ -2,6 +2,7 @@ import { Manrope, Literata } from 'next/font/google';
 import "./globals.css";
 import Header from '@/components/Header';
 import Footer from '@/components/footer';
+import SmoothScroll from '@/components/SmoothScroll';
 import ChunkRetryProvider from '@/components/ChunkRetryProvider';
 import LocalBusinessJsonLd from '@/components/LocalBusinessJsonLd';
 import { NextIntlClientProvider } from 'next-intl';
@@ -107,6 +108,7 @@ export default async function RootLayout({
       <body className="antialiased bg-background text-foreground flex flex-col min-h-dvh overflow-x-clip">
         <NextIntlClientProvider messages={messages}>
           <ChunkRetryProvider>
+            <SmoothScroll />
             <LocalBusinessJsonLd locale={locale} baseUrl={SITE_URL} />
             <Header />
             <main className="flex-grow min-w-0">

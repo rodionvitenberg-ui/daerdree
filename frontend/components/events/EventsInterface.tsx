@@ -117,7 +117,7 @@ export default function EventsInterface() {
                   return (
                     <Link href={`/events/${event.id}`} key={event.id} className="block h-full">
                         <div 
-                          className="group relative bg-neutral-900 border border-white/10 overflow-hidden hover:border-accent/50 transition-colors flex flex-col h-full"
+                          className="img-card group relative bg-neutral-900 flex flex-col h-full"
                         >
                           <div className="relative h-64 w-full bg-neutral-800">
                             {event.image ? (
@@ -207,12 +207,8 @@ export default function EventsInterface() {
               ))}
             </div>
 
-            <Link href="/book">
-              <button className="group relative overflow-hidden px-10 py-4 border border-accent bg-accent/10 hover:bg-accent transition-all duration-300">
-                <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-accent group-hover:text-black transition-colors">
-                  Start Your Booking
-                </span>
-              </button>
+            <Link href="/book" className="btn btn-primary">
+              Start Your Booking
             </Link>
           </div>
         )}

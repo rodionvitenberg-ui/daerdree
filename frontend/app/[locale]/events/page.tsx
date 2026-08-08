@@ -28,7 +28,7 @@ export default function EventsHub() {
           <AnimatedContent
             distance={20}
             direction="vertical"
-            duration={1.0}
+            duration={0.8}
             delay={0.1}
             threshold={0.2}
             className="mb-0"
@@ -40,7 +40,7 @@ export default function EventsHub() {
           <AnimatedContent
             distance={20}
             direction="vertical"
-            duration={1.0}
+            duration={0.8}
             delay={0.2}
             threshold={0.2}
             className="mb-0"
@@ -84,7 +84,7 @@ export default function EventsHub() {
           <AnimatedContent
             distance={20}
             direction="vertical"
-            duration={1.0}
+            duration={0.8}
             delay={0.1}
             threshold={0.2}
             className="mb-0"
@@ -96,7 +96,7 @@ export default function EventsHub() {
           <AnimatedContent
             distance={20}
             direction="vertical"
-            duration={1.0}
+            duration={0.8}
             delay={0.2}
             threshold={0.2}
             className="mb-0"

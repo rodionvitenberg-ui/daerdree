@@ -52,7 +52,7 @@ export default function MenuTeaser() {
               distance={150}
               direction="vertical"
               reverse={false}
-              duration={1.0}
+              duration={0.8}
               ease="ease.out"
               initialOpacity={0}
               animateOpacity
@@ -68,7 +68,7 @@ export default function MenuTeaser() {
               distance={200}
               direction="vertical"
               reverse={false}
-              duration={1.2}
+              duration={0.8}
               delay={0.2}
               ease="ease.out"
               initialOpacity={0}
@@ -81,13 +81,8 @@ export default function MenuTeaser() {
             </AnimatedContent>
 
             <div className="mt-8 flex justify-center w-full">
-              <Link href="/menu">
-                <button className="group relative min-h-11 overflow-hidden px-10 py-4 md:px-8 md:py-3 border border-accent transition-all duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80" />
-                  <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-secondary text-sm md:text-base">
-                    {t("buttonText")}
-                  </span>
-                </button>
+              <Link href="/menu" className="btn btn-outline btn-sm">
+                {t("buttonText")}
               </Link>
             </div>
 

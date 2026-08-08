@@ -46,7 +46,7 @@ export default function GamesMarquee() {
           distance={150}
           direction="vertical"
           reverse={false}
-          duration={1.5}
+          duration={0.9}
           ease="ease.out"
           initialOpacity={0.2}
           animateOpacity
@@ -63,7 +63,7 @@ export default function GamesMarquee() {
           distance={200}
           direction="vertical"
           reverse={false}
-          duration={1.5}
+          duration={0.9}
           ease="ease.out"
           initialOpacity={0.2}
           animateOpacity
@@ -91,7 +91,7 @@ export default function GamesMarquee() {
                 <Link 
                   key={`row1-${game.id}-${index}`}
                   href={`/games/${game.id}`}
-                  className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
+                  className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 img-card md:h-60 md:w-48"
                 >
                   {game.image ? (
                     <Image
@@ -124,7 +124,7 @@ export default function GamesMarquee() {
                 <Link 
                   key={`row2-${game.id}-${index}`}
                   href={`/games/${game.id}`} 
-                  className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 transition-all duration-300 hover:border-secondary hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.4)] md:h-60 md:w-48"
+                  className="group relative block h-40 w-32 flex-shrink-0 overflow-hidden border border-white/10 img-card md:h-60 md:w-48"
                 >
                   {game.image ? (
                     <Image
@@ -150,14 +150,8 @@ export default function GamesMarquee() {
       </div>
 
       <div className="mt-12 flex justify-center">
-         <Link href="/games">
-          <button className="group relative overflow-hidden px-10 py-4 md:px-8 md:py-3 border border-accent transition-all duration-300">
-           <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
-            <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
-            <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
-             {t("buttonText")}
-            </span>
-          </button>
+         <Link href="/games" className="btn btn-primary btn-sm">
+          {t("buttonText")}
          </Link>
       </div>
 

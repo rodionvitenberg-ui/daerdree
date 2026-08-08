@@ -195,7 +195,7 @@ function BookingContent() {
                       <button 
                           type="submit" 
                           disabled={status === 'loading'}
-                          className="mt-8 w-full min-h-12 bg-white py-4 font-serif font-bold uppercase tracking-widest text-black transition-transform hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                          className="btn btn-inverse mt-8 w-full"
                       >
                           {status === 'loading' && (
                               <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

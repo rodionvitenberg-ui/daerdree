@@ -171,7 +171,7 @@ export default function PublicEventsPage() {
 
                 return (
                     <Link href={`/events/${event.id}`} key={event.id} className="block h-full group">
-                        <div className="relative bg-neutral-900 border border-white/10 overflow-hidden hover:border-accent/50 transition-colors flex flex-col h-full">
+                        <div className="img-card relative bg-neutral-900 flex flex-col h-full">
                             <div className="relative h-64 w-full bg-neutral-800">
                                 {event.image ? (
                                     <Image src={event.image} alt={displayTitle} fill className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />

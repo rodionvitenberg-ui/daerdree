@@ -24,13 +24,29 @@ interface AnimatedContentProps extends React.HTMLAttributes<HTMLDivElement> {
   onDisappearanceComplete?: () => void;
 }
 
+/**
+ * Маппинг псевдо-easings на реальные кривые GSAP.
+ * "ease.out" (используется по всему сайту) не является валидным easing для GSAP,
+ * поэтому сейчас анимации падают в дефолтную кривую. power2.out совпадает
+ * с намерением автора: быстрое начало, мягкое приземление.
+ */
+const EASE_MAP: Record<string, string> = {
+  'ease.out': 'power2.out',
+  'ease.in': 'power2.in',
+  'ease.inOut': 'power2.inOut',
+  'power3.out': 'power3.out',
+  'expo.out': 'expo.out',
+};
+
+const resolveEase = (ease: string): string => EASE_MAP[ease] || ease;
+
 const AnimatedContent: React.FC<AnimatedContentProps> = ({
   children,
   container,
   distance = 150,
   direction = 'vertical',
   reverse = false,
-  duration = 2.0,
+  duration = 0.9,
   ease = 'power3.out',
   initialOpacity = 0,
   animateOpacity = true,
@@ -51,6 +67,12 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     const el = ref.current;
     if (!el) return;
 
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      gsap.set(el, { opacity: 1, x: 0, y: 0, scale: 1, visibility: 'visible' });
+      return;
+    }
+
     let scrollerTarget: Element | string | null = container || document.getElementById('snap-main-container') || null;
 
     if (typeof scrollerTarget === 'string') {
@@ -65,7 +87,8 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       [axis]: offset,
       scale,
       opacity: animateOpacity ? initialOpacity : 1,
-      visibility: 'visible'
+      visibility: 'visible',
+      willChange: 'transform, opacity'
     });
 
     const tl = gsap.timeline({
@@ -80,7 +103,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
             opacity: animateOpacity ? initialOpacity : 0,
             delay: disappearAfter,
             duration: disappearDuration,
-            ease: disappearEase,
+            ease: resolveEase(disappearEase),
             onComplete: () => onDisappearanceComplete?.()
           });
         }
@@ -92,7 +115,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       scale: 1,
       opacity: 1,
       duration,
-      ease
+      ease: resolveEase(ease)
     });
 
     const st = ScrollTrigger.create({

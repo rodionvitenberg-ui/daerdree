@@ -34,7 +34,7 @@ export default function Hero() {
                <div key={colIndex} className="relative h-full w-full overflow-hidden">
                  {item.type === 'video' ? (
                    <video
-                     className="h-full w-full object-cover"
+                     className={`h-full w-full object-cover ${index === currentSlide ? 'ken-burns' : ''}`}
                      src={item.src}
                      autoPlay loop muted playsInline
                    />
@@ -43,7 +43,7 @@ export default function Hero() {
                        src={item.src}
                        alt={`Desktop slide ${index} part ${colIndex}`}
                        fill
-                       className="object-cover"
+                       className={`object-cover ${index === currentSlide ? 'ken-burns' : ''}`}
                        priority={index === currentSlide && index === 0}
                        loading={index === currentSlide ? undefined : "lazy"}
                     />
@@ -58,7 +58,7 @@ export default function Hero() {
               
                {slide.mobile.type === 'video' ? (
                   <video
-                    className="h-full w-full object-cover"
+                    className={`h-full w-full object-cover ${index === currentSlide ? 'ken-burns' : ''}`}
                     src={slide.mobile.src}
                     autoPlay
                     loop
@@ -70,7 +70,7 @@ export default function Hero() {
                     src={slide.mobile.src}
                     alt={`Mobile slide ${index}`}
                     fill
-                    className="object-cover"
+                    className={`object-cover ${index === currentSlide ? 'ken-burns' : ''}`}
                     priority={index === currentSlide}
                     loading={index === currentSlide ? undefined : "lazy"}
                   />
@@ -91,7 +91,7 @@ export default function Hero() {
               distance={150}
               direction="vertical"
               reverse={false}
-              duration={1.2}
+              duration={0.8}
               ease="ease.out"
               initialOpacity={0.2}
               animateOpacity
@@ -108,7 +108,7 @@ export default function Hero() {
               distance={200}
               direction="vertical"
               reverse={false}
-              duration={1.2}
+              duration={0.8}
               ease="ease.out"
               initialOpacity={0.0}
               animateOpacity
@@ -123,15 +123,9 @@ export default function Hero() {
 
             <Link 
               href="/book"
-              className="group relative mt-4 inline-flex min-h-11 min-w-[11rem] items-center justify-center overflow-hidden px-8 py-4 transition-all duration-300"
+              className="btn btn-primary mt-4"
             >
-                <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent-600 to-accent-600 opacity-0 transition-opacity duration-500 group-hover:opacity-80 border border-accent/50 " />
-                
-                <div className="absolute inset-0 bg-accent transition-opacity duration-500 group-hover:opacity-0" />
-                
-                <span className="relative z-10 font-serif font-bold uppercase tracking-[0.2em] text-[#F7F0EA]">
-                    {t('buttonText')}
-                </span>
+                {t('buttonText')}
             </Link>
 
         </div>
