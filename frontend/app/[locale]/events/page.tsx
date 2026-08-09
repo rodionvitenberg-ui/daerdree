@@ -9,10 +9,10 @@ export default function EventsHub() {
   const t = useTranslations("EventsHub");
 
   return (
-    <div className="h-app-minus-header w-full flex flex-col lg:flex-row bg-black overflow-hidden">
+    <div className="w-full flex flex-col lg:flex-row lg:h-[calc(100dvh-var(--header-height)-var(--safe-top))] bg-black lg:overflow-hidden">
       
       {/* === ЛЕВАЯ СТОРОНА: PUBLIC EVENTS === */}
-      <Link href="/events/public" className="group relative flex-1 min-h-0 h-1/2 lg:h-full overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
+      <Link href="/events/public" className="group relative min-h-[70dvh] lg:min-h-0 lg:flex-1 lg:h-full overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
         <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110">
           <Image
             src="/images/hero/4.webp"
@@ -21,7 +21,9 @@ export default function EventsHub() {
             className="object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
+          {/* На мобилке — равномерное затемнение сверху и снизу, чтобы текст читался;
+              на десктопе — прежний боковой градиент */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 lg:bg-gradient-to-r lg:from-black/80 lg:via-black/20 lg:to-transparent" />
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-center p-6 sm:p-8 lg:p-16 items-start">
@@ -68,7 +70,7 @@ export default function EventsHub() {
       </Link>
 
       {/* === ПРАВАЯ СТОРОНА: PRIVATE HIRE === */}
-      <Link href="/events/private" className="group relative flex-1 min-h-0 h-1/2 lg:h-full overflow-hidden">
+      <Link href="/events/private" className="group relative min-h-[70dvh] lg:min-h-0 lg:flex-1 lg:h-full overflow-hidden">
         <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110">
           <Image
             src="/images/hero/7.webp"
@@ -77,7 +79,9 @@ export default function EventsHub() {
             className="object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-l from-black/80 via-black/20 to-transparent" />
+          {/* На мобилке — такое же равномерное затемнение, как на левой панели;
+              на десктопе — прежний боковой градиент */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 lg:bg-gradient-to-l lg:from-black/80 lg:via-black/20 lg:to-transparent" />
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-center p-6 sm:p-8 lg:p-16 items-end text-right">

@@ -33,7 +33,20 @@ export default function SmoothScroll() {
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
+    // Останавливаем инерционный скролл на время открытого мобильного меню.
+    // Header вешает класс nav-open на body; без этого window.scrollTo(0,0)
+    // конфликтует с внутренним скроллом Lenis.
+    const observer = new MutationObserver(() => {
+      if (document.body.classList.contains("nav-open")) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+
     return () => {
+      observer.disconnect();
       gsap.ticker.remove(raf);
       lenis.destroy();
     };

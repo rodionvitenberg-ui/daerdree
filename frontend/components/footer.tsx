@@ -4,16 +4,9 @@ import Image from "next/image";
 import { FOOTER_CONTENT } from "@/content/home";
 import { BOOKING_CONTENT } from "@/content/home";
 import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const t = useTranslations("Footer");
-  const pathname = usePathname();
-
-  // Full-viewport events hub — hide footer so panels fill the screen without extra scroll
-  if (/^\/(en|ru)\/events\/?$/.test(pathname)) {
-    return null;
-  }
 
   return (
     <footer className="w-full bg-background border-t border-white/5 py-16 pb-[calc(4rem+var(--safe-bottom))]">

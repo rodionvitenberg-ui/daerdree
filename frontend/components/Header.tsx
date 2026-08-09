@@ -70,6 +70,14 @@ export default function Header() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isOpen]);
 
+  // При открытии мобильного меню: скроллим к верху, чтобы хедер и панель
+  // были видны сразу (даже если пользователь проскроллил далеко вниз)
+  useEffect(() => {
+    if (isOpen) {
+      window.scrollTo(0, 0);
+    }
+  }, [isOpen]);
+
   // === ЛОГИКА СМЕНЫ ЯЗЫКА ===
   const toggleLanguage = () => {
     setIsOpen(false);
@@ -81,7 +89,7 @@ export default function Header() {
 
   return (
     <header 
-      className={`sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md relative transition-transform duration-300 ease-in-out pt-[var(--safe-top)]
+      className={`sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md transition-transform duration-300 ease-in-out pt-[var(--safe-top)]
         ${isVisible ? 'translate-y-0' : 'md:-translate-y-full'}
       `}
     >
@@ -194,10 +202,14 @@ export default function Header() {
       </nav>
 
       {/* --- ВЫДВИГАЮЩЕЕСЯ МЕНЮ --- */}
+      {/* fixed + top-[var(--header-height)]: панель привязывается к верху экрана,
+          а не к позиции header, поэтому всегда появляется в зоне видимости,
+          даже если пользователь проскроллил далеко вниз. */}
       <div 
-        className={`absolute left-0 top-full -mt-px w-full bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out md:hidden overflow-y-auto overscroll-contain
+        className={`fixed left-0 right-0 z-50 md:hidden overflow-y-auto overscroll-contain bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out
           ${isOpen ? 'max-h-[min(70dvh,28rem)] py-8 opacity-100' : 'max-h-0 py-0 opacity-0 pointer-events-none'}
         `}
+        style={{ top: 'calc(var(--header-height) + var(--safe-top))' }}
         aria-hidden={!isOpen}
       >
         <div className="flex flex-col items-center gap-2 pb-[var(--safe-bottom)] text-center">
