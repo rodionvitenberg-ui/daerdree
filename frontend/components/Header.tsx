@@ -113,8 +113,8 @@ export default function Header() {
             <Image 
               src="/images/logo.png" 
               alt="Daerdree Logo" 
-              width={90} 
-              height={45}
+              width={160} 
+              height={100}
               className="object-contain"
               priority 
             />
