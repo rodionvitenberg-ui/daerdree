@@ -1,29 +1,29 @@
 export const PRIVATE_HIRE_CONTENT = {
   hero: {
-    image: "/events/hero.png",
+    image: "/events/hero.webp",
   },
   gameMaster: {
     images: [
-      "/events/game1.png",
-      "/events/game2.png",
-      "/events/game3.jpg",
-      "/events/game4.jpg",
-      "/events/game5.png",
-      "/events/game6.png",
-      "/events/game7.jpg",
+      "/events/game1.webp",
+      "/events/game2.webp",
+      "/events/game3.webp",
+      "/events/game4.webp",
+      "/events/game5.webp",
+      "/events/game6.webp",
+      "/events/game7.webp",
     ],
   },
   feast: {
     images: [
-      "/events/IMG_8191.JPG",
-      "/events/IMG-20260122-WA0000.jpg",
-      "/events/IMG-20260122-WA0002.jpg",
-      "/events/IMG-20260122-WA0006.jpg",
-      "/events/IMG-20260122-WA0015.jpg",
-      "/events/IMG-20260122-WA0016.jpg",
+      "/events/IMG_8191.webp",
+      "/events/IMG-20260122-WA0000.webp",
+      "/events/IMG-20260122-WA0002.webp",
+      "/events/IMG-20260122-WA0006.webp",
+      "/events/IMG-20260122-WA0015.webp",
+      "/events/IMG-20260122-WA0016.webp",
     ],
   },
   cta: {
-    image: "/events/divider.JPG",
+    image: "/events/divider.webp",
   },
 };

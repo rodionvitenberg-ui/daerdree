@@ -7,7 +7,7 @@
 :root {
   --accent: hsl(187, 75%, 26%);
   /* RGB-компоненты акцента для rgba() теней и свечений (без alpha) */
-  --accent-rgb: 17, 116, 104;
+  --accent-rgb: 17, 104, 116;
   --radius: 0.625rem;
   --background: hsl(60, 3%, 6%);
   --foreground: hsl(0, 13%, 91%);
@@ -266,10 +266,12 @@ body {
 }
 
 /* --- Primary: заливка акцентом + золотой градиент при hover --- */
+/* Рамка в тон акцента, а не белая: белая полупрозрачная рамка на тёмной
+   заливке рендерится как яркая светлая полоска по контуру кнопки. */
 .btn-primary {
   background: var(--accent);
   color: #f7f0ea;
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(var(--accent-rgb), 0.35);
 }
 
 .btn-primary:hover {
@@ -279,7 +281,7 @@ body {
     hsl(35, 70%, 49%) 100%
   );
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(var(--accent-rgb), 0.55);
   box-shadow: var(--shadow-glow-strong);
 }
 

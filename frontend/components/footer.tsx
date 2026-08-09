@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const t = useTranslations("Footer");
   const pathname = usePathname();
-  const currentYear = new Date().getFullYear();
 
   // Full-viewport events hub — hide footer so panels fill the screen without extra scroll
   if (/^\/(en|ru)\/events\/?$/.test(pathname)) {
@@ -46,19 +45,16 @@ export default function Footer() {
              </a>
         </div>
 
-        {/* 3. КРЕДИТЫ (BUSISART) */}
+        {/* 3. КРЕДИТЫ */}
         <div className="mt-4">
-          <p className="font-sans text-xs text-white/20 tracking-widest uppercase cursor-default">
-            {t("poweredBy")}{" "}
-            <a 
-              href="https://busisart.space" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/40 hover:text-white transition-colors border-b border-transparent hover:border-white/40"
-            >
-              BUSISART
-            </a>, {currentYear}
-          </p>
+          <a
+            href="https://soshallitbe.cyou"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-sans text-xs text-white/35 tracking-wide"
+          >
+            As you dream, so shall it be, 2025
+          </a>
         </div>
 
       </div>

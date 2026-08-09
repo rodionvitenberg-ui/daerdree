@@ -42,13 +42,93 @@ export default function PrivateHirePage() {
 
   const [gameStartIdx, setGameStartIdx] = useState(0);
   const [feastStartIdx, setFeastStartIdx] = useState(0);
+  // Пропускаем fade-in при первом рендере — карточки анимирует scroll-entrance
+  const firstRenderRef = useRef(true);
 
+  // Мягкое появление новых карточек после смены слайда
+  useEffect(() => {
+    const gameContainer = cardContainerRefs[0].current;
+    const feastContainer = cardContainerRefs[1].current;
+    const gameCards = gameContainer?.querySelectorAll(".variant-card-a");
+    const feastCards = feastContainer?.querySelectorAll(".variant-card-a");
+
+    if (firstRenderRef.current) {
+      // Первый рендер: карточки покажет staggered 3D entrance ниже
+      firstRenderRef.current = false;
+      return;
+    }
+
+    if (gameCards?.length) {
+      gsap.fromTo(
+        gameCards,
+        { opacity: 0, scale: 0.96, y: 10, filter: "blur(4px)" },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.08,
+          clearProps: "filter",
+        }
+      );
+    }
+    if (feastCards?.length) {
+      gsap.fromTo(
+        feastCards,
+        { opacity: 0, scale: 0.96, y: 10, filter: "blur(4px)" },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.08,
+          clearProps: "filter",
+        }
+      );
+    }
+  }, [gameStartIdx, feastStartIdx]);
+
+  // Ротация: сначала мягко гасим текущие карточки, затем меняем слайд,
+  // чтобы появление новых шло поверх плавного перехода
   useEffect(() => {
     const interval = setInterval(() => {
-      setGameStartIdx((prev) => (prev + 1) % allGameImages.length);
-      setFeastStartIdx((prev) => (prev + 1) % allFeastImages.length);
+      const gameContainer = cardContainerRefs[0].current;
+      const feastContainer = cardContainerRefs[1].current;
+      const gameCards = gameContainer?.querySelectorAll(".variant-card-a");
+      const feastCards = feastContainer?.querySelectorAll(".variant-card-a");
+
+      const cardsToHide: Element[] = [];
+      if (gameCards?.length) cardsToHide.push(...Array.from(gameCards));
+      if (feastCards?.length) cardsToHide.push(...Array.from(feastCards));
+
+      if (cardsToHide.length === 0) {
+        setGameStartIdx((prev) => (prev + 1) % allGameImages.length);
+        setFeastStartIdx((prev) => (prev + 1) % allFeastImages.length);
+        return;
+      }
+
+      gsap.to(cardsToHide, {
+        opacity: 0,
+        scale: 0.96,
+        y: 8,
+        duration: 0.45,
+        ease: "power2.inOut",
+        stagger: 0.04,
+        onComplete: () => {
+          setGameStartIdx((prev) => (prev + 1) % allGameImages.length);
+          setFeastStartIdx((prev) => (prev + 1) % allFeastImages.length);
+        },
+      });
     }, ROTATION_INTERVAL);
-    return () => clearInterval(interval);
+
+    return () => {
+      clearInterval(interval);
+      gsap.killTweensOf(".variant-card-a");
+    };
   }, [allGameImages.length, allFeastImages.length]);
 
   const visibleGameImages = getSlidingImages(allGameImages, gameStartIdx, 3);
@@ -207,7 +287,6 @@ export default function PrivateHirePage() {
                   style={{
                     aspectRatio: i === 0 ? "16/9" : "4/3",
                     transformStyle: "preserve-3d",
-                    transition: "opacity 0.7s ease-in-out",
                   }}
                 >
                   <Image
@@ -264,7 +343,6 @@ export default function PrivateHirePage() {
                   style={{
                     aspectRatio: i === 2 ? "16/9" : "4/3",
                     transformStyle: "preserve-3d",
-                    transition: "opacity 0.7s ease-in-out",
                   }}
                 >
                   <Image
