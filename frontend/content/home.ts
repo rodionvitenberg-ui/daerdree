@@ -9,7 +9,9 @@ export const HERO_CONTENT = {
         { type: 'image', src: '/images/hero/7.webp' },
         { type: 'video', src: '/images/hero/1.mp4' }
       ],
-      mobile: { type: 'video', src: '/images/hero/1.mp4' }
+      // Мобильный герой — статичное изображение (webp ~150 KB) вместо видео 12.8 MB:
+      // убирает 12.8 MB из критического пути на мобильных и ускоряет LCP.
+      mobile: { type: 'image', src: '/images/hero/2.webp' }
     },
   ]
 };

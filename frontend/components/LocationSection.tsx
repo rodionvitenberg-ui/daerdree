@@ -90,11 +90,12 @@ export default function LocationSection() {
               
               <iframe
                 src={LOCATION_CONTENT.mapEmbedUrl}
+                title="Daerdree Bar & Timeclub on Google Maps"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen={false}
                 loading="lazy"
+                allowFullScreen={false}
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full grayscale invert contrast-[0.85] opacity-80 transition-all duration-700 group-hover:grayscale-0 group-hover:invert-0 group-hover:opacity-100 group-hover:contrast-100"
               />

@@ -15,6 +15,11 @@ gsap.registerPlugin(ScrollTrigger);
  */
 export default function SmoothScroll() {
   useEffect(() => {
+    // Lenis (инерционный скролл) — только на desktop (≥1024px).
+    // На мобильных он гоняет rAF каждый кадр и добавляет main-thread work
+    // (аудит: Minimize main-thread work 2.6s, TBT 100ms). Нативный тач-скролл
+    // на телефоне ощущается лучше и не платит этим.
+    if (!window.matchMedia("(min-width: 1024px)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({

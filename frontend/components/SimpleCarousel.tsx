@@ -56,6 +56,7 @@ export default function SimpleCarousel({ cards }: SimpleCarouselProps) {
                 fill
                 className="object-cover opacity-80"
                 draggable={false} // Чтобы не мешало свайпу мышкой
+                loading="lazy"
               />
               {/* Градиент снизу вверх */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />

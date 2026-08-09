@@ -36,7 +36,7 @@ export default function MenuTeaser() {
             alt={t("altDragon")}
             fill
             className="object-contain drop-shadow-2xl" 
-            priority 
+            loading="lazy"
             sizes="(max-width: 1024px) 400px, 500px"
           />
         </div>

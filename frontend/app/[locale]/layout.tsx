@@ -103,7 +103,6 @@ export default async function RootLayout({
       <head>
         <link rel="dns-prefetch" href="https://daerdree.bar" />
         <link rel="preconnect" href="https://daerdree.bar" crossOrigin="anonymous" />
-        <link rel="preload" as="image" href="/images/hero/4.webp" fetchPriority="high" />
       </head>
       <body className="antialiased bg-background text-foreground flex flex-col min-h-dvh overflow-x-clip">
         <NextIntlClientProvider messages={messages}>

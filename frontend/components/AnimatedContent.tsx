@@ -87,14 +87,16 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       [axis]: offset,
       scale,
       opacity: animateOpacity ? initialOpacity : 1,
-      visibility: 'visible',
-      willChange: 'transform, opacity'
+      visibility: 'visible'
     });
 
     const tl = gsap.timeline({
       paused: true,
       delay,
       onComplete: () => {
+        // Снимаем will-change после завершения анимации (GSAP performance:
+        // will-change нужен только активному элементу, иначе — лишняя память).
+        gsap.set(el, { willChange: 'auto' });
         if (onComplete) onComplete();
         if (disappearAfter > 0) {
           gsap.to(el, {
@@ -104,7 +106,10 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
             delay: disappearAfter,
             duration: disappearDuration,
             ease: resolveEase(disappearEase),
-            onComplete: () => onDisappearanceComplete?.()
+            onComplete: () => {
+              gsap.set(el, { willChange: 'auto' });
+              onDisappearanceComplete?.();
+            }
           });
         }
       }
@@ -115,7 +120,10 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       scale: 1,
       opacity: 1,
       duration,
-      ease: resolveEase(ease)
+      ease: resolveEase(ease),
+      onComplete: () => {
+        gsap.set(el, { willChange: 'auto' });
+      }
     });
 
     const st = ScrollTrigger.create({

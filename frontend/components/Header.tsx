@@ -81,13 +81,13 @@ export default function Header() {
       <nav className="mx-auto flex min-h-[var(--header-height)] items-center justify-between px-4 py-1 md:grid md:max-w-[1440px] md:grid-cols-[1fr_auto_1fr] md:px-8">
         
         {/* --- 1. МОБИЛЬНЫЙ ЛОГОТИП --- */}
-        <div className="flex md:hidden">
+            <div className="flex md:hidden">
             <Link href="/" onClick={() => setIsOpen(false)} className="flex min-h-11 min-w-11 items-center">
               <Image 
-                src="/images/logo.png" 
+                src="/images/daerdree.png" 
                 alt="Daerdree Logo" 
-                width={50} 
-                height={25} 
+                width={75} 
+                height={38} 
                 className="object-contain"
                 priority
               />
@@ -158,6 +158,7 @@ export default function Header() {
             className="flex h-11 w-11 items-center justify-center text-foreground transition-colors duration-300 hover:text-accent"
             aria-label="Toggle menu"
             aria-expanded={isOpen}
+            aria-controls="mobile-nav"
           >
             {isOpen ? (
                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
@@ -177,10 +178,12 @@ export default function Header() {
       {/* absolute top-full внутри sticky-хедера: прилипает сразу под строкой
           хедера и всегда остаётся в видимой области, не перекрывая сам хедер. */}
       <div 
+        id="mobile-nav"
         className={`absolute left-0 right-0 top-full md:hidden overflow-y-auto overscroll-contain bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out
           ${isOpen ? 'max-h-[min(70dvh,28rem)] py-8 opacity-100' : 'max-h-0 py-0 opacity-0 pointer-events-none'}
         `}
         aria-hidden={!isOpen}
+        inert={!isOpen}
       >
         <div className="flex flex-col items-center gap-2 pb-[var(--safe-bottom)] text-center">
           {NAV_ITEMS.map((item) => (

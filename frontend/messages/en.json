@@ -245,10 +245,22 @@
     }
   },
   "MenuPage": {
-    "title": "Our Drinks",
-    "subtitle": "Tap to expand",
-    "altPage": "Menu page {index}",
-    "altFullscreen": "Fullscreen menu"
+    "title": "Drinks Menu",
+    "subtitle": "Coffee, tea, cocktails and spirits — there's something for everyone",
+    "navLabel": "Menu sections",
+    "coffeeTitle": "Coffee",
+    "coffeeDesc": "Classics, cold and milk-based drinks, plus signature creations",
+    "teaTitle": "Tea",
+    "teaDesc": "A 300 ml pot of tea to suit every taste",
+    "cocktailsTitle": "Cocktails",
+    "cocktailsDesc": "Signature and classic mixes from our bartenders",
+    "beerTitle": "Beer",
+    "beerDesc": "Popular picks — from light lagers to dark stout",
+    "wineTitle": "Wine",
+    "wineDesc": "A selection by the glass and by the bottle",
+    "wineNote": "Prices are shown per 0.2 l and 0.75 l",
+    "shotsTitle": "Strong Spirits",
+    "shotsDesc": "Classics for the bold shot-takers"
   },
   "Header": {
     "nav": {

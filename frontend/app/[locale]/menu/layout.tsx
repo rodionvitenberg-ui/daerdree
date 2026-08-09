@@ -35,23 +35,33 @@ export default async function MenuLayout({
     hasMenuSection: [
       {
         "@type": "MenuSection",
+        name: isRu ? "Кофе" : "Coffee",
+        description: isRu ? "Классика, холодные и молочные напитки" : "Classics, cold and milk-based drinks",
+      },
+      {
+        "@type": "MenuSection",
+        name: isRu ? "Чай" : "Tea",
+        description: isRu ? "Чайник 300 мл" : "300 ml tea pot",
+      },
+      {
+        "@type": "MenuSection",
         name: isRu ? "Коктейли" : "Cocktails",
         description: isRu ? "Авторские и классические коктейли" : "Signature and classic cocktails",
       },
       {
         "@type": "MenuSection",
-        name: isRu ? "Закуски" : "Snacks",
-        description: isRu ? "Лёгкие закуски к напиткам" : "Light bites to accompany drinks",
+        name: isRu ? "Пиво" : "Beer",
+        description: isRu ? "Светлые и тёмные сорта" : "Light and dark beer",
       },
       {
         "@type": "MenuSection",
-        name: isRu ? "Основные блюда" : "Main Courses",
-        description: isRu ? "Сытные блюда для компании" : "Hearty dishes for sharing",
+        name: isRu ? "Вино" : "Wine",
+        description: isRu ? "По бокалам и бутылкам" : "By the glass and bottle",
       },
       {
         "@type": "MenuSection",
-        name: isRu ? "Напитки" : "Drinks",
-        description: isRu ? "Вино, пиво, безалкогольные напитки" : "Wine, beer, soft drinks",
+        name: isRu ? "Крепкие напитки" : "Strong Spirits",
+        description: isRu ? "Шоты на выбор" : "A selection of shots",
       },
     ],
   };

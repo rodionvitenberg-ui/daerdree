@@ -17,9 +17,10 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    loader: 'custom',
-    loaderFile: './lib/imageLoader.ts',
-    
+    // Дефолтный оптимизатор Next.js (Sharp): ресайз по `sizes` + WebP/AVIF.
+    // Локальные картинки больше не отдаются оригиналом — браузер качает
+    // сжатые версии через /_next/image (ранее кастомный loader возвращал src as-is,
+    // из-за чего грузились оригиналы по 3-6 MB и LCP был 8.4s).
     remotePatterns: [
       {
         protocol: 'https',

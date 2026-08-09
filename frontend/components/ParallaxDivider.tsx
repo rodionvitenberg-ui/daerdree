@@ -82,7 +82,7 @@ export default function ParallaxDivider() {
             alt={DIVIDER_CONTENT.alt}
             fill
             className="object-cover contrast-125 brightness-90"
-            priority
+            loading="lazy"
           />
         )}
 
