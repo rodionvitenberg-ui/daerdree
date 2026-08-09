@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
@@ -22,28 +22,7 @@ export default function Header() {
   const router = useRouter();
   
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [reduceMotion, setReduceMotion] = useState(false);
-  const lastScrollY = useRef(0);
-
-  // === ЛОГИКА СКРЫТИЯ ХЕДЕРА ===
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  // =============================
 
   // Prefer reduced motion + skip heavy WebGL on coarse/touch mobile
   useEffect(() => {
@@ -70,14 +49,9 @@ export default function Header() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isOpen]);
 
-  // При открытии мобильного меню: скроллим к верху, чтобы хедер и панель
-  // были видны сразу (даже если пользователь проскроллил далеко вниз)
-  useEffect(() => {
-    if (isOpen) {
-      window.scrollTo(0, 0);
-    }
-  }, [isOpen]);
-
+  // При открытии мобильного меню НЕ скроллим страницу: панель привязана
+  // к sticky-хедеру (absolute top-full), который всегда прилипает к верху,
+  // поэтому меню всегда видно на месте, без перемотки.
   // === ЛОГИКА СМЕНЫ ЯЗЫКА ===
   const toggleLanguage = () => {
     setIsOpen(false);
@@ -89,9 +63,7 @@ export default function Header() {
 
   return (
     <header 
-      className={`sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md transition-transform duration-300 ease-in-out pt-[var(--safe-top)]
-        ${isVisible ? 'translate-y-0' : 'md:-translate-y-full'}
-      `}
+      className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md pt-[var(--safe-top)]"
     >
       
       {/* --- ЭФФЕКТ AURORA (desktop only — WebGL is costly on mobile Safari) --- */}
@@ -202,14 +174,12 @@ export default function Header() {
       </nav>
 
       {/* --- ВЫДВИГАЮЩЕЕСЯ МЕНЮ --- */}
-      {/* fixed + top-[var(--header-height)]: панель привязывается к верху экрана,
-          а не к позиции header, поэтому всегда появляется в зоне видимости,
-          даже если пользователь проскроллил далеко вниз. */}
+      {/* absolute top-full внутри sticky-хедера: прилипает сразу под строкой
+          хедера и всегда остаётся в видимой области, не перекрывая сам хедер. */}
       <div 
-        className={`fixed left-0 right-0 z-50 md:hidden overflow-y-auto overscroll-contain bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out
+        className={`absolute left-0 right-0 top-full md:hidden overflow-y-auto overscroll-contain bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out
           ${isOpen ? 'max-h-[min(70dvh,28rem)] py-8 opacity-100' : 'max-h-0 py-0 opacity-0 pointer-events-none'}
         `}
-        style={{ top: 'calc(var(--header-height) + var(--safe-top))' }}
         aria-hidden={!isOpen}
       >
         <div className="flex flex-col items-center gap-2 pb-[var(--safe-bottom)] text-center">

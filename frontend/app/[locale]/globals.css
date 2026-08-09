@@ -463,10 +463,18 @@ body {
   display: none;
 }
 
-/* Lock page scroll when mobile nav is open */
+/* Lock page scroll when mobile nav is open.
+   Лочим на html, а не body: overflow:hidden на body делает body scroll-контейнером
+   (т.к. на html стоит overflow-x: clip) и ломает position:sticky у хедера
+   на прокрученной странице. Через :has() блокируем сам вьюпорт. */
+html:has(body.nav-open) {
+  overflow-x: clip;
+  overflow-y: hidden;
+}
+
 body.nav-open {
-  overflow: hidden;
   touch-action: none;
+  overscroll-behavior: none;
 }
 
 /* BlurText animation */
