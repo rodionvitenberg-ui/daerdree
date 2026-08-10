@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/AppImage";
 import { faqData } from "@/content/faq"; 
 import Link from "next/link";
 import { useTranslations } from "next-intl"; // Подключаем хук

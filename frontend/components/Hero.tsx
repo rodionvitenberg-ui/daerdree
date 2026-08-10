@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import Image from '@/components/AppImage';
 import { HERO_CONTENT } from '@/content/home';
 import AnimatedContent from './AnimatedContent';
 import { useTranslations } from 'next-intl';

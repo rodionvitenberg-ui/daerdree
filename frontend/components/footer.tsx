@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/AppImage";
 import { FOOTER_CONTENT } from "@/content/home";
 import { BOOKING_CONTENT } from "@/content/home";
 import { useTranslations } from "next-intl";

@@ -2,7 +2,7 @@
 
 import { API_ENDPOINTS } from '@/lib/constants';
 import { getImageUrl } from '@/lib/utils';
-import Image from 'next/image';
+import Image from '@/components/AppImage';
 import Link from 'next/link';
 import AnimatedContent from '@/components/AnimatedContent'; 
 import useSWR from "swr";

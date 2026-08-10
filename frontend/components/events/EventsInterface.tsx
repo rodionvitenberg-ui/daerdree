@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/AppImage";
 import useSWR from "swr";
 import { fetchFetcher } from "@/lib/swr-fetcher";
 import AnimatedContent from "@/components/AnimatedContent";

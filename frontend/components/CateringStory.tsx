@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/AppImage";
 import AnimatedContent from "./AnimatedContent";
 import ExpandableCards from "./ui/expandable-cards"; 
 import SimpleCarousel from "./SimpleCarousel";   

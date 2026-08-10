@@ -2,7 +2,7 @@
 
 import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
+import Image from '@/components/AppImage';
 import { BOOKING_CONTENT } from '@/content/home';
 import { useTranslations } from 'next-intl'; // Подключаем хук локализации
 

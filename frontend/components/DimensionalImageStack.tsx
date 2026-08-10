@@ -1,6 +1,6 @@
 
 import { useRef, useEffect, useState, useCallback } from "react";
-import Image from "next/image";
+import Image from "@/components/AppImage";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

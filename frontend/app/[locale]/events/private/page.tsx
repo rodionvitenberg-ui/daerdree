@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/AppImage";
 import AnimatedContent from "@/components/AnimatedContent";
 import { PRIVATE_HIRE_CONTENT } from "@/content/privateevents";
 import gsap from "gsap";
