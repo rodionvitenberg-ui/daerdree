@@ -19,6 +19,7 @@ export default function Footer() {
             alt={t("altLogo")} // Берем из словаря
             fill
             className="object-contain" // Сохраняет пропорции, не обрезая
+            unoptimized // Логотип — оригинальный PNG без пережатия WebP
           />
         </div>
 

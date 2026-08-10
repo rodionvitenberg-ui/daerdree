@@ -87,9 +87,10 @@ export default function Header() {
                 src="/images/daerdree.png" 
                 alt="Daerdree Logo" 
                 width={75} 
-                height={38} 
+                height={32} 
                 className="object-contain"
                 priority
+                unoptimized
               />
             </Link>
         </div>
@@ -114,9 +115,10 @@ export default function Header() {
               src="/images/logo.png" 
               alt="Daerdree Logo" 
               width={160} 
-              height={100}
+              height={77}
               className="object-contain"
               priority 
+              unoptimized
             />
           </Link>
         </div>
