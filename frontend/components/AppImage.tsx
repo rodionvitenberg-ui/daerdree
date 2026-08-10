@@ -63,6 +63,15 @@ const AppImage = forwardRef<HTMLImageElement, AppImageProps>(function AppImage(
   const showSkeleton = showLoader && !loaded && !failed;
   const isFill = props.fill === true;
 
+  // Внешние картинки (Django /media/, полные URL) отдаём напрямую браузеру
+  // без _next/image: встроенный оптимизатор ходит за ними сам и на проде
+  // получает 400 (не проходит remotePatterns/не может достучаться до медиа-сервера).
+  // Раньше кастомный loader делал то же самое — обложки работали.
+  const isRemote =
+    typeof props.src === "string" &&
+    (props.src.startsWith("http") || props.src.startsWith("//") || props.src.includes("/media/"));
+  const isUnoptimized = props.unoptimized === true || isRemote;
+
   return (
     <div
       className={containerClass(isFill)}
@@ -89,6 +98,7 @@ const AppImage = forwardRef<HTMLImageElement, AppImageProps>(function AppImage(
       <NextImage
         ref={ref}
         {...props}
+        unoptimized={isUnoptimized}
         className={cn(
           "transition-opacity duration-500 ease-out",
           loaded ? "opacity-100" : "opacity-0",
