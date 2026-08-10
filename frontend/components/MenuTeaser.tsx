@@ -22,6 +22,7 @@ export default function MenuTeaser() {
           fill
           className="object-cover object-[center_20px]"
           sizes="100vw"
+          unoptimized
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
       </div>
@@ -38,6 +39,7 @@ export default function MenuTeaser() {
             className="object-contain drop-shadow-2xl" 
             loading="lazy"
             sizes="(max-width: 1024px) 400px, 500px"
+            unoptimized
           />
         </div>
 
