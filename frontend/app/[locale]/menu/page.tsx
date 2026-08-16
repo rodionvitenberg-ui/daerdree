@@ -2,13 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import AnimatedContent from "@/components/AnimatedContent";
-import {
-  MENU_SECTIONS,
-  COFFEE_CATEGORIES,
-  TEA_CATEGORIES,
-  type MenuSection,
-  type MenuItem,
-} from "@/content/menu";
+import { MENU_SECTIONS, type MenuSection, type MenuItem } from "@/content/menu";
 
 function Price({ value, accent = false }: { value: string; accent?: boolean }) {
   return (
@@ -88,37 +82,6 @@ function WineRow({ name, glass, bottle }: { name: string; glass: string; bottle:
   );
 }
 
-function CoffeeTeaSection({ section }: { section: MenuSection }) {
-  const categories = section.id === "coffee" ? COFFEE_CATEGORIES : TEA_CATEGORIES;
-
-  return (
-    <div>
-      {section.note && (
-        <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-1.5 font-sans text-sm text-foreground/70">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-          {section.note}
-        </p>
-      )}
-      <div className="grid gap-x-14 gap-y-8 md:grid-cols-2">
-        {categories.map((cat) => {
-          const items = section.items.filter((i) => i.category === cat.key);
-          if (items.length === 0) return null;
-          return (
-            <div key={cat.key}>
-              <h3 className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.25em] text-accent">{cat.label}</h3>
-              <ul className="divide-y divide-foreground/5">
-                {items.map((item) => (
-                  <PriceRow key={item.name} name={item.name} price={item.price!} meta={<>{item.size}</>} />
-                ))}
-              </ul>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 function SimpleSection({ section }: { section: MenuSection }) {
   return (
     <ul className="divide-y divide-foreground/5">
@@ -171,6 +134,7 @@ const NAV_LABELS: Record<string, string> = {
   tea: "Tea",
   cocktails: "Cocktails",
   beer: "Beer",
+  "zero-beer": "0% Beer",
   wine: "Wine",
   shots: "Shots",
 };
@@ -215,11 +179,11 @@ export default function MenuPage() {
 
         <div className="mx-auto flex max-w-4xl flex-col gap-20 md:gap-28">
           <MenuBlock section={MENU_SECTIONS[0]} title={t("coffeeTitle")} desc={t("coffeeDesc")}>
-            <CoffeeTeaSection section={MENU_SECTIONS[0]} />
+            <SimpleSection section={MENU_SECTIONS[0]} />
           </MenuBlock>
 
           <MenuBlock section={MENU_SECTIONS[1]} title={t("teaTitle")} desc={t("teaDesc")}>
-            <CoffeeTeaSection section={MENU_SECTIONS[1]} />
+            <SimpleSection section={MENU_SECTIONS[1]} />
           </MenuBlock>
 
           <MenuBlock section={MENU_SECTIONS[2]} title={t("cocktailsTitle")} desc={t("cocktailsDesc")}>
@@ -247,9 +211,17 @@ export default function MenuPage() {
             </ul>
           </MenuBlock>
 
-          <MenuBlock section={MENU_SECTIONS[4]} title={t("wineTitle")} desc={t("wineDesc")}>
+          <MenuBlock section={MENU_SECTIONS[4]} title={t("zeroBeerTitle")} desc={t("zeroBeerDesc")}>
             <ul className="divide-y divide-foreground/5">
               {MENU_SECTIONS[4].items.map((item) => (
+                <PriceRow key={item.name} name={item.name} price={item.price!} meta={<>{item.size}</>} />
+              ))}
+            </ul>
+          </MenuBlock>
+
+          <MenuBlock section={MENU_SECTIONS[5]} title={t("wineTitle")} desc={t("wineDesc")}>
+            <ul className="divide-y divide-foreground/5">
+              {MENU_SECTIONS[5].items.map((item) => (
                 <WineRow key={item.name} name={item.name} glass={item.priceGlass!} bottle={item.priceBottle!} />
               ))}
             </ul>
@@ -259,9 +231,9 @@ export default function MenuPage() {
             </p>
           </MenuBlock>
 
-          <MenuBlock section={MENU_SECTIONS[5]} title={t("shotsTitle")} desc={t("shotsDesc")}>
+          <MenuBlock section={MENU_SECTIONS[6]} title={t("shotsTitle")} desc={t("shotsDesc")}>
             <div className="grid gap-x-14 md:grid-cols-2">
-              <SimpleSection section={{ id: MENU_SECTIONS[5].id, items: MENU_SECTIONS[5].items }} />
+              <SimpleSection section={{ id: MENU_SECTIONS[6].id, items: MENU_SECTIONS[6].items }} />
             </div>
           </MenuBlock>
         </div>

@@ -256,6 +256,8 @@
     "cocktailsDesc": "Signature and classic mixes from our bartenders",
     "beerTitle": "Beer",
     "beerDesc": "Popular picks — from light lagers to dark stout",
+    "zeroBeerTitle": "0% Beer",
+    "zeroBeerDesc": "Alcohol-free options for a light evening",
     "wineTitle": "Wine",
     "wineDesc": "A selection by the glass and by the bottle",
     "wineNote": "Prices are shown per 0.2 l and 0.75 l",

@@ -55,6 +55,11 @@ export default async function MenuLayout({
       },
       {
         "@type": "MenuSection",
+        name: isRu ? "Безалкогольное пиво" : "0% Beer",
+        description: isRu ? "Безалкогольные варианты" : "Alcohol-free options",
+      },
+      {
+        "@type": "MenuSection",
         name: isRu ? "Вино" : "Wine",
         description: isRu ? "По бокалам и бутылкам" : "By the glass and bottle",
       },
