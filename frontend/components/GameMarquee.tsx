@@ -5,6 +5,7 @@ import { getImageUrl } from '@/lib/utils';
 import Image from '@/components/AppImage';
 import Link from 'next/link';
 import AnimatedContent from '@/components/AnimatedContent'; 
+import GameImagePlaceholder from '@/components/games/GameImagePlaceholder';
 import useSWR from "swr";
 import { fetcher } from "@/lib/swr-fetcher";
 import { useTranslations, useLocale } from "next-intl";
@@ -103,9 +104,7 @@ export default function GamesMarquee() {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-white/5">
-                      <span className="text-xs text-white/20">{t("noImage")}</span>
-                    </div>
+                    <GameImagePlaceholder iconSize={48} />
                   )}
                   <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
                 </Link>
@@ -136,9 +135,7 @@ export default function GamesMarquee() {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-white/5">
-                      <span className="text-xs text-white/20">{t("noImage")}</span>
-                    </div>
+                    <GameImagePlaceholder iconSize={48} />
                   )}
                   <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:opacity-0" />
                 </Link>

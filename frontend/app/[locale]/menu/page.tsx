@@ -129,16 +129,6 @@ function MenuBlock({
   );
 }
 
-const NAV_LABELS: Record<string, string> = {
-  coffee: "Coffee",
-  tea: "Tea",
-  cocktails: "Cocktails",
-  beer: "Beer",
-  "zero-beer": "0% Beer",
-  wine: "Wine",
-  shots: "Shots",
-};
-
 export default function MenuPage() {
   const t = useTranslations("MenuPage");
 
@@ -158,24 +148,6 @@ export default function MenuPage() {
             </p>
           </div>
         </AnimatedContent>
-
-        <nav
-          aria-label={t("navLabel")}
-          className="sticky top-[calc(var(--header-height)+var(--safe-top))] z-30 -mx-4 mb-14 border-y border-foreground/5 bg-background/85 px-4 py-3 backdrop-blur-xl md:mx-0 md:rounded-full md:border md:px-2"
-        >
-          <ul className="flex justify-start gap-1 overflow-x-auto scrollbar-hide md:justify-center">
-            {MENU_SECTIONS.map((section) => (
-              <li key={section.id} className="shrink-0">
-                <a
-                  href={`#${section.id}`}
-                  className="flex min-h-10 items-center rounded-full px-4 font-sans text-xs font-bold uppercase tracking-widest text-foreground/55 transition-colors duration-300 hover:bg-accent/10 hover:text-accent md:text-sm"
-                >
-                  {NAV_LABELS[section.id]}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
 
         <div className="mx-auto flex max-w-4xl flex-col gap-20 md:gap-28">
           <MenuBlock section={MENU_SECTIONS[0]} title={t("coffeeTitle")} desc={t("coffeeDesc")}>

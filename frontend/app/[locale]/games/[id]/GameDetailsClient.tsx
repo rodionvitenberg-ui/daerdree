@@ -4,6 +4,7 @@ import Image from "@/components/AppImage";
 import Link from "next/link";
 import { BoardGame } from "@/types/game";
 import { getImageUrl } from "@/lib/utils";
+import GameImagePlaceholder from "@/components/games/GameImagePlaceholder";
 import ExpansionAccordion from "@/components/ExpansionAccordion";
 import GameJsonLd from "@/components/GameJsonLd";
 import { useLocale, useTranslations } from "next-intl";
@@ -26,7 +27,7 @@ export default function GameDetailsClient({ game }: Props) {
 
       {/* 1. HERO (ФОН) */}
       <div className="relative h-[45dvh] md:h-[50dvh] w-full overflow-hidden z-0">
-        {heroImage && (
+        {heroImage ? (
           <Image
             src={getImageUrl(heroImage)}
             alt={localizedTitle}
@@ -34,6 +35,8 @@ export default function GameDetailsClient({ game }: Props) {
             className="object-cover opacity-50"
             priority
           />
+        ) : (
+          <GameImagePlaceholder className="absolute inset-0" iconSize={120} />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 

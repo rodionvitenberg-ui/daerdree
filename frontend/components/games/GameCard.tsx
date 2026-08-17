@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BoardGame } from "@/types/game";
 import { getImageUrl } from "@/lib/utils";
 import { useTranslations, useLocale } from "next-intl";
+import GameImagePlaceholder from "@/components/games/GameImagePlaceholder";
 
 interface GameCardProps {
   game: BoardGame;
@@ -50,9 +51,7 @@ export default function GameCard({ game, contentLocale }: GameCardProps) {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-neutral-800">
-               <span className="text-white/10 font-serif uppercase tracking-tighter">No Image</span>
-            </div>
+            <GameImagePlaceholder />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
         </div>

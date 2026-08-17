@@ -104,7 +104,7 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://daerdree.bar" />
         <link rel="preconnect" href="https://daerdree.bar" crossOrigin="anonymous" />
       </head>
-      <body className="antialiased bg-background text-foreground flex flex-col min-h-dvh overflow-x-clip">
+      <body id="top" className="antialiased bg-background text-foreground flex flex-col min-h-dvh overflow-x-clip">
         <NextIntlClientProvider messages={messages}>
           <ChunkRetryProvider>
             <SmoothScroll />

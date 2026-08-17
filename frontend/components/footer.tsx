@@ -9,7 +9,18 @@ export default function Footer() {
   const t = useTranslations("Footer");
 
   return (
-    <footer className="w-full bg-background border-t border-white/5 py-16 pb-[calc(4rem+var(--safe-bottom))]">
+    <footer className="relative w-full bg-background border-t border-white/5 py-16 pb-[calc(4rem+var(--safe-bottom))]">
+      {/* 0. КНОПКА «НАВЕРХ» (правый верхний угол) */}
+      <a
+        href="#top"
+        aria-label={t("backToTop")}
+        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-background/80 text-white/50 backdrop-blur transition-colors duration-300 hover:border-accent hover:bg-accent/10 hover:text-accent md:right-8 md:top-8"
+      >
+        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+        </svg>
+      </a>
+
       <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-10">
         
         {/* 1. ЛОГОТИП (PNG без фона) */}
@@ -47,7 +58,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="font-sans text-xs text-white/35 tracking-wide"
           >
-            As you dream, so shall it be, 2025
+            As you dream, so shall it be, 2026
           </a>
         </div>
 

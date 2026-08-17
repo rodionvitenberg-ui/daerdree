@@ -370,7 +370,8 @@
     "contactsTitle": "Contacts"
   },
   "Footer": {
-    "altLogo": "Daerdree Bar"
+    "altLogo": "Daerdree Bar",
+    "backToTop": "Back to top"
   },
   "EventPage": {
     "metadataNotFound": "Event not found",

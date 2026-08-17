@@ -370,7 +370,8 @@
     "contactsTitle": "Контакты"
   },
   "Footer": {
-    "altLogo": "Daerdree Bar"
+    "altLogo": "Daerdree Bar",
+    "backToTop": "Наверх"
   },
   "EventPage": {
     "metadataNotFound": "Событие не найдено",
