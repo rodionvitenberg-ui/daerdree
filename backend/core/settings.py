@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('1', 'true', 'yes')
 
 ALLOWED_HOSTS = ['daerdree.bar', 'www.daerdree.bar', '193.181.208.36', 'localhost', '127.0.0.1']
 
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'bookings',
     'events',
     'cms',
+    'staff',
 ]
 
 MIDDLEWARE = [
@@ -189,8 +190,9 @@ X_FRAME_OPTIONS = 'DENY'
 SECURE_HSTS_SECONDS = 31536000  # 1 year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CORS_ALLOW_CREDENTIALS = True
 
 CKEDITOR_CONFIGS = {
     'default': {

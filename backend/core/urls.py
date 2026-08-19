@@ -22,7 +22,7 @@ router.register(r'bookings', BookingViewSet)
 router.register(r'events', EventViewSet)         
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('django-admin/', admin.site.urls),
     
     # === НАШ НОВЫЙ ВЕБХУК ===
     # Важно: прописываем его отдельным путем.
