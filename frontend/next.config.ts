@@ -16,6 +16,16 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    if (process.env.NODE_ENV === 'production') return [];
+    const django = process.env.DJANGO_INTERNAL_URL || 'http://127.0.0.1:8000';
+    return [
+      { source: '/api/:path*', destination: `${django}/api/:path*` },
+      { source: '/cms/:path*', destination: `${django}/cms/:path*` },
+      { source: '/django-admin/:path*', destination: `${django}/django-admin/:path*` },
+      { source: '/media/:path*', destination: `${django}/media/:path*` },
+    ];
+  },
   images: {
     // Дефолтный оптимизатор Next.js (Sharp): ресайз по `sizes` + WebP/AVIF.
     // Локальные картинки больше не отдаются оригиналом — браузер качает

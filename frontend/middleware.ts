@@ -14,6 +14,5 @@ export default createMiddleware({
 });
 
 export const config = {
-  // Пропускаем статику, API-роуты и системные файлы Next.js
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)']
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|admin|django-admin|.*\\..*).*)'],
 };

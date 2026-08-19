@@ -13,12 +13,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "GPTBot",
         allow: "/",
-        disallow: ["/admin/", "/api/"],
+        disallow: ["/admin/", "/api/", "/django-admin/"],
       },
       {
         userAgent: "Google-Extended",
         allow: "/",
-        disallow: ["/admin/", "/api/"],
+        disallow: ["/admin/", "/api/", "/django-admin/"],
       },
       {
         userAgent: "CCBot",

@@ -1,0 +1,14 @@
+.admin-root {
+  min-height: 100vh;
+  background: hsl(60, 3%, 6%);
+  color: hsl(0, 13%, 91%);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+.admin-root a { color: inherit; text-decoration: none; }
+.admin-accent { color: hsl(187, 83%, 26%); }
+.admin-root a.admin-accent { color: hsl(187, 83%, 26%); }
+.admin-root a.admin-nav-link { color: rgba(255, 255, 255, 0.4); }
+.admin-root a.admin-nav-link:hover {
+  color: hsl(0, 13%, 91%);
+  background: rgba(0, 150, 136, 0.08);
+}
