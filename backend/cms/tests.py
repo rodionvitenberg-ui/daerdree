@@ -43,3 +43,29 @@ class TranslationsApiTests(APITestCase):
                 self.assertEqual(put.status_code, 200)
                 written_ru = json.loads((tmp_path / 'ru.json').read_text(encoding='utf-8'))
                 self.assertEqual(written_ru['Header']['cta'], 'Забронировать')
+
+    def test_put_ignores_unknown_extra_keys(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            ru = {'Header': {'cta': 'Бронь'}}
+            en = {'Header': {'cta': 'Book'}}
+            (tmp_path / 'ru.json').write_text(json.dumps(ru), encoding='utf-8')
+            (tmp_path / 'en.json').write_text(json.dumps(en), encoding='utf-8')
+            with override_settings(MESSAGES_DIR=str(tmp_path)):
+                self.client.force_authenticate(self.staff)
+                payload = {
+                    'keys': {
+                        'Header.cta': {'ru': 'Забронировать', 'en': 'Reserve'},
+                        'Extra.nope': {'ru': 'Лишнее', 'en': 'Nope'},
+                    }
+                }
+                put = self.client.put('/api/admin/translations/', payload, format='json')
+                self.assertEqual(put.status_code, 200)
+                written_ru = json.loads((tmp_path / 'ru.json').read_text(encoding='utf-8'))
+                written_en = json.loads((tmp_path / 'en.json').read_text(encoding='utf-8'))
+                self.assertEqual(written_ru['Header']['cta'], 'Забронировать')
+                self.assertEqual(written_en['Header']['cta'], 'Reserve')
+                self.assertNotIn('Extra', written_ru)
+                self.assertNotIn('Extra', written_en)
+                keys = {item['key']: item for g in put.data['groups'] for item in g['keys']}
+                self.assertNotIn('Extra.nope', keys)

@@ -56,15 +56,18 @@ def grouped_payload():
 
 def write_messages(keys):
     """keys: {full.key: {ru, en}} full snapshot. Unknown extra keys ignored. Missing keys dropped."""
-    new_data = {lang: {} for lang in LANGUAGES}
-    for full_key, pair in keys.items():
-        if not isinstance(pair, dict):
-            continue
-        for lang in LANGUAGES:
-            new_data[lang][full_key] = pair.get(lang, '')
     directory = get_messages_dir()
     os.makedirs(directory, exist_ok=True)
     previous = {lang: read_lang(lang) for lang in LANGUAGES}
+    existing_keys = set()
+    for lang in LANGUAGES:
+        existing_keys.update(flatten_json(previous[lang]).keys())
+    new_data = {lang: {} for lang in LANGUAGES}
+    for full_key, pair in keys.items():
+        if full_key not in existing_keys or not isinstance(pair, dict):
+            continue
+        for lang in LANGUAGES:
+            new_data[lang][full_key] = pair.get(lang, '')
     written = []
     try:
         for lang in LANGUAGES:
