@@ -32,3 +32,6 @@ daerdree-*.json
 *.google-service-account.json
 
 /skills2
+
+# Isolated git worktrees
+.worktrees/
