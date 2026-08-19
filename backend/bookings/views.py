@@ -21,15 +21,11 @@ from events.models import Event  # Импортируем модель собы�
 
 CYPRUS_TZ = ZoneInfo("Asia/Nicosia")
 
-class BookingViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
-    """
-    Разрешаем только Создавать (Create) и Смотреть список (List) броней.
-    """
+class BookingViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    
-    authentication_classes = [] # Отключает проверку сессий и CSRF для этого эндпоинта
-    permission_classes = [AllowAny] # Разрешает POST-запросы всем (включая Next.js сервер)
+    authentication_classes = []
+    permission_classes = [AllowAny]
 
 def process_event_from_channel(post):
     """
