@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import AdminTable, { type AdminColumn } from "@/components/admin/AdminTable";
-import { AdminApiError } from "@/lib/admin-api";
+import { AdminApiError, adminFieldErrors } from "@/lib/admin-api";
 
 const INPUT =
   "w-full rounded-md border border-white/[0.08] bg-[hsl(60,4%,9%)] px-3 py-2 text-sm outline-none transition-colors focus:border-[hsl(187,83%,26%)] disabled:opacity-50";
@@ -58,6 +58,7 @@ export default function TaxonomyEditor({
   const [form, setForm] = useState<FormState>(EMPTY);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [saving, setSaving] = useState(false);
 
   async function refresh() {
@@ -87,16 +88,32 @@ export default function TaxonomyEditor({
     setEditingId(row.id);
     setForm(fromRow(row));
     setError("");
+    setFieldErrors({});
   }
 
   function resetForm() {
     setEditingId(null);
     setForm(EMPTY);
+    setFieldErrors({});
+  }
+
+  function mapSaveErrors(err: unknown) {
+    if (err instanceof AdminApiError && err.status === 400) {
+      const mapped = adminFieldErrors(err.body);
+      if (mapped.name && !mapped.name_ru) mapped.name_ru = mapped.name;
+      setFieldErrors(mapped);
+      const joined = [...new Set(Object.values(mapped))].filter(Boolean).join(" ");
+      setError(joined || err.message);
+      return;
+    }
+    setFieldErrors({});
+    setError(err instanceof AdminApiError ? err.message : "Не удалось сохранить.");
   }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
+    setFieldErrors({});
     setSaving(true);
     const body = withDescriptions
       ? form
@@ -110,7 +127,7 @@ export default function TaxonomyEditor({
       }
       await refresh();
     } catch (err) {
-      setError(err instanceof AdminApiError ? err.message : "Не удалось сохранить.");
+      mapSaveErrors(err);
     } finally {
       setSaving(false);
     }
@@ -183,6 +200,9 @@ export default function TaxonomyEditor({
               onChange={(event) => setForm((current) => ({ ...current, name_ru: event.target.value }))}
               className={INPUT}
             />
+            {fieldErrors.name_ru ? (
+              <p className="mt-1 text-xs text-[hsl(357,100%,55%)]">{fieldErrors.name_ru}</p>
+            ) : null}
           </label>
           <label className="block">
             <span className={LABEL}>Название (en)</span>
@@ -192,7 +212,13 @@ export default function TaxonomyEditor({
               onChange={(event) => setForm((current) => ({ ...current, name_en: event.target.value }))}
               className={INPUT}
             />
+            {fieldErrors.name_en ? (
+              <p className="mt-1 text-xs text-[hsl(357,100%,55%)]">{fieldErrors.name_en}</p>
+            ) : null}
           </label>
+          {fieldErrors.slug ? (
+            <p className="text-xs text-[hsl(357,100%,55%)] md:col-span-2">{fieldErrors.slug}</p>
+          ) : null}
           {withDescriptions ? (
             <>
               <label className="block">
@@ -206,6 +232,9 @@ export default function TaxonomyEditor({
                   }
                   className={`${INPUT} resize-y`}
                 />
+                {fieldErrors.description_ru ? (
+                  <p className="mt-1 text-xs text-[hsl(357,100%,55%)]">{fieldErrors.description_ru}</p>
+                ) : null}
               </label>
               <label className="block">
                 <span className={LABEL}>Описание (en)</span>
@@ -218,6 +247,9 @@ export default function TaxonomyEditor({
                   }
                   className={`${INPUT} resize-y`}
                 />
+                {fieldErrors.description_en ? (
+                  <p className="mt-1 text-xs text-[hsl(357,100%,55%)]">{fieldErrors.description_en}</p>
+                ) : null}
               </label>
             </>
           ) : null}

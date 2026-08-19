@@ -334,7 +334,15 @@ function GalleryRow({
   );
 }
 
-export default function GameForm({ gameId }: { gameId?: number }) {
+function uploadErrorMessage(err: unknown): string {
+  if (err instanceof AdminApiError) {
+    const mapped = adminFieldErrors(err.body);
+    return mapped.detail || mapped.non_field_errors || mapped.file || err.message;
+  }
+  return err instanceof Error ? err.message : "Не удалось загрузить.";
+}
+
+export default function GameForm({ gameId, imageError }: { gameId?: number; imageError?: string }) {
   const router = useRouter();
   const [form, setForm] = useState<FormState>(EMPTY);
   const [categories, setCategories] = useState<AdminCategory[]>([]);
@@ -388,7 +396,12 @@ export default function GameForm({ gameId }: { gameId?: number }) {
           setSetupImage(game.setup_image);
           setGallery(game.images || []);
         }
-        setError("");
+        if (imageError) {
+          const detail = imageError === "1" ? "ошибка загрузки" : imageError;
+          setError(`Игра сохранена, но картинки не загрузились: ${detail}`);
+        } else {
+          setError("");
+        }
       } catch (err) {
         if (cancelled) return;
         setError(err instanceof AdminApiError ? err.message : "Не удалось загрузить.");
@@ -399,7 +412,7 @@ export default function GameForm({ gameId }: { gameId?: number }) {
     return () => {
       cancelled = true;
     };
-  }, [gameId]);
+  }, [gameId, imageError]);
 
   function toggleId(key: "categories" | "tags", id: number) {
     setForm((current) => {
@@ -466,10 +479,11 @@ export default function GameForm({ gameId }: { gameId?: number }) {
         const created = await createGame(toPayload(form));
         try {
           await uploadPending(created.id);
-        } catch {
-          // JSON saved; images can be retried on the edit page
+          router.push(`/admin/games/${created.id}`);
+        } catch (uploadErr) {
+          const params = new URLSearchParams({ imageError: uploadErrorMessage(uploadErr) });
+          router.push(`/admin/games/${created.id}?${params.toString()}`);
         }
-        router.push(`/admin/games/${created.id}`);
       }
     } catch (err) {
       mapErrors(err);
