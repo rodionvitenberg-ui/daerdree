@@ -9,7 +9,7 @@ from boardgames.admin_views import (
 )
 from events.admin_views import EventAdminViewSet
 from bookings.admin_views import BookingAdminViewSet
-from .views import CsrfView, LoginView, LogoutView, MeView
+from .views import CsrfView, LoginView, LogoutView, MeView, StatsView
 
 router = DefaultRouter()
 router.register(r'categories', CategoryAdminViewSet)
@@ -23,6 +23,7 @@ urlpatterns = [
     path('login/', LoginView.as_view()),
     path('logout/', LogoutView.as_view()),
     path('me/', MeView.as_view()),
+    path('stats/', StatsView.as_view()),
     path('translations/', TranslationsView.as_view()),
     path(
         'games/<int:game_id>/gallery/<int:image_id>/',

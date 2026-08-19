@@ -1,7 +1,11 @@
+from unittest.mock import patch
+
 from django.contrib.auth.models import User
 from django.test import TestCase, override_settings
 from django.urls import reverse
 from rest_framework.test import APITestCase
+
+from bookings.models import Booking
 
 
 class DjangoAdminUrlTests(TestCase):
@@ -70,3 +74,22 @@ class StaffAuthTests(APITestCase):
         response = self.client.get('/api/admin/csrf/')
         self.assertEqual(response.status_code, 200)
         self.assertIn('csrftoken', response.cookies)
+
+
+class StaffStatsTests(APITestCase):
+    def setUp(self):
+        self._telegram_post = patch('bookings.models.requests.post')
+        self._telegram_post.start()
+        self.addCleanup(self._telegram_post.stop)
+        Booking.objects.all().delete()
+        self.staff = User.objects.create_user(username='keeper', password='secret-pass', is_staff=True)
+        self.client.force_authenticate(self.staff)
+        Booking.objects.create(name='A', contact='1', date='x', guests='1', status='pending')
+        Booking.objects.create(name='B', contact='2', date='x', guests='1', status='confirmed')
+
+    def test_stats(self):
+        response = self.client.get('/api/admin/stats/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data['bookings_pending'], 1)
+        self.assertIn('games', response.data)
+        self.assertIn('events', response.data)

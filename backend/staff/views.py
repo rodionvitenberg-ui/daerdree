@@ -50,3 +50,17 @@ class MeView(APIView):
 
     def get(self, request):
         return Response(user_payload(request.user))
+
+
+class StatsView(APIView):
+    permission_classes = [IsAuthenticated, IsStaffUser]
+
+    def get(self, request):
+        from boardgames.models import BoardGame
+        from events.models import Event
+        from bookings.models import Booking
+        return Response({
+            'games': BoardGame.objects.count(),
+            'events': Event.objects.count(),
+            'bookings_pending': Booking.objects.filter(status='pending').count(),
+        })

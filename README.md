@@ -11,7 +11,7 @@
 - **Бронирование** — форма онлайн-заявки на бронь столика
 - **FAQ** — ответы на частые вопросы
 - **Двуязычность** — полная поддержка RU / EN через next-intl (frontend) и django-modeltranslation (backend)
-- **Админка** — кастомная Django Jazzmin-панель в фирменном стиле Daerdree
+- **Админка** — staff UI на Next.js (`/admin`) и запасная Django Jazzmin-панель (`/django-admin/`)
 
 ## 🏗 Архитектура
 
@@ -67,8 +67,21 @@ cd backend && source venv/bin/activate && python manage.py import_history
 ## 🌐 Продакшн
 
 - **Сайт:** [daerdree.bar](https://daerdree.bar)
+- **Staff UI:** [daerdree.bar/admin](https://daerdree.bar/admin) (Next.js)
+- **Jazzmin / Django Admin:** [daerdree.bar/django-admin/](https://daerdree.bar/django-admin/)
 - **Instagram:** [@daerdree](https://instagram.com/daerdree)
 - **Telegram:** [@daerdreedm](https://t.me/daerdreedm)
+
+Production nginx (config is not in this repo) must send:
+
+| Path | Upstream |
+|------|----------|
+| `/admin/` | Next.js staff UI |
+| `/django-admin/` | Django (Jazzmin fallback) |
+| `/api/` | Django |
+| `/media/` | Django |
+
+Until nginx is updated, `/admin` on production still hits Jazzmin. Do not point `/admin/` at Django after the staff UI ships. Locally, Next.js rewrites `/api/*`, `/django-admin/*`, and `/media/*` to Django so the browser origin stays `localhost:3000`.
 
 ---
 
