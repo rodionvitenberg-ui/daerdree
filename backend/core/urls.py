@@ -31,6 +31,7 @@ urlpatterns = [
     
     # Подключаем все маршруты роутера под префиксом 'api/'
     path('api/', include(router.urls)),
+    path('api/admin/', include('staff.urls')),
     path('cms/', include('cms.urls')),
 ]
 
