@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import AdminTable, { type AdminColumn } from "@/components/admin/AdminTable";
 import {
   AdminApiError,
@@ -30,21 +31,44 @@ function formatDate(iso: string) {
 }
 
 export default function EventsPage() {
-  const [query, setQuery] = useState("");
-  const [search, setSearch] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("search") ?? "");
+  const [search, setSearch] = useState(query.trim());
+  const [filterVisible, setFilterVisible] = useState(searchParams.get("is_visible") ?? "");
   const [items, setItems] = useState<AdminEvent[] | null>(null);
   const [next, setNext] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
-    const id = window.setTimeout(() => setSearch(query.trim()), 300);
+    const id = window.setTimeout(() => {
+      setSearch(query.trim());
+      const params = new URLSearchParams(searchParams.toString());
+      if (query.trim()) params.set("search", query.trim());
+      else params.delete("search");
+      router.replace(`/admin/events?${params.toString()}`, { scroll: false });
+    }, 300);
     return () => window.clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
+
+  function updateFilter(key: string, value: string) {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value) params.set(key, value);
+    else params.delete(key);
+    router.replace(`/admin/events?${params.toString()}`, { scroll: false });
+    setFilterVisible(value);
+    setItems(null);
+    setNext(null);
+  }
 
   useEffect(() => {
     let cancelled = false;
-    listEvents(search)
+    const params = new URLSearchParams();
+    if (search) params.set("search", search);
+    if (filterVisible) params.set("is_visible", filterVisible);
+    listEvents(search, params.toString() ? `/api/admin/events/?${params.toString()}` : undefined)
       .then((data) => {
         if (cancelled) return;
         setItems(data.results ?? []);
@@ -58,7 +82,7 @@ export default function EventsPage() {
     return () => {
       cancelled = true;
     };
-  }, [search]);
+  }, [search, filterVisible]);
 
   async function loadMore() {
     if (!next) return;
@@ -103,7 +127,7 @@ export default function EventsPage() {
         </Link>
       </div>
 
-      <div className="mb-4">
+      <div className="mb-4 flex flex-wrap gap-3">
         <input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
@@ -111,6 +135,21 @@ export default function EventsPage() {
           aria-label="Поиск"
           className={INPUT}
         />
+        <label className="block max-w-sm">
+          <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.8px] text-white/40">
+            Видимость
+          </span>
+          <select
+            value={filterVisible}
+            onChange={(event) => updateFilter("is_visible", event.target.value)}
+            aria-label="Видимость"
+            className={INPUT}
+          >
+            <option value="">Все</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
+          </select>
+        </label>
       </div>
 
       {error ? (

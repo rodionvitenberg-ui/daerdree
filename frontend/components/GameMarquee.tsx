@@ -102,6 +102,7 @@ export default function GamesMarquee() {
                       className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
                       sizes="(max-width: 768px) 130px, 200px"
                       loading="lazy"
+                      fallback={<GameImagePlaceholder iconSize={48} />}
                     />
                   ) : (
                     <GameImagePlaceholder iconSize={48} />
@@ -133,6 +134,7 @@ export default function GamesMarquee() {
                       className="object-cover opacity-90 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
                       sizes="(max-width: 768px) 130px, 200px"
                       loading="lazy"
+                      fallback={<GameImagePlaceholder iconSize={48} />}
                     />
                   ) : (
                     <GameImagePlaceholder iconSize={48} />

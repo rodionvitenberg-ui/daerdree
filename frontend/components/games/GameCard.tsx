@@ -49,6 +49,7 @@ export default function GameCard({ game, contentLocale }: GameCardProps) {
               fill
               className="object-cover opacity-70 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-100"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              fallback={<GameImagePlaceholder />}
             />
           ) : (
             <GameImagePlaceholder />

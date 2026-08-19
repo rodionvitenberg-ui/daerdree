@@ -28,6 +28,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollRef = useRef(0);
   const desktopLangRef = useRef<HTMLDivElement>(null);
   const mobileLangRef = useRef<HTMLDivElement>(null);
 
@@ -39,6 +41,20 @@ export default function Header() {
     mq.addEventListener('change', update);
     return () => mq.removeEventListener('change', update);
   }, []);
+
+  // Hide header on scroll down, show on scroll up (never while mobile nav is open)
+  useEffect(() => {
+    if (isOpen) return;
+    const onScroll = () => {
+      const current = window.scrollY;
+      const delta = current - lastScrollRef.current;
+      if (Math.abs(delta) < 4) return;
+      setHidden(delta > 0 && current > 80);
+      lastScrollRef.current = current;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [isOpen]);
 
   // Lock body scroll while mobile nav is open
   useEffect(() => {
@@ -81,7 +97,9 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md pt-[var(--safe-top)]"
+      className={`sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md pt-[var(--safe-top)] transition-transform duration-300 ${
+        hidden ? '-translate-y-full' : 'translate-y-0'
+      }`}
     >
 
       {/* --- ЭФФЕКТ AURORA (desktop only — WebGL is costly on mobile Safari) --- */}

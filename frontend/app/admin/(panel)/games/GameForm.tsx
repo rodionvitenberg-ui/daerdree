@@ -498,7 +498,8 @@ export default function GameForm({ gameId, imageError }: { gameId?: number; imag
     setSaving(true);
     try {
       await deleteGame(gameId);
-      router.push("/admin/games");
+      const query = typeof window !== "undefined" ? window.location.search : "";
+      router.push(`/admin/games${query}`);
     } catch (err) {
       setError(err instanceof AdminApiError ? err.message : "Не удалось удалить.");
       setSaving(false);

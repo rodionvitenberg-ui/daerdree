@@ -3,6 +3,7 @@
 import {
   forwardRef,
   useState,
+  type ReactNode,
   type SyntheticEvent,
 } from "react";
 import NextImage, { type ImageProps } from "next/image";
@@ -26,6 +27,8 @@ type AppImageProps = Omit<ImageProps, "onLoad" | "onError"> & {
   loaderClassName?: string;
   onLoad?: (event: SyntheticEvent<HTMLImageElement>) => void;
   onError?: (event: SyntheticEvent<HTMLImageElement>) => void;
+  /** Рендерить вместо картинки, если она не загрузилась (битый URL/404). */
+  fallback?: ReactNode;
 };
 
 /**
@@ -42,6 +45,7 @@ const AppImage = forwardRef<HTMLImageElement, AppImageProps>(function AppImage(
     loaderSize = 28,
     loaderLabel = "Loading image",
     loaderClassName,
+    fallback,
     onLoad,
     onError,
     className,
@@ -70,36 +74,42 @@ const AppImage = forwardRef<HTMLImageElement, AppImageProps>(function AppImage(
       className={containerClass(isFill)}
       style={style}
     >
-      {showSpinner && (
-        <div
-          className={cn(
-            "absolute inset-0 z-10 flex items-center justify-center bg-neutral-900",
-            loaderClassName
+      {failed && fallback ? (
+        fallback
+      ) : (
+        <>
+          {showSpinner && (
+            <div
+              className={cn(
+                "absolute inset-0 z-10 flex items-center justify-center bg-neutral-900",
+                loaderClassName
+              )}
+              aria-hidden="true"
+            >
+              <Loader size={loaderSize} label={loaderLabel} />
+            </div>
           )}
-          aria-hidden="true"
-        >
-          <Loader size={loaderSize} label={loaderLabel} />
-        </div>
-      )}
 
-      <NextImage
-        ref={ref}
-        {...props}
-        unoptimized={isUnoptimized}
-        className={cn(
-          "transition-opacity duration-500 ease-out",
-          loaded ? "opacity-100" : "opacity-0",
-          className
-        )}
-        onLoad={(event) => {
-          setLoaded(true);
-          onLoad?.(event);
-        }}
-        onError={(event) => {
-          setFailed(true);
-          onError?.(event);
-        }}
-      />
+          <NextImage
+            ref={ref}
+            {...props}
+            unoptimized={isUnoptimized}
+            className={cn(
+              "transition-opacity duration-500 ease-out",
+              loaded ? "opacity-100" : "opacity-0",
+              className
+            )}
+            onLoad={(event) => {
+              setLoaded(true);
+              onLoad?.(event);
+            }}
+            onError={(event) => {
+              setFailed(true);
+              onError?.(event);
+            }}
+          />
+        </>
+      )}
     </div>
   );
 });

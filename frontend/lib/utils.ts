@@ -1,17 +1,16 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { API_BASE_URL } from "./constants"; // <--- Импортируем настройку
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const getImageUrl = (path: string | null | undefined) => {
-  if (!path) return "/images/placeholder.jpg"; // Убедитесь, что такой файл есть в папке public/images/
-  
-  if (path.startsWith("http")) return path;
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === "development" ? "http://127.0.0.1:8000" : "https://daerdree.bar");
 
-  // Django MEDIA_URL = '/media/', поэтому добавляем префикс
-  const mediaPrefix = path.startsWith("media/") ? "" : "media/";
-  return `${API_BASE_URL}/${mediaPrefix}${path}`;
-};
+export function getImageUrl(path: string | null | undefined): string {
+  if (!path) return "";
+  if (path.startsWith("http") || path.startsWith("//")) return path;
+  if (path.startsWith("/media/")) return `${API_BASE}${path}`;
+  return path;
+}

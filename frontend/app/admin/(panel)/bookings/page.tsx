@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import AdminTable, { type AdminColumn } from "@/components/admin/AdminTable";
 import {
   AdminApiError,
@@ -33,15 +34,44 @@ function formatCreatedAt(iso: string) {
 }
 
 export default function BookingsPage() {
-  const [status, setStatus] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("search") ?? "");
+  const [search, setSearch] = useState(query.trim());
+  const [status, setStatus] = useState(searchParams.get("status") ?? "");
   const [items, setItems] = useState<AdminBooking[] | null>(null);
   const [next, setNext] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
+    const id = window.setTimeout(() => {
+      setSearch(query.trim());
+      const params = new URLSearchParams(searchParams.toString());
+      if (query.trim()) params.set("search", query.trim());
+      else params.delete("search");
+      router.replace(`/admin/bookings?${params.toString()}`, { scroll: false });
+    }, 300);
+    return () => window.clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
+
+  function updateStatus(value: string) {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value) params.set("status", value);
+    else params.delete("status");
+    router.replace(`/admin/bookings?${params.toString()}`, { scroll: false });
+    setStatus(value);
+    setItems(null);
+    setNext(null);
+  }
+
+  useEffect(() => {
     let cancelled = false;
-    listBookings(status)
+    const params = new URLSearchParams();
+    if (search) params.set("search", search);
+    if (status) params.set("status", status);
+    listBookings(status, params.toString() ? `/api/admin/bookings/?${params.toString()}` : undefined)
       .then((data) => {
         if (cancelled) return;
         setItems(data.results ?? []);
@@ -55,7 +85,7 @@ export default function BookingsPage() {
     return () => {
       cancelled = true;
     };
-  }, [status]);
+  }, [search, status]);
 
   async function loadMore() {
     if (!next) return;
@@ -104,19 +134,21 @@ export default function BookingsPage() {
         <h1 className="font-serif text-[26px] font-medium">Брони</h1>
       </div>
 
-      <div className="mb-4">
+      <div className="mb-4 flex flex-wrap gap-3">
+        <input
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Поиск (имя / контакт)"
+          aria-label="Поиск"
+          className={INPUT}
+        />
         <label className="block max-w-sm">
           <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.8px] text-white/40">
             Статус
           </span>
           <select
             value={status}
-            onChange={(event) => {
-              setItems(null);
-              setNext(null);
-              setError("");
-              setStatus(event.target.value);
-            }}
+            onChange={(event) => updateStatus(event.target.value)}
             aria-label="Статус"
             className={INPUT}
           >

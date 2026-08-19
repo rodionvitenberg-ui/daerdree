@@ -4,7 +4,6 @@ import Image from "@/components/AppImage";
 import { Link } from "@/i18n/navigation";
 import { BoardGame } from "@/types/game";
 import { getImageUrl } from "@/lib/utils";
-import GameImagePlaceholder from "@/components/games/GameImagePlaceholder";
 import ExpansionAccordion from "@/components/ExpansionAccordion";
 import GameJsonLd from "@/components/GameJsonLd";
 import { useLocale, useTranslations } from "next-intl";
@@ -32,15 +31,15 @@ export default function GameDetailsClient({ game }: Props) {
             src={getImageUrl(heroImage)}
             alt={localizedTitle}
             fill
-            className="object-cover opacity-50"
             priority
+            fallback={<div className="absolute inset-0 bg-neutral-900" />}
           />
         ) : (
-          <GameImagePlaceholder className="absolute inset-0" iconSize={120} />
+          <div className="absolute inset-0 bg-neutral-900" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
-        <div className="absolute bottom-[74px] lg:bottom-[106px] left-0 w-full">
+        <div className="absolute bottom-[74px] lg:bottom-[106px] left-0 w-full pb-6">
           <div className="container mx-auto px-4">
             <h1 className="font-serif text-4xl font-black uppercase tracking-widest text-white md:text-6xl lg:text-7xl drop-shadow-2xl">
               {localizedTitle}
@@ -135,7 +134,7 @@ export default function GameDetailsClient({ game }: Props) {
 
           {/* ПРАВАЯ КОЛОНКА (САЙДБАР) */}
           <div className="lg:col-span-4">
-            <div className="relative sticky top-12">
+            <div className="relative lg:sticky lg:top-28">
 
               <div className="absolute -inset-4 lg:-inset-6 -top-8 -z-10 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl pointer-events-none" />
 

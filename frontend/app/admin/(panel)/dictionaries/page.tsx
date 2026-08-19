@@ -32,6 +32,158 @@ function displayKey(key: string): string {
   return dot === -1 ? key : key.slice(dot + 1);
 }
 
+// Человекочитаемые подписи для ключей переводов. Без совпадения показываем технический ключ.
+const KEY_LABELS: Record<string, string> = {
+  "GamesLibrary.title": "Заголовок библиотеки",
+  "GamesLibrary.searchPlaceholder": "Подсказка поля поиска",
+  "GamesLibrary.hideFilters": "Кнопка «Спрятать фильтры»",
+  "GamesLibrary.showFilters": "Кнопка «Фильтры»",
+  "GamesLibrary.resetFilters": "Кнопка «Сбросить фильтры»",
+  "GamesLibrary.players": "Подпись «Игроки»",
+  "GamesLibrary.anyPlayers": "Опция «Любое» (игроки)",
+  "GamesLibrary.maxTime": "Подпись «Макс. время»",
+  "GamesLibrary.anyTime": "Опция «Любое время»",
+  "GamesLibrary.upTo30m": "Опция «До 30 мин»",
+  "GamesLibrary.upTo1h": "Опция «До 1 часа»",
+  "GamesLibrary.upTo15h": "Опция «До 1.5 часов»",
+  "GamesLibrary.upTo2h": "Опция «До 2 часов»",
+  "GamesLibrary.longTime": "Опция «Долго (3ч+)»",
+  "GamesLibrary.difficulty": "Подпись «Сложность»",
+  "GamesLibrary.anyDifficulty": "Опция «Любая» (сложность)",
+  "GamesLibrary.diffVeryEasy": "Сложность «Очень легко»",
+  "GamesLibrary.diffEasy": "Сложность «Легко»",
+  "GamesLibrary.diffMedium": "Сложность «Средне»",
+  "GamesLibrary.diffHard": "Сложность «Сложно»",
+  "GamesLibrary.diffHardcore": "Сложность «Хардкор»",
+  "GamesLibrary.category": "Подпись «Категория»",
+  "GamesLibrary.allCategories": "Опция «Все категории»",
+  "GamesLibrary.loading": "Текст загрузки",
+  "GamesLibrary.noGamesTitle": "Заголовок «Игры не найдены»",
+  "GamesLibrary.noGamesDesc": "Описание «Игры не найдены»",
+  "GamesLibrary.clearFilters": "Кнопка «Очистить фильтры»",
+  "GamesLibrary.contentLanguageLabel": "Подпись языка контента",
+  "GamesLibrary.langRu": "Язык «Русский»",
+  "GamesLibrary.langEn": "Язык «English»",
+  "GameCard.diffEasy": "Сложность карточки «Легко»",
+  "GameCard.diffLight": "Сложность карточки «Просто»",
+  "GameCard.diffMedium": "Сложность карточки «Средне»",
+  "GameCard.diffHard": "Сложность карточки «Сложно»",
+  "GameCard.diffExpert": "Сложность карточки «Эксперт»",
+  "GameCard.playersRange": "Диапазон игроков",
+  "GameCard.minutes": "Длительность в минутах",
+  "GameDetails.players": "Подпись «Игроки»",
+  "GameDetails.playersRange": "Диапазон игроков",
+  "GameDetails.playTime": "Подпись «Время игры»",
+  "GameDetails.minutes": "Длительность в минутах",
+  "GameDetails.difficulty": "Подпись «Сложность»",
+  "GameDetails.bookButton": "Кнопка «Оформить бронь»",
+  "GameDetails.description": "Подпись «Описание»",
+  "GameDetails.categories": "Подпись «Категории»",
+  "GameDetails.mechanics": "Подпись «Механики»",
+  "GameDetails.expansions": "Подпись «Дополнения»",
+  "GameDetails.noDescription": "Заглушка «Нет описания»",
+  "Booking.title": "Заголовок брони",
+  "Booking.subtitle": "Подзаголовок брони",
+  "Booking.error": "Сообщение об ошибке",
+  "Booking.eventSelected": "Подпись «Выбранное событие»",
+  "Booking.form.nameLabel": "Подпись поля «Имя»",
+  "Booking.form.namePlaceholder": "Подсказка поля «Имя»",
+  "Booking.form.guestsLabel": "Подпись поля «Гости»",
+  "Booking.form.guestsPlaceholder": "Подсказка поля «Гости»",
+  "Booking.form.dateLabel": "Подпись поля «Дата и время»",
+  "Booking.form.contactLabel": "Подпись поля «Контакты»",
+  "Booking.form.contactPlaceholder": "Подсказка поля «Контакты»",
+  "Booking.form.submit": "Кнопка «Забронировать»",
+  "Booking.form.sending": "Кнопка «Отправка…»",
+  "Booking.socialsDivider": "Разделитель соцсетей",
+  "EventPage.metadataNotFound": "Заголовок «Событие не найдено»",
+  "EventPage.metadataTitleSuffix": "Суффикс заголовка страницы",
+  "EventPage.backToHub": "Ссылка «Вернуться к хабу»",
+  "EventPage.noImage": "Заглушка «Нет изображения»",
+  "EventPage.detailsTitle": "Подзаголовок «Детали события»",
+  "EventPage.dateLabel": "Подпись «Дата»",
+  "EventPage.timeLabel": "Подпись «Время»",
+  "EventPage.locationLabel": "Подпись «Локация»",
+  "EventPage.locationValue": "Название локации",
+  "EventPage.bookButton": "Кнопка «Забронировать стол»",
+  "EventPage.reservationDisclaimer": "Примечание о бронировании",
+  "EventsHub.publicSub": "Подзаголовок публичных событий",
+  "EventsHub.publicTitle1": "Заголовок публичных (часть 1)",
+  "EventsHub.publicTitle2": "Заголовок публичных (часть 2)",
+  "EventsHub.publicDesc": "Описание публичных",
+  "EventsHub.publicBtn": "Кнопка «Найти игру»",
+  "EventsHub.privateSub": "Подзаголовок частных",
+  "EventsHub.privateTitle1": "Заголовок частных (часть 1)",
+  "EventsHub.privateTitle2": "Заголовок частных (часть 2)",
+  "EventsHub.privateDesc": "Описание частных",
+  "EventsHub.privateBtn": "Кнопка «Узнать детали»",
+  "PublicEvents.back": "Кнопка «Вернуться назад»",
+  "PublicEvents.showAll": "Кнопка «Показать всё»",
+  "PublicEvents.chooseDate": "Подсказка «Выбери дату»",
+  "PublicEvents.title": "Заголовок страницы",
+  "PublicEvents.subtitle": "Подзаголовок страницы",
+  "PublicEvents.emptyTitle": "Заголовок «Нет событий»",
+  "PublicEvents.emptyDesc": "Описание «Нет событий»",
+  "PublicEvents.noImage": "Заглушка «Нет изображения»",
+  "PublicEvents.tagEvent": "Бейдж «Событие»",
+  "PublicEvents.details": "Ссылка «Подробнее»",
+  "PublicEvents.loading": "Текст загрузки",
+  "PublicEvents.loadMore": "Кнопка «Показать больше»",
+  "Header.nav.menu": "Пункт меню «Меню напитков»",
+  "Header.nav.games": "Пункт меню «Настольные игры»",
+  "Header.nav.events": "Пункт меню «Ивенты»",
+  "Header.nav.booking": "Пункт меню «Бронирование»",
+  "Header.nav.faq": "Пункт меню «F.A.Q.»",
+  "Hero.title": "Заголовок главного экрана",
+  "Hero.subtitle": "Подзаголовок главного экрана",
+  "Hero.buttonText": "Кнопка главного экрана",
+  "MenuPage.title": "Заголовок меню",
+  "MenuPage.subtitle": "Подзаголовок меню",
+  "MenuPage.navLabel": "Подпись разделов меню",
+  "MenuPage.coffeeTitle": "Заголовок «Кофе»",
+  "MenuPage.coffeeDesc": "Описание «Кофе»",
+  "MenuPage.teaTitle": "Заголовок «Чай»",
+  "MenuPage.teaDesc": "Описание «Чай»",
+  "MenuPage.cocktailsTitle": "Заголовок «Коктейли»",
+  "MenuPage.cocktailsDesc": "Описание «Коктейли»",
+  "MenuPage.beerTitle": "Заголовок «Пиво»",
+  "MenuPage.beerDesc": "Описание «Пиво»",
+  "MenuPage.zeroBeerTitle": "Заголовок «Безалкогольное пиво»",
+  "MenuPage.zeroBeerDesc": "Описание «Безалкогольное пиво»",
+  "MenuPage.wineTitle": "Заголовок «Вино»",
+  "MenuPage.wineDesc": "Описание «Вино»",
+  "MenuPage.wineNote": "Примечание о ценах",
+  "MenuPage.shotsTitle": "Заголовок «Крепкие напитки»",
+  "MenuPage.shotsDesc": "Описание «Крепкие напитки»",
+  "Footer.altLogo": "Alt логотипа",
+  "Footer.backToTop": "Кнопка «Наверх»",
+  "LocationSection.title": "Заголовок «Ищи нас на карте»",
+  "LocationSection.subtitle": "Подзаголовок локации",
+  "LocationSection.locationTitle": "Заголовок «Местоположение»",
+  "LocationSection.street": "Улица локации",
+  "LocationSection.city": "Город локации",
+  "LocationSection.findOnMap": "Кнопка «Найти нас на карте»",
+  "LocationSection.contactsTitle": "Заголовок «Контакты»",
+  "CateringStory.title": "Заголовок кейтеринга",
+  "CateringStory.subtitle": "Подзаголовок кейтеринга",
+  "CateringStory.buttonText": "Кнопка кейтеринга",
+  "GamesMarquee.title": "Заголовок ленты игр",
+  "GamesMarquee.subtitle": "Подзаголовок ленты игр",
+  "GamesMarquee.buttonText": "Кнопка ленты игр",
+  "GamesMarquee.noImage": "Заглушка «Нет изображения»",
+  "MenuTeaser.title": "Заголовок тизера меню",
+  "MenuTeaser.highlightWord": "Выделенное слово тизера",
+  "MenuTeaser.description": "Описание тизера",
+  "MenuTeaser.buttonText": "Кнопка тизера",
+  "MenuTeaser.altBackground": "Alt фона тизера",
+  "MenuTeaser.altDragon": "Alt дракона",
+  "PrivateEvents.back": "Кнопка «Вернуться назад»",
+};
+
+function labelForKey(key: string): string {
+  return KEY_LABELS[key] || displayKey(key);
+}
+
 function toEditor(groups: TranslationGroup[]): EditorGroup[] {
   return groups.map((group) => ({
     name: group.name,
@@ -93,19 +245,24 @@ function GroupSection({
           </span>
         </div>
         {group.keys.map((item) => {
-          const display = displayKey(item.key);
+          const label = labelForKey(item.key);
           return (
             <div
               key={item.key}
               className="grid grid-cols-1 gap-3 border-t border-white/[0.04] px-4 py-3 md:grid-cols-[minmax(7rem,18%)_1fr_1fr]"
             >
-              <div className="break-all pt-1 text-xs text-white/45">{display}</div>
+              <div className="min-w-0 pt-1">
+                <p className="text-xs font-medium text-white/80">{label}</p>
+                {KEY_LABELS[item.key] ? (
+                  <p className="mt-0.5 break-all text-[11px] text-white/35">{item.key}</p>
+                ) : null}
+              </div>
               <label className="block">
                 <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.8px] text-white/40 md:sr-only">
                   Русский (ru)
                 </span>
                 <textarea
-                  aria-label={`${display} ru`}
+                  aria-label={`${label} ru`}
                   value={item.ru}
                   rows={textareaRows(item.ru)}
                   disabled={saving}
@@ -118,7 +275,7 @@ function GroupSection({
                   Английский (en)
                 </span>
                 <textarea
-                  aria-label={`${display} en`}
+                  aria-label={`${label} en`}
                   value={item.en}
                   rows={textareaRows(item.en)}
                   disabled={saving}

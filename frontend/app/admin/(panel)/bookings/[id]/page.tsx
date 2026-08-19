@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import DateTimeField from "@/components/ui/date-time-field";
 import {
   AdminApiError,
   adminFieldErrors,
@@ -230,12 +231,11 @@ export default function BookingDetailPage() {
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           <Field label="Дата" error={fieldErrors.date}>
-            <input
-              required
+            <DateTimeField
               value={form.date}
               disabled={saving}
-              onChange={(event) => setForm((current) => ({ ...current, date: event.target.value }))}
-              className={INPUT}
+              locale="ru-RU"
+              onChange={(eventDate) => setForm((current) => ({ ...current, date: eventDate }))}
             />
           </Field>
           <Field label="Гостей" error={fieldErrors.guests}>

@@ -59,9 +59,12 @@ export default function AdminShell({
             aria-current={active ? "page" : undefined}
             onClick={() => setOpen(false)}
             className={`rounded-[7px] px-3.5 py-2.5 text-sm transition-colors ${
-              active ? "admin-accent font-semibold" : "admin-nav-link"
+              active
+                ? "font-semibold text-[hsl(187,83%,26%)]"
+                : "text-white/40 hover:bg-white/[0.04] hover:text-white/90"
             }`}
           >
+            {active ? <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-[hsl(187,83%,26%)] align-middle" /> : null}
             {item.label}
           </Link>
         );

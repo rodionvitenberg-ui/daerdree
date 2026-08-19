@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import DateTimeField from "@/components/ui/date-time-field";
 import {
   AdminApiError,
   adminFieldErrors,
@@ -284,15 +285,13 @@ export default function EventForm({ eventId }: { eventId?: number }) {
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           <Field label="Дата и время" error={fieldErrors.event_date}>
-            <input
-              required
-              type="datetime-local"
+            <DateTimeField
               value={form.event_date}
               disabled={saving}
-              onChange={(event) =>
-                setForm((current) => ({ ...current, event_date: event.target.value }))
+              locale="ru-RU"
+              onChange={(eventDate) =>
+                setForm((current) => ({ ...current, event_date: eventDate }))
               }
-              className={INPUT}
             />
           </Field>
           <label className="flex items-center gap-2 self-end pb-2 text-sm">
