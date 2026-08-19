@@ -11,12 +11,14 @@ export default function AdminTable<T>({
   rows,
   columns,
   getRowKey,
+  getRowClassName,
   onRowClick,
   empty = "Пусто",
 }: {
   rows: T[];
   columns: AdminColumn<T>[];
   getRowKey: (row: T) => string | number;
+  getRowClassName?: (row: T) => string | undefined;
   onRowClick?: (row: T) => void;
   empty?: string;
 }) {
@@ -50,7 +52,7 @@ export default function AdminTable<T>({
               onClick={onRowClick ? () => onRowClick(row) : undefined}
               className={`border-t border-white/[0.04] ${
                 onRowClick ? "cursor-pointer hover:bg-white/[0.03]" : ""
-              }`}
+              } ${getRowClassName?.(row) ?? ""}`}
             >
               {columns.map((column) => (
                 <td key={column.key} className={`px-4 py-3 align-middle ${column.className ?? ""}`}>

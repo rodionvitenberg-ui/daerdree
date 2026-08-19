@@ -407,3 +407,43 @@ export function patchEvent(id: number, body: FormData | EventWrite) {
 export function deleteEvent(id: number) {
   return adminFetch<null>(`/api/admin/events/${id}/`, { method: 'DELETE' });
 }
+
+export type BookingStatus = 'pending' | 'confirmed' | 'rejected';
+
+export type AdminBooking = {
+  id: number;
+  name: string;
+  contact: string;
+  date: string;
+  guests: string;
+  event_title: string | null;
+  status: BookingStatus;
+  created_at: string;
+};
+
+export type BookingWrite = {
+  name: string;
+  contact: string;
+  date: string;
+  guests: string;
+  event_title: string;
+  status: BookingStatus;
+};
+
+export function listBookings(status = '', url?: string | null) {
+  const path = url
+    ? adminNextPath(url) || '/api/admin/bookings/'
+    : `/api/admin/bookings/${status ? `?status=${encodeURIComponent(status)}` : ''}`;
+  return adminFetch<Paginated<AdminBooking>>(path);
+}
+
+export function getBooking(id: number) {
+  return adminFetch<AdminBooking>(`/api/admin/bookings/${id}/`);
+}
+
+export function patchBooking(id: number, body: Partial<BookingWrite>) {
+  return adminFetch<AdminBooking>(`/api/admin/bookings/${id}/`, {
+    method: 'PATCH',
+    body: JSON.stringify(body),
+  });
+}
