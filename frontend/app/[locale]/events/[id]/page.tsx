@@ -2,8 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "@/components/AppImage";
 import Link from "next/link";
 import { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server";
-import type { ReactNode } from "react";
+import { getTranslations } from "next-intl/server";
 
 // ОБНОВЛЕНО: Расширили типизацию события
 interface Event {
@@ -16,23 +15,10 @@ interface Event {
   event_date: string;
 }
 
-// Функция для загрузки данных (выполняется на сервере)
-export async function generateStaticParams() {
-  try {
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-    const res = await fetch(`${API_BASE}/api/events/`, {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) return [];
-    const data = await res.json();
-    const events: { id: number }[] = Array.isArray(data?.results)
-      ? data.results
-      : (Array.isArray(data) ? data : []);
-    return events.map((event) => ({ id: String(event.id) }));
-  } catch {
-    return [];
-  }
-}
+// SSG + getTranslations()/getLocale() without an explicit locale calls
+// headers() and throws DYNAMIC_SERVER_USAGE in `next start` (500 on every
+// /events/[id], including missing ids). Games detail already uses force-dynamic.
+export const dynamic = "force-dynamic";
 
 // Функция для загрузки данных (выполняется на сервере)
 async function getEvent(id: string): Promise<Event | null> {
@@ -52,29 +38,28 @@ async function getEvent(id: string): Promise<Event | null> {
 }
 
 // ОБНОВЛЕНО: Генерация метаданных для SEO с учетом локали
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await params;
+type EventPageParams = Promise<{ id: string; locale: string }>;
+
+export async function generateMetadata({ params }: { params: EventPageParams }): Promise<Metadata> {
+  const { id, locale } = await params;
   const event = await getEvent(id);
-  const t = await getTranslations("EventPage"); 
-  const locale = await getLocale(); // Узнаем язык для SEO
-  
+  const t = await getTranslations({ locale, namespace: "EventPage" });
+
   if (!event) return { title: t("metadataNotFound") };
-  
-  // Выбираем правильные тексты для SEO
+
   const displayTitle = locale === 'en' && event.title_en ? event.title_en : event.title;
   const displayDescription = locale === 'en' && event.description_en ? event.description_en : event.description;
-  
+
   return {
     title: `${displayTitle}${t("metadataTitleSuffix")}`,
-    description: displayDescription.slice(0, 150),
+    description: (displayDescription || "").slice(0, 150),
   };
 }
 
-export default async function EventPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function EventPage({ params }: { params: EventPageParams }) {
+  const { id, locale } = await params;
   const event = await getEvent(id);
-  const t = await getTranslations("EventPage"); 
-  const locale = await getLocale(); 
+  const t = await getTranslations({ locale, namespace: "EventPage" }); 
 
   if (!event) {
     notFound(); 
