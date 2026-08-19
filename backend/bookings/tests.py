@@ -28,3 +28,18 @@ class PublicBookingApiTests(APITestCase):
     def test_list_not_allowed(self):
         response = self.client.get('/api/bookings/')
         self.assertEqual(response.status_code, 405)
+
+    def test_singular_booking_path_creates(self):
+        """Site form POSTs /api/booking/ (no s); nginx sends /api/* to Django."""
+        response = self.client.post(
+            '/api/booking/',
+            {
+                'name': 'Ada',
+                'contact': '+357',
+                'date': 'завтра 19:00',
+                'guests': '2',
+            },
+            format='json',
+        )
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(Booking.objects.count(), 1)

@@ -28,6 +28,9 @@ urlpatterns = [
     # Важно: прописываем его отдельным путем.
     # Теперь Telegram будет стучаться на https://daerdree.bar/api/webhook/telegram/
     path('api/webhook/telegram/', telegram_webhook, name='telegram_webhook'),
+    # Site form POSTs /api/booking/ (singular). Nginx sends /api/* to Django,
+    # so this must exist here — Next.js /api/booking/route.ts never receives it.
+    path('api/booking/', BookingViewSet.as_view({'post': 'create'})),
     
     # Подключаем все маршруты роутера под префиксом 'api/'
     path('api/', include(router.urls)),
