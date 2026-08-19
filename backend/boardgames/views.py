@@ -72,6 +72,8 @@ class BoardGameViewSet(viewsets.ReadOnlyModelViewSet):
         """Безопасный retrieve с обработкой ошибок сериализации."""
         try:
             return super().retrieve(request, *args, **kwargs)
+        except Http404:
+            raise
         except Exception as e:
             logger.error(f"Ошибка при загрузке игры {kwargs.get('pk', '?')}: {e}", exc_info=True)
             return Response(

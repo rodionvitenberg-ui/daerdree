@@ -80,6 +80,9 @@ class GameImageAdminSerializer(serializers.ModelSerializer):
 
 
 class BoardGameListSerializer(serializers.ModelSerializer):
+    categories = CategoryAdminSerializer(many=True, read_only=True)
+    tags = TagAdminSerializer(many=True, read_only=True)
+
     class Meta:
         model = BoardGame
         fields = [
@@ -91,6 +94,8 @@ class BoardGameListSerializer(serializers.ModelSerializer):
             'is_visible_ru',
             'is_visible_en',
             'slug',
+            'categories',
+            'tags',
         ]
 
 

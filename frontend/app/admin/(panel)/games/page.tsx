@@ -3,7 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import AdminTable, { type AdminColumn } from "@/components/admin/AdminTable";
+import AdminTable, {
+  type AdminColumn,
+  type SortDirection,
+} from "@/components/admin/AdminTable";
 import {
   AdminApiError,
   adminNextPath,
@@ -14,8 +17,14 @@ import {
 const INPUT =
   "w-full max-w-sm rounded-md border border-white/[0.08] bg-[hsl(60,4%,9%)] px-3 py-2 text-sm outline-none transition-colors focus:border-[hsl(187,83%,26%)]";
 
+const SORTABLE_KEYS = ["title_ru", "title_en", "is_active", "is_visible_ru", "is_visible_en"];
+
 function flag(value: boolean) {
   return value ? "да" : "нет";
+}
+
+function names(items: { name_ru: string }[]) {
+  return items.map((item) => item.name_ru).join(", ") || "—";
 }
 
 export default function GamesPage() {
@@ -23,13 +32,23 @@ export default function GamesPage() {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("search") ?? "");
   const [search, setSearch] = useState(query.trim());
-  const [filterActive, setFilterActive] = useState(searchParams.get("is_active") ?? "");
-  const [filterRu, setFilterRu] = useState(searchParams.get("is_visible_ru") ?? "");
-  const [filterEn, setFilterEn] = useState(searchParams.get("is_visible_en") ?? "");
   const [items, setItems] = useState<AdminGameListItem[] | null>(null);
   const [next, setNext] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [loadingMore, setLoadingMore] = useState(false);
+  const [sortKey, setSortKey] = useState<string | null>(() => {
+    const value = searchParams.get("ordering");
+    if (value && SORTABLE_KEYS.includes(value.replace(/^-/, ""))) {
+      return value.replace(/^-/, "");
+    }
+    return null;
+  });
+  const [sortDirection, setSortDirection] = useState<SortDirection>(() => {
+    const value = searchParams.get("ordering") ?? "";
+    return value.startsWith("-") ? "desc" : "asc";
+  });
+
+  const ordering = sortKey ? `${sortDirection === "desc" ? "-" : ""}${sortKey}` : "";
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -43,25 +62,19 @@ export default function GamesPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
-  function updateFilter(key: string, value: string) {
+  useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
-    if (value) params.set(key, value);
-    else params.delete(key);
+    if (ordering) params.set("ordering", ordering);
+    else params.delete("ordering");
     router.replace(`/admin/games?${params.toString()}`, { scroll: false });
-    if (key === "is_active") setFilterActive(value);
-    else if (key === "is_visible_ru") setFilterRu(value);
-    else setFilterEn(value);
-    setItems(null);
-    setNext(null);
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ordering]);
 
   useEffect(() => {
     let cancelled = false;
     const params = new URLSearchParams();
     if (search) params.set("search", search);
-    if (filterActive) params.set("is_active", filterActive);
-    if (filterRu) params.set("is_visible_ru", filterRu);
-    if (filterEn) params.set("is_visible_en", filterEn);
+    if (ordering) params.set("ordering", ordering);
     listGames(search, params.toString() ? `/api/admin/games/?${params.toString()}` : undefined)
       .then((data) => {
         if (cancelled) return;
@@ -76,7 +89,7 @@ export default function GamesPage() {
     return () => {
       cancelled = true;
     };
-  }, [search, filterActive, filterRu, filterEn]);
+  }, [search, ordering]);
 
   async function loadMore() {
     if (!next) return;
@@ -93,12 +106,58 @@ export default function GamesPage() {
     }
   }
 
+  function handleSort(key: string) {
+    if (key === sortKey) {
+      setSortDirection((direction) => (direction === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDirection("asc");
+    }
+    setItems(null);
+    setNext(null);
+  }
+
   const columns: AdminColumn<AdminGameListItem>[] = [
-    { key: "title_ru", header: "Название (ru)", render: (row) => row.title_ru || "—" },
-    { key: "title_en", header: "Название (en)", render: (row) => row.title_en || "—" },
-    { key: "is_active", header: "Активна", render: (row) => flag(row.is_active) },
-    { key: "is_visible_ru", header: "RU", render: (row) => flag(row.is_visible_ru) },
-    { key: "is_visible_en", header: "EN", render: (row) => flag(row.is_visible_en) },
+    {
+      key: "title_ru",
+      header: "Название (ru)",
+      sortable: true,
+      render: (row) => row.title_ru || "—",
+    },
+    {
+      key: "title_en",
+      header: "Название (en)",
+      sortable: true,
+      render: (row) => row.title_en || "—",
+    },
+    {
+      key: "categories",
+      header: "Категории",
+      render: (row) => names(row.categories),
+    },
+    {
+      key: "tags",
+      header: "Теги",
+      render: (row) => names(row.tags),
+    },
+    {
+      key: "is_active",
+      header: "Активна",
+      sortable: true,
+      render: (row) => flag(row.is_active),
+    },
+    {
+      key: "is_visible_ru",
+      header: "RU",
+      sortable: true,
+      render: (row) => flag(row.is_visible_ru),
+    },
+    {
+      key: "is_visible_en",
+      header: "EN",
+      sortable: true,
+      render: (row) => flag(row.is_visible_en),
+    },
     {
       key: "edit",
       header: "",
@@ -110,56 +169,6 @@ export default function GamesPage() {
       ),
     },
   ];
-
-  const filterRow = (
-    <div className="mb-4 grid grid-cols-2 gap-3 md:grid-cols-3">
-      <label className="block">
-        <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.8px] text-white/40">
-          Показ на сайте
-        </span>
-        <select
-          value={filterActive}
-          onChange={(event) => updateFilter("is_active", event.target.value)}
-          aria-label="Активна"
-          className={INPUT}
-        >
-          <option value="">Все</option>
-          <option value="true">Да</option>
-          <option value="false">Нет</option>
-        </select>
-      </label>
-      <label className="block">
-        <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.8px] text-white/40">
-          Видимость (RU)
-        </span>
-        <select
-          value={filterRu}
-          onChange={(event) => updateFilter("is_visible_ru", event.target.value)}
-          aria-label="Видимость RU"
-          className={INPUT}
-        >
-          <option value="">Все</option>
-          <option value="true">Да</option>
-          <option value="false">Нет</option>
-        </select>
-      </label>
-      <label className="block">
-        <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.8px] text-white/40">
-          Видимость (EN)
-        </span>
-        <select
-          value={filterEn}
-          onChange={(event) => updateFilter("is_visible_en", event.target.value)}
-          aria-label="Видимость EN"
-          className={INPUT}
-        >
-          <option value="">Все</option>
-          <option value="true">Да</option>
-          <option value="false">Нет</option>
-        </select>
-      </label>
-    </div>
-  );
 
   return (
     <div className="mx-auto max-w-[1200px]">
@@ -173,30 +182,37 @@ export default function GamesPage() {
         </Link>
       </div>
 
-      <div className="mb-4 flex flex-wrap gap-3">
-        <input
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Поиск"
-          aria-label="Поиск"
-          className={INPUT}
-        />
-      </div>
-
-      {filterRow}
+      <input
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder="Поиск"
+        aria-label="Поиск"
+        className={INPUT}
+      />
 
       {error ? (
         <p
-          className="mb-4 rounded-[10px] border border-[hsl(357,100%,55%)]/30 px-4 py-2.5 text-sm text-[hsl(357,100%,55%)]"
+          className="mb-4 mt-4 rounded-[10px] border border-[hsl(357,100%,55%)]/30 px-4 py-2.5 text-sm text-[hsl(357,100%,55%)]"
           role="alert"
         >
           {error}
         </p>
       ) : null}
 
-      {items === null && !error ? <p className="text-sm text-white/45">Загрузка…</p> : null}
+      {items === null && !error ? <p className="mt-4 text-sm text-white/45">Загрузка…</p> : null}
       {items ? (
-        <AdminTable rows={items} columns={columns} getRowKey={(row) => row.id} />
+        <div className="mt-4">
+          <AdminTable
+            rows={items}
+            columns={columns}
+            getRowKey={(row) => row.id}
+            sortable
+            resizable
+            sortKey={sortKey}
+            sortDirection={sortDirection}
+            onSortChange={handleSort}
+          />
+        </div>
       ) : null}
 
       {next ? (

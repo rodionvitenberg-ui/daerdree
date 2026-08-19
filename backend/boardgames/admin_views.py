@@ -2,7 +2,7 @@ from django.http import Http404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
@@ -57,9 +57,10 @@ class BoardGameAdminViewSet(viewsets.ModelViewSet):
     queryset = BoardGame.objects.all()
     permission_classes = [IsAuthenticated, IsStaffUser]
     pagination_class = AdminGamePagination
-    filter_backends = [SearchFilter, DjangoFilterBackend]
+    filter_backends = [SearchFilter, DjangoFilterBackend, OrderingFilter]
     search_fields = ['title']
     filterset_fields = ['is_active', 'is_visible_ru', 'is_visible_en']
+    ordering_fields = ['title_ru', 'title_en', 'is_active', 'is_visible_ru', 'is_visible_en']
 
     def get_queryset(self):
         return BoardGame.objects.all().prefetch_related(

@@ -158,3 +158,26 @@ class AdminGameTests(APITestCase):
         public = self.client.get('/api/games/')
         titles = [row['title'] for row in (public.data if isinstance(public.data, list) else public.data.get('results', public.data))]
         self.assertNotIn(hidden_title, titles)
+
+
+class PublicGameRetrieveTests(APITestCase):
+    """Retrieve не должен превращать отсутствующую игру в 500."""
+
+    def setUp(self):
+        self.game = BoardGame.objects.create(
+            title='Visible',
+            slug=f'vis-{uuid.uuid4().hex[:8]}',
+            description='',
+            play_time=10,
+            is_active=True,
+            is_visible_ru=True,
+            is_visible_en=True,
+        )
+
+    def test_retrieve_existing_200(self):
+        response = self.client.get(f'/api/games/{self.game.id}/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_retrieve_missing_404(self):
+        response = self.client.get('/api/games/999999/')
+        self.assertEqual(response.status_code, 404)

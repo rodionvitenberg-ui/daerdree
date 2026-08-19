@@ -127,6 +127,8 @@ export type AdminGameListItem = {
   is_visible_ru: boolean;
   is_visible_en: boolean;
   slug: string;
+  categories: AdminCategory[];
+  tags: AdminTag[];
 };
 
 export type AdminGame = {
