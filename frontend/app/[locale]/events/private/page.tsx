@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "@/components/AppImage";
 import AnimatedContent from "@/components/AnimatedContent";
 import { PRIVATE_HIRE_CONTENT } from "@/content/privateevents";

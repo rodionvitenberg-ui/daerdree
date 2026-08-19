@@ -2,14 +2,16 @@ import { getRequestConfig } from 'next-intl/server';
 import { unstable_noStore } from 'next/cache';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
-
-const locales = ['en', 'ru'];
-const defaultLocale = 'en';
+import { routing } from './routing';
 
 export default getRequestConfig(async ({ requestLocale }) => {
   unstable_noStore();
-  let locale = await requestLocale;
-  if (!locale || !locales.includes(locale)) locale = defaultLocale;
+  const requested = await requestLocale;
+  const locale =
+    requested && routing.locales.includes(requested as (typeof routing.locales)[number])
+      ? requested
+      : routing.defaultLocale;
+
   let messages = {};
   try {
     const raw = await readFile(join(process.cwd(), 'messages', `${locale}.json`), 'utf8');

@@ -22,9 +22,8 @@ async function getGame(id: string, locale: string): Promise<BoardGame | null> {
   }
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await params;
-  const locale = 'ru'; // fallback for metadata
+export async function generateMetadata({ params }: { params: Promise<{ id: string; locale: string }> }): Promise<Metadata> {
+  const { id, locale } = await params;
   const game = await getGame(id, locale);
 
   if (!game) {
@@ -59,8 +58,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-export default async function GamePage({ params, searchParams }: { params: Promise<{ id: string }>, searchParams?: Promise<any> }) {
-  const { id } = await params;
+export default async function GamePage({ params, searchParams }: { params: Promise<{ id: string; locale: string }>, searchParams?: Promise<any> }) {
+  const { id, locale } = await params;
 
   const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
   let gameData: BoardGame | null = null;
@@ -69,6 +68,7 @@ export default async function GamePage({ params, searchParams }: { params: Promi
   try {
     const res = await fetch(`${API_BASE}/api/games/${id}/`, {
       next: { revalidate: 3600 },
+      headers: { 'Accept-Language': locale },
     });
     if (res.ok) {
       gameData = await res.json();

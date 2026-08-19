@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "@/components/AppImage";
 import AnimatedContent from "./AnimatedContent";
 import ExpandableCards from "./ui/expandable-cards"; 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "@/components/AppImage";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import AnimatedContent from "./AnimatedContent";
 import { MENU_CONTENT } from "@/content/home";
 import { useTranslations } from "next-intl";

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "@/components/AppImage";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { BoardGame } from "@/types/game";
 import { getImageUrl } from "@/lib/utils";
 import { useTranslations, useLocale } from "next-intl";

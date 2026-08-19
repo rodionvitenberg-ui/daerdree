@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
 import Image from '@/components/AppImage';
-import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
+import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import Aurora from './Aurora';
 
 const NAV_ITEMS = [
@@ -74,14 +73,11 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', onClick);
   }, [langOpen]);
 
-  // === ЛОГИКА СМЕНЫ ЯЗЫКА ===
   const switchTo = (nextLocale: string) => {
     setLangOpen(false);
     setIsOpen(false);
-    const newPath = pathname.replace(new RegExp(`^/${locale}`), `/${nextLocale}`);
-    router.replace(newPath);
+    router.replace(pathname, { locale: nextLocale });
   };
-  // ==========================
 
   return (
     <header

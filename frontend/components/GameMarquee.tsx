@@ -3,7 +3,7 @@
 import { API_ENDPOINTS } from '@/lib/constants';
 import { getImageUrl } from '@/lib/utils';
 import Image from '@/components/AppImage';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import AnimatedContent from '@/components/AnimatedContent'; 
 import GameImagePlaceholder from '@/components/games/GameImagePlaceholder';
 import useSWR from "swr";
