@@ -7,12 +7,14 @@ from boardgames.admin_views import (
     GameGalleryItemView,
     TagAdminViewSet,
 )
+from events.admin_views import EventAdminViewSet
 from .views import CsrfView, LoginView, LogoutView, MeView
 
 router = DefaultRouter()
 router.register(r'categories', CategoryAdminViewSet)
 router.register(r'tags', TagAdminViewSet)
 router.register(r'games', BoardGameAdminViewSet, basename='admin-game')
+router.register(r'events', EventAdminViewSet, basename='admin-event')
 
 urlpatterns = [
     path('csrf/', CsrfView.as_view()),

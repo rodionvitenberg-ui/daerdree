@@ -356,3 +356,54 @@ export function patchGameGallery(
 export function deleteGameGallery(gameId: number, imageId: number) {
   return adminFetch<null>(`/api/admin/games/${gameId}/gallery/${imageId}/`, { method: 'DELETE' });
 }
+
+export type AdminEvent = {
+  id: number;
+  title: string;
+  description: string;
+  title_en: string | null;
+  description_en: string | null;
+  image: string | null;
+  event_date: string;
+  is_visible: boolean;
+  telegram_id: string | null;
+  created_at: string;
+};
+
+export type EventWrite = {
+  title: string;
+  description: string;
+  title_en: string;
+  description_en: string;
+  event_date: string;
+  is_visible: boolean;
+};
+
+export function listEvents(search = '', url?: string | null) {
+  const path = url
+    ? adminNextPath(url) || '/api/admin/events/'
+    : `/api/admin/events/${search ? `?search=${encodeURIComponent(search)}` : ''}`;
+  return adminFetch<Paginated<AdminEvent>>(path);
+}
+
+export function getEvent(id: number) {
+  return adminFetch<AdminEvent>(`/api/admin/events/${id}/`);
+}
+
+export function createEvent(body: FormData) {
+  return adminFetch<AdminEvent>('/api/admin/events/', {
+    method: 'POST',
+    body,
+  });
+}
+
+export function patchEvent(id: number, body: FormData | EventWrite) {
+  return adminFetch<AdminEvent>(`/api/admin/events/${id}/`, {
+    method: 'PATCH',
+    body: body instanceof FormData ? body : JSON.stringify(body),
+  });
+}
+
+export function deleteEvent(id: number) {
+  return adminFetch<null>(`/api/admin/events/${id}/`, { method: 'DELETE' });
+}
