@@ -85,6 +85,12 @@ class AdminGameTests(APITestCase):
         self.assertTrue(response.data['slug'])
         game_id = response.data['id']
         self.assertEqual(Expansion.objects.filter(game_id=game_id).count(), 1)
+        detail = self.client.get(f'/api/admin/games/{game_id}/')
+        self.assertEqual(detail.status_code, 200)
+        self.assertTrue(detail.data['categories'])
+        self.assertIsInstance(detail.data['categories'][0], dict)
+        self.assertEqual(detail.data['categories'][0]['id'], self.cat.id)
+        self.assertIn('name_ru', detail.data['categories'][0])
 
     def test_slug_suffix_when_taken(self):
         base = f'slug-t8-{uuid.uuid4().hex[:8]}'

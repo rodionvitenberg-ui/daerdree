@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.utils.text import slugify
 from rest_framework import serializers
 from .models import BoardGame, Category, Expansion, GameImage, Tag
@@ -74,7 +75,7 @@ class GameImageAdminSerializer(serializers.ModelSerializer):
         model = GameImage
         fields = ['id', 'image', 'image_type', 'order', 'alt']
         extra_kwargs = {
-            'image': {'required': False},
+            'image': {'read_only': True},
         }
 
 
@@ -140,6 +141,16 @@ class BoardGameAdminSerializer(serializers.ModelSerializer):
             'created_at': {'read_only': True},
         }
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['categories'] = CategoryAdminSerializer(
+            instance.categories.all(), many=True, context=self.context
+        ).data
+        data['tags'] = TagAdminSerializer(
+            instance.tags.all(), many=True, context=self.context
+        ).data
+        return data
+
     def validate(self, attrs):
         if attrs.get('slug'):
             return attrs
@@ -156,6 +167,7 @@ class BoardGameAdminSerializer(serializers.ModelSerializer):
         )
         return attrs
 
+    @transaction.atomic
     def create(self, validated_data):
         categories = validated_data.pop('categories', [])
         tags = validated_data.pop('tags', [])
@@ -166,6 +178,7 @@ class BoardGameAdminSerializer(serializers.ModelSerializer):
         self._sync_expansions(game, expansions)
         return game
 
+    @transaction.atomic
     def update(self, instance, validated_data):
         categories = validated_data.pop('categories', None)
         tags = validated_data.pop('tags', None)

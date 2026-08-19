@@ -106,7 +106,6 @@ class BoardGameAdminViewSet(viewsets.ModelViewSet):
             return Response({'detail': 'Файл не передан.'}, status=status.HTTP_400_BAD_REQUEST)
         serializer = GameImageAdminSerializer(
             data={
-                'image': uploaded,
                 'image_type': request.data.get('image_type', GameImage.ImageType.GALLERY),
                 'order': request.data.get('order') or 0,
                 'alt': request.data.get('alt', ''),
@@ -114,7 +113,7 @@ class BoardGameAdminViewSet(viewsets.ModelViewSet):
             context={'request': request},
         )
         serializer.is_valid(raise_exception=True)
-        serializer.save(game=game)
+        serializer.save(game=game, image=uploaded)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
