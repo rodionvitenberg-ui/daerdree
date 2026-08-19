@@ -60,3 +60,17 @@ export function adminMe(cookieHeader?: string) {
 export function adminCsrf() {
   return adminFetch<{ detail: string }>('/api/admin/csrf/');
 }
+
+export type TranslationKey = { key: string; ru: string | number | unknown; en: string | number | unknown };
+export type TranslationGroup = { name: string; keys: TranslationKey[] };
+export type TranslationsResponse = { groups: TranslationGroup[] };
+
+export function getTranslations() {
+  return adminFetch<TranslationsResponse>('/api/admin/translations/');
+}
+export function putTranslations(keys: Record<string, { ru: unknown; en: unknown }>) {
+  return adminFetch<TranslationsResponse>('/api/admin/translations/', {
+    method: 'PUT',
+    body: JSON.stringify({ keys }),
+  });
+}
