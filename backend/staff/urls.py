@@ -1,5 +1,7 @@
 from django.urls import path
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.routers import DefaultRouter
+from .permissions import IsStaffUser
 from cms.admin_views import TranslationsView
 from boardgames.admin_views import (
     BoardGameAdminViewSet,
@@ -11,7 +13,14 @@ from events.admin_views import EventAdminViewSet
 from bookings.admin_views import BookingAdminViewSet
 from .views import CsrfView, LoginView, LogoutView, MeView, StatsView
 
-router = DefaultRouter()
+class StaffRouter(DefaultRouter):
+    def get_api_root_view(self, *args, **kwargs):
+        view = super().get_api_root_view(*args, **kwargs)
+        view.cls.permission_classes = [IsAuthenticated, IsStaffUser]
+        return view
+
+
+router = StaffRouter()
 router.register(r'categories', CategoryAdminViewSet)
 router.register(r'tags', TagAdminViewSet)
 router.register(r'games', BoardGameAdminViewSet, basename='admin-game')
