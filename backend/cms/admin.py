@@ -2,37 +2,10 @@
 import os
 import json
 from django.contrib import admin
-from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import SiteTranslation
-
-# Путь до папки с JSON (основано на вашей структуре: daerdree/frontend/messages)
-MESSAGES_DIR = os.path.join(settings.BASE_DIR.parent, 'frontend', 'messages')
-LANGUAGES = ['ru', 'en']
-
-def flatten_json(y):
-    out = {}
-    def flatten(x, name=''):
-        if type(x) is dict:
-            for a in x:
-                flatten(x[a], name + a + '.')
-        else:
-            out[name[:-1]] = x
-    flatten(y)
-    return out
-
-def unflatten_json(dictionary):
-    result = {}
-    for key, value in dictionary.items():
-        parts = key.split(".")
-        d = result
-        for part in parts[:-1]:
-            if part not in d:
-                d[part] = {}
-            d = d[part]
-        d[parts[-1]] = value
-    return result
+from .json_i18n import flatten_json, unflatten_json, LANGUAGES, get_messages_dir
 
 @admin.register(SiteTranslation)
 class SiteTranslationAdmin(admin.ModelAdmin):
@@ -55,12 +28,13 @@ class SiteTranslationAdmin(admin.ModelAdmin):
                         new_data[lang][json_key] = value
 
             # Восстанавливаем вложенность и сохраняем в файлы
+            messages_dir = get_messages_dir()
             for lang in LANGUAGES:
                 unflattened = unflatten_json(new_data[lang])
-                filepath = os.path.join(MESSAGES_DIR, f'{lang}.json')
+                filepath = os.path.join(messages_dir, f'{lang}.json')
                 
                 # Создаем папку/файлы, если их еще нет
-                os.makedirs(MESSAGES_DIR, exist_ok=True)
+                os.makedirs(messages_dir, exist_ok=True)
                 
                 with open(filepath, 'w', encoding='utf-8') as f:
                     json.dump(unflattened, f, ensure_ascii=False, indent=2)
@@ -73,7 +47,7 @@ class SiteTranslationAdmin(admin.ModelAdmin):
         all_keys = set()
 
         for lang in LANGUAGES:
-            filepath = os.path.join(MESSAGES_DIR, f'{lang}.json')
+            filepath = os.path.join(get_messages_dir(), f'{lang}.json')
             if os.path.exists(filepath):
                 with open(filepath, 'r', encoding='utf-8') as f:
                     try:

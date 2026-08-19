@@ -1,19 +1,21 @@
 import { getRequestConfig } from 'next-intl/server';
+import { unstable_noStore } from 'next/cache';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 
 const locales = ['en', 'ru'];
 const defaultLocale = 'en';
 
 export default getRequestConfig(async ({ requestLocale }) => {
+  unstable_noStore();
   let locale = await requestLocale;
-
-  // Если локаль не определена или не поддерживается, ставим английский
-  if (!locale || !locales.includes(locale)) {
-    locale = defaultLocale;
+  if (!locale || !locales.includes(locale)) locale = defaultLocale;
+  let messages = {};
+  try {
+    const raw = await readFile(join(process.cwd(), 'messages', `${locale}.json`), 'utf8');
+    messages = JSON.parse(raw);
+  } catch {
+    messages = {};
   }
-
-  return {
-    locale,
-    // Читаем локальный JSON-файл (который будет обновлять наша CMS из Django)
-    messages: (await import(`../messages/${locale}.json`)).default
-  };
+  return { locale, messages };
 });
