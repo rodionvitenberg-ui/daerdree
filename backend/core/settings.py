@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() in ('1', 'true', 'yes')
 
-ALLOWED_HOSTS = ['daerdree.bar', 'www.daerdree.bar', '193.181.208.36', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['daerdree.bar', 'www.daerdree.bar', '193.181.208.36', '193.181.220.189', 'localhost', '127.0.0.1']
 
 
 # Application definition

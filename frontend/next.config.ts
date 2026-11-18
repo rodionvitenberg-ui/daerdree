@@ -6,6 +6,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const nextConfig: NextConfig = {
+  // Прод-сборка кладёт самодостаточный сервер в .next/standalone (нужно для деплоя
+  // на VPS без node_modules: меньше RAM на сервере и быстрый старт).
+  output: "standalone",
   async redirects() {
     return [
       {
