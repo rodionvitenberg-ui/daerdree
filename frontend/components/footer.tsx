@@ -50,18 +50,6 @@ export default function Footer() {
              </a>
         </div>
 
-        {/* 3. КРЕДИТЫ */}
-        <div className="mt-4">
-          <a
-            href="https://soshallitbe.cyou"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-sans text-xs text-white/35 tracking-wide"
-          >
-            As you dream, so shall it be, 2026
-          </a>
-        </div>
-
       </div>
     </footer>
   );

@@ -107,6 +107,4 @@ export const FOOTER_CONTENT = {
     { name: "TikTok", link: "https://tiktok.com/@daerdree" },
     { name: "Telegram", link: "https://t.me/daerdree" },
   ],
-  
-  credit: "Powered by IkSoft, 2026",
 };
